@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /thank-you.html
+
+Sitemap: https://www.shdw.com/sitemap.xml
