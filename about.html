@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Shadow — SHADOW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --deep: #0c0c0c;
+    --card: #111111;
+    --border: #1e1e1e;
+    --red: #C9A84C;
+    --white: #f0ede8;
+    --gray: #888888;
+    --light: #c8c4be;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; background: #080808; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+  *, *::before, *::after { cursor: none !important; }
+
+  /* CURSOR */
+  .cursor {
+    position: fixed; top: 0; left: 0;
+    width: 6px; height: 6px;
+    background: #ff1a1a; border-radius: 50%;
+    pointer-events: none; z-index: 2147483647;
+    will-change: transform;
+    transform: translate(-200px, -200px);
+    opacity: 0;
+    box-shadow: 0 0 3px 1px #ff1a1a, 0 0 8px 3px rgba(255,26,26,0.7), 0 0 16px 6px rgba(255,26,26,0.3);
+    transition: box-shadow 0.15s, opacity 0.1s;
+  }
+  .cursor.visible { opacity: 1; }
+  .cursor.moving {
+    box-shadow: 0 0 3px 1px #ff1a1a, 0 0 14px 6px rgba(255,26,26,0.95), 0 0 28px 12px rgba(255,26,26,0.55), 0 0 44px 18px rgba(255,26,26,0.2);
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    *, *::before, *::after { cursor: auto !important; }
+    .cursor { display: none !important; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes gpulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  @keyframes scanline { 0%{top:0;opacity:1} 95%{opacity:0.4} 100%{top:100%;opacity:0} }
+  @keyframes tickroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  @keyframes spulse { 0%{left:-100%} 60%,100%{left:100%} }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.12s; }
+  .reveal-delay-2 { transition-delay: 0.24s; }
+  .reveal-delay-3 { transition-delay: 0.36s; }
+  .reveal-delay-4 { transition-delay: 0.48s; }
+  .reveal-delay-5 { transition-delay: 0.60s; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px 64px;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.98) 0%, transparent 100%);
+    transition: background 0.4s, padding 0.3s;
+  }
+  nav.scrolled { background: rgba(8,8,8,0.98); padding: 20px 64px; border-bottom: 1px solid var(--border); }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; letter-spacing: 0.3em; color: var(--white); text-decoration: none;
+  }
+  .nav-logo .dot { color: var(--red); }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--light); text-decoration: none; transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0;
+    width: 0; height: 1px; background: var(--red); transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 11px 26px;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #b8962e; }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; padding: 4px; z-index: 201;
+  }
+  .hamburger span {
+    display: block; width: 26px; height: 1px; background: var(--white);
+    transition: transform 0.3s, opacity 0.3s, width 0.3s;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* MOBILE NAV */
+  .mobile-nav {
+    position: fixed; inset: 0; z-index: 199;
+    background: rgba(8,8,8,0.98); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 32px;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .mobile-nav.open { opacity: 1; pointer-events: all; }
+  .mobile-link {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.1em;
+    color: var(--white); text-decoration: none; transition: color 0.2s;
+  }
+  .mobile-link:hover { color: var(--red); }
+  .mobile-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 14px 40px;
+    text-decoration: none; margin-top: 8px;
+  }
+
+  /* PAGE HERO */
+  .page-hero {
+    position: relative; min-height: 60vh;
+    display: flex; align-items: flex-end;
+    padding: 160px 64px 80px;
+    overflow: hidden;
+    background: #080808;
+  }
+  .page-hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 72% 38%, rgba(201,168,76,0.06) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 70% at 15% 65%, rgba(201,168,76,0.03) 0%, transparent 55%),
+      linear-gradient(175deg, #0a0a08 0%, #080808 100%);
+  }
+  .page-hero-grid {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%);
+    mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%);
+    animation: gpulse 10s ease-in-out infinite;
+  }
+  .page-hero-scan {
+    position: absolute; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.7), transparent);
+    animation: scanline 7s linear infinite;
+  }
+  .page-hero-slash {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 42%;
+    border-left: 1px solid rgba(201,168,76,0.07);
+    background: linear-gradient(140deg, transparent 40%, rgba(201,168,76,0.02) 100%);
+    clip-path: polygon(8% 0,100% 0,100% 100%,0 100%);
+  }
+  .page-hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red);
+    display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .page-eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--red); display: block; }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.9; letter-spacing: 0.02em;
+    animation: fadeUp 1s ease 0.05s both;
+  }
+  .page-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--light); margin-top: 20px;
+    animation: fadeUp 0.8s ease 0.55s both;
+  }
+
+  /* SHARED SECTION */
+  .page-content { padding: 80px 64px; background: var(--black); }
+  .label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red);
+    display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+  }
+  .label::before { content: ''; width: 28px; height: 1px; background: var(--red); display: block; }
+  h2.section-h {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5.5vw, 6rem); letter-spacing: 0.02em; line-height: 0.9;
+  }
+
+  /* INTRO BLOCK */
+  .intro-block { max-width: 800px; margin-bottom: 60px; }
+  .intro-block h2 { margin-bottom: 28px; }
+  .intro-block p { font-size: 0.95rem; line-height: 1.85; color: var(--light); margin-bottom: 18px; }
+
+  /* FEATURE GRID */
+  .feature-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border); margin-top: 60px;
+  }
+  .feature-card {
+    background: var(--card); padding: 40px 36px; position: relative;
+    transition: background 0.3s;
+  }
+  .feature-card:hover { background: #141414; }
+  .feature-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5;
+  }
+  .feature-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem;
+    font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--white); margin-bottom: 14px;
+  }
+  .feature-desc { font-size: 0.875rem; color: var(--light); line-height: 1.75; }
+
+  /* CREDENTIAL BOX */
+  .cred {
+    margin-top: 48px; padding: 24px 28px;
+    background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--red);
+    max-width: 560px;
+  }
+  .cred-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  .cred-line { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; letter-spacing: 0.06em; color: var(--white); }
+
+  /* STATS ROW */
+  .stats-row {
+    display: flex; gap: 60px; margin-top: 60px; padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item { }
+  .stat-n { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; color: var(--red); }
+  .stat-l { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray); margin-top: 4px; }
+
+  /* PROCESS STEPS */
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border); margin-top: 48px;
+  }
+  .step-card {
+    background: var(--card); padding: 40px 36px; position: relative;
+  }
+  .step-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5;
+  }
+  .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 16px; }
+  .step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; }
+  .step-desc { font-size: 0.875rem; color: var(--light); line-height: 1.75; }
+
+  /* JOB CARDS */
+  .job-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-top: 48px; }
+  .job-card { background: var(--card); padding: 40px 36px; position: relative; }
+  .job-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5; }
+  .job-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.03em; margin-bottom: 12px; }
+  .job-type { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+  .job-desc { font-size: 0.875rem; color: var(--light); line-height: 1.75; }
+
+  /* PURCHASE SECTION */
+  .purchase-block {
+    background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--red);
+    padding: 40px 48px; margin-top: 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    flex-wrap: wrap;
+  }
+  .purchase-info { }
+  .purchase-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  .purchase-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .purchase-price { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--red); line-height: 1; }
+
+  /* CTA BAND */
+  .cta-band {
+    background: var(--deep); border-top: 1px solid var(--border);
+    padding: 80px 64px; margin-top: 0; display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    flex-wrap: wrap;
+  }
+  .cta-band-copy { }
+  .cta-band-copy h3 {
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 4rem);
+    letter-spacing: 0.03em; line-height: 0.95; margin-bottom: 12px;
+  }
+  .cta-band-copy p { font-size: 0.9rem; color: var(--light); max-width: 480px; line-height: 1.8; }
+
+  /* BUTTONS */
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 15px 42px;
+    text-decoration: none; display: inline-block;
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .btn-primary::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(255,255,255,0.12);
+    transform: translateX(-100%) skewX(-20deg); transition: transform 0.4s ease;
+  }
+  .btn-primary:hover::before { transform: translateX(110%) skewX(-20deg); }
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--white); border: 1px solid rgba(240,237,232,0.2);
+    padding: 15px 42px; text-decoration: none;
+    transition: border-color 0.3s, color 0.3s; display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+
+  /* CONTACT FORM */
+  .contact-form-wrap { max-width: 640px; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-field { display: flex; flex-direction: column; gap: 8px; }
+  .form-field label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gray); }
+  .form-field input, .form-field select, .form-field textarea {
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--white); padding: 13px 16px;
+    font-family: 'Barlow', sans-serif; font-size: 0.875rem; font-weight: 300;
+    outline: none; transition: border-color 0.3s; appearance: none; resize: none;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--red); }
+  .form-field input::placeholder, .form-field textarea::placeholder { color: var(--gray); }
+  .form-submit {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 16px 40px;
+    border: none; margin-top: 8px; align-self: flex-start;
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .form-submit::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(255,255,255,0.12);
+    transform: translateX(-100%) skewX(-20deg); transition: transform 0.4s;
+  }
+  .form-submit:hover::before { transform: translateX(110%) skewX(-20deg); }
+
+  /* CONTACT DETAILS */
+  .contact-details { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+  .contact-item { display: flex; align-items: flex-start; gap: 20px; padding: 20px 24px; border: 1px solid var(--border); transition: border-color 0.3s; }
+  .contact-item:hover { border-color: rgba(201,168,76,0.3); }
+  .ci-icon { width: 36px; height: 36px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .ci-icon svg { width: 16px; height: 16px; stroke: var(--red); fill: none; stroke-width: 1.5; }
+  .ci-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+  .ci-val { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.05em; color: var(--white); }
+  .ci-val a { color: var(--red); text-decoration: none; transition: color 0.2s; }
+  .ci-val a:hover { color: var(--white); }
+
+  /* TICKER */
+  .ticker { background: var(--red); padding: 10px 0; overflow: hidden; white-space: nowrap; }
+  .ticker-track { display: inline-flex; animation: tickroll 28s linear infinite; }
+  .ticker-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); font-weight: 600; padding: 0 48px; }
+  .ticker-sep { color: rgba(0,0,0,0.35); }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep); border-top: 1px solid var(--border);
+    padding: 60px 64px 40px;
+  }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.3em; margin-bottom: 16px; }
+  .footer-logo span { color: var(--red); }
+  .footer-tagline { font-size: 0.875rem; color: var(--gray); line-height: 1.7; max-width: 260px; }
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gray); margin-bottom: 20px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem; letter-spacing: 0.06em;
+    color: var(--light); text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--red); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; border-top: 1px solid var(--border);
+  }
+  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gray); }
+  .footer-legal { display: flex; gap: 28px; }
+  .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--red); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 22px 28px; }
+    nav.scrolled { padding: 16px 28px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .page-hero { padding: 120px 28px 60px; }
+    .page-content { padding: 60px 28px; }
+    .feature-grid, .steps-grid, .job-cards { grid-template-columns: 1fr; }
+    .cta-band { padding: 60px 28px; flex-direction: column; align-items: flex-start; }
+    footer { padding: 48px 28px 32px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .stats-row { flex-wrap: wrap; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .ticker { display: none; }
+  }
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">SHADOW<span class="dot">.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#verticals">Industries</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Deploy Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" class="mobile-link">Home</a>
+  <a href="about.html" class="mobile-link">About</a>
+  <a href="index.html#services" class="mobile-link">Services</a>
+  <a href="index.html#verticals" class="mobile-link">Industries</a>
+  <a href="index.html#process" class="mobile-link">Process</a>
+  <a href="contact.html" class="mobile-link">Contact</a>
+  <a href="contact.html" class="mobile-cta">Deploy Now</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-scan"></div>
+  <div class="page-hero-slash"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Who We Are</div>
+    <h1 class="page-title">THE GOLD STANDARD.</h1>
+    <p class="page-sub">Founded by a former U.S. Secret Service Special Agent.</p>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Executive Protection</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Event Security</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Threat Assessment</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Advance Operations</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Corporate Consulting</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">On-Demand Deployment</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Executive Protection</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Event Security</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Threat Assessment</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Advance Operations</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Corporate Consulting</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">On-Demand Deployment</span><span class="ticker-item ticker-sep">·</span>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page-content">
+<div class="intro-block reveal">
+  <div class="label">Our Origin</div>
+  <h2 class="section-h">Born From the<br>Secret Service.</h2>
+  <p>Shadow was founded with a single conviction: that the protection methodology developed and refined by the United States Secret Service — the gold standard of protective operations in the world — should not be exclusive to heads of state. The world's most sophisticated security thinking should be available to anyone who needs it.</p>
+  <p>Our founder, a former U.S. Secret Service Special Agent with over 16 years of operational experience in presidential protection, dignitary security, and threat assessment, built Shadow to answer a gap he witnessed firsthand. The private security industry was large, but the standard was inconsistent, the vetting was inadequate, and the methodology was largely borrowed rather than earned.</p>
+  <p>Shadow is different by design. Every agent is vetted to federal standards. Every operation is planned using advance methodology. Every engagement is executed with the same seriousness of purpose that the most consequential protective operations in the world demand.</p>
+  <div class="cred">
+    <div class="cred-tag">Founder Credential</div>
+    <div class="cred-line">Former U.S. Secret Service Special Agent — Presidential Protective Division</div>
+  </div>
+</div>
+<div class="stats-row reveal">
+  <div class="stat-item">
+    <div class="stat-n">16+</div>
+    <div class="stat-l">Years Active</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-n">500+</div>
+    <div class="stat-l">Events Secured</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-n">0</div>
+    <div class="stat-l">Incidents</div>
+  </div>
+</div>
+<div class="intro-block reveal" style="margin-top:60px">
+  <div class="label">Our Mission</div>
+  <h2 class="section-h">The Mission.</h2>
+  <p>Shadow's mission is to provide the most capable, most discreet, and most professionally executed protective services available in the private sector. We exist to ensure that those who face genuine risk have access to genuine expertise — not the illusion of security, but the real thing.</p>
+  <p>We believe that great protection is invisible. The best operation is the one where nothing ever happens, because everything was done correctly long before the principal arrived. That is the Shadow standard. That is why our clients trust us with what matters most.</p>
+</div><div class="cta-band reveal">
+  <div class="cta-band-copy">
+    <h3>Work With Shadow</h3>
+    <p>Every engagement begins with a confidential consultation.</p>
+  </div>
+  <a href="contact.html" class="btn-primary">Start Your Engagement →</a>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">SHADOW<span>.</span></div>
+      <p class="footer-tagline">The Uberization of safety and protection. Elite-tier security, on demand. Born from the Secret Service. Built for the world.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="executive-protection.html">Executive Protection</a></li>
+        <li><a href="event-security.html">Event Security</a></li>
+        <li><a href="threat-assessment.html">Threat Assessment</a></li>
+        <li><a href="advance-operations.html">Advance Operations</a></li>
+        <li><a href="corporate-consulting.html">Corporate Consulting</a></li>
+        <li><a href="on-demand.html">On-Demand</a></li>
+        <li><a href="playbook.html">The Playbook ↗</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Industries</div>
+      <ul class="footer-links">
+        <li><a href="entertainment.html">Entertainment</a></li>
+        <li><a href="sports.html">Sports &amp; Athletics</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="film-tv.html">Film &amp; TV</a></li>
+        <li><a href="political.html">Political</a></li>
+        <li><a href="private-events.html">Private Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Shadow</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="press.html">Press</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Shadow Protection Group &middot; All Rights Reserved</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">NDAs &amp; Confidentiality</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  let moveTimer;
+  function moveCursor(x, y) {
+    cursor.style.transform = `translate(${x - 3}px, ${y - 3}px)`;
+  }
+  document.addEventListener('mousemove', e => {
+    moveCursor(e.clientX, e.clientY);
+    cursor.classList.add('moving', 'visible');
+    clearTimeout(moveTimer);
+    moveTimer = setTimeout(() => cursor.classList.remove('moving'), 120);
+  });
+  document.documentElement.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+  document.documentElement.addEventListener('mouseenter', e => { moveCursor(e.clientX, e.clientY); cursor.classList.add('visible'); });
+
+  // HAMBURGER
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link, .mobile-cta').forEach(el => {
+    el.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+  // REVEAL ON SCROLL
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
