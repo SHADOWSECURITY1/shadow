@@ -195,7 +195,7 @@
   @keyframes tickroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
   /* SHARED SECTION */
-  section { padding: 120px 64px; }
+  section { padding: 80px 64px; }
   .label {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red);
@@ -221,14 +221,14 @@
   .about-visual { position: relative; height: 580px; }
   .av-main {
     position: absolute; inset: 0;
-    background: linear-gradient(145deg, #0e0c0d 0%, #130409 100%);
+    background: #0e0c0d;
     border: 1px solid var(--border); overflow: hidden;
     display: flex; align-items: center; justify-content: center;
   }
-  .av-main::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(200,16,46,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(200,16,46,0.05) 1px, transparent 1px);
-    background-size: 36px 36px;
+  .av-main video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
   }
   .av-watermark {
     font-family: 'Bebas Neue', sans-serif;
@@ -286,11 +286,11 @@
   .svc-link::after { content: '→'; }
 
   /* VERTICALS */
-  #verticals { padding: 120px 64px; background: #080808; }
+  #verticals { padding: 80px 64px; background: #080808; }
   .vert-header { margin-bottom: 72px; }
   .vert-item {
     display: grid; grid-template-columns: 72px 1fr 1.2fr auto;
-    align-items: center; gap: 48px;
+    align-items: start; gap: 48px;
     padding: 34px 0; border-bottom: 1px solid var(--border);
     position: relative; cursor: none; transition: padding 0.3s;
   }
@@ -307,7 +307,7 @@
   .vert-item:hover .vert-tag { border-color: rgba(200,16,46,0.4); color: var(--red); }
 
   /* PROCESS */
-  #process { background: var(--deep); padding: 120px 64px; }
+  #process { background: var(--deep); padding: 80px 64px; }
   .process-hdr { margin-bottom: 72px; }
   .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); }
   .step { background: var(--card); padding: 48px 36px; position: relative; overflow: hidden; }
@@ -344,7 +344,7 @@
   .manifesto-attr::before { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.4); display: block; }
 
   /* CONTACT / CTA */
-  #contact { padding: 140px 64px; background: #080808; }
+  #contact { padding: 80px 64px; background: #080808; }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
   .contact-copy h2 { margin-bottom: 28px; }
   .contact-copy p { font-size: 0.9rem; color: var(--light); line-height: 1.8; margin-bottom: 40px; }
@@ -617,7 +617,9 @@
   </div>
   <div class="about-visual reveal reveal-delay-2">
     <div class="av-main">
-      <div class="av-watermark">S</div>
+      <video autoplay loop muted playsinline>
+        <source src="about_video.mp4" type="video/mp4">
+      </video>
     </div>
 
     <div class="av-corner"></div>
