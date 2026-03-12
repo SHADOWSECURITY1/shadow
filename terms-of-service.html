@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — SHADOW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --deep: #0c0c0c;
+    --card: #111111;
+    --border: #1e1e1e;
+    --red: #C9A84C;
+    --white: #f0ede8;
+    --gray: #888888;
+    --light: #c8c4be;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; background: #080808; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+  *, *::before, *::after { cursor: none !important; }
+
+  /* CURSOR */
+  .cursor {
+    position: fixed; top: 0; left: 0;
+    width: 6px; height: 6px;
+    background: #ff1a1a; border-radius: 50%;
+    pointer-events: none; z-index: 2147483647;
+    will-change: transform;
+    transform: translate(-200px, -200px);
+    opacity: 0;
+    box-shadow: 0 0 3px 1px #ff1a1a, 0 0 8px 3px rgba(255,26,26,0.7), 0 0 16px 6px rgba(255,26,26,0.3);
+    transition: box-shadow 0.15s, opacity 0.1s;
+  }
+  .cursor.visible { opacity: 1; }
+  .cursor.moving {
+    box-shadow: 0 0 3px 1px #ff1a1a, 0 0 14px 6px rgba(255,26,26,0.95), 0 0 28px 12px rgba(255,26,26,0.55), 0 0 44px 18px rgba(255,26,26,0.2);
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    *, *::before, *::after { cursor: auto !important; }
+    .cursor { display: none !important; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes gpulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  @keyframes scanline { 0%{top:0;opacity:1} 95%{opacity:0.4} 100%{top:100%;opacity:0} }
+  @keyframes tickroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.12s; }
+  .reveal-delay-2 { transition-delay: 0.24s; }
+  .reveal-delay-3 { transition-delay: 0.36s; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px 64px;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.98) 0%, transparent 100%);
+    transition: background 0.4s, padding 0.3s;
+  }
+  nav.scrolled { background: rgba(8,8,8,0.98); padding: 20px 64px; border-bottom: 1px solid var(--border); }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; letter-spacing: 0.3em; color: var(--white); text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--light); text-decoration: none; transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0;
+    width: 0; height: 1px; background: var(--red); transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 11px 26px;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #b8962e; }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; padding: 4px; z-index: 201;
+  }
+  .hamburger span {
+    display: block; width: 26px; height: 1px; background: var(--white);
+    transition: transform 0.3s, opacity 0.3s, width 0.3s;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* MOBILE NAV */
+  .mobile-nav {
+    position: fixed; inset: 0; z-index: 199;
+    background: rgba(8,8,8,0.98); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 32px;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .mobile-nav.open { opacity: 1; pointer-events: all; }
+  .mobile-link {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.1em;
+    color: var(--white); text-decoration: none; transition: color 0.2s;
+  }
+  .mobile-link:hover { color: var(--red); }
+  .mobile-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 14px 40px;
+    text-decoration: none; margin-top: 8px;
+  }
+
+  /* PAGE HERO */
+  .page-hero {
+    position: relative; min-height: 52vh;
+    display: flex; align-items: flex-end;
+    padding: 160px 64px 80px;
+    overflow: hidden;
+    background: #080808;
+  }
+  .page-hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 72% 38%, rgba(201,168,76,0.06) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 70% at 15% 65%, rgba(201,168,76,0.03) 0%, transparent 55%),
+      linear-gradient(175deg, #0a0a08 0%, #080808 100%);
+  }
+  .page-hero-grid {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%);
+    mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%);
+    animation: gpulse 10s ease-in-out infinite;
+  }
+  .page-hero-scan {
+    position: absolute; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.7), transparent);
+    animation: scanline 7s linear infinite;
+  }
+  .page-hero-slash {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 42%;
+    border-left: 1px solid rgba(201,168,76,0.07);
+    background: linear-gradient(140deg, transparent 40%, rgba(201,168,76,0.02) 100%);
+    clip-path: polygon(8% 0,100% 0,100% 100%,0 100%);
+  }
+  .page-hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red);
+    display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .page-eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--red); display: block; }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.9; letter-spacing: 0.02em;
+    animation: fadeUp 1s ease 0.05s both;
+  }
+  .page-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--light); margin-top: 20px;
+    animation: fadeUp 0.8s ease 0.55s both;
+  }
+
+  /* LEGAL CONTENT */
+  .legal-content { max-width: 800px; padding: 80px 64px; margin: 0 auto; }
+  .legal-section { margin-bottom: 52px; }
+  .legal-section h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .legal-section h2::before { content: ''; width: 24px; height: 1px; background: var(--red); display: block; }
+  .legal-section p { font-size: 0.95rem; color: var(--light); line-height: 1.9; margin-bottom: 14px; }
+  .legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+  .legal-section ul li {
+    font-size: 0.95rem; color: var(--light); line-height: 1.7;
+    padding-left: 20px; position: relative;
+  }
+  .legal-section ul li::before { content: '—'; position: absolute; left: 0; color: var(--red); }
+  .legal-meta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray);
+    margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--border);
+  }
+  a.legal-email { color: var(--red); text-decoration: none; }
+  a.legal-email:hover { color: var(--white); }
+  @media (max-width: 640px) { .legal-content { padding: 60px 20px; } }
+
+  /* TICKER */
+  .ticker { background: var(--red); padding: 10px 0; overflow: hidden; white-space: nowrap; }
+  .ticker-track { display: inline-flex; animation: tickroll 28s linear infinite; }
+  .ticker-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); font-weight: 600; padding: 0 48px; }
+  .ticker-sep { color: rgba(0,0,0,0.35); }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep); border-top: 1px solid var(--border);
+    padding: 60px 64px 40px;
+  }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.3em; margin-bottom: 16px; }
+  .footer-tagline { font-size: 0.875rem; color: var(--gray); line-height: 1.7; max-width: 260px; }
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gray); margin-bottom: 20px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem; letter-spacing: 0.06em;
+    color: var(--light); text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--red); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; border-top: 1px solid var(--border);
+  }
+  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gray); }
+  .footer-legal { display: flex; gap: 28px; }
+  .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--red); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 22px 28px; }
+    nav.scrolled { padding: 16px 28px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .page-hero { padding: 120px 28px 60px; }
+    footer { padding: 48px 28px 32px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .ticker { display: none; }
+  }
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">SHADOW</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#verticals">Industries</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Deploy Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" class="mobile-link">Home</a>
+  <a href="about.html" class="mobile-link">About</a>
+  <a href="index.html#services" class="mobile-link">Services</a>
+  <a href="index.html#verticals" class="mobile-link">Industries</a>
+  <a href="index.html#process" class="mobile-link">Process</a>
+  <a href="contact.html" class="mobile-link">Contact</a>
+  <a href="contact.html" class="mobile-cta">Deploy Now</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-scan"></div>
+  <div class="page-hero-slash"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Legal</div>
+    <h1 class="page-title">TERMS OF SERVICE</h1>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Executive Protection</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Event Security</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Threat Assessment</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Advance Operations</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Corporate Consulting</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">On-Demand Deployment</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Executive Protection</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Event Security</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Threat Assessment</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Advance Operations</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Corporate Consulting</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">On-Demand Deployment</span><span class="ticker-item ticker-sep">·</span>
+  </div>
+</div>
+
+<!-- LEGAL CONTENT -->
+<main>
+  <div class="legal-content">
+    <p class="legal-meta">Last Updated: March 2026</p>
+
+    <div class="legal-section">
+      <h2>Acceptance of Terms</h2>
+      <p>By engaging Shadow's services or using this website in any capacity, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use this website or engage our services.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Services</h2>
+      <p>Shadow provides executive protection, event security, threat assessment, advance operations, corporate consulting, and related security services. All engagements are subject to a separate written service agreement executed between Shadow and the client prior to the commencement of any operational activity. These Terms of Service govern general use of this website and do not supersede any executed engagement agreement.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Confidentiality</h2>
+      <p>All client information — including identity, threat profile, operational details, schedules, and communications — is treated as strictly confidential. Shadow operates under a mutual non-disclosure agreement for all client engagements. See our <a href="ndas-confidentiality.html" class="legal-email">NDAs &amp; Confidentiality</a> page for full details.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Payment Terms</h2>
+      <p>Services are invoiced in accordance with the terms set forth in each individual engagement agreement. Deposits may be required prior to deployment. All fees paid are non-refundable once deployment has commenced. Shadow reserves the right to suspend services in the event of non-payment.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Limitation of Liability</h2>
+      <p>Shadow's total liability arising from or related to any engagement is limited to the total fees paid by the client for that specific engagement. Shadow is not liable for any indirect, incidental, consequential, special, or punitive damages arising from the provision of services or use of this website, regardless of the theory of liability.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Indemnification</h2>
+      <p>The client agrees to indemnify, defend, and hold harmless Shadow and its agents, officers, and employees from and against any claims, damages, losses, or expenses (including reasonable attorney's fees) arising from the client's instructions, misrepresentations, or violation of these terms.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Governing Law</h2>
+      <p>These Terms of Service are governed by and construed in accordance with the laws of the Commonwealth of Virginia, without regard to its conflict of law provisions. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts located in Virginia.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Modifications</h2>
+      <p>Shadow reserves the right to modify these Terms of Service at any time. Continued engagement with Shadow's services or use of this website following any posted modifications constitutes acceptance of the revised terms.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>Contact</h2>
+      <p>For questions regarding these Terms of Service, contact Shadow at <a href="mailto:hello@shdw.com" class="legal-email">hello@shdw.com</a>.</p>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">SHADOW</div>
+      <p class="footer-tagline">The Uberization of safety and protection. Elite-tier security, on demand. Born from the Secret Service. Built for the world.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="executive-protection.html">Executive Protection</a></li>
+        <li><a href="event-security.html">Event Security</a></li>
+        <li><a href="threat-assessment.html">Threat Assessment</a></li>
+        <li><a href="advance-operations.html">Advance Operations</a></li>
+        <li><a href="corporate-consulting.html">Corporate Consulting</a></li>
+        <li><a href="on-demand.html">On-Demand</a></li>
+        <li><a href="playbook.html">The Playbook ↗</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Industries</div>
+      <ul class="footer-links">
+        <li><a href="entertainment.html">Entertainment</a></li>
+        <li><a href="sports.html">Sports &amp; Athletics</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="film-tv.html">Film &amp; TV</a></li>
+        <li><a href="political.html">Political</a></li>
+        <li><a href="private-events.html">Private Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Shadow</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="press.html">Press</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Hero Family</div>
+      <ul class="footer-links">
+        <li><a href="https://herodivingandmarine.com/pages/teamhero" target="_blank" rel="noopener">Team HERO</a></li>
+        <li><a href="https://herodivingandmarine.com/pages/the-hero-foundation" target="_blank" rel="noopener">The HERO Foundation</a></li>
+        <li><a href="https://herodivingandmarine.com" target="_blank" rel="noopener">Hero Diving &amp; Marine</a></li>
+        <li><a href="https://teesleeves.com/" target="_blank" rel="noopener">Tee Sleeves</a></li>
+        <li><a href="https://memorypacks.ai" target="_blank" rel="noopener">Memory Packs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 SHDW, LLC. &middot; All Rights Reserved</div>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="ndas-confidentiality.html">NDAs &amp; Confidentiality</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  let moveTimer;
+  document.addEventListener('mousemove', e => {
+    cursor.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
+    cursor.classList.add('visible', 'moving');
+    clearTimeout(moveTimer);
+    moveTimer = setTimeout(() => cursor.classList.remove('moving'), 120);
+  });
+
+  // HAMBURGER
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link, .mobile-cta').forEach(el => {
+    el.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+  // REVEAL ON SCROLL
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
