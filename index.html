@@ -31,14 +31,17 @@
 
   /* CURSOR */
   .cursor {
-    position: fixed; width: 6px; height: 6px;
+    position: fixed; top: 0; left: 0;
+    width: 6px; height: 6px;
     background: #ff1a1a; border-radius: 50%;
     pointer-events: none; z-index: 2147483647;
-    left: -100px; top: -100px;
-    transform: translate(-50%,-50%);
+    will-change: transform;
+    transform: translate(-200px, -200px);
+    opacity: 0;
     box-shadow: 0 0 3px 1px #ff1a1a, 0 0 8px 3px rgba(255,26,26,0.7), 0 0 16px 6px rgba(255,26,26,0.3);
-    transition: box-shadow 0.15s;
+    transition: box-shadow 0.15s, opacity 0.1s;
   }
+  .cursor.visible { opacity: 1; }
   .cursor.moving {
     box-shadow: 0 0 3px 1px #ff1a1a, 0 0 14px 6px rgba(255,26,26,0.95), 0 0 28px 12px rgba(255,26,26,0.55), 0 0 44px 18px rgba(255,26,26,0.2);
   }
@@ -290,7 +293,7 @@
   #verticals { padding: 80px 64px; background: #080808; }
   .vert-header { margin-bottom: 72px; }
   .vert-item {
-    display: grid; grid-template-columns: 72px 1fr 1.2fr auto;
+    display: grid; grid-template-columns: 72px 340px 1fr auto;
     align-items: start; gap: 48px;
     padding: 34px 0; border-bottom: 1px solid var(--border);
     position: relative; cursor: none; transition: padding 0.3s;
@@ -882,6 +885,7 @@
         <li><a href="#">Advance Operations</a></li>
         <li><a href="#">Corporate Consulting</a></li>
         <li><a href="#">On-Demand</a></li>
+        <li><a href="playbook.html">The Playbook ↗</a></li>
       </ul>
     </div>
     <div>
@@ -907,7 +911,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 Shadow Protection Group · All Rights Reserved</div>
+    <div class="footer-copy">© 2026 Shadow Protection Group · All Rights Reserved</div>
     <div class="footer-legal">
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Service</a>
@@ -920,13 +924,17 @@
   // CURSOR
   const cursor = document.getElementById('cursor');
   let moveTimer;
+  function moveCursor(x, y) {
+    cursor.style.transform = `translate(${x - 3}px, ${y - 3}px)`;
+  }
   document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    cursor.classList.add('moving');
+    moveCursor(e.clientX, e.clientY);
+    cursor.classList.add('moving', 'visible');
     clearTimeout(moveTimer);
     moveTimer = setTimeout(() => cursor.classList.remove('moving'), 120);
   });
+  document.documentElement.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+  document.documentElement.addEventListener('mouseenter', e => { moveCursor(e.clientX, e.clientY); cursor.classList.add('visible'); });
 
   // HAMBURGER
   const hamburger = document.getElementById('hamburger');
