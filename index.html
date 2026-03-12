@@ -804,7 +804,7 @@
           </div>
           <div>
             <div class="ci-label">Secure Email</div>
-            <div class="ci-val"><a href="mailto:info@shdw.com">info@shdw.com</a></div>
+            <div class="ci-val"><a href="mailto:hello@shdw.com">hello@shdw.com</a></div>
           </div>
         </div>
         <div class="contact-item">
@@ -823,30 +823,32 @@
       <div class="form-row" style="margin-bottom:0">
         <div class="label" style="grid-column:1/-1; margin-bottom:32px;">Confidential Inquiry</div>
       </div>
-      <div class="contact-form">
+      <form class="contact-form" name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+        <input type="hidden" name="form-name" value="inquiry">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
         <div class="form-row">
           <div class="form-field">
             <label>First Name</label>
-            <input type="text" placeholder="First">
+            <input type="text" name="first-name" placeholder="First" required>
           </div>
           <div class="form-field">
             <label>Last Name</label>
-            <input type="text" placeholder="Last">
+            <input type="text" name="last-name" placeholder="Last" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
             <label>Email</label>
-            <input type="email" placeholder="your@email.com">
+            <input type="email" name="email" placeholder="your@email.com" required>
           </div>
           <div class="form-field">
             <label>Phone</label>
-            <input type="tel" placeholder="+1 (000) 000-0000">
+            <input type="tel" name="phone" placeholder="+1 (000) 000-0000">
           </div>
         </div>
         <div class="form-field">
           <label>Service Needed</label>
-          <select>
+          <select name="service">
             <option value="" disabled selected>Select a service</option>
             <option>Executive Protection</option>
             <option>Event Security</option>
@@ -859,10 +861,10 @@
         </div>
         <div class="form-field">
           <label>Tell Us About Your Needs</label>
-          <textarea rows="4" placeholder="Describe your situation, timeline, and any relevant details..."></textarea>
+          <textarea name="message" rows="4" placeholder="Describe your situation, timeline, and any relevant details..."></textarea>
         </div>
-        <button class="form-submit">Submit Securely →</button>
-      </div>
+        <button type="submit" class="form-submit">Submit Securely →</button>
+      </form>
     </div>
   </div>
 </section>
