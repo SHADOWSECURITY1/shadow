@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHADOW — Protection. On Demand.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --deep: #0c0c0c;
+    --card: #111111;
+    --border: #1e1e1e;
+    --red: #C9A84C;
+    --white: #f0ede8;
+    --gray: #888888;
+    --light: #c8c4be;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; background: #080808; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CURSOR */
+  .cursor { position: fixed; width: 8px; height: 8px; background: var(--red); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s; }
+  .cursor-ring { position: fixed; width: 30px; height: 30px; border: 1px solid rgba(201,168,76,0.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.12s ease; }
+  body:hover .cursor-ring { opacity: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px 64px;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.98) 0%, transparent 100%);
+    transition: background 0.4s, padding 0.3s;
+  }
+  nav.scrolled { background: rgba(8,8,8,0.98); padding: 20px 64px; border-bottom: 1px solid var(--border); }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; letter-spacing: 0.3em; color: var(--white); text-decoration: none;
+  }
+  .nav-logo .dot { color: var(--red); }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--light); text-decoration: none; transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0;
+    width: 0; height: 1px; background: var(--red); transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 11px 26px;
+    text-decoration: none; transition: background 0.2s; cursor: none;
+  }
+  .nav-cta:hover { background: #b8962e; }
+
+  /* HERO */
+  #hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: flex-end;
+    padding: 0 64px 90px; overflow: hidden;
+    background: #080808;
+  }
+  .hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 72% 38%, rgba(201,168,76,0.07) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 70% at 15% 65%, rgba(201,168,76,0.04) 0%, transparent 55%),
+      linear-gradient(175deg, #0a0a08 0%, #080808 100%);
+  }
+  .grid-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%);
+    mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%);
+    animation: gpulse 10s ease-in-out infinite;
+  }
+  @keyframes gpulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  .scan { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.7), transparent); animation: scanline 7s linear infinite; }
+  @keyframes scanline { 0%{top:0;opacity:1} 95%{opacity:0.4} 100%{top:100%;opacity:0} }
+  .hero-slash {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 42%;
+    border-left: 1px solid rgba(201,168,76,0.07);
+    background: linear-gradient(140deg, transparent 40%, rgba(201,168,76,0.025) 100%);
+    clip-path: polygon(8% 0,100% 0,100% 100%,0 100%);
+  }
+
+  .hero-content { position: relative; z-index: 2; }
+
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red);
+    display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    opacity: 0; transform: translateY(18px); animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+  .eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--red); display: block; }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5.5rem, 14vw, 15rem);
+    line-height: 0.87; letter-spacing: 0.02em;
+    opacity: 0; transform: translateY(40px); animation: fadeUp 1s ease 0.05s forwards;
+  }
+  .hero-title .hollow { -webkit-text-stroke: 1px rgba(240,237,232,0.18); color: transparent; }
+  .hero-title .accent { color: var(--red); }
+
+  .hero-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 2.2vw, 2rem);
+    font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--light); margin: 20px 0 52px;
+    opacity: 0; transform: translateY(18px); animation: fadeUp 0.8s ease 0.55s forwards;
+  }
+
+  .hero-actions {
+    display: flex; gap: 18px; align-items: center;
+    opacity: 0; transform: translateY(18px); animation: fadeUp 0.8s ease 0.75s forwards;
+  }
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 15px 42px;
+    text-decoration: none; cursor: none; display: inline-block;
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .btn-primary::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(255,255,255,0.12);
+    transform: translateX(-100%) skewX(-20deg); transition: transform 0.4s ease;
+  }
+  .btn-primary:hover::before { transform: translateX(110%) skewX(-20deg); }
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--white); border: 1px solid rgba(240,237,232,0.2);
+    padding: 15px 42px; text-decoration: none; cursor: none;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+
+  .hero-stats {
+    position: absolute; right: 64px; bottom: 90px; z-index: 2;
+    display: flex; gap: 48px;
+    opacity: 0; animation: fadeIn 1s ease 1.2s forwards;
+  }
+  .stat { text-align: right; }
+  .stat-n { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; line-height: 1; }
+  .stat-n em { color: var(--red); font-style: normal; }
+  .stat-l { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray); }
+
+  .scroll-hint {
+    position: absolute; bottom: 32px; left: 64px; z-index: 2;
+    display: flex; align-items: center; gap: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gray);
+    opacity: 0; animation: fadeIn 1s ease 1.6s forwards;
+  }
+  .scroll-line { width: 42px; height: 1px; background: var(--gray); overflow: hidden; position: relative; }
+  .scroll-line::after {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: var(--red); animation: spulse 2.2s ease-in-out infinite;
+  }
+  @keyframes spulse { 0%{left:-100%} 60%,100%{left:100%} }
+
+  /* TICKER */
+  .ticker { background: var(--red); padding: 10px 0; overflow: hidden; white-space: nowrap; }
+  .ticker-track { display: inline-flex; animation: tickroll 28s linear infinite; }
+  .ticker-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); font-weight: 600; padding: 0 48px; }
+  .ticker-sep { color: rgba(0,0,0,0.35); }
+  @keyframes tickroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+  /* SHARED SECTION */
+  section { padding: 120px 64px; }
+  .label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red);
+    display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+  }
+  .label::before { content: ''; width: 28px; height: 1px; background: var(--red); display: block; }
+  h2.section-h {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5.5vw, 6rem); letter-spacing: 0.02em; line-height: 0.9;
+  }
+
+  /* ABOUT */
+  #about { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; background: #080808; }
+  .about-copy h2 { margin-bottom: 36px; }
+  .about-copy p { font-size: 0.95rem; line-height: 1.85; color: var(--light); margin-bottom: 22px; }
+  .cred {
+    margin-top: 48px; padding: 24px 28px;
+    background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--red);
+  }
+  .cred-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  .cred-line { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; letter-spacing: 0.06em; color: var(--white); }
+
+  .about-visual { position: relative; height: 580px; }
+  .av-main {
+    position: absolute; inset: 0;
+    background: linear-gradient(145deg, #0e0c0d 0%, #130409 100%);
+    border: 1px solid var(--border); overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .av-main::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(200,16,46,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(200,16,46,0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  .av-watermark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14rem; color: rgba(200,16,46,0.06); line-height: 1;
+    user-select: none; position: absolute; letter-spacing: -0.02em;
+  }
+  .av-badge {
+    position: absolute; bottom: 28px; right: 28px;
+    background: var(--red); padding: 22px 28px; z-index: 2;
+  }
+  .av-badge-n { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--black); line-height: 1; }
+  .av-badge-l { font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,0,0,0.65); }
+  .av-corner { position: absolute; top: -10px; left: -10px; width: 72px; height: 72px; border-top: 2px solid var(--red); border-left: 2px solid var(--red); z-index: 2; }
+  .av-corner2 { position: absolute; bottom: -10px; right: -10px; width: 72px; height: 72px; border-bottom: 2px solid rgba(200,16,46,0.3); border-right: 2px solid rgba(200,16,46,0.3); z-index: 2; }
+
+  /* SERVICES */
+  #services { background: var(--deep); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 72px; }
+  .services-intro { font-size: 0.9rem; color: var(--light); max-width: 340px; line-height: 1.8; text-align: right; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+  .svc {
+    background: var(--card); padding: 48px 40px;
+    position: relative; overflow: hidden; cursor: none;
+    transition: background 0.3s;
+  }
+  .svc::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+  }
+  .svc:hover { background: #141414; }
+  .svc:hover::after { transform: scaleX(1); }
+  .svc-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 5rem;
+    color: rgba(200,16,46,0.08); line-height: 1;
+    position: absolute; top: 16px; right: 20px;
+    transition: color 0.3s;
+  }
+  .svc:hover .svc-num { color: rgba(200,16,46,0.16); }
+  .svc-icon {
+    width: 46px; height: 46px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 32px; transition: border-color 0.3s; position: relative; z-index: 1;
+  }
+  .svc:hover .svc-icon { border-color: var(--red); }
+  .svc-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--red); stroke-width: 1.5; }
+  .svc-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.85rem; letter-spacing: 0.04em; margin-bottom: 16px; position: relative; z-index: 1; }
+  .svc-desc { font-size: 0.875rem; line-height: 1.8; color: var(--light); position: relative; z-index: 1; margin-bottom: 32px; }
+  .svc-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red);
+    text-decoration: none; display: flex; align-items: center; gap: 8px;
+    position: relative; z-index: 1; transition: gap 0.2s;
+  }
+  .svc-link:hover { gap: 14px; }
+  .svc-link::after { content: '→'; }
+
+  /* VERTICALS */
+  #verticals { padding: 120px 64px; background: #080808; }
+  .vert-header { margin-bottom: 72px; }
+  .vert-item {
+    display: grid; grid-template-columns: 72px 1fr 1.2fr auto;
+    align-items: center; gap: 48px;
+    padding: 34px 0; border-bottom: 1px solid var(--border);
+    position: relative; cursor: none; transition: padding 0.3s;
+  }
+  .vert-item::after {
+    content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 1px;
+    background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+  }
+  .vert-item:hover::after { transform: scaleX(1); }
+  .vert-n { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: var(--gray); letter-spacing: 0.1em; }
+  .vert-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.3rem; letter-spacing: 0.03em; transition: color 0.3s; }
+  .vert-item:hover .vert-name { color: var(--red); }
+  .vert-desc { font-size: 0.875rem; color: var(--gray); line-height: 1.65; }
+  .vert-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); border: 1px solid var(--border); padding: 7px 16px; white-space: nowrap; transition: border-color 0.3s, color 0.3s; }
+  .vert-item:hover .vert-tag { border-color: rgba(200,16,46,0.4); color: var(--red); }
+
+  /* PROCESS */
+  #process { background: var(--deep); padding: 120px 64px; }
+  .process-hdr { margin-bottom: 72px; }
+  .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); }
+  .step { background: var(--card); padding: 48px 36px; position: relative; overflow: hidden; }
+  .step-n { font-family: 'Bebas Neue', sans-serif; font-size: 5.5rem; color: rgba(200,16,46,0.07); line-height: 1; margin-bottom: 24px; }
+  .step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; color: var(--white); }
+  .step-desc { font-size: 0.875rem; color: var(--light); line-height: 1.75; }
+  .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5; }
+
+  /* QUOTE/MANIFESTO BAND */
+  #manifesto {
+    padding: 100px 64px;
+    background: var(--red);
+    position: relative; overflow: hidden;
+  }
+  #manifesto::before {
+    content: 'SHADOW';
+    position: absolute; right: -20px; top: -40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22rem; color: rgba(0,0,0,0.12);
+    line-height: 1; user-select: none; letter-spacing: -0.02em;
+  }
+  .manifesto-inner { position: relative; z-index: 1; max-width: 900px; }
+  .manifesto-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: 0.95; letter-spacing: 0.02em;
+    color: var(--black); margin-bottom: 32px;
+  }
+  .manifesto-attr {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(0,0,0,0.55); display: flex; align-items: center; gap: 16px;
+  }
+  .manifesto-attr::before { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.4); display: block; }
+
+  /* CONTACT / CTA */
+  #contact { padding: 140px 64px; background: #080808; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+  .contact-copy h2 { margin-bottom: 28px; }
+  .contact-copy p { font-size: 0.9rem; color: var(--light); line-height: 1.8; margin-bottom: 40px; }
+  .contact-details { display: flex; flex-direction: column; gap: 20px; }
+  .contact-item { display: flex; align-items: flex-start; gap: 20px; padding: 20px 24px; border: 1px solid var(--border); transition: border-color 0.3s; }
+  .contact-item:hover { border-color: rgba(201,168,76,0.3); }
+  .ci-icon { width: 36px; height: 36px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .ci-icon svg { width: 16px; height: 16px; stroke: var(--red); fill: none; stroke-width: 1.5; }
+  .ci-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+  .ci-val { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.05em; color: var(--white); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-field { display: flex; flex-direction: column; gap: 8px; }
+  .form-field label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gray); }
+  .form-field input, .form-field select, .form-field textarea {
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--white); padding: 13px 16px;
+    font-family: 'Barlow', sans-serif; font-size: 0.875rem; font-weight: 300;
+    outline: none; transition: border-color 0.3s; appearance: none; resize: none;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--red); }
+  .form-field input::placeholder, .form-field textarea::placeholder { color: var(--gray); }
+  .form-submit {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 16px 40px;
+    border: none; cursor: none; margin-top: 8px; align-self: flex-start;
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .form-submit::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(255,255,255,0.12);
+    transform: translateX(-100%) skewX(-20deg); transition: transform 0.4s;
+  }
+  .form-submit:hover::before { transform: translateX(110%) skewX(-20deg); }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep); border-top: 1px solid var(--border);
+    padding: 60px 64px 40px;
+  }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-brand { }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.3em; margin-bottom: 16px; }
+  .footer-logo span { color: var(--red); }
+  .footer-tagline { font-size: 0.875rem; color: var(--gray); line-height: 1.7; max-width: 260px; }
+  .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .footer-links a { font-size: 0.875rem; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); }
+  .footer-legal { display: flex; gap: 28px; }
+  .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--white); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  .reveal {
+    opacity: 1; transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+  .reveal-delay-6 { transition-delay: 0.6s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    nav { padding: 22px 32px; }
+    nav.scrolled { padding: 16px 32px; }
+    .nav-links { display: none; }
+    section { padding: 80px 32px; }
+    #hero { padding: 0 32px 70px; }
+    #about { grid-template-columns: 1fr; gap: 60px; }
+    .about-visual { height: 380px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .services-intro { text-align: left; }
+    .vert-item { grid-template-columns: 56px 1fr; }
+    .vert-desc, .vert-tag { display: none; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .hero-stats { position: static; margin-top: 48px; flex-wrap: wrap; gap: 28px; }
+    .scroll-hint { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">SHADOW</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#verticals">Industries</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Deploy Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-overlay"></div>
+  <div class="scan"></div>
+  <div class="hero-slash"></div>
+
+  <div class="hero-content">
+    <div class="eyebrow">Former U.S. Secret Service &nbsp;·&nbsp; Executive Protection &nbsp;·&nbsp; On Demand</div>
+    <h1 class="hero-title">
+      <span class="accent">SHADOW</span><br>
+      <span class="hollow">ALWAYS</span><br>
+      OPERATIONAL
+    </h1>
+    <p class="hero-tagline">Elite Protection. Deployed Instantly.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request Protection</a>
+      <a href="#services" class="btn-ghost">Explore Services</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-n">16<em>+</em></div>
+      <div class="stat-l">Years Active</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">500<em>+</em></div>
+      <div class="stat-l">Events Secured</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">0</div>
+      <div class="stat-l">Incidents</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Executive Protection</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Event Security</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Threat Assessment</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Advance Operations</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Corporate Security</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">VIP Escort</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Venue Security</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Risk Consulting</span><span class="ticker-sep">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">Executive Protection</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Event Security</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Threat Assessment</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Advance Operations</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Corporate Security</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">VIP Escort</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Venue Security</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Risk Consulting</span><span class="ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-copy reveal">
+    <div class="label">Who We Are</div>
+    <h2 class="section-h">The Gold<br>Standard.</h2>
+    <p style="margin-top:28px">Shadow was built on a simple premise: elite-tier protection should not be reserved for sitting presidents. Founded by a former U.S. Secret Service Special Agent, we bring the same operational precision, threat discipline, and mission mindset that protects the world's most powerful figures — to you.</p>
+    <p>We are not a security company. We are a protection infrastructure. Every detail is vetted. Every move is rehearsed. Every principal leaves intact.</p>
+    <p>From intimate executive details to securing arenas of 80,000 people, Shadow adapts seamlessly to the mission at hand. Discreet by design. Decisive by training.</p>
+    <div class="cred">
+      <div class="cred-tag">Founder Credential</div>
+      <div class="cred-line">Former U.S. Secret Service Special Agent — Presidential & Dignitary Protection</div>
+    </div>
+  </div>
+  <div class="about-visual reveal reveal-delay-2">
+    <div class="av-main">
+      <div class="av-watermark">S</div>
+    </div>
+
+    <div class="av-corner"></div>
+    <div class="av-corner2"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="label">What We Do</div>
+      <h2 class="section-h">Our<br>Services.</h2>
+    </div>
+    <p class="services-intro">Every engagement is custom-scoped. We don't do packages — we build precision protection around your specific threat environment.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="svc reveal reveal-delay-1">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="svc-title">Executive Protection</div>
+      <p class="svc-desc">Full-spectrum personal protection for C-suite executives, celebrities, dignitaries, and high-net-worth individuals. Dedicated agents, advance operations, and 24/7 coverage tailored to your lifestyle and threat profile.</p>
+      <a href="#contact" class="svc-link">Inquire</a>
+    </div>
+
+    <div class="svc reveal reveal-delay-2">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="svc-title">Event Security</div>
+      <p class="svc-desc">From intimate private gatherings to sold-out arena concerts and major sporting events, we architect and execute comprehensive security plans. Crowd management, access control, inner perimeter, and rapid response.</p>
+      <a href="#contact" class="svc-link">Inquire</a>
+    </div>
+
+    <div class="svc reveal reveal-delay-3">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div class="svc-title">Threat Assessment</div>
+      <p class="svc-desc">Intelligence-driven threat analysis for individuals, events, and organizations. Behavioral risk profiling, advance reconnaissance, and actionable mitigation strategies delivered before risk becomes reality.</p>
+      <a href="#contact" class="svc-link">Inquire</a>
+    </div>
+
+    <div class="svc reveal reveal-delay-1">
+      <div class="svc-num">04</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="svc-title">Advance Operations</div>
+      <p class="svc-desc">Pre-arrival site surveys, route planning, venue vetting, and coordination with local law enforcement. The work that happens before your principal ever arrives is what makes everything else seamless.</p>
+      <a href="#contact" class="svc-link">Inquire</a>
+    </div>
+
+    <div class="svc reveal reveal-delay-2">
+      <div class="svc-num">05</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <div class="svc-title">Corporate Consulting</div>
+      <p class="svc-desc">Security program design, staff training, crisis response planning, and ongoing security audits for corporate environments. Embed Secret Service-grade thinking into your organization's DNA.</p>
+      <a href="#contact" class="svc-link">Inquire</a>
+    </div>
+
+    <div class="svc reveal reveal-delay-3">
+      <div class="svc-num">06</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="svc-title">On-Demand Deployment</div>
+      <p class="svc-desc">The Uberization of security. When the situation calls for it, Shadow can mobilize a vetted protection detail in hours — not days. Fast, flexible, and always mission-ready.</p>
+      <a href="#contact" class="svc-link">Inquire</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- VERTICALS -->
+<section id="verticals">
+  <div class="vert-header reveal">
+    <div class="label">Industries We Serve</div>
+    <h2 class="section-h">Every Arena.<br>Every Stage.</h2>
+  </div>
+  <div class="vertical-list">
+    <div class="vert-item reveal">
+      <div class="vert-n">01</div>
+      <div class="vert-name">Entertainment & Music</div>
+      <div class="vert-desc">Arena tours, stadium concerts, music festivals, artist travel security, and backstage detail management.</div>
+      <div class="vert-tag">High-Volume Events</div>
+    </div>
+    <div class="vert-item reveal reveal-delay-1">
+      <div class="vert-n">02</div>
+      <div class="vert-name">Sports & Athletics</div>
+      <div class="vert-desc">NFL, NBA, UFC events — athlete protection, locker room security, travel details, and venue operations.</div>
+      <div class="vert-tag">Elite Athletes</div>
+    </div>
+    <div class="vert-item reveal reveal-delay-2">
+      <div class="vert-n">03</div>
+      <div class="vert-name">Corporate & Executive</div>
+      <div class="vert-desc">Board-level protection, investor summits, shareholder meetings, and executive travel security.</div>
+      <div class="vert-tag">C-Suite</div>
+    </div>
+    <div class="vert-item reveal reveal-delay-3">
+      <div class="vert-n">04</div>
+      <div class="vert-name">Film & Television</div>
+      <div class="vert-desc">On-set security, premiere protection, talent travel, and location advance for productions of all scales.</div>
+      <div class="vert-tag">Production</div>
+    </div>
+    <div class="vert-item reveal reveal-delay-4">
+      <div class="vert-n">05</div>
+      <div class="vert-name">Political & Dignitaries</div>
+      <div class="vert-desc">Campaign trail security, political rally management, and dignitary protection in high-risk environments.</div>
+      <div class="vert-tag">Government Adjacent</div>
+    </div>
+    <div class="vert-item reveal reveal-delay-5">
+      <div class="vert-n">06</div>
+      <div class="vert-name">Private & Social Events</div>
+      <div class="vert-desc">High-profile weddings, galas, private parties, estate security, and bespoke residential protection details.</div>
+      <div class="vert-tag">Private Client</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-hdr reveal">
+    <div class="label">How It Works</div>
+    <h2 class="section-h">The Shadow<br>Protocol.</h2>
+  </div>
+  <div class="process-grid">
+    <div class="step reveal">
+      <div class="step-n">01</div>
+      <div class="step-title">Intelligence Intake</div>
+      <p class="step-desc">We begin with a confidential brief. Your profile, your environment, your concerns. We listen more than we talk — the best protection starts with deep understanding.</p>
+    </div>
+    <div class="step reveal reveal-delay-1">
+      <div class="step-n">02</div>
+      <div class="step-title">Threat Analysis</div>
+      <p class="step-desc">Our analysts assess every variable — digital footprint, public exposure, known adversaries, and venue vulnerabilities. Risk is quantified before it's addressed.</p>
+    </div>
+    <div class="step reveal reveal-delay-2">
+      <div class="step-n">03</div>
+      <div class="step-title">Mission Planning</div>
+      <p class="step-desc">A bespoke protection plan is engineered. Routes, team composition, communication protocols, contingency triggers, and coordination with local authorities.</p>
+    </div>
+    <div class="step reveal reveal-delay-3">
+      <div class="step-n">04</div>
+      <div class="step-title">Execution</div>
+      <p class="step-desc">Silent. Seamless. Decisive. Our agents operate in the background so you can operate at the front. The mission ends only when you're home safe.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO BAND -->
+<section id="manifesto">
+  <div class="manifesto-inner reveal">
+    <div class="manifesto-quote">"We don't react to threats. We prevent them from ever becoming real."</div>
+    <div class="manifesto-attr">Shadow Founding Philosophy</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-copy reveal">
+      <div class="label">Get Protected</div>
+      <h2 class="section-h">Start Your<br>Detail.</h2>
+      <p style="margin-top:24px">Every engagement begins with a confidential consultation. Tell us about your needs and we'll respond within the hour. No request is too complex — no principal too difficult to protect.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">Secure Line</div>
+            <div class="ci-val">+1 (800) SHADOW-1</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">Secure Email</div>
+            <div class="ci-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="422d323102312a23262d3532302d362721362b2d2c6c212d2f">[email&#160;protected]</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="ci-label">Headquarters</div>
+            <div class="ci-val">Washington, D.C. · Nationwide Deployment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-2">
+      <div class="form-row" style="margin-bottom:0">
+        <div class="label" style="grid-column:1/-1; margin-bottom:32px;">Confidential Inquiry</div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>First Name</label>
+            <input type="text" placeholder="First">
+          </div>
+          <div class="form-field">
+            <label>Last Name</label>
+            <input type="text" placeholder="Last">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com">
+          </div>
+          <div class="form-field">
+            <label>Phone</label>
+            <input type="tel" placeholder="+1 (000) 000-0000">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Service Needed</label>
+          <select>
+            <option value="" disabled selected>Select a service</option>
+            <option>Executive Protection</option>
+            <option>Event Security</option>
+            <option>Threat Assessment</option>
+            <option>Advance Operations</option>
+            <option>Corporate Consulting</option>
+            <option>On-Demand Deployment</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Tell Us About Your Needs</label>
+          <textarea rows="4" placeholder="Describe your situation, timeline, and any relevant details..."></textarea>
+        </div>
+        <button class="form-submit">Submit Securely →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">SHADOW</div>
+      <p class="footer-tagline">The Uberization of safety and protection. Elite-tier security, on demand. Born from the Secret Service. Built for the world.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Executive Protection</a></li>
+        <li><a href="#">Event Security</a></li>
+        <li><a href="#">Threat Assessment</a></li>
+        <li><a href="#">Advance Operations</a></li>
+        <li><a href="#">Corporate Consulting</a></li>
+        <li><a href="#">On-Demand</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Industries</div>
+      <ul class="footer-links">
+        <li><a href="#">Entertainment</a></li>
+        <li><a href="#">Sports & Athletics</a></li>
+        <li><a href="#">Corporate</a></li>
+        <li><a href="#">Film & TV</a></li>
+        <li><a href="#">Political</a></li>
+        <li><a href="#">Private Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">About Shadow</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Shadow Protection Group · All Rights Reserved</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">NDAs & Confidentiality</a>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+  (function animRing() {
+    rx += (mx - rx) * 0.14;
+    ry += (my - ry) * 0.14;
+    ring.style.left = rx+'px'; ring.style.top = ry+'px';
+    requestAnimationFrame(animRing);
+  })();
+  document.querySelectorAll('a, button, .svc, .vert-item, .contact-item').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.width='52px'; ring.style.height='52px'; ring.style.borderColor='rgba(201,168,76,0.8)'; });
+    el.addEventListener('mouseleave', () => { ring.style.width='30px'; ring.style.height='30px'; ring.style.borderColor='rgba(201,168,76,0.5)'; });
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+  // REVEAL ON SCROLL
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // FORM SUBMIT
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    this.textContent = 'Received. We\'ll be in touch.
