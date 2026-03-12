@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HERO Family — SHADOW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #080808;
+      --deep: #0c0c0c;
+      --card: #111111;
+      --border: #1e1e1e;
+      --red: #C9A84C;
+      --white: #f0ede8;
+      --gray: #888888;
+      --light: #c8c4be;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: #080808; }
+    body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; cursor: none; }
+
+    /* CURSOR */
+    .cursor {
+      position: fixed; top: 0; left: 0;
+      width: 6px; height: 6px;
+      background: #ff1a1a; border-radius: 50%;
+      pointer-events: none; z-index: 2147483647;
+      will-change: transform;
+      transform: translate(-200px, -200px);
+      box-shadow: 0 0 3px 1px #ff1a1a, 0 0 8px 3px rgba(255,26,26,0.7), 0 0 16px 6px rgba(255,26,26,0.3);
+      transition: box-shadow 0.15s;
+    }
+    .cursor.moving { box-shadow: 0 0 3px 1px #ff1a1a, 0 0 14px 6px rgba(255,26,26,0.95), 0 0 28px 12px rgba(255,26,26,0.55), 0 0 44px 18px rgba(255,26,26,0.2); }
+    @media (hover: none) and (pointer: coarse) { .cursor { display: none; } body { cursor: auto; } }
+    * { cursor: none !important; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 60px;
+      background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.35em; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    /* HERO SECTION */
+    .hero-section {
+      min-height: 60vh;
+      display: flex; align-items: center;
+      padding: 160px 60px 80px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-letter {
+      position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif; font-size: 40vw; line-height: 1;
+      color: rgba(201,168,76,0.04); pointer-events: none; user-select: none;
+    }
+    .hero-content { max-width: 800px; position: relative; z-index: 1; }
+    .label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 24px; }
+    .hero-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 8rem); line-height: 0.9; letter-spacing: 0.02em; margin-bottom: 40px; }
+    .hero-headline .accent { color: var(--red); }
+    .acronym-block { display: flex; flex-direction: column; gap: 8px; margin-bottom: 48px; }
+    .acronym-row { display: flex; align-items: baseline; gap: 20px; }
+    .acronym-letter { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--red); line-height: 1; width: 48px; flex-shrink: 0; }
+    .acronym-word { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
+    .hero-body { font-size: 1.05rem; color: var(--light); line-height: 1.8; max-width: 600px; }
+
+    /* CARDS SECTION */
+    .cards-section { padding: 80px 60px; }
+    .section-hdr { margin-bottom: 60px; }
+    .section-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 0.03em; margin-top: 12px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px; }
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, background 0.3s;
+      text-decoration: none;
+      display: block;
+    }
+    .hero-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--red); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .hero-card:hover { border-color: rgba(201,168,76,0.3); background: #141414; }
+    .hero-card:hover::before { transform: scaleX(1); }
+    .card-icon { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: rgba(201,168,76,0.15); line-height: 1; margin-bottom: 24px; transition: color 0.3s; }
+    .hero-card:hover .card-icon { color: rgba(201,168,76,0.4); }
+    .card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; transition: color 0.3s; }
+    .hero-card:hover .card-title { color: var(--red); }
+    .card-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.7; margin-bottom: 28px; }
+    .card-link { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); display: flex; align-items: center; gap: 10px; transition: gap 0.3s; }
+    .hero-card:hover .card-link { gap: 16px; }
+    .card-arrow { display: inline-block; transition: transform 0.3s; }
+    .hero-card:hover .card-arrow { transform: translateX(4px); }
+
+    /* MANIFESTO BAND */
+    .manifesto-band { background: var(--red); padding: 60px; text-align: center; margin: 0; }
+    .manifesto-text { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: 0.05em; color: var(--black); }
+
+    /* FOOTER */
+    footer { padding: 80px 60px 48px; border-top: 1px solid var(--border); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.3em; margin-bottom: 16px; }
+    .footer-tagline { font-size: 0.875rem; color: var(--gray); line-height: 1.7; max-width: 260px; }
+    .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: 0.875rem; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); }
+    .footer-legal { display: flex; gap: 28px; }
+    .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--white); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (max-width: 768px) {
+      nav { padding: 24px 32px; }
+      .hero-section { padding: 120px 32px 60px; }
+      .cards-section { padding: 60px 32px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .manifesto-band { padding: 48px 32px; }
+      footer { padding: 60px 32px 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 20px; }
+      .hero-section { padding: 100px 20px 48px; }
+      .cards-section { padding: 48px 20px; }
+      footer { padding: 48px 20px 32px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">SHADOW</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#industries">Industries</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-bg-letter">H</div>
+  <div class="hero-content">
+    <div class="label reveal">Our Ecosystem</div>
+    <h1 class="hero-headline reveal reveal-delay-1">
+      THE <span class="accent">HERO</span><br>FAMILY
+    </h1>
+    <div class="acronym-block reveal reveal-delay-2">
+      <div class="acronym-row">
+        <span class="acronym-letter">H</span>
+        <span class="acronym-word">Help</span>
+      </div>
+      <div class="acronym-row">
+        <span class="acronym-letter">E</span>
+        <span class="acronym-word">Everyone</span>
+      </div>
+      <div class="acronym-row">
+        <span class="acronym-letter">R</span>
+        <span class="acronym-word">Remain</span>
+      </div>
+      <div class="acronym-row">
+        <span class="acronym-letter">O</span>
+        <span class="acronym-word">Operational</span>
+      </div>
+    </div>
+    <p class="hero-body reveal reveal-delay-3">HERO is more than an acronym — it's a philosophy shared across a family of organizations united by a single mission: to protect, support, and empower the people who keep the world moving. From elite security operations to marine rescue, athlete foundations to lifestyle brands, every entity within the HERO Family is built on the same principle: service above self.</p>
+  </div>
+</section>
+
+<!-- FAMILY CARDS -->
+<section class="cards-section">
+  <div class="section-hdr reveal">
+    <div class="label">The Ecosystem</div>
+    <h2 class="section-h">HERO Family<br>Entities</h2>
+  </div>
+  <div class="cards-grid">
+
+    <a href="https://herodivingandmarine.com/pages/teamhero" target="_blank" rel="noopener" class="hero-card reveal">
+      <div class="card-icon">01</div>
+      <div class="card-title">Team HERO</div>
+      <p class="card-desc">The elite operational arm of the HERO ecosystem. A team of highly trained professionals — veterans, first responders, and specialists — who deploy when it matters most. Where protection meets purpose.</p>
+      <div class="card-link">Visit Team HERO <span class="card-arrow">→</span></div>
+    </a>
+
+    <a href="https://herodivingandmarine.com/pages/the-hero-foundation" target="_blank" rel="noopener" class="hero-card reveal reveal-delay-1">
+      <div class="card-icon">02</div>
+      <div class="card-title">The HERO Foundation</div>
+      <p class="card-desc">A nonprofit dedicated to supporting those who serve. The HERO Foundation funds programs for veterans, first responders, and their families — providing resources, community, and a path forward after service.</p>
+      <div class="card-link">Visit The Foundation <span class="card-arrow">→</span></div>
+    </a>
+
+    <a href="https://herodivingandmarine.com" target="_blank" rel="noopener" class="hero-card reveal reveal-delay-2">
+      <div class="card-icon">03</div>
+      <div class="card-title">Hero Diving & Marine</div>
+      <p class="card-desc">Professional maritime operations, underwater search and rescue, and marine security services. Hero Diving & Marine brings HERO-level expertise to open water — wherever land-based solutions fall short.</p>
+      <div class="card-link">Visit Hero Diving & Marine <span class="card-arrow">→</span></div>
+    </a>
+
+    <a href="https://teesleeves.com/" target="_blank" rel="noopener" class="hero-card reveal reveal-delay-3">
+      <div class="card-icon">04</div>
+      <div class="card-title">Tee Sleeves</div>
+      <p class="card-desc">Purpose-built athletic gear designed for performance and precision. Tee Sleeves delivers compression technology trusted by athletes and professionals who demand excellence from every piece of equipment they carry.</p>
+      <div class="card-link">Visit Tee Sleeves <span class="card-arrow">→</span></div>
+    </a>
+
+    <a href="https://memorypacks.ai" target="_blank" rel="noopener" class="hero-card reveal reveal-delay-4">
+      <div class="card-icon">05</div>
+      <div class="card-title">Memory Packs</div>
+      <p class="card-desc">AI-powered memory and cognitive training tools built for high-performance individuals. Memory Packs helps operators, executives, and athletes sharpen recall, retain critical information, and stay mentally mission-ready.</p>
+      <div class="card-link">Visit Memory Packs <span class="card-arrow">→</span></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- MANIFESTO BAND -->
+<div class="manifesto-band">
+  <div class="manifesto-text">Every entity. One mission. Help Everyone Remain Operational.</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">SHADOW</div>
+      <p class="footer-tagline">The Uberization of safety and protection. Elite-tier security, on demand. Born from the Secret Service. Built for the world.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="executive-protection.html">Executive Protection</a></li>
+        <li><a href="event-security.html">Event Security</a></li>
+        <li><a href="threat-assessment.html">Threat Assessment</a></li>
+        <li><a href="advance-operations.html">Advance Operations</a></li>
+        <li><a href="corporate-consulting.html">Corporate Consulting</a></li>
+        <li><a href="on-demand.html">On-Demand</a></li>
+        <li><a href="playbook.html">The Playbook ↗</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Industries</div>
+      <ul class="footer-links">
+        <li><a href="entertainment.html">Entertainment</a></li>
+        <li><a href="sports.html">Sports & Athletics</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="film-tv.html">Film & TV</a></li>
+        <li><a href="political.html">Political</a></li>
+        <li><a href="private-events.html">Private Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Shadow</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="press.html">Press</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="hero-family.html">HERO Family</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 SHDW, LLC. · All Rights Reserved</div>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="ndas-confidentiality.html">NDAs & Confidentiality</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  let moveTimer;
+  document.addEventListener('mousemove', e => {
+    cursor.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
+    cursor.classList.add('moving');
+    clearTimeout(moveTimer);
+    moveTimer = setTimeout(() => cursor.classList.remove('moving'), 120);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
