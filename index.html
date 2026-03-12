@@ -26,14 +26,15 @@
     font-family: 'Barlow', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    cursor: none;
   }
+  *, *::before, *::after { cursor: none !important; }
 
   /* CURSOR */
   .cursor {
     position: fixed; width: 6px; height: 6px;
     background: #ff1a1a; border-radius: 50%;
-    pointer-events: none; z-index: 9999;
+    pointer-events: none; z-index: 2147483647;
+    left: -100px; top: -100px;
     transform: translate(-50%,-50%);
     box-shadow: 0 0 3px 1px #ff1a1a, 0 0 8px 3px rgba(255,26,26,0.7), 0 0 16px 6px rgba(255,26,26,0.3);
     transition: box-shadow 0.15s;
@@ -228,7 +229,7 @@
   .av-main video {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
-    object-fit: cover;
+    object-fit: cover; pointer-events: none;
   }
   .av-watermark {
     font-family: 'Bebas Neue', sans-serif;
@@ -300,9 +301,9 @@
   }
   .vert-item:hover::after { transform: scaleX(1); }
   .vert-n { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: var(--gray); letter-spacing: 0.1em; }
-  .vert-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.3rem; letter-spacing: 0.03em; transition: color 0.3s; }
+  .vert-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.3rem; letter-spacing: 0.03em; transition: color 0.3s; min-width: 0; }
   .vert-item:hover .vert-name { color: var(--red); }
-  .vert-desc { font-size: 0.875rem; color: var(--gray); line-height: 1.65; }
+  .vert-desc { font-size: 0.875rem; color: var(--gray); line-height: 1.65; min-width: 0; }
   .vert-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); border: 1px solid var(--border); padding: 7px 16px; white-space: nowrap; transition: border-color 0.3s, color 0.3s; }
   .vert-item:hover .vert-tag { border-color: rgba(200,16,46,0.4); color: var(--red); }
 
@@ -450,9 +451,9 @@
 
   /* DISABLE CURSOR ON TOUCH */
   @media (hover: none) and (pointer: coarse) {
-    body { cursor: auto; }
-    .cursor { display: none; }
-    a, button, [class*="btn"], .nav-cta, .form-submit { cursor: pointer; }
+    *, *::before, *::after { cursor: auto !important; }
+    .cursor { display: none !important; }
+    a, button, [class*="btn"], .nav-cta, .form-submit { cursor: pointer !important; }
   }
 
   /* TABLET — 960px */
@@ -719,13 +720,13 @@
     <div class="vert-item reveal reveal-delay-1">
       <div class="vert-n">02</div>
       <div class="vert-name">Sports & Athletics</div>
-      <div class="vert-desc">NFL, NBA, UFC events — athlete protection, locker room security, travel details, and venue operations.</div>
+      <div class="vert-desc">NFL, NBA, MLB, UFC, Car Racing events — athlete protection, locker room security, travel details, and venue operations.</div>
       <div class="vert-tag">Elite Athletes</div>
     </div>
     <div class="vert-item reveal reveal-delay-2">
       <div class="vert-n">03</div>
       <div class="vert-name">Corporate & Executive</div>
-      <div class="vert-desc">Board-level protection, investor summits, shareholder meetings, and executive travel security.</div>
+      <div class="vert-desc">Fractional Security Director, board-level protection, investor summits, shareholder meetings, and executive travel security.</div>
       <div class="vert-tag">C-Suite</div>
     </div>
     <div class="vert-item reveal reveal-delay-3">
