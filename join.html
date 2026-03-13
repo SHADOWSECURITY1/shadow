@@ -313,8 +313,66 @@
     margin-top: 12px; max-width: 480px;
   }
 
+  /* OPERATOR TIERS */
+  .tiers-section { padding: 80px 64px; background: var(--black); border-top: 1px solid var(--border); }
+  .tiers-intro { font-size: 0.95rem; color: var(--light); line-height: 1.85; max-width: 680px; margin-top: 24px; margin-bottom: 60px; }
+  .tiers-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--border); }
+  .tier-card {
+    background: var(--card); padding: 36px 28px; position: relative;
+    transition: background 0.3s; display: flex; flex-direction: column; gap: 0;
+  }
+  .tier-card:hover { background: #141414; }
+  .tier-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--red), transparent); opacity: 0.4;
+    transition: opacity 0.3s;
+  }
+  .tier-card:hover::before { opacity: 1; }
+  .tier-card.tier-1::before { opacity: 1; background: var(--red); }
+  .tier-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem;
+    color: rgba(201,168,76,0.12); line-height: 1; margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+  .tier-card:hover .tier-num { color: rgba(201,168,76,0.25); }
+  .tier-card.tier-1 .tier-num { color: rgba(201,168,76,0.3); }
+  .tier-badge {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.55rem;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 3px 10px; font-weight: 700;
+    display: inline-block; margin-bottom: 14px; align-self: flex-start;
+  }
+  .tier-card:not(.tier-1) .tier-badge {
+    background: transparent; color: var(--red); border: 1px solid rgba(201,168,76,0.3);
+  }
+  .tier-name {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1rem;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--white); margin-bottom: 14px; transition: color 0.3s;
+  }
+  .tier-card:hover .tier-name { color: var(--red); }
+  .tier-desc {
+    font-size: 0.82rem; color: var(--gray); line-height: 1.7; margin-bottom: 20px; flex: 1;
+  }
+  .tier-quals { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 20px; }
+  .tier-quals li {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.04em; color: var(--light); display: flex; gap: 10px; align-items: flex-start;
+    line-height: 1.5;
+  }
+  .tier-quals li::before {
+    content: ''; display: block; width: 5px; height: 5px; flex-shrink: 0;
+    background: var(--red); transform: rotate(45deg); margin-top: 5px;
+  }
+  .tier-deploy {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--red);
+    padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.6;
+  }
+  .tier-deploy span { color: var(--gray); display: block; font-size: 0.58rem; letter-spacing: 0.25em; margin-bottom: 4px; }
+
   /* WHAT HAPPENS NEXT */
-  .next-section { padding: 80px 64px; background: var(--black); border-top: 1px solid var(--border); }
+  .next-section { padding: 80px 64px; background: var(--deep); border-top: 1px solid var(--border); }
   .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-top: 48px; }
   .step { background: var(--card); padding: 40px 36px; position: relative; transition: background 0.3s; }
   .step:hover { background: #141414; }
@@ -345,6 +403,9 @@
   .footer-legal a:hover { color: var(--red); }
 
   /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .tiers-grid { grid-template-columns: repeat(3, 1fr); }
+  }
   @media (max-width: 900px) {
     nav { padding: 22px 28px; }
     nav.scrolled { padding: 16px 28px; }
@@ -352,6 +413,8 @@
     .hamburger { display: flex; }
     .page-hero { padding: 120px 28px 60px; }
     .intro-section { padding: 60px 28px; grid-template-columns: 1fr; gap: 40px; }
+    .tiers-section { padding: 60px 28px; }
+    .tiers-grid { grid-template-columns: repeat(2, 1fr); }
     .form-section { padding: 60px 28px; }
     .form-row { grid-template-columns: 1fr; }
     .next-section { padding: 60px 28px; }
@@ -362,11 +425,13 @@
     .ticker { display: none; }
   }
   @media (max-width: 600px) {
+    .tiers-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
   }
   @media (max-width: 480px) {
     .page-hero { padding: 100px 20px 48px; }
     .intro-section { padding: 48px 20px; }
+    .tiers-section { padding: 48px 20px; }
     .form-section { padding: 48px 20px; }
     .next-section { padding: 48px 20px; }
     footer { padding: 40px 20px 28px; }
@@ -446,16 +511,124 @@
     <p>If you have the background, submit your profile now. We will reach out directly when your market opens.</p>
   </div>
   <div class="reveal reveal-delay-1">
-    <div class="label">Minimum Standards</div>
-    <ul class="standards-list" style="margin-top:28px;">
-      <li>U.S. Secret Service, military, or federal law enforcement background preferred</li>
-      <li>Minimum 3 years verifiable protective operations experience</li>
-      <li>Clean background &mdash; full vetting required prior to deployment</li>
-      <li>Valid driver's license, passport, and travel availability</li>
-      <li>Professional presentation and client-facing communication skills</li>
-      <li>Ability to operate independently and as part of a coordinated detail</li>
-      <li>Open to both local assignments and national / international deployment</li>
-    </ul>
+    <div class="label">The Network Is Tiered</div>
+    <div style="margin-top:28px;">
+      <p style="font-size:0.95rem;color:var(--light);line-height:1.85;margin-bottom:24px;">Shadow operates across five operator tiers, from presidential protection veterans to entry-level event security professionals. Every tier is vetted. Every operator is cleared. The tier system ensures the right professional is matched to every mission.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border:1px solid var(--border);transition:background 0.2s;" onmouseenter="this.style.background='var(--card)'" onmouseleave="this.style.background='transparent'">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--red);width:36px;flex-shrink:0;">01</div>
+          <div><div style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);">Shadow Elite</div><div style="font-size:0.78rem;color:var(--gray);margin-top:2px;">Presidential &amp; dignitary protection</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border:1px solid var(--border);transition:background 0.2s;" onmouseenter="this.style.background='var(--card)'" onmouseleave="this.style.background='transparent'">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--red);width:36px;flex-shrink:0;">02</div>
+          <div><div style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);">Senior Operator</div><div style="font-size:0.78rem;color:var(--gray);margin-top:2px;">Federal &amp; SOF-background professionals</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border:1px solid var(--border);transition:background 0.2s;" onmouseenter="this.style.background='var(--card)'" onmouseleave="this.style.background='transparent'">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--red);width:36px;flex-shrink:0;">03</div>
+          <div><div style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);">Field Operator</div><div style="font-size:0.78rem;color:var(--gray);margin-top:2px;">Law enforcement &amp; military backgrounds</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border:1px solid var(--border);transition:background 0.2s;" onmouseenter="this.style.background='var(--card)'" onmouseleave="this.style.background='transparent'">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--red);width:36px;flex-shrink:0;">04</div>
+          <div><div style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);">Support Operator</div><div style="font-size:0.78rem;color:var(--gray);margin-top:2px;">Security industry professionals</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border:1px solid var(--border);transition:background 0.2s;" onmouseenter="this.style.background='var(--card)'" onmouseleave="this.style.background='transparent'">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--red);width:36px;flex-shrink:0;">05</div>
+          <div><div style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);">Entry Operator</div><div style="font-size:0.78rem;color:var(--gray);margin-top:2px;">Entry-level &amp; event security professionals</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPERATOR TIERS -->
+<div class="tiers-section">
+  <div class="reveal">
+    <div class="label">Operator Classifications</div>
+    <h2 class="section-h">Find Your Tier.</h2>
+    <p class="tiers-intro">Every operator in the Shadow network is classified into one of five tiers based on background, experience, and capability. Clients are matched to operators by tier. All tiers are vetted, background-checked, and held to Shadow standards before any deployment.</p>
+  </div>
+  <div class="tiers-grid reveal">
+
+    <div class="tier-card tier-1">
+      <div class="tier-num">01</div>
+      <div class="tier-badge">Shadow Elite</div>
+      <div class="tier-name">The Highest Standard</div>
+      <p class="tier-desc">Reserved for operators with direct experience protecting heads of state, senior government officials, or A-list principals at the highest threat levels. This is the tip of the spear.</p>
+      <ul class="tier-quals">
+        <li>U.S. Secret Service Presidential Protection Detail, or equivalent</li>
+        <li>Special Operations Forces (Delta, SEAL Team 6, CAG, MARSOC)</li>
+        <li>Federal agency protective detail (CIA, FBI HRT, DUSM)</li>
+        <li>10+ years verifiable protective operations</li>
+        <li>TS/SCI clearance eligible</li>
+        <li>Hostile environment &amp; international deployment</li>
+      </ul>
+      <div class="tier-deploy"><span>Deployed On</span>Heads of state &middot; Ultra-HNW principals &middot; High-threat international ops &middot; Classified details</div>
+    </div>
+
+    <div class="tier-card tier-2">
+      <div class="tier-num">02</div>
+      <div class="tier-badge">Senior Operator</div>
+      <div class="tier-name">Federal &amp; SOF Professionals</div>
+      <p class="tier-desc">Seasoned operators with federal law enforcement, military special operations, or extensive private sector executive protection experience. Detail leads and advance specialists.</p>
+      <ul class="tier-quals">
+        <li>Federal law enforcement (FBI, DEA, ATF, DHS, USMS)</li>
+        <li>Military SOF or senior NCO with EP experience</li>
+        <li>7+ years protective operations</li>
+        <li>Detail lead and shift supervisor capable</li>
+        <li>Advance work and site survey experience</li>
+        <li>National and international travel available</li>
+      </ul>
+      <div class="tier-deploy"><span>Deployed On</span>C-suite EP &middot; Diplomatic details &middot; Major event security leads &middot; Advance operations</div>
+    </div>
+
+    <div class="tier-card tier-3">
+      <div class="tier-num">03</div>
+      <div class="tier-badge">Field Operator</div>
+      <div class="tier-name">Law Enforcement &amp; Military</div>
+      <p class="tier-desc">Professional operators with law enforcement or military backgrounds, or equivalent private sector experience. The backbone of most Shadow deployments.</p>
+      <ul class="tier-quals">
+        <li>State or local law enforcement background</li>
+        <li>Military service with relevant MOS / rate</li>
+        <li>3&ndash;7 years private sector protective operations</li>
+        <li>Surveillance detection &amp; counter-surveillance trained</li>
+        <li>Detail team member, site security capable</li>
+        <li>Regional and national travel available</li>
+      </ul>
+      <div class="tier-deploy"><span>Deployed On</span>Corporate EP &middot; Event security &middot; Threat assessment support &middot; Residential security</div>
+    </div>
+
+    <div class="tier-card tier-4">
+      <div class="tier-num">04</div>
+      <div class="tier-badge">Support Operator</div>
+      <div class="tier-name">Security Industry Professionals</div>
+      <p class="tier-desc">Trained security professionals with documented field experience in access control, screening operations, and event security. Reliable team members with proven track records.</p>
+      <ul class="tier-quals">
+        <li>Valid state security license / guard card</li>
+        <li>1&ndash;3 years verified security experience</li>
+        <li>Screening and access control proficient</li>
+        <li>Uniform and plainclothes capable</li>
+        <li>Clean background check required</li>
+        <li>Local and regional assignments</li>
+      </ul>
+      <div class="tier-deploy"><span>Deployed On</span>Event teams &middot; Venue security &middot; Screening operations &middot; Corporate access control</div>
+    </div>
+
+    <div class="tier-card tier-5">
+      <div class="tier-num">05</div>
+      <div class="tier-badge">Entry Operator</div>
+      <div class="tier-name">Entry-Level Professionals</div>
+      <p class="tier-desc">Entry-level security professionals with basic credentials, physical presence, and a commitment to performing at a higher standard. Everyone starts somewhere.</p>
+      <ul class="tier-quals">
+        <li>Valid guard card or state security license required</li>
+        <li>Less than 2 years formal security experience</li>
+        <li>Crowd management and access control capable</li>
+        <li>Reliable, professional, and drug-free</li>
+        <li>Clean background check required</li>
+        <li>Local assignments only</li>
+      </ul>
+      <div class="tier-deploy"><span>Deployed On</span>Large event support &middot; Venue crowd management &middot; Metal detector operations &middot; Perimeter control</div>
+    </div>
+
   </div>
 </div>
 
@@ -555,6 +728,18 @@
           <label class="checkbox-item"><input type="checkbox" name="background" value="Private Sector Security"><label>Private Sector Security</label></label>
           <label class="checkbox-item"><input type="checkbox" name="background" value="Intelligence Community"><label>Intelligence Community</label></label>
         </div>
+      </div>
+
+      <div class="form-field">
+        <label for="tier-request">Requested Operator Tier *</label>
+        <select id="tier-request" name="tier-request" required>
+          <option value="" disabled selected>Select your tier</option>
+          <option value="Tier 1 — Shadow Elite">Tier 1 — Shadow Elite (Presidential / Dignitary Protection)</option>
+          <option value="Tier 2 — Senior Operator">Tier 2 — Senior Operator (Federal / SOF Background)</option>
+          <option value="Tier 3 — Field Operator">Tier 3 — Field Operator (Law Enforcement / Military)</option>
+          <option value="Tier 4 — Support Operator">Tier 4 — Support Operator (Security Industry Professional)</option>
+          <option value="Tier 5 — Entry Operator">Tier 5 — Entry Operator (Entry-Level / Guard Card)</option>
+        </select>
       </div>
 
       <div class="form-field">
