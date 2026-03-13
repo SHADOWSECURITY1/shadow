@@ -131,6 +131,13 @@
   .hero-title .hollow { -webkit-text-stroke: 1px rgba(240,237,232,0.18); color: transparent; }
   .hero-title .accent { color: var(--red); }
 
+  .hero-kicker {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    letter-spacing: 0.08em; color: var(--white);
+    opacity: 0; transform: translateY(18px); animation: fadeUp 0.8s ease 0.2s forwards;
+    margin-bottom: 8px; line-height: 1;
+  }
   .hero-tagline {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(1.2rem, 2.2vw, 2rem);
@@ -499,7 +506,8 @@
     .hero-tagline { font-size: clamp(1rem, 4vw, 1.4rem); margin-bottom: 36px; }
     .hero-actions { flex-direction: column; gap: 12px; }
     .btn-primary, .btn-ghost { width: 100%; text-align: center; padding: 16px 24px; }
-    .hero-stats { gap: 20px; }
+    .hero-stats { gap: 0; width: 100%; justify-content: space-between; }
+    .stat { flex: 1; text-align: center; }
     .stat-n { font-size: 2.2rem; }
     .services-grid { grid-template-columns: 1fr; }
     .svc { padding: 36px 28px; }
@@ -556,11 +564,12 @@
 
   <div class="hero-content">
     <div class="eyebrow">Former U.S. Secret Service &nbsp;·&nbsp; Executive Protection &nbsp;·&nbsp; On Demand</div>
+    <div class="hero-kicker">Elite Protection.</div>
     <h1 class="hero-title">
       <span class="accent">ALWAYS</span><br>
       OPERATIONAL
     </h1>
-    <p class="hero-tagline">Elite Protection. Deployed Instantly.</p>
+    <p class="hero-tagline">Deploy Globally.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Request Protection</a>
       <a href="#services" class="btn-ghost">Explore Services</a>
