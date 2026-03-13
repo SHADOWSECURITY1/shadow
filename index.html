@@ -196,6 +196,25 @@
   }
   @keyframes spulse { 0%{left:-100%} 60%,100%{left:100%} }
 
+  /* JOIN CTA BUTTON */
+  .join-network-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); padding: 18px 52px;
+    text-decoration: none !important; white-space: nowrap; flex-shrink: 0;
+    position: relative; overflow: hidden; display: inline-block;
+    transition: background 0.3s;
+  }
+  .join-network-btn:link,
+  .join-network-btn:visited { color: var(--black) !important; text-decoration: none !important; }
+  .join-network-btn:hover { background: #b8962e; color: var(--black) !important; }
+  .join-network-btn::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(255,255,255,0.12);
+    transform: translateX(-100%) skewX(-20deg); transition: transform 0.4s ease;
+  }
+  .join-network-btn:hover::before { transform: translateX(110%) skewX(-20deg); }
+
   /* TICKER */
   .ticker { background: var(--red); padding: 10px 0; overflow: hidden; white-space: nowrap; }
   .ticker-track { display: inline-flex; animation: tickroll 28s linear infinite; }
@@ -917,7 +936,7 @@
     <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,5rem);line-height:0.9;letter-spacing:0.02em;">Are You<br>One of Us?</h2>
     <p style="font-size:0.9rem;color:var(--light);margin-top:16px;max-width:500px;line-height:1.8;">Shadow is building the most elite on-demand security network in the world. If you have the background, submit your profile now. When the platform launches, you will be first.</p>
   </div>
-  <a href="join.html" style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;letter-spacing:0.28em;text-transform:uppercase;background:var(--red);color:var(--black);padding:18px 52px;text-decoration:none;white-space:nowrap;flex-shrink:0;position:relative;overflow:hidden;display:inline-block;">Join the Network &rarr;</a>
+  <a href="join.html" class="join-network-btn">Join the Network &rarr;</a>
 </div>
 
 <!-- FOOTER -->
