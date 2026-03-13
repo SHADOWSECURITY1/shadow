@@ -409,6 +409,31 @@
   .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; transition: color 0.2s; }
   .footer-legal a:hover { color: var(--red); }
 
+  /* FRACTIONAL SECURITY DIRECTOR */
+  .fsd-section { background: var(--deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 64px; margin-top: 0; }
+  .fsd-inner { max-width: 900px; }
+  .fsd-hook { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: 0.02em; line-height: 1; margin-bottom: 28px; }
+  .fsd-hook span { color: var(--red); }
+  .fsd-intro { font-size: 1rem; line-height: 1.85; color: var(--light); margin-bottom: 48px; max-width: 720px; }
+  .fsd-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .fsd-sub::before { content: ''; width: 28px; height: 1px; background: var(--red); display: block; }
+  .fsd-checklist { list-style: none; display: flex; flex-direction: column; gap: 0; margin-bottom: 48px; border: 1px solid var(--border); }
+  .fsd-checklist li { display: grid; grid-template-columns: auto 1fr; gap: 20px; padding: 18px 24px; border-bottom: 1px solid var(--border); align-items: start; }
+  .fsd-checklist li:last-child { border-bottom: none; }
+  .fsd-check { color: var(--red); font-size: 0.85rem; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.1em; margin-top: 1px; }
+  .fsd-item-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
+  .fsd-item-desc { font-size: 0.875rem; color: var(--gray); margin-top: 3px; line-height: 1.6; }
+  .fsd-pricing { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--red); padding: 36px 40px; margin-bottom: 48px; }
+  .fsd-price { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--red); line-height: 1; margin-bottom: 8px; }
+  .fsd-price-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .fsd-price-context { font-size: 0.9rem; color: var(--light); line-height: 1.8; max-width: 660px; }
+  .fsd-price-context strong { color: var(--white); }
+  .fsd-close { font-size: 1rem; color: var(--white); line-height: 1.85; font-style: italic; margin-bottom: 48px; max-width: 660px; border-left: 2px solid var(--red); padding-left: 20px; }
+  .fsd-for { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px; }
+  .fsd-for li { display: flex; gap: 16px; align-items: flex-start; font-size: 0.9rem; color: var(--light); line-height: 1.7; }
+  .fsd-for li::before { content: '—'; color: var(--red); flex-shrink: 0; font-family: 'Barlow Condensed', sans-serif; margin-top: 1px; }
+  .fsd-consult { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 22px 28px; }
@@ -534,7 +559,72 @@
     <p class="feature-desc">On-demand access to Shadow's executive security leadership for organizations that need consistent, high-level security oversight.</p>
   </div>
 </div>
-</div><div class="cta-band reveal">
+</div>
+</div><!-- /page-content -->
+
+<!-- FRACTIONAL SECURITY DIRECTOR -->
+<section class="fsd-section">
+  <div class="fsd-inner reveal">
+    <div class="fsd-sub">Fractional Security Director</div>
+    <h2 class="fsd-hook">Your First Call<br>When Something<br><span>Feels Wrong.</span></h2>
+    <p class="fsd-intro">Most growing businesses don't have a Head of Security. They have a gut feeling that they should.<br><br>If you run a company between 5 and 500 people, you're operating in the exact gap that Shadow's Fractional Security Director program was built for. You're too large to ignore security, and too lean to justify a full-time hire. We fill that role with Secret Service-trained leadership, at a fraction of the cost.</p>
+
+    <div class="fsd-sub">What You Get</div>
+    <ul class="fsd-checklist">
+      <li>
+        <span class="fsd-check">✓</span>
+        <div><div class="fsd-item-title">Dedicated Security Director</div><div class="fsd-item-desc">A named Shadow professional assigned to your organization — not a rotating contact, not a call center.</div></div>
+      </li>
+      <li>
+        <span class="fsd-check">✓</span>
+        <div><div class="fsd-item-title">5–10 Hours Per Month</div><div class="fsd-item-desc">Strategy calls, incident response, policy reviews, policy creation, and site visits as needed.</div></div>
+      </li>
+      <li>
+        <span class="fsd-check">✓</span>
+        <div><div class="fsd-item-title">On-Call Access</div><div class="fsd-item-desc">Reach your Security Director when something comes up — not just on scheduled days.</div></div>
+      </li>
+      <li>
+        <span class="fsd-check">✓</span>
+        <div><div class="fsd-item-title">Monthly Security Briefing</div><div class="fsd-item-desc">A standing review of your threat environment, incidents, and program status.</div></div>
+      </li>
+      <li>
+        <span class="fsd-check">✓</span>
+        <div><div class="fsd-item-title">Staff Training Sessions</div><div class="fsd-item-desc">Quarterly scenario-based training and awareness programs for your team.</div></div>
+      </li>
+      <li>
+        <span class="fsd-check">✓</span>
+        <div><div class="fsd-item-title">Policy & Protocol Library</div><div class="fsd-item-desc">Shadow's proven policy frameworks adapted to your organization's specific structure and risk profile.</div></div>
+      </li>
+      <li>
+        <span class="fsd-check">✓</span>
+        <div><div class="fsd-item-title">Priority Deployment</div><div class="fsd-item-desc">Need boots on the ground? Shadow clients go to the front of the queue.</div></div>
+      </li>
+    </ul>
+
+    <div class="fsd-sub">What It Costs</div>
+    <div class="fsd-pricing">
+      <div class="fsd-price">$3,000 – $5,000</div>
+      <div class="fsd-price-label">Flat Monthly Rate &nbsp;·&nbsp; No Retainer Surprises &nbsp;·&nbsp; Travel Billed Separately If On-Site</div>
+      <p class="fsd-price-context">For context: <strong>a full-time Chief Security Officer costs $150,000–$250,000 per year in salary alone</strong> — before benefits, equity, or overhead. Shadow's Fractional Security Director program gives you executive-caliber security leadership for less than the cost of one month of that hire.</p>
+    </div>
+    <p class="fsd-close">You're not buying hours. You're buying the certainty that someone with presidential protection experience is watching your back.</p>
+
+    <div class="fsd-sub">Who It's Built For</div>
+    <ul class="fsd-for">
+      <li>Companies with 5–500 employees who lack a dedicated security function</li>
+      <li>Founders and executives who travel frequently or operate in elevated-risk environments</li>
+      <li>Organizations that have recently experienced an incident and need a program reset</li>
+      <li>Businesses entering new markets, new facilities, or new operational complexity</li>
+      <li>Companies that have been told by insurers or board members to "get a security plan"</li>
+    </ul>
+
+    <p class="fsd-consult">Start with a confidential 30-minute consultation — no commitment required.</p>
+    <a href="contact.html?subject=Fractional+Security+Director" class="btn-primary">Engage Your Fractional Director →</a>
+  </div>
+</section>
+
+<div class="page-content" style="padding-top:0">
+<div class="cta-band reveal">
   <div class="cta-band-copy">
     <h3>Build Your Security Program</h3>
     <p>From program design to ongoing leadership — Shadow is your security partner.</p>
