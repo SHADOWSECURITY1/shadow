@@ -79,13 +79,14 @@
     }
     .hero-content { max-width: 800px; position: relative; z-index: 1; }
     .label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 24px; }
-    .hero-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 8rem); line-height: 0.9; letter-spacing: 0.02em; margin-bottom: 40px; }
+    .hero-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 48px; white-space: nowrap; }
     .hero-headline .accent { color: var(--red); }
-    .acronym-block { display: flex; flex-direction: column; gap: 8px; margin-bottom: 48px; }
+    .acronym-body-grid { display: grid; grid-template-columns: auto 1fr; gap: 60px; align-items: start; }
+    .acronym-block { display: flex; flex-direction: column; gap: 8px; }
     .acronym-row { display: flex; align-items: baseline; gap: 20px; }
     .acronym-letter { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--red); line-height: 1; width: 48px; flex-shrink: 0; }
     .acronym-word { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
-    .hero-body { font-size: 1.05rem; color: var(--light); line-height: 1.8; max-width: 600px; }
+    .hero-body { font-size: 1.05rem; color: var(--light); line-height: 1.8; }
 
     /* CARDS SECTION */
     .cards-section { padding: 80px 60px; }
@@ -154,6 +155,8 @@
     @media (max-width: 768px) {
       nav { padding: 24px 32px; }
       .hero-section { padding: 120px 32px 60px; }
+      .acronym-body-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-headline { white-space: normal; }
       .cards-section { padding: 60px 32px; }
       .cards-grid { grid-template-columns: 1fr; }
       .manifesto-band { padding: 48px 32px; }
@@ -189,28 +192,28 @@
   <div class="hero-bg-letter">H</div>
   <div class="hero-content">
     <div class="label reveal">Our Ecosystem</div>
-    <h1 class="hero-headline reveal reveal-delay-1">
-      THE <span class="accent">HERO</span><br>FAMILY
-    </h1>
-    <div class="acronym-block reveal reveal-delay-2">
-      <div class="acronym-row">
-        <span class="acronym-letter">H</span>
-        <span class="acronym-word">Help</span>
+    <h1 class="hero-headline reveal reveal-delay-1">THE <span class="accent">HERO</span> FAMILY</h1>
+    <div class="acronym-body-grid reveal reveal-delay-2">
+      <div class="acronym-block">
+        <div class="acronym-row">
+          <span class="acronym-letter">H</span>
+          <span class="acronym-word">Help</span>
+        </div>
+        <div class="acronym-row">
+          <span class="acronym-letter">E</span>
+          <span class="acronym-word">Everyone</span>
+        </div>
+        <div class="acronym-row">
+          <span class="acronym-letter">R</span>
+          <span class="acronym-word">Remain</span>
+        </div>
+        <div class="acronym-row">
+          <span class="acronym-letter">O</span>
+          <span class="acronym-word">Operational</span>
+        </div>
       </div>
-      <div class="acronym-row">
-        <span class="acronym-letter">E</span>
-        <span class="acronym-word">Everyone</span>
-      </div>
-      <div class="acronym-row">
-        <span class="acronym-letter">R</span>
-        <span class="acronym-word">Remain</span>
-      </div>
-      <div class="acronym-row">
-        <span class="acronym-letter">O</span>
-        <span class="acronym-word">Operational</span>
-      </div>
+      <p class="hero-body">HERO is more than an acronym — it's a philosophy shared across a family of organizations united by a single mission: to protect, support, and empower the people who keep the world moving. From elite security operations to marine rescue, athlete foundations to lifestyle brands, every entity within the HERO Family is built on the same principle: service above self.</p>
     </div>
-    <p class="hero-body reveal reveal-delay-3">HERO is more than an acronym — it's a philosophy shared across a family of organizations united by a single mission: to protect, support, and empower the people who keep the world moving. From elite security operations to marine rescue, athlete foundations to lifestyle brands, every entity within the HERO Family is built on the same principle: service above self.</p>
   </div>
 </section>
 
