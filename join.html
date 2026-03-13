@@ -429,12 +429,15 @@
     .footer-top { grid-template-columns: 1fr; }
   }
   @media (max-width: 480px) {
+    nav { padding: 18px 20px; }
+    nav.scrolled { padding: 14px 20px; }
     .page-hero { padding: 100px 20px 48px; }
     .intro-section { padding: 48px 20px; }
     .tiers-section { padding: 48px 20px; }
     .form-section { padding: 48px 20px; }
     .next-section { padding: 48px 20px; }
     footer { padding: 40px 20px 28px; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   }
 </style>
