@@ -320,11 +320,15 @@
   #process { background: var(--deep); padding: 80px 64px; }
   .process-hdr { margin-bottom: 72px; }
   .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); }
-  .step { background: var(--card); padding: 48px 36px; position: relative; overflow: hidden; }
-  .step-n { font-family: 'Bebas Neue', sans-serif; font-size: 5.5rem; color: rgba(220,192,120,0.32); line-height: 1; margin-bottom: 24px; }
-  .step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; color: var(--white); }
+  .step { background: var(--card); padding: 48px 36px; position: relative; overflow: hidden; transition: background 0.3s; }
+  .step:hover { background: #141414; }
+  .step-n { font-family: 'Bebas Neue', sans-serif; font-size: 5.5rem; color: rgba(220,192,120,0.32); line-height: 1; margin-bottom: 24px; transition: color 0.3s; }
+  .step:hover .step-n { color: rgba(201,168,76,0.6); }
+  .step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; color: var(--white); transition: color 0.3s; }
+  .step:hover .step-title { color: var(--red); }
   .step-desc { font-size: 0.875rem; color: var(--light); line-height: 1.75; }
-  .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5; }
+  .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5; transition: opacity 0.3s; }
+  .step:hover::before { opacity: 1; }
 
   /* QUOTE/MANIFESTO BAND */
   #manifesto {
