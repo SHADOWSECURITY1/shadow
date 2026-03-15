@@ -557,8 +557,26 @@
           <option>Standard, Planning in advance</option>
           <option>Consulting, Program development</option>
           <option>Media Request, Press or commentary</option>
+          <option value="Metal Detector Deployment">Metal Detector Deployment</option>
           <option value="Career Application">Career Application</option>
         </select>
+      </div>
+      <div class="form-field md-fields" id="mdFields" style="display:none">
+        <div class="form-row">
+          <div class="form-field">
+            <label># of Units</label>
+            <input type="number" id="mdUnits" name="md_units" min="1" max="20" placeholder="How many units?">
+          </div>
+          <div class="form-field">
+            <label># of Days</label>
+            <select id="mdDays" name="md_days">
+              <option value="" disabled selected>Select duration</option>
+              <option value="1">1 Day — $350 per unit</option>
+              <option value="2">2 Days — $550 per unit</option>
+              <option value="3+">3+ Days — Contact for pricing</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div class="form-field">
         <label>Requested Date / Timeframe</label>
@@ -574,13 +592,25 @@
 </div>
 <script>
   const contactSubmit = document.getElementById('contactSubmit');
-  if (contactSubmit) {{
-    contactSubmit.addEventListener('click', function() {{
-      this.textContent = "Received. We\'ll be in touch.";
+  if (contactSubmit) {
+    contactSubmit.addEventListener('click', function() {
+      this.textContent = "Received. We'll be in touch.";
       this.style.background = '#1a1a1a';
       this.style.color = 'var(--light)';
-    }});
-  }}
+    });
+  }
+  const serviceSelect = document.querySelector('.contact-form select');
+  const mdFields = document.getElementById('mdFields');
+  if (serviceSelect && mdFields) {
+    serviceSelect.addEventListener('change', function() {
+      mdFields.style.display = this.value === 'Metal Detector Deployment' ? 'block' : 'none';
+    });
+  }
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('subject') === 'Metal Detector Deployment' && serviceSelect) {
+    serviceSelect.value = 'Metal Detector Deployment';
+    if (mdFields) mdFields.style.display = 'block';
+  }
 </script>
 </div>
 
