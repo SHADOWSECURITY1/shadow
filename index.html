@@ -277,10 +277,10 @@
   .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 72px; }
   .services-intro { font-size: 0.9rem; color: var(--light); max-width: 340px; line-height: 1.8; text-align: right; }
   /* COVERFLOW — ported from michaeldegeus.com/ventures */
-  .services-coverflow { position:relative; padding-bottom:58px; overflow:hidden; background:var(--red); }
+  .services-coverflow { position:relative; padding-bottom:58px; overflow:hidden; background:linear-gradient(rgba(8,8,8,0.58),rgba(8,8,8,0.58)), url('services-bg.jpg') center center / cover no-repeat; }
   .services-coverflow::before,.services-coverflow::after { content:''; position:absolute; top:0; bottom:58px; width:120px; z-index:15; pointer-events:none; }
-  .services-coverflow::before { left:0; background:linear-gradient(to right,var(--red) 20%,transparent); }
-  .services-coverflow::after  { right:0; background:linear-gradient(to left,var(--red) 20%,transparent); }
+  .services-coverflow::before { left:0; background:linear-gradient(to right,rgba(8,8,8,0.85) 20%,transparent); }
+  .services-coverflow::after  { right:0; background:linear-gradient(to left,rgba(8,8,8,0.85) 20%,transparent); }
   .cf-stage { position:relative; height:500px; perspective:1100px; perspective-origin:50% 42%; overflow:visible; }
   .cf-arrow { position:absolute; top:210px; background:rgba(8,8,8,.92); border:1px solid rgba(201,168,76,.28); color:var(--red); width:44px; height:44px; display:flex; align-items:center; justify-content:center; z-index:20; transition:background .2s,border-color .2s; font-size:1.15rem; line-height:1; }
   .cf-arrow:hover { background:rgba(201,168,76,.14); border-color:var(--red); }
