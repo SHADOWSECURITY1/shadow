@@ -409,6 +409,68 @@
   .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; transition: color 0.2s; }
   .footer-legal a:hover { color: var(--red); }
 
+  /* VIDEO SHOWCASE */
+  .video-showcase { margin-top: 80px; padding-top: 80px; border-top: 1px solid var(--border); }
+  .video-showcase-header { margin-bottom: 40px; }
+  .video-container {
+    position: relative; overflow: hidden;
+    background: var(--card);
+  }
+  .video-container video {
+    width: 100%; display: block;
+    filter: brightness(0.88) saturate(0.9);
+    transition: filter 0.4s;
+  }
+  .video-container:hover video { filter: brightness(1) saturate(1); }
+  .video-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 32px 40px;
+    background: linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 100%);
+    pointer-events: none;
+  }
+  .video-overlay-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem;
+    letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 6px;
+  }
+  .video-overlay-text {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1rem;
+    letter-spacing: 0.08em; color: var(--white); line-height: 1.4;
+  }
+
+  /* MEDIA GALLERY */
+  .media-gallery {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3px; margin-top: 3px; background: var(--border);
+  }
+  .media-gallery-item {
+    position: relative; overflow: hidden; height: 460px;
+  }
+  .media-gallery-item video,
+  .media-gallery-item img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: brightness(0.82) saturate(0.88);
+    transition: filter 0.5s ease, transform 0.5s ease;
+  }
+  .media-gallery-item:hover video,
+  .media-gallery-item:hover img {
+    filter: brightness(0.95) saturate(1);
+    transform: scale(1.03);
+  }
+  .media-gallery-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 24px 28px;
+    background: linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 100%);
+    pointer-events: none;
+  }
+  .media-gallery-caption .cap-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem;
+    letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 5px;
+  }
+  .media-gallery-caption .cap-text {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem;
+    letter-spacing: 0.06em; color: var(--white); line-height: 1.4;
+  }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 22px 28px; }
@@ -418,6 +480,9 @@
     .page-hero { padding: 120px 28px 60px; }
     .page-content { padding: 60px 28px; }
     .feature-grid, .steps-grid, .job-cards { grid-template-columns: 1fr; }
+    .video-showcase { margin-top: 48px; padding-top: 48px; }
+    .media-gallery { grid-template-columns: 1fr; }
+    .media-gallery-item { height: 320px; }
     .cta-band { padding: 60px 28px; flex-direction: column; align-items: flex-start; }
     footer { padding: 48px 28px 32px; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -530,7 +595,44 @@
     <p class="feature-desc">Post-event security clearance to ensure safe departure of all principals and secure closeout of the venue.</p>
   </div>
 </div>
-</div><div class="cta-band reveal">
+</div>
+
+<!-- VIDEO SHOWCASE -->
+<div class="video-showcase reveal">
+  <div class="video-showcase-header">
+    <div class="label">In the Field</div>
+    <h2 class="section-h">Operations.<br>At Scale.</h2>
+  </div>
+  <div class="video-container">
+    <video autoplay muted loop playsinline preload="none">
+      <source src="event-video-1.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay">
+      <div class="video-overlay-label">Live Operation</div>
+      <div class="video-overlay-text">Large-scale event security deployment. Every access point controlled. Every principal protected.</div>
+    </div>
+  </div>
+  <div class="media-gallery">
+    <div class="media-gallery-item reveal">
+      <video autoplay muted loop playsinline preload="none">
+        <source src="event-video-2.mp4" type="video/mp4">
+      </video>
+      <div class="media-gallery-caption">
+        <div class="cap-label">Crowd Operations</div>
+        <div class="cap-text">High-volume entry management. Trained personnel at every lane.</div>
+      </div>
+    </div>
+    <div class="media-gallery-item reveal reveal-delay-1">
+      <img src="event-photo.jpg" alt="Shadow event security operation — large-scale venue deployment">
+      <div class="media-gallery-caption">
+        <div class="cap-label">Perimeter Control</div>
+        <div class="cap-text">Full perimeter screening setup. Shadow operators staged before gates open.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band reveal">
   <div class="cta-band-copy">
     <h3>Secure Your Next Event</h3>
     <p>No event is too large or too private. Shadow scales to your needs.</p>
