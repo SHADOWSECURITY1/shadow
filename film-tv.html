@@ -194,6 +194,28 @@
     .featured-photo-overlay { padding: 24px 20px; }
     .featured-caption-title { font-size: 1.8rem; }
   }
+  /* QUOTE PANEL with film-3.jpg background */
+  .quote-panel {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--red);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    background-image: url('film-3.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .quote-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.62);
+    z-index: 0;
+  }
+  .quote-panel > * {
+    position: relative;
+    z-index: 1;
+  }
 </style>
 </head>
 <body>
@@ -245,7 +267,7 @@
         <p class="reveal">Whether it's a premiere red carpet, a remote location shoot, or an award season circuit, Shadow keeps your talent safe and your production moving.</p>
       </div>
       <div class="reveal">
-        <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--red);padding:40px;position:relative;">
+        <div class="quote-panel">
   <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);margin-bottom:16px;">Operational Standard</div>
   <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1.1;margin-bottom:20px;">On set or on the red carpet, our agents are always in position before the cameras roll.</div>
 </div>
@@ -311,13 +333,6 @@
 <!-- FEATURED PHOTO -->
 <div class="featured-photo-section">
   <img src="film-3.jpg" alt="Fast X World Premiere red carpet security — Rome, Italy">
-  <div class="featured-photo-overlay">
-    <div class="featured-photo-caption">
-      <div class="featured-caption-label">Live Operation</div>
-      <div class="featured-caption-title">Fast X World Premiere<br>Rome, Italy</div>
-      <div class="featured-caption-sub">Red carpet security at the Colosseum. Shadow operators on the detail for one of the largest film premieres in the world.</div>
-    </div>
-  </div>
 </div>
 
 <!-- FILM GALLERY -->
