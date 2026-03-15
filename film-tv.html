@@ -67,40 +67,6 @@
     opacity: 0.22; z-index: 1; pointer-events: none;
   }
 
-  /* FEATURED PHOTO */
-  .featured-photo-section {
-    position: relative; overflow: hidden; height: 580px;
-    border-top: 1px solid var(--border);
-  }
-  .featured-photo-section img {
-    width: 100%; height: 100%; object-fit: cover;
-    object-position: center 30%;
-    filter: brightness(0.72) saturate(0.9);
-    display: block;
-    transition: transform 8s ease;
-  }
-  .featured-photo-section:hover img { transform: scale(1.04); }
-  .featured-photo-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to right, rgba(8,8,8,0.7) 0%, rgba(8,8,8,0.2) 50%, transparent 100%);
-    display: flex; align-items: flex-end; padding: 52px 64px;
-  }
-  .featured-photo-caption { max-width: 560px; }
-  .featured-caption-label {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem;
-    letter-spacing: 0.4em; text-transform: uppercase; color: var(--red);
-    display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
-  }
-  .featured-caption-label::before { content: ''; width: 28px; height: 1px; background: var(--red); display: block; }
-  .featured-caption-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem);
-    letter-spacing: 0.02em; line-height: 0.95; margin-bottom: 12px;
-  }
-  .featured-caption-sub {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem;
-    letter-spacing: 0.12em; color: var(--light); line-height: 1.5;
-  }
-
   /* FILM GALLERY */
   .film-gallery {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -183,16 +149,11 @@
   @media(max-width:640px){nav{padding:18px 20px;}section{padding:64px 20px;}.feature-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;gap:32px;}.band{padding:48px 20px;}.cta-section{padding:48px 20px;}.page-hero{padding:100px 20px 50px;}}
   @media(hover:none)and(pointer:coarse){*,*::before,*::after{cursor:auto!important;}.cursor{display:none!important;}}
   @media(max-width:900px){
-    .featured-photo-section { height: 420px; }
-    .featured-photo-overlay { padding: 36px 28px; }
     .film-gallery { grid-template-columns: 1fr; }
     .film-gallery-item { height: 320px; }
     .hero-video { opacity: 0.18; }
   }
   @media(max-width:480px){
-    .featured-photo-section { height: 320px; }
-    .featured-photo-overlay { padding: 24px 20px; }
-    .featured-caption-title { font-size: 1.8rem; }
   }
   /* QUOTE PANEL with film-3.jpg background */
   .quote-panel {
@@ -328,11 +289,6 @@
   <h2>READY TO DEPLOY?</h2>
   <p>Contact Shadow for a confidential consultation. All inquiries handled with discretion.</p>
   <a href="contact.html" class="btn-primary">Start Your Engagement &rarr;</a>
-</div>
-
-<!-- FEATURED PHOTO -->
-<div class="featured-photo-section">
-  <img src="film-3.jpg" alt="Fast X World Premiere red carpet security — Rome, Italy">
 </div>
 
 <!-- FILM GALLERY -->
