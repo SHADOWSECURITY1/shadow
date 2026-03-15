@@ -276,150 +276,37 @@
   #services { background: var(--deep); }
   .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 72px; }
   .services-intro { font-size: 0.9rem; color: var(--light); max-width: 340px; line-height: 1.8; text-align: right; }
-  /* COVERFLOW */
-  .services-coverflow { overflow: hidden; }
-  .coverflow-stage {
-    overflow: hidden;
-    padding: 52px 0 0;
-  }
-  .coverflow-track {
-    position: relative;
-    height: 500px;
-    perspective: 1100px;
-    perspective-origin: center center;
-  }
-  /* Reflection line */
-  .coverflow-track::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent);
-  }
-  .svc {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 360px;
-    height: 460px;
-    margin-left: -180px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 40px 36px;
-    overflow: hidden;
-    box-sizing: border-box;
-    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94),
-                opacity 0.6s ease,
-                box-shadow 0.6s ease;
-  }
-  /* Dark overlay on non-active cards — the "folded away" album look */
-  .svc::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(8,8,8,0.72);
-    z-index: 20;
-    transition: background 0.5s ease;
-    pointer-events: none;
-  }
-  .svc.pos-active::before { background: rgba(8,8,8,0); }
-  .svc::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-    background: var(--red); transform: scaleX(0); transform-origin: left;
-    transition: transform 0.4s ease; z-index: 21;
-  }
-  .svc.pos-active:hover::after { transform: scaleX(1); }
-  .svc.pos-active { transform: translateX(0) rotateY(0deg) scale(1); opacity: 1; z-index: 10; box-shadow: 0 24px 70px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,168,76,0.15); }
-  .svc.pos-prev1 { transform: translateX(-400px) rotateY(55deg) scale(0.9); opacity: 1; z-index: 6; }
-  .svc.pos-next1 { transform: translateX(400px) rotateY(-55deg) scale(0.9); opacity: 1; z-index: 6; }
-  .svc.pos-prev2 { transform: translateX(-700px) rotateY(70deg) scale(0.75); opacity: 0.6; z-index: 3; }
-  .svc.pos-next2 { transform: translateX(700px) rotateY(-70deg) scale(0.75); opacity: 0.6; z-index: 3; }
-  .svc.pos-hidden { transform: translateX(0) rotateY(90deg) scale(0.5); opacity: 0; z-index: 0; pointer-events: none; }
-  .svc.pos-active:hover { background: #141414; }
-  .svc.pos-prev1, .svc.pos-next1, .svc.pos-prev2, .svc.pos-next2 { cursor: pointer; }
-  .svc-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 5rem;
-    color: rgba(220,192,120,0.28); line-height: 1;
-    position: absolute; top: 16px; right: 20px;
-    transition: color 0.3s; z-index: 1;
-  }
-  .svc.pos-active:hover .svc-num { color: rgba(220,192,120,0.5); }
-  .svc-icon {
-    width: 46px; height: 46px; border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 28px; transition: border-color 0.3s; position: relative; z-index: 1;
-  }
-  .svc.pos-active:hover .svc-icon { border-color: var(--red); }
-  .svc-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--red); stroke-width: 1.5; }
-  .svc-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; letter-spacing: 0.04em; margin-bottom: 14px; position: relative; z-index: 1; transition: color 0.3s; line-height: 1.05; }
-  .svc.pos-active:hover .svc-title { color: var(--red); }
-  .svc-desc { font-size: 0.85rem; line-height: 1.75; color: var(--light); position: relative; z-index: 1; margin-bottom: 28px; }
-  .svc-link {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red);
-    text-decoration: none; display: flex; align-items: center; gap: 8px;
-    position: relative; z-index: 1; transition: gap 0.2s;
-  }
-  .svc-link:hover { gap: 14px; }
-  .svc-link::after { content: '→'; }
-  /* COVERFLOW NAV */
-  .coverflow-nav {
-    display: flex; align-items: center; justify-content: center;
-    gap: 28px; padding: 36px 64px 60px;
-  }
-  .coverflow-btn {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem;
-    background: none; border: 1px solid var(--border); color: var(--light);
-    width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
-    transition: border-color 0.2s, color 0.2s; flex-shrink: 0;
-  }
-  .coverflow-btn:hover { border-color: var(--red); color: var(--red); }
-  .coverflow-dots { display: flex; gap: 10px; align-items: center; }
-  .coverflow-dot {
-    width: 6px; height: 6px; border-radius: 50%; background: var(--border);
-    transition: background 0.25s, transform 0.25s; cursor: pointer;
-  }
-  .coverflow-dot.active { background: var(--red); transform: scale(1.5); }
-  .coverflow-counter {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.25em;
-    color: var(--gray); min-width: 52px; text-align: center;
-  }
-  .svc {
-    background: var(--card); padding: 48px 40px;
-    position: relative; overflow: hidden; cursor: none;
-    transition: background 0.3s;
-  }
-  .svc::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-    background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
-  }
-  .svc:hover { background: #141414; }
-  .svc:hover::after { transform: scaleX(1); }
-  .svc-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 5rem;
-    color: rgba(220,192,120,0.28); line-height: 1;
-    position: absolute; top: 16px; right: 20px;
-    transition: color 0.3s;
-  }
-  .svc:hover .svc-num { color: rgba(220,192,120,0.5); }
-  .svc-icon {
-    width: 46px; height: 46px; border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 32px; transition: border-color 0.3s; position: relative; z-index: 1;
-  }
-  .svc:hover .svc-icon { border-color: var(--red); }
-  .svc-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--red); stroke-width: 1.5; }
-  .svc-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.85rem; letter-spacing: 0.04em; margin-bottom: 16px; position: relative; z-index: 1; transition: color 0.3s; }
-  .svc:hover .svc-title { color: var(--red); }
-  .svc-desc { font-size: 0.875rem; line-height: 1.8; color: var(--light); position: relative; z-index: 1; margin-bottom: 32px; }
-  .svc-link {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red);
-    text-decoration: none; display: flex; align-items: center; gap: 8px;
-    position: relative; z-index: 1; transition: gap 0.2s;
-  }
-  .svc-link:hover { gap: 14px; }
-  .svc-link::after { content: '→'; }
+  /* COVERFLOW — ported from michaeldegeus.com/ventures */
+  .services-coverflow { position:relative; padding-bottom:58px; overflow:hidden; }
+  .services-coverflow::before,.services-coverflow::after { content:''; position:absolute; top:0; bottom:58px; width:120px; z-index:15; pointer-events:none; }
+  .services-coverflow::before { left:0; background:linear-gradient(to right,#0c0c0c 20%,transparent); }
+  .services-coverflow::after  { right:0; background:linear-gradient(to left,#0c0c0c 20%,transparent); }
+  .cf-stage { position:relative; height:500px; perspective:1100px; perspective-origin:50% 42%; overflow:visible; }
+  .cf-arrow { position:absolute; top:210px; background:rgba(8,8,8,.92); border:1px solid rgba(201,168,76,.28); color:var(--red); width:44px; height:44px; display:flex; align-items:center; justify-content:center; z-index:20; transition:background .2s,border-color .2s; font-size:1.15rem; line-height:1; }
+  .cf-arrow:hover { background:rgba(201,168,76,.14); border-color:var(--red); }
+  .cf-prev { left:6px; }
+  .cf-next { right:6px; }
+  .cf-dots { position:absolute; bottom:14px; left:0; right:0; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; padding:0 16px; }
+  .cf-dot { width:6px; height:6px; border-radius:50%; background:rgba(201,168,76,.22); transition:background .25s,transform .25s; border:none; padding:0; flex-shrink:0; }
+  .cf-dot.active { background:var(--red); transform:scale(1.5); }
+  .cf-stage .svc { position:absolute; width:340px; height:460px; top:0; left:50%; margin-left:-170px; will-change:transform,opacity; transition:transform .52s cubic-bezier(.4,0,.2,1),opacity .42s ease; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(201,168,76,.2) transparent; }
+  .cf-stage .svc::-webkit-scrollbar { width:3px; }
+  .cf-stage .svc::-webkit-scrollbar-thumb { background:rgba(201,168,76,.25); border-radius:2px; }
+  .svc { background:var(--card); padding:40px 36px; position:relative; transition:background .3s; display:block; border:1px solid var(--border); }
+  .svc.cf-active { cursor:none; }
+  .svc::after { content:''; position:absolute; bottom:0; left:0; width:100%; height:2px; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
+  .svc.cf-active:hover::after { transform:scaleX(1); }
+  .svc.cf-active:hover { background:#141414; }
+  .svc.cf-active:hover .svc-title { color:var(--red); }
+  .svc-num { font-family:'Bebas Neue',sans-serif; font-size:5rem; color:rgba(220,192,120,0.28); line-height:1; position:absolute; top:16px; right:20px; }
+  .svc-icon { width:46px; height:46px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:28px; transition:border-color .3s; position:relative; z-index:1; }
+  .svc.cf-active:hover .svc-icon { border-color:var(--red); }
+  .svc-icon svg { width:22px; height:22px; fill:none; stroke:var(--red); stroke-width:1.5; }
+  .svc-title { font-family:'Bebas Neue',sans-serif; font-size:1.75rem; letter-spacing:0.04em; margin-bottom:14px; position:relative; z-index:1; transition:color .3s; line-height:1.05; }
+  .svc-desc { font-size:.875rem; line-height:1.8; color:var(--light); position:relative; z-index:1; margin-bottom:28px; }
+  .svc-link { font-family:'Barlow Condensed',sans-serif; font-size:.68rem; letter-spacing:.25em; text-transform:uppercase; color:var(--red); text-decoration:none; display:flex; align-items:center; gap:8px; position:relative; z-index:1; transition:gap .2s; }
+  .svc-link:hover { gap:14px; }
+  .svc-link::after { content:'→'; }
 
   /* VERTICALS */
   #verticals { padding: 80px 64px; background: #080808; }
@@ -611,13 +498,9 @@
     #verticals, #process, #contact, #manifesto { padding: 80px 32px; }
     #about { grid-template-columns: 1fr; gap: 60px; }
     .about-visual { height: 340px; }
-    .coverflow-track { height: 480px; }
-    .svc { width: 320px; height: 440px; margin-left: -160px; }
-    .svc.pos-prev1 { transform: translateX(-340px) rotateY(55deg) scale(0.9); }
-    .svc.pos-next1 { transform: translateX(340px) rotateY(-55deg) scale(0.9); }
-    .svc.pos-prev2 { transform: translateX(-600px) rotateY(70deg) scale(0.75); }
-    .svc.pos-next2 { transform: translateX(600px) rotateY(-70deg) scale(0.75); }
-    .coverflow-nav { padding: 32px 28px 48px; }
+    .cf-stage { height:540px; }
+    .cf-stage .svc { width:clamp(260px,76vw,320px); margin-left:calc(clamp(260px,76vw,320px) / -2); }
+    .cf-arrow { top:220px; }
     .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
     .services-intro { text-align: left; max-width: 100%; }
     .vert-item { grid-template-columns: 56px 1fr; }
@@ -646,13 +529,7 @@
     .hero-stats { gap: 0; width: 100%; justify-content: space-between; }
     .stat { flex: 1; text-align: center; }
     .stat-n { font-size: 2.2rem; }
-    .coverflow-track { height: 500px; }
-    .svc { width: 280px; height: 460px; margin-left: -140px; padding: 32px 28px; }
-    .svc.pos-prev1 { transform: translateX(-260px) rotateY(55deg) scale(0.88); }
-    .svc.pos-next1 { transform: translateX(260px) rotateY(-55deg) scale(0.88); }
-    .svc.pos-prev2 { transform: translateX(-480px) rotateY(70deg) scale(0.7); opacity: 0.3; }
-    .svc.pos-next2 { transform: translateX(480px) rotateY(-70deg) scale(0.7); opacity: 0.3; }
-    .svc { padding: 36px 28px; }
+    .cf-stage .svc { width:clamp(240px,85vw,300px); margin-left:calc(clamp(240px,85vw,300px) / -2); }
     .process-grid { grid-template-columns: 1fr; }
     .step { padding: 36px 28px; }
     .manifesto-quote { font-size: clamp(2rem, 8vw, 3rem); }
@@ -796,7 +673,9 @@
     </div>
     <p class="services-intro">Every engagement is custom-scoped. We don't do packages — we build precision protection around your specific threat environment.</p>
   </div>
-  <div class="services-coverflow"><div class="coverflow-track" id="cfTrack">
+  <div class="services-coverflow" id="services-cf">
+  <button class="cf-arrow cf-prev" aria-label="Previous">&#8592;</button>
+  <div class="cf-stage">
 
     <div class="svc">
       <div class="svc-num">01</div>
@@ -878,13 +757,9 @@
       <a href="playbook.html" class="svc-link">Get The Book</a>
     </div>
 
-  </div><!-- end coverflow-track -->
-  <div class="coverflow-nav">
-    <button class="coverflow-btn" id="cfPrev" aria-label="Previous">&#8592;</button>
-    <div class="coverflow-dots" id="cfDots"></div>
-    <span class="coverflow-counter" id="cfCounter">01 / 08</span>
-    <button class="coverflow-btn" id="cfNext" aria-label="Next">&#8594;</button>
-  </div>
+  </div><!-- end cf-stage -->
+  <button class="cf-arrow cf-next" aria-label="Next">&#8594;</button>
+  <div class="cf-dots"></div>
   </div><!-- end services-coverflow -->
 </section>
 
@@ -1174,76 +1049,59 @@
 
   // COVERFLOW
   (function() {
-    const track = document.getElementById('cfTrack');
-    if (!track) return;
-    const cards = Array.from(track.querySelectorAll('.svc'));
-    const dotsWrap = document.getElementById('cfDots');
-    const counter = document.getElementById('cfCounter');
-    const total = cards.length;
-    let current = 0;
-
-    // Build dots
+    const el = document.getElementById('services-cf');
+    if (!el) return;
+    const stage = el.querySelector('.cf-stage');
+    const cards = Array.from(stage.querySelectorAll('.svc'));
+    const dotsEl = el.querySelector('.cf-dots');
+    const n = cards.length;
+    let idx = 0;
+    // build dots
     cards.forEach((_, i) => {
-      const d = document.createElement('div');
-      d.className = 'coverflow-dot';
-      d.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(d);
+      const d = document.createElement('button');
+      d.className = 'cf-dot';
+      d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      d.addEventListener('click', () => go(i));
+      dotsEl.appendChild(d);
     });
-
-    function goTo(idx) {
-      current = (idx + total) % total;
+    el.querySelector('.cf-prev').addEventListener('click', () => go(idx - 1));
+    el.querySelector('.cf-next').addEventListener('click', () => go(idx + 1));
+    cards.forEach((c, i) => c.addEventListener('click', () => { if (i !== idx) go(i); }));
+    let startX = 0;
+    stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+    stage.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 44) go(idx + (dx < 0 ? 1 : -1));
+    });
+    function go(i) {
+      idx = Math.max(0, Math.min(n - 1, i));
       render();
     }
-
     function render() {
-      const positions = ['pos-prev2','pos-prev1','pos-active','pos-next1','pos-next2'];
-      cards.forEach((el, i) => {
-        el.classList.remove('pos-active','pos-prev1','pos-prev2','pos-next1','pos-next2','pos-hidden');
-        let diff = i - current;
-        // wrap around
-        if (diff < -total/2) diff += total;
-        if (diff > total/2) diff -= total;
-        if (diff === 0) el.classList.add('pos-active');
-        else if (diff === -1) el.classList.add('pos-prev1');
-        else if (diff === 1) el.classList.add('pos-next1');
-        else if (diff === -2) el.classList.add('pos-prev2');
-        else if (diff === 2) el.classList.add('pos-next2');
-        else el.classList.add('pos-hidden');
-      });
-      document.querySelectorAll('.coverflow-dot').forEach((d, i) => {
-        d.classList.toggle('active', i === current);
-      });
-      if (counter) counter.textContent = String(current + 1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
-    }
-
-    document.getElementById('cfPrev').addEventListener('click', () => goTo(current - 1));
-    document.getElementById('cfNext').addEventListener('click', () => goTo(current + 1));
-
-    // Click side cards to navigate
-    cards.forEach((el, i) => {
-      el.addEventListener('click', function(e) {
-        if (i !== current) {
-          e.preventDefault();
-          goTo(i);
+      const TX = [0, 290, 510];
+      const RY = [0, 46, 58];
+      const SC = [1, 0.83, 0.67];
+      const OP = [1, 0.68, 0.38];
+      cards.forEach((c, i) => {
+        const off = i - idx;
+        const abs = Math.abs(off);
+        const sign = off < 0 ? -1 : 1;
+        if (abs > 2) {
+          c.style.opacity = '0';
+          c.style.pointerEvents = 'none';
+          c.style.zIndex = '0';
+          c.style.transform = 'translateX(' + (sign * 700) + 'px) rotateY(' + (-sign * 65) + 'deg) scale(0.5)';
+          c.classList.remove('cf-active');
+        } else {
+          c.style.opacity = String(OP[abs]);
+          c.style.pointerEvents = 'auto';
+          c.style.zIndex = String(10 - abs);
+          c.style.transform = 'translateX(' + (sign * TX[abs]) + 'px) rotateY(' + (-sign * RY[abs]) + 'deg) scale(' + SC[abs] + ')';
+          c.classList.toggle('cf-active', abs === 0);
         }
       });
-    });
-
-    // Keyboard
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft') goTo(current - 1);
-      if (e.key === 'ArrowRight') goTo(current + 1);
-    });
-
-    // Touch swipe
-    let tx = 0;
-    const stage = track.parentElement;
-    stage.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
-    stage.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - tx;
-      if (Math.abs(dx) > 44) goTo(current + (dx < 0 ? 1 : -1));
-    }, {passive:true});
-
+      dotsEl.querySelectorAll('.cf-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
     render();
   })();
 
