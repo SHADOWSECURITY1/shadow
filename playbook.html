@@ -293,6 +293,18 @@
     padding: 40px 48px; margin-top: 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px;
     flex-wrap: wrap;
   }
+  .purchase-cover {
+    flex-shrink: 0;
+    width: 160px;
+    transform: perspective(800px) rotateY(4deg);
+    box-shadow: -8px 12px 40px rgba(0,0,0,0.7), 4px 0 12px rgba(201,168,76,0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .purchase-cover:hover {
+    transform: perspective(800px) rotateY(0deg);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 20px rgba(201,168,76,0.2);
+  }
+  .purchase-cover img { display: block; width: 100%; }
   .purchase-info { }
   .purchase-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
   .purchase-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; margin-bottom: 8px; }
@@ -435,6 +447,7 @@
     .cta-band { padding: 48px 20px; }
     footer { padding: 40px 20px 28px; }
     .purchase-block { padding: 28px 20px; }
+    .purchase-cover { width: 120px; margin: 0 auto; }
     .stats-row { flex-direction: column; gap: 24px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   }
@@ -541,6 +554,9 @@
 </div>
 </div>
 <div class="purchase-block reveal">
+  <div class="purchase-cover">
+    <img src="playbook-cover.png" alt="The Corporate Safety &amp; Security Playbook — Book Cover">
+  </div>
   <div class="purchase-info">
     <div class="purchase-label">Available Now</div>
     <div class="purchase-title">The Corporate Safety &amp; Security Playbook</div>
