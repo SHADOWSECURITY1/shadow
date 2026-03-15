@@ -277,7 +277,7 @@
   .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 72px; }
   .services-intro { font-size: 0.9rem; color: var(--light); max-width: 340px; line-height: 1.8; text-align: right; }
   /* COVERFLOW — ported from michaeldegeus.com/ventures */
-  .services-coverflow { position:relative; padding-bottom:58px; overflow:hidden; background:linear-gradient(rgba(8,8,8,0.58),rgba(8,8,8,0.58)), url('services-bg.jpg') center center / cover no-repeat; }
+  .services-coverflow { position:relative; padding-bottom:58px; overflow:hidden; background:linear-gradient(rgba(8,8,8,0.58),rgba(8,8,8,0.58)), url('services-bg.jpg') center 25% / cover no-repeat; }
   .services-coverflow::before,.services-coverflow::after { content:''; position:absolute; top:0; bottom:58px; width:120px; z-index:15; pointer-events:none; }
   .services-coverflow::before { left:0; background:linear-gradient(to right,rgba(8,8,8,0.85) 20%,transparent); }
   .services-coverflow::after  { right:0; background:linear-gradient(to left,rgba(8,8,8,0.85) 20%,transparent); }
@@ -498,10 +498,10 @@
     #verticals, #process, #contact, #manifesto { padding: 80px 32px; }
     #about { grid-template-columns: 1fr; gap: 60px; }
     .about-visual { height: 340px; }
-    .cf-stage { height:540px; }
-    .cf-stage .svc { width:clamp(260px,76vw,320px); margin-left:calc(clamp(260px,76vw,320px) / -2); }
-    .cf-arrow { top:220px; }
-    .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .cf-stage { height:500px; }
+    .cf-stage .svc { width:clamp(260px,76vw,320px); height:420px; margin-left:calc(clamp(260px,76vw,320px) / -2); }
+    .cf-arrow { top:188px; }
+    .services-header { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 40px; }
     .services-intro { text-align: left; max-width: 100%; }
     .vert-item { grid-template-columns: 56px 1fr; }
     .vert-desc, .vert-tag { display: none; }
@@ -529,7 +529,12 @@
     .hero-stats { gap: 0; width: 100%; justify-content: space-between; }
     .stat { flex: 1; text-align: center; }
     .stat-n { font-size: 2.2rem; }
-    .cf-stage .svc { width:clamp(240px,85vw,300px); margin-left:calc(clamp(240px,85vw,300px) / -2); }
+    .cf-stage { height:480px; }
+    .cf-stage .svc { width:clamp(240px,85vw,300px); height:400px; margin-left:calc(clamp(240px,85vw,300px) / -2); }
+    .cf-arrow { top:178px; }
+    .svc-num { font-size:3.5rem; }
+    .svc-title { font-size:1.5rem; }
+    .svc-desc { font-size:0.82rem; line-height:1.7; }
     .process-grid { grid-template-columns: 1fr; }
     .step { padding: 36px 28px; }
     .manifesto-quote { font-size: clamp(2rem, 8vw, 3rem); }
