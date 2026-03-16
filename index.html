@@ -212,7 +212,7 @@
 
   .hero-stats {
     position: absolute; right: 64px; bottom: 90px; z-index: 2;
-    display: flex; gap: 48px;
+    display: flex; flex-direction: column; gap: 20px;
     opacity: 0; animation: fadeIn 1s ease 1.2s forwards;
   }
   .stat { text-align: right; }
@@ -546,7 +546,7 @@
     .process-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr; gap: 60px; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .hero-stats { position: static; margin-top: 48px; flex-wrap: wrap; gap: 28px; }
+    .hero-stats { position: static; margin-top: 48px; flex-direction: column; gap: 20px; align-items: flex-start; }
     .scroll-hint { display: none; }
     .form-row { grid-template-columns: 1fr; }
     footer { padding: 60px 32px 40px; }
@@ -564,8 +564,8 @@
     .hero-tagline { font-size: clamp(1rem, 4vw, 1.4rem); margin-bottom: 36px; }
     .hero-actions { flex-direction: column; gap: 12px; }
     .btn-primary, .btn-ghost { width: 100%; text-align: center; padding: 16px 24px; }
-    .hero-stats { gap: 0; width: 100%; justify-content: space-between; }
-    .stat { flex: 1; text-align: center; }
+    .hero-stats { gap: 16px; width: auto; }
+    .stat { text-align: right; }
     .stat-n { font-size: 2.2rem; }
     .cf-stage { height:480px; }
     .cf-stage .svc { width:clamp(240px,85vw,300px); height:400px; margin-left:calc(clamp(240px,85vw,300px) / -2); }
@@ -641,8 +641,8 @@
 
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-n">16<em>+</em></div>
-      <div class="stat-l">Years Active</div>
+      <div class="stat-n">4</div>
+      <div class="stat-l">Continents</div>
     </div>
     <div class="stat">
       <div class="stat-n">500<em>+</em></div>
