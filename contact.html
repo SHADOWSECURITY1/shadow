@@ -584,6 +584,7 @@
           <option>Media Request, Press or commentary</option>
           <option value="Metal Detector Deployment">Metal Detector Deployment</option>
           <option value="Career Application">Career Application</option>
+          <option value="Fractional Security Director">Fractional Security Director</option>
         </select>
       </div>
       <div class="form-field md-fields" id="mdFields" style="display:none">
@@ -632,9 +633,12 @@
     });
   }
   const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('subject') === 'Metal Detector Deployment' && serviceSelect) {
+  const urlSubject = urlParams.get('subject');
+  if (urlSubject === 'Metal Detector Deployment' && serviceSelect) {
     serviceSelect.value = 'Metal Detector Deployment';
     if (mdFields) mdFields.style.display = 'block';
+  } else if (urlSubject === 'Fractional Security Director' && serviceSelect) {
+    serviceSelect.value = 'Fractional Security Director';
   }
 </script>
 </div>
