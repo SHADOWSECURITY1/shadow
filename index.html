@@ -1159,10 +1159,11 @@
   revealEls.forEach(el => observer.observe(el));
 
   // FORM SUBMIT
-  document.querySelector('.form-submit').addEventListener('click', function() {
-    this.textContent = 'Received. We\'ll be in touch.';
-    this.style.opacity = '0.6';
-    this.disabled = true;
+  document.querySelector('.contact-form').addEventListener('submit', function() {
+    const btn = this.querySelector('.form-submit');
+    btn.textContent = 'Received. We\'ll be in touch.';
+    btn.style.opacity = '0.6';
+    btn.disabled = true;
   });
 </script>
 </body>
