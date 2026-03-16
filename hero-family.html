@@ -114,41 +114,40 @@
     .hero-body { font-size: 1.05rem; color: var(--light); line-height: 1.8; }
 
     /* CARDS SECTION */
-    .cards-section { padding: 80px 60px; }
-    .section-hdr { margin-bottom: 60px; }
+    .cards-section { padding: 80px 60px 40px; }
+    .section-hdr { margin-bottom: 0; }
     .section-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 0.03em; margin-top: 12px; }
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px; }
-    .hero-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 48px 40px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s, background 0.3s;
-      text-decoration: none;
-      display: block;
-    }
-    .hero-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: var(--red); transform: scaleX(0); transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    .hero-card:hover { border-color: rgba(201,168,76,0.3); background: #141414; }
-    .hero-card:hover::before { transform: scaleX(1); }
-    .card-icon { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: rgba(201,168,76,0.15); line-height: 1; margin-bottom: 24px; transition: color 0.3s; }
-    .hero-card:hover .card-icon { color: rgba(201,168,76,0.4); }
-    .card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; transition: color 0.3s; }
-    .hero-card:hover .card-title { color: var(--red); }
-    .card-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.7; margin-bottom: 28px; }
-    .card-link { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); display: flex; align-items: center; gap: 10px; transition: gap 0.3s; }
-    .hero-card:hover .card-link { gap: 16px; }
-    .card-arrow { display: inline-block; transition: transform 0.3s; }
-    .hero-card:hover .card-arrow { transform: translateX(4px); }
-    .card-category { font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
-    .card-initials { width: 52px; height: 52px; border: 1px solid var(--red); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--red); margin-bottom: 24px; }
-    .card-role { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
-    .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-    .card-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); border: 1px solid var(--border); padding: 5px 10px; }
+
+    /* COVERFLOW */
+    .services-coverflow { position:relative; padding-bottom:58px; overflow:hidden; background:linear-gradient(rgba(8,8,8,0.55),rgba(8,8,8,0.55)), url('services-bg.jpg') center 45% / cover no-repeat; }
+    .services-coverflow::before,.services-coverflow::after { content:''; position:absolute; top:0; bottom:58px; width:120px; z-index:15; pointer-events:none; }
+    .services-coverflow::before { left:0; background:linear-gradient(to right,rgba(8,8,8,0.85) 20%,transparent); }
+    .services-coverflow::after  { right:0; background:linear-gradient(to left,rgba(8,8,8,0.85) 20%,transparent); }
+    .cf-stage { position:relative; height:500px; perspective:1100px; perspective-origin:50% 42%; overflow:visible; }
+    .cf-arrow { position:absolute; top:210px; background:rgba(8,8,8,.92); border:1px solid rgba(201,168,76,.28); color:var(--red); width:44px; height:44px; display:flex; align-items:center; justify-content:center; z-index:20; transition:background .2s,border-color .2s; font-size:1.15rem; line-height:1; }
+    .cf-arrow:hover { background:rgba(201,168,76,.14); border-color:var(--red); }
+    .cf-prev { left:24px; } .cf-next { right:24px; }
+    .cf-dots { display:flex; justify-content:center; align-items:center; gap:10px; padding:18px 0 0; }
+    .cf-dot { width:6px; height:6px; border-radius:50%; background:rgba(201,168,76,.22); transition:background .25s,transform .25s; border:none; padding:0; flex-shrink:0; }
+    .cf-dot.active { background:var(--red); transform:scale(1.5); }
+    .cf-stage .svc { position:absolute; width:340px; height:460px; top:0; left:50%; margin-left:-170px; will-change:transform,opacity; transition:transform .52s cubic-bezier(.4,0,.2,1),opacity .42s ease; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(201,168,76,.2) transparent; }
+    .cf-stage .svc::-webkit-scrollbar { width:3px; }
+    .cf-stage .svc::-webkit-scrollbar-thumb { background:rgba(201,168,76,.25); border-radius:2px; }
+    .svc { background:var(--card); padding:40px 36px; position:relative; transition:background .3s; display:block; border:1px solid var(--border); text-decoration:none; }
+    .svc.cf-active { cursor:none; }
+    .svc::after { content:''; position:absolute; bottom:0; left:0; width:100%; height:2px; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
+    .svc.cf-active:hover::after { transform:scaleX(1); }
+    .svc.cf-active:hover { background:#141414; }
+    .svc.cf-active:hover .svc-title { color:var(--red); }
+    .svc-num { font-family:'Bebas Neue',sans-serif; font-size:5rem; color:rgba(220,192,120,0.28); line-height:1; position:absolute; top:16px; right:20px; }
+    .svc-icon { width:46px; height:46px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:28px; transition:border-color .3s; position:relative; z-index:1; }
+    .svc.cf-active:hover .svc-icon { border-color:var(--red); }
+    .svc-icon svg { width:22px; height:22px; fill:none; stroke:var(--red); stroke-width:1.5; }
+    .svc-title { font-family:'Bebas Neue',sans-serif; font-size:1.75rem; letter-spacing:0.04em; margin-bottom:14px; position:relative; z-index:1; transition:color .3s; line-height:1.05; color:var(--white); }
+    .svc-desc { font-size:.875rem; line-height:1.8; color:var(--light); position:relative; z-index:1; margin-bottom:28px; }
+    .svc-link { font-family:'Barlow Condensed',sans-serif; font-size:.68rem; letter-spacing:.25em; text-transform:uppercase; color:var(--red); text-decoration:none; display:flex; align-items:center; gap:8px; position:relative; z-index:1; transition:gap .2s; }
+    .svc-link:hover { gap:14px; }
+    .svc-link::after { content:'→'; }
 
     /* MANIFESTO BAND */
     .manifesto-band { background: var(--red); padding: 60px; text-align: center; margin: 0; }
@@ -182,8 +181,10 @@
       .hero-section { padding: 120px 32px 60px; }
       .acronym-body-grid { grid-template-columns: 1fr; gap: 32px; }
       .hero-headline { white-space: normal; }
-      .cards-section { padding: 60px 32px; }
-      .cards-grid { grid-template-columns: 1fr; }
+      .cards-section { padding: 60px 32px 20px; }
+      .cf-stage { height:500px; }
+      .cf-stage .svc { width:clamp(260px,76vw,320px); height:420px; margin-left:calc(clamp(260px,76vw,320px) / -2); }
+      .cf-arrow { top:188px; }
       .manifesto-band { padding: 48px 32px; }
       footer { padding: 60px 32px 40px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -244,63 +245,89 @@
 
 <!-- FAMILY CARDS -->
 <section class="cards-section">
-  <div class="section-hdr reveal">
+  <div class="section-hdr reveal" style="padding: 0 0 48px;">
     <div class="label">The Ecosystem</div>
     <h2 class="section-h">HERO Family<br>Entities</h2>
   </div>
-  <div class="cards-grid">
-
-    <a href="https://herodivingandmarine.com/pages/teamhero" target="_blank" rel="noopener" class="hero-card reveal">
-      <div class="card-icon">01</div>
-      <div class="card-title">Team HERO</div>
-      <p class="card-desc">Shark Tank for Heroes. A platform that gives mission-driven entrepreneurs, veterans, first responders, and public servants, the stage, funding, and mentorship to build the ventures they've earned the right to build.</p>
-      <div class="card-link">Visit Team HERO <span class="card-arrow">→</span></div>
-    </a>
-
-    <a href="https://herodivingandmarine.com/pages/the-hero-foundation" target="_blank" rel="noopener" class="hero-card reveal reveal-delay-1">
-      <div class="card-icon">02</div>
-      <div class="card-title">The HERO Foundation</div>
-      <p class="card-desc">A nonprofit dedicated to supporting those who serve. The HERO Foundation funds programs for veterans, first responders, and their families, providing resources, community, and a path forward after service.</p>
-      <div class="card-link">Visit The Foundation <span class="card-arrow">→</span></div>
-    </a>
-
-    <a href="https://herodivingandmarine.com" target="_blank" rel="noopener" class="hero-card reveal reveal-delay-2">
-      <div class="card-icon">03</div>
-      <div class="card-title">Hero Diving & Marine</div>
-      <p class="card-desc">Professional maritime operations, underwater search and rescue, and marine security services. Hero Diving & Marine brings HERO-level expertise to open water, wherever land-based solutions fall short.</p>
-      <div class="card-link">Visit Hero Diving & Marine <span class="card-arrow">→</span></div>
-    </a>
-
-    <a href="https://teesleeves.com/" target="_blank" rel="noopener" class="hero-card reveal reveal-delay-3">
-      <div class="card-icon">04</div>
-      <div class="card-title">Tee Sleeves</div>
-      <p class="card-desc">A purpose-built solution that solved a real problem for baseball and softball players elegantly. Proof that the same first-principles thinking that works in security works equally well in consumer products.</p>
-      <div class="card-link">Visit Tee Sleeves <span class="card-arrow">→</span></div>
-    </a>
-
-    <a href="https://memorypacks.ai" target="_blank" rel="noopener" class="hero-card reveal reveal-delay-4">
-      <div class="card-icon">05</div>
-      <div class="card-title">Memory Packs</div>
-      <p class="card-desc">AI intelligence upgrades that give people and organizations a genuine cognitive edge. Built on the premise that the best tools extend human capability without replacing human judgment.</p>
-      <div class="card-link">Visit Memory Packs <span class="card-arrow">→</span></div>
-    </a>
-
-    <a href="https://www.shdw.com" class="hero-card reveal">
-      <div class="card-icon">06</div>
-      <div class="card-title">Shadow</div>
-      <p class="card-desc">The intelligence-first security platform built from field-tested frameworks. Predictive, proactive, and invisible by design, turning ambient signals into protective certainty before threats materialize.</p>
-      <div class="card-link">Visit Shadow <span class="card-arrow">→</span></div>
-    </a>
-
-    <a href="#" class="hero-card reveal reveal-delay-1">
-      <div class="card-icon">07</div>
-      <div class="card-title">Dr. Bizal</div>
-      <p class="card-desc">A collaboration rooted in shared conviction: that the intersection of health, performance, and human optimization is where the most important work gets done. Dr. Bizal brings the science. Michael brings the operational framework.</p>
-      <div class="card-link">Visit Dr. Bizal <span class="card-arrow">→</span></div>
-    </a>
-
-  </div>
 </section>
+<div class="services-coverflow" id="hero-cf">
+  <button class="cf-arrow cf-prev" aria-label="Previous">&#8592;</button>
+  <div class="cf-stage">
+
+    <a href="https://herodivingandmarine.com/pages/teamhero" target="_blank" rel="noopener" class="svc">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div class="svc-title">Team HERO</div>
+      <p class="svc-desc">Shark Tank for Heroes. A platform that gives mission-driven entrepreneurs, veterans, first responders, and public servants, the stage, funding, and mentorship to build the ventures they've earned the right to build.</p>
+      <span class="svc-link">Visit Team HERO</span>
+    </a>
+
+    <a href="https://herodivingandmarine.com/pages/the-hero-foundation" target="_blank" rel="noopener" class="svc">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
+      <div class="svc-title">The HERO Foundation</div>
+      <p class="svc-desc">A nonprofit dedicated to supporting those who serve. The HERO Foundation funds programs for veterans, first responders, and their families, providing resources, community, and a path forward after service.</p>
+      <span class="svc-link">Visit The Foundation</span>
+    </a>
+
+    <a href="https://herodivingandmarine.com" target="_blank" rel="noopener" class="svc">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0020 0h-3"/></svg>
+      </div>
+      <div class="svc-title">Hero Diving & Marine</div>
+      <p class="svc-desc">Professional maritime operations, underwater search and rescue, and marine security services. Hero Diving & Marine brings HERO-level expertise to open water, wherever land-based solutions fall short.</p>
+      <span class="svc-link">Visit Hero Diving &amp; Marine</span>
+    </a>
+
+    <a href="https://teesleeves.com/" target="_blank" rel="noopener" class="svc">
+      <div class="svc-num">04</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.86H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.86l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+      </div>
+      <div class="svc-title">Tee Sleeves</div>
+      <p class="svc-desc">A purpose-built solution that solved a real problem for baseball and softball players elegantly. Proof that the same first-principles thinking that works in security works equally well in consumer products.</p>
+      <span class="svc-link">Visit Tee Sleeves</span>
+    </a>
+
+    <a href="https://memorypacks.ai" target="_blank" rel="noopener" class="svc">
+      <div class="svc-num">05</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 015 5v3a5 5 0 01-10 0V7a5 5 0 015-5z"/><path d="M9 17v1a3 3 0 006 0v-1"/><path d="M6 10H4a2 2 0 000 4h2"/><path d="M18 10h2a2 2 0 010 4h-2"/></svg>
+      </div>
+      <div class="svc-title">Memory Packs</div>
+      <p class="svc-desc">AI intelligence upgrades that give people and organizations a genuine cognitive edge. Built on the premise that the best tools extend human capability without replacing human judgment.</p>
+      <span class="svc-link">Visit Memory Packs</span>
+    </a>
+
+    <a href="https://www.shdw.com" class="svc">
+      <div class="svc-num">06</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="svc-title">Shadow</div>
+      <p class="svc-desc">The intelligence-first security platform built from field-tested frameworks. Predictive, proactive, and invisible by design, turning ambient signals into protective certainty before threats materialize.</p>
+      <span class="svc-link">Visit Shadow</span>
+    </a>
+
+    <a href="#" class="svc">
+      <div class="svc-num">07</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="svc-title">Dr. Bizal</div>
+      <p class="svc-desc">A collaboration rooted in shared conviction: that the intersection of health, performance, and human optimization is where the most important work gets done. Dr. Bizal brings the science. Michael brings the operational framework.</p>
+      <span class="svc-link">Visit Dr. Bizal</span>
+    </a>
+
+  </div><!-- end cf-stage -->
+  <button class="cf-arrow cf-next" aria-label="Next">&#8594;</button>
+  <div class="cf-dots"></div>
+</div><!-- end services-coverflow -->
 
 <!-- MANIFESTO BAND -->
 <div class="manifesto-band">
@@ -377,6 +404,81 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  // COVERFLOW
+  (function(){
+    const el = document.getElementById('hero-cf');
+    if (!el) return;
+    const stage = el.querySelector('.cf-stage');
+    const cards = Array.from(stage.querySelectorAll('.svc'));
+    const dotsEl = el.querySelector('.cf-dots');
+    const n = cards.length;
+    let cur = 0;
+
+    // build dots
+    const dots = cards.map((_,i) => {
+      const b = document.createElement('button');
+      b.className = 'cf-dot' + (i===0?' active':'');
+      b.setAttribute('aria-label','Go to '+i);
+      b.addEventListener('click', () => go(i));
+      dotsEl.appendChild(b);
+      return b;
+    });
+
+    function go(idx) {
+      cur = (idx + n) % n;
+      layout();
+    }
+
+    function layout() {
+      const W = stage.offsetWidth;
+      const cardW = cards[0].offsetWidth;
+      const spread = Math.min(W * 0.28, 220);
+      const depthStep = 80;
+      const scaleStep = 0.1;
+      const opacityStep = 0.18;
+
+      cards.forEach((c, i) => {
+        c.classList.remove('cf-active');
+        let offset = i - cur;
+        // wrap
+        if (offset > n/2)  offset -= n;
+        if (offset < -n/2) offset += n;
+        const abs = Math.abs(offset);
+        const x = offset * spread;
+        const z = -abs * depthStep;
+        const scale = 1 - abs * scaleStep;
+        const opacity = 1 - abs * opacityStep;
+        const ry = offset === 0 ? 0 : offset > 0 ? -28 : 28;
+        c.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${ry}deg) scale(${scale})`;
+        c.style.opacity = Math.max(opacity, 0.15);
+        c.style.zIndex = 10 - abs;
+        if (offset === 0) c.classList.add('cf-active');
+      });
+
+      dots.forEach((d,i) => d.classList.toggle('active', i===cur));
+    }
+
+    el.querySelector('.cf-prev').addEventListener('click', () => go(cur - 1));
+    el.querySelector('.cf-next').addEventListener('click', () => go(cur + 1));
+
+    // keyboard
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') go(cur - 1);
+      if (e.key === 'ArrowRight') go(cur + 1);
+    });
+
+    // swipe
+    let tx = 0;
+    stage.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+    stage.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) go(dx < 0 ? cur+1 : cur-1);
+    }, {passive:true});
+
+    layout();
+    window.addEventListener('resize', layout);
+  })();
 </script>
 </body>
 </html>
