@@ -453,7 +453,12 @@
         c.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${ry}deg) scale(${scale})`;
         c.style.opacity = Math.max(opacity, 0.15);
         c.style.zIndex = 10 - abs;
-        if (offset === 0) c.classList.add('cf-active');
+        if (offset === 0) {
+          c.classList.add('cf-active');
+          c.style.cursor = 'none';
+        } else {
+          c.style.cursor = 'pointer';
+        }
       });
 
       dots.forEach((d,i) => d.classList.toggle('active', i===cur));
@@ -461,6 +466,7 @@
 
     el.querySelector('.cf-prev').addEventListener('click', () => go(cur - 1));
     el.querySelector('.cf-next').addEventListener('click', () => go(cur + 1));
+    cards.forEach((c, i) => c.addEventListener('click', () => { if (i !== cur) go(i); }));
 
     // keyboard
     document.addEventListener('keydown', e => {
