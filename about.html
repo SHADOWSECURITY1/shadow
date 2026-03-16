@@ -279,10 +279,14 @@
   .cred-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
   .cred-line { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; letter-spacing: 0.06em; color: var(--white); }
 
+  /* ORIGIN SPLIT */
+  .origin-split {
+    display: grid; grid-template-columns: 1fr 180px; gap: 80px; align-items: start;
+  }
+
   /* STATS ROW */
   .stats-row {
-    display: flex; flex-direction: column; gap: 28px; margin-top: 60px; padding-top: 48px;
-    border-top: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 28px; padding-top: 12px;
   }
   .stat-item { }
   .stat-n { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; color: var(--red); }
@@ -447,7 +451,8 @@
     footer { padding: 48px 28px 32px; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-    .stats-row { flex-wrap: wrap; gap: 32px; }
+    .origin-split { grid-template-columns: 1fr; gap: 40px; }
+    .stats-row { flex-direction: row; flex-wrap: wrap; gap: 32px; }
     .form-row { grid-template-columns: 1fr; }
     .ticker { display: none; }
   }
@@ -520,29 +525,31 @@
 
 <!-- CONTENT -->
 <div class="page-content">
-<div class="intro-block reveal">
-  <div class="label">Our Origin</div>
-  <h2 class="section-h">Born From the<br>Secret Service.</h2>
-  <p>Shadow was founded with a single conviction: that the protection methodology developed and refined by the United States Secret Service, <span style="color:var(--red)">the gold standard of protective operations in the world</span>, should not be exclusive to heads of state. The world's most sophisticated security thinking should be available to anyone who needs it.</p>
-  <p>Our founder, Michael de Geus, a former U.S. Secret Service Special Agent with years of operational experience on the Presidential Detail, built Shadow to answer a gap he witnessed firsthand. The private security industry was large, but the standard was inconsistent, the vetting was inadequate, and the methodology was largely borrowed rather than earned.</p>
-  <p>Shadow is different by design. Every agent is vetted to federal standards. Every operation is planned using advance methodology. Every engagement is executed with the same seriousness of purpose that the most consequential protective operations in the world demand.</p>
-  <div class="cred">
-    <div class="cred-tag">Founder Credential</div>
-    <div class="cred-line">Former U.S. Secret Service Special Agent, Presidential Protective Division</div>
+<div class="origin-split">
+  <div class="intro-block reveal">
+    <div class="label">Our Origin</div>
+    <h2 class="section-h">Born From the<br>Secret Service.</h2>
+    <p>Shadow was founded with a single conviction: that the protection methodology developed and refined by the United States Secret Service, <span style="color:var(--red)">the gold standard of protective operations in the world</span>, should not be exclusive to heads of state. The world's most sophisticated security thinking should be available to anyone who needs it.</p>
+    <p>Our founder, Michael de Geus, a former U.S. Secret Service Special Agent with years of operational experience on the Presidential Detail, built Shadow to answer a gap he witnessed firsthand. The private security industry was large, but the standard was inconsistent, the vetting was inadequate, and the methodology was largely borrowed rather than earned.</p>
+    <p>Shadow is different by design. Every agent is vetted to federal standards. Every operation is planned using advance methodology. Every engagement is executed with the same seriousness of purpose that the most consequential protective operations in the world demand.</p>
+    <div class="cred">
+      <div class="cred-tag">Founder Credential</div>
+      <div class="cred-line">Former U.S. Secret Service Special Agent, Presidential Protective Division</div>
+    </div>
   </div>
-</div>
-<div class="stats-row reveal">
-  <div class="stat-item">
-    <div class="stat-n">500+</div>
-    <div class="stat-l">Events Secured</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-n">4</div>
-    <div class="stat-l">Continents</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-n">0</div>
-    <div class="stat-l">Incidents</div>
+  <div class="stats-row reveal">
+    <div class="stat-item">
+      <div class="stat-n">500+</div>
+      <div class="stat-l">Events Secured</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">4</div>
+      <div class="stat-l">Continents</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">0</div>
+      <div class="stat-l">Incidents</div>
+    </div>
   </div>
 </div>
 <div class="founder-section reveal" style="margin-top:80px; border-top:1px solid var(--border); padding-top:80px;">
