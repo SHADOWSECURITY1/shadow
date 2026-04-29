@@ -468,6 +468,17 @@
     border-left: 2px solid var(--red); padding-left: 16px; margin-top: 4px; flex: 1;
   }
   .press-spacer { flex: 1; }
+  .press-play {
+    width: 52px; height: 52px; border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.35);
+    display: flex; align-items: center; justify-content: center;
+    margin: 8px 0; flex-shrink: 0;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .press-card:hover .press-play {
+    border-color: var(--red); background: rgba(201,168,76,0.08);
+  }
+  .press-play svg { width: 16px; height: 16px; fill: var(--red); margin-left: 3px; }
   .press-link {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
@@ -577,6 +588,7 @@
       <div class="press-outlet">News Nation Now</div>
       <div class="press-headline">White House Correspondents' Dinner Shooting</div>
       <div class="press-meta">April 26, 2026 &nbsp;&middot;&nbsp; <span>TV Interview</span></div>
+      <div class="press-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
       <div class="press-spacer"></div>
       <a href="https://app.latakoo.com/asset/23665183?share=rmaphxkbbd4lcawqce72nmghkb232sww" target="_blank" rel="noopener" class="press-link">Watch Interview →</a>
     </div>
@@ -585,6 +597,7 @@
       <div class="press-outlet">NBC News San Diego</div>
       <div class="press-headline">Former Secret Service Agent Credits Security Amid Correspondents' Dinner Shooting</div>
       <div class="press-meta">April 27, 2026 &nbsp;&middot;&nbsp; <span>TV Interview</span></div>
+      <div class="press-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
       <div class="press-spacer"></div>
       <a href="https://www.nbcsandiego.com/news/local/former-u-s-secret-service-agent-weighs-in-on-security-at-whcd/4015731/" target="_blank" rel="noopener" class="press-link">Read Story →</a>
     </div>
