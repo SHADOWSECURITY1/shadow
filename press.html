@@ -434,6 +434,48 @@
   .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; transition: color 0.2s; }
   .footer-legal a:hover { color: var(--red); }
 
+  /* PRESS GRID */
+  .press-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border); margin-top: 48px;
+  }
+  .press-card {
+    background: var(--card); padding: 40px 36px; position: relative;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: background 0.3s;
+  }
+  .press-card:hover { background: #141414; }
+  .press-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5;
+  }
+  .press-outlet {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red);
+  }
+  .press-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--white); line-height: 1.35;
+  }
+  .press-meta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray);
+  }
+  .press-meta span { color: var(--red); }
+  .press-quote {
+    font-size: 0.875rem; color: var(--light); line-height: 1.8; font-style: italic;
+    border-left: 2px solid var(--red); padding-left: 16px; margin-top: 4px; flex: 1;
+  }
+  .press-spacer { flex: 1; }
+  .press-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--red); text-decoration: none; margin-top: 8px;
+    transition: color 0.2s; display: inline-block;
+  }
+  .press-link:hover { color: var(--white); }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 22px 28px; }
@@ -442,7 +484,7 @@
     .hamburger { display: flex; }
     .page-hero { padding: 120px 28px 60px; }
     .page-content { padding: 60px 28px; }
-    .feature-grid, .steps-grid, .job-cards { grid-template-columns: 1fr; }
+    .feature-grid, .steps-grid, .job-cards, .press-grid { grid-template-columns: 1fr; }
     .cta-band { padding: 60px 28px; flex-direction: column; align-items: flex-start; }
     footer { padding: 48px 28px 32px; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -526,6 +568,38 @@
   <p>Shadow operates with discretion. We do not publicize the names of our clients, the details of our engagements, or the identities of our agents. This is not a marketing posture, it is an operational requirement. The value of our service depends entirely on our ability to maintain confidentiality.</p>
   <p>For journalists, producers, and media professionals with legitimate editorial needs, we are happy to discuss the security industry broadly, threat landscape trends, and general protective operations methodology. We are not able to confirm or deny any specific client relationships or operational details.</p>
 </div>
+<div class="reveal" style="margin-top:60px">
+  <div class="label">Featured Coverage</div>
+  <h2 class="section-h">In the News.</h2>
+  <div class="press-grid">
+
+    <div class="press-card">
+      <div class="press-outlet">News Nation Now</div>
+      <div class="press-headline">White House Correspondents' Dinner Shooting</div>
+      <div class="press-meta">April 26, 2026 &nbsp;&middot;&nbsp; <span>TV Interview</span></div>
+      <div class="press-spacer"></div>
+      <a href="https://app.latakoo.com/asset/23665183?share=rmaphxkbbd4lcawqce72nmghkb232sww" target="_blank" rel="noopener" class="press-link">Watch Interview →</a>
+    </div>
+
+    <div class="press-card">
+      <div class="press-outlet">NBC News San Diego</div>
+      <div class="press-headline">Former Secret Service Agent Credits Security Amid Correspondents' Dinner Shooting</div>
+      <div class="press-meta">April 27, 2026 &nbsp;&middot;&nbsp; <span>TV Interview</span></div>
+      <div class="press-spacer"></div>
+      <a href="https://www.nbcsandiego.com/news/local/former-u-s-secret-service-agent-weighs-in-on-security-at-whcd/4015731/" target="_blank" rel="noopener" class="press-link">Read Story →</a>
+    </div>
+
+    <div class="press-card">
+      <div class="press-outlet">Time</div>
+      <div class="press-headline">Trump Says the White House Ballroom Is Essential for Security. Does He Have a Point?</div>
+      <div class="press-meta">April 28, 2026 &nbsp;&middot;&nbsp; <span>Article</span></div>
+      <blockquote class="press-quote">"They effectively have tactical control of that site, where the president will be, not the entire hotel" &mdash; describing a "360 bubble" around the president.</blockquote>
+      <a href="https://time.com/article/2026/04/28/trump-white-house-ballroom-WHCA-shooting/" target="_blank" rel="noopener" class="press-link">Read Article →</a>
+    </div>
+
+  </div>
+</div>
+
 <div class="reveal" style="margin-top:60px">
   <div class="label">Media Contact</div>
   <h2 class="section-h">Get In Touch.</h2>
