@@ -583,13 +583,21 @@
   <form id="playbookForm" style="width:100%;max-width:540px;display:flex;flex-direction:column;gap:16px">
     <div class="form-row">
       <div class="form-field">
-        <label for="pb-name">First Name</label>
-        <input type="text" id="pb-name" name="first_name" placeholder="Your first name" required>
+        <label for="pb-name">Full Name</label>
+        <input type="text" id="pb-name" name="first_name" placeholder="Your full name" required>
       </div>
       <div class="form-field">
         <label for="pb-email">Work Email</label>
         <input type="email" id="pb-email" name="email" placeholder="your@company.com" required>
       </div>
+    </div>
+    <div class="form-field">
+      <label for="pb-phone">Mobile Number</label>
+      <input type="tel" id="pb-phone" name="phone" placeholder="+1 (555) 000-0000">
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-top:4px">
+      <input type="checkbox" id="pb-consent" style="width:16px;height:16px;flex-shrink:0;margin-top:3px;accent-color:var(--red)">
+      <label for="pb-consent" style="font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:0.08em;color:var(--gray);line-height:1.6">By submitting this form I agree to receive the Corporate Safety &amp; Security Playbook and future communications from SHADOW by email and SMS. Message and data rates may apply. You may opt out at any time.</label>
     </div>
     <div id="pbMsg" style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:0.12em;padding:10px 14px;background:rgba(192,57,43,0.12);border-left:2px solid #c0392b;color:#e07060"></div>
     <div>
@@ -719,18 +727,27 @@
       var msg = document.getElementById('pbMsg');
       var name = document.getElementById('pb-name').value.trim();
       var email = document.getElementById('pb-email').value.trim();
+      var phone = document.getElementById('pb-phone').value.trim();
+      var consent = document.getElementById('pb-consent').checked;
       if (!name || !email) {
-        msg.textContent = 'Please fill in all fields.';
+        msg.textContent = 'Please fill in your name and email.';
+        msg.style.display = 'block';
+        return;
+      }
+      if (!consent) {
+        msg.textContent = 'Please agree to the terms to receive your copy.';
         msg.style.display = 'block';
         return;
       }
       btn.textContent = 'Sending...';
       btn.disabled = true;
       msg.style.display = 'none';
+      var payload = { api_key: 'IRdvg6VjeKwPLrIu2MmMgQ', first_name: name, email: email };
+      if (phone) payload.fields = { phone: phone };
       fetch('https://api.convertkit.com/v3/forms/9382864/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ api_key: 'IRdvg6VjeKwPLrIu2MmMgQ', first_name: name, email: email })
+        body: JSON.stringify(payload)
       })
       .then(function(r) { return r.json(); })
       .then(function(data) {
