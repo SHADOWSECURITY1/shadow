@@ -60,10 +60,10 @@
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
-<div>
-  <div class="label">Transmission Received</div>
-  <h1>WE'LL BE<br>IN TOUCH.</h1>
-  <p>Your inquiry has been received and flagged for immediate review. A member of the Shadow team will contact you within 24 hours through secure channels.</p>
+<div id="content">
+  <div class="label" id="eyebrow">Transmission Received</div>
+  <h1 id="headline">WE'LL BE<br>IN TOUCH.</h1>
+  <p id="body">Your inquiry has been received and flagged for immediate review. A member of the Shadow team will contact you within 24 hours through secure channels.</p>
   <a href="index.html">Return to Shadow</a>
 </div>
 <script>
@@ -75,6 +75,12 @@
     clearTimeout(t);
     t = setTimeout(() => cursor.classList.remove('moving'), 120);
   });
+
+  if (new URLSearchParams(window.location.search).get('ref') === 'playbook') {
+    document.getElementById('eyebrow').textContent = 'Playbook Confirmed';
+    document.getElementById('headline').innerHTML = 'CHECK YOUR<br>INBOX.';
+    document.getElementById('body').textContent = 'Your copy of the Corporate Safety & Security Playbook is on its way. Check your inbox — and your spam folder just in case.';
+  }
 </script>
 </body>
 </html>
