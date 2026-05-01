@@ -305,21 +305,21 @@
   .purchase-block {
     background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--red);
     padding: 40px 48px; margin-top: 48px; display: flex; align-items: flex-start;
-    flex-direction: column; gap: 32px;
+    flex-direction: row; gap: 48px;
   }
   .purchase-cover {
     flex-shrink: 0;
-    width: 160px;
-    transform: perspective(800px) rotateY(4deg);
+    width: 320px;
+    transform: perspective(1000px) rotateY(4deg);
     box-shadow: -8px 12px 40px rgba(0,0,0,0.7), 4px 0 12px rgba(201,168,76,0.15);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
   .purchase-cover:hover {
-    transform: perspective(800px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
     box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 20px rgba(201,168,76,0.2);
   }
   .purchase-cover img { display: block; width: 100%; }
-  .purchase-info { flex: 1; min-width: 220px; }
+  .purchase-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0; }
   .purchase-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
   .purchase-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; margin-bottom: 8px; }
 
@@ -460,8 +460,8 @@
     .page-content { padding: 48px 20px; }
     .cta-band { padding: 48px 20px; }
     footer { padding: 40px 20px 28px; }
-    .purchase-block { padding: 28px 20px; }
-    .purchase-cover { width: 120px; }
+    .purchase-block { padding: 28px 20px; flex-direction: column; }
+    .purchase-cover { width: 100%; max-width: 280px; }
     .stats-row { flex-direction: column; gap: 24px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   }
@@ -570,40 +570,38 @@
 
 <!-- DOWNLOAD BLOCK -->
 <div class="purchase-block reveal" id="download">
-  <div style="display:flex;align-items:flex-start;gap:40px;flex-wrap:wrap;width:100%">
-    <div class="purchase-cover">
-      <img src="playbook-cover.png" alt="The Corporate Safety &amp; Security Playbook — Book Cover">
-    </div>
-    <div class="purchase-info">
-      <div class="purchase-label">Free Download</div>
-      <div class="purchase-title">The Corporate Safety &amp; Security Playbook</div>
-      <div style="font-size:0.875rem;color:var(--light);margin-top:8px;line-height:1.7">Written by a Former U.S. Secret Service Special Agent. Enter your details below and we'll send your copy directly to your inbox.</div>
-    </div>
+  <div class="purchase-cover">
+    <img src="playbook-cover.jpg" alt="The Corporate Safety &amp; Security Playbook — Book Cover">
   </div>
-  <form id="playbookForm" style="width:100%;max-width:540px;display:flex;flex-direction:column;gap:16px">
-    <div class="form-row">
-      <div class="form-field">
-        <label for="pb-name">Full Name</label>
-        <input type="text" id="pb-name" name="first_name" placeholder="Your full name" required>
+  <div class="purchase-info">
+    <div class="purchase-label">Free Download</div>
+    <div class="purchase-title">The Corporate Safety &amp; Security Playbook</div>
+    <div style="font-size:0.875rem;color:var(--light);margin-top:8px;margin-bottom:28px;line-height:1.7">Written by a Former U.S. Secret Service Special Agent. Enter your details below and we'll send your copy directly to your inbox.</div>
+    <form id="playbookForm" style="display:flex;flex-direction:column;gap:16px">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="pb-name">Full Name</label>
+          <input type="text" id="pb-name" name="first_name" placeholder="Your full name" required>
+        </div>
+        <div class="form-field">
+          <label for="pb-email">Work Email</label>
+          <input type="email" id="pb-email" name="email" placeholder="your@company.com" required>
+        </div>
       </div>
       <div class="form-field">
-        <label for="pb-email">Work Email</label>
-        <input type="email" id="pb-email" name="email" placeholder="your@company.com" required>
+        <label for="pb-phone">Mobile Number</label>
+        <input type="tel" id="pb-phone" name="phone" placeholder="+1 (555) 000-0000">
       </div>
-    </div>
-    <div class="form-field">
-      <label for="pb-phone">Mobile Number</label>
-      <input type="tel" id="pb-phone" name="phone" placeholder="+1 (555) 000-0000">
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:12px;margin-top:4px">
-      <input type="checkbox" id="pb-consent" style="width:16px;height:16px;flex-shrink:0;margin-top:3px;accent-color:var(--red)">
-      <label for="pb-consent" style="font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:0.08em;color:var(--gray);line-height:1.6">By submitting this form I agree to receive the Corporate Safety &amp; Security Playbook and future communications from SHADOW by email and SMS. Message and data rates may apply. You may opt out at any time.</label>
-    </div>
-    <div id="pbMsg" style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:0.12em;padding:10px 14px;background:rgba(192,57,43,0.12);border-left:2px solid #c0392b;color:#e07060"></div>
-    <div>
-      <button type="submit" class="form-submit" id="pbSubmit">Get the Book →</button>
-    </div>
-  </form>
+      <div style="display:flex;align-items:flex-start;gap:12px;margin-top:4px">
+        <input type="checkbox" id="pb-consent" style="width:16px;height:16px;flex-shrink:0;margin-top:3px;accent-color:var(--red)">
+        <label for="pb-consent" style="font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:0.08em;color:var(--gray);line-height:1.6">By submitting this form I agree to receive the Corporate Safety &amp; Security Playbook and future communications from SHADOW by email and SMS. Message and data rates may apply. You may opt out at any time.</label>
+      </div>
+      <div id="pbMsg" style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:0.12em;padding:10px 14px;background:rgba(192,57,43,0.12);border-left:2px solid #c0392b;color:#e07060"></div>
+      <div>
+        <button type="submit" class="form-submit" id="pbSubmit">Get the Book →</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <div class="intro-block reveal" style="margin-top:60px">
