@@ -552,15 +552,15 @@
   </div>
   <div>
     <div class="label">Deploy Now</div>
-    <div class="contact-form">
+    <form class="contact-form" id="contactForm">
       <div class="form-row">
         <div class="form-field">
           <label>First Name</label>
-          <input type="text" placeholder="First">
+          <input type="text" name="first_name" placeholder="First" required>
         </div>
         <div class="form-field">
           <label>Last Name</label>
-          <input type="text" placeholder="Last">
+          <input type="text" name="last_name" placeholder="Last">
         </div>
       </div>
       <div class="form-row">
@@ -570,12 +570,12 @@
         </div>
         <div class="form-field">
           <label>Organization</label>
-          <input type="text" placeholder="Company / Organization">
+          <input type="text" name="organization" placeholder="Company / Organization">
         </div>
       </div>
       <div class="form-field">
         <label>Threat Level / Urgency</label>
-        <select>
+        <select name="urgency">
           <option value="" disabled selected>Select urgency level</option>
           <option>Immediate, Deploy within 24 hours</option>
           <option>Urgent, Deploy within 72 hours</option>
@@ -606,23 +606,52 @@
       </div>
       <div class="form-field">
         <label>Requested Date / Timeframe</label>
-        <input type="text" placeholder="Event date or engagement window">
+        <input type="text" name="date" placeholder="Event date or engagement window">
       </div>
       <div class="form-field">
         <label>Tell Us About Your Needs</label>
         <textarea name="message" rows="5" placeholder="Describe your situation, timeline, location, and any relevant details..."></textarea>
       </div>
+      <div id="contactMsg" style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:0.12em;padding:10px 14px;border-left:2px solid #c0392b;color:#e07060"></div>
       <button type="submit" class="form-submit" id="contactSubmit">Submit Securely →</button>
-    </div>
+    </form>
   </div>
 </div>
 <script>
-  const contactSubmit = document.getElementById('contactSubmit');
-  if (contactSubmit) {
-    contactSubmit.addEventListener('click', function() {
-      this.textContent = "Received. We'll be in touch.";
-      this.style.background = '#1a1a1a';
-      this.style.color = 'var(--light)';
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('contactSubmit');
+      const msg = document.getElementById('contactMsg');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/xpqbzoyp', {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          btn.textContent = "Received. We'll be in touch.";
+          btn.style.background = '#1a1a1a';
+          btn.style.color = 'var(--light)';
+          contactForm.reset();
+        } else {
+          const data = await res.json();
+          msg.textContent = data.errors ? data.errors.map(e => e.message).join(', ') : 'Something went wrong. Please email hello@shdw.com directly.';
+          msg.style.background = 'rgba(192,57,43,0.12)';
+          msg.style.display = 'block';
+          btn.textContent = 'Submit Securely →';
+          btn.disabled = false;
+        }
+      } catch {
+        msg.textContent = 'Network error. Please email hello@shdw.com directly.';
+        msg.style.background = 'rgba(192,57,43,0.12)';
+        msg.style.display = 'block';
+        btn.textContent = 'Submit Securely →';
+        btn.disabled = false;
+      }
     });
   }
   const serviceSelect = document.querySelector('.contact-form select');
