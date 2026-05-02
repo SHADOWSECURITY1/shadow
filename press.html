@@ -290,7 +290,7 @@
 
   /* PROCESS STEPS */
   .steps-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1px; background: var(--border); margin-top: 48px;
   }
   .step-card {
@@ -436,7 +436,7 @@
 
   /* PRESS GRID */
   .press-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1px; background: var(--border); margin-top: 48px;
   }
   .press-card {
