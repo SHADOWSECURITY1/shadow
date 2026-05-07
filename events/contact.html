@@ -8,7 +8,7 @@
 <title>Contact Shadow Events | Event Security &amp; EP Inquiries</title>
 <meta name="description" content="Open a confidential inquiry with Shadow Events. Reviewed by Shadow leadership. 48-hour response. Event security and executive protection for tours, festivals, motorsport, sports, and private events." />
 <meta name="keywords" content="event security inquiry, executive protection inquiry, hire event security, contact Shadow, event security consultant, executive protection consultant, USSS executive protection" />
-<meta name="author" content="Shadow Protection Group" />
+<meta name="author" content="SHDW, LLC" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <link rel="canonical" href="https://shdw.com/events/contact.html" />
 
@@ -37,7 +37,8 @@
   "url": "https://shdw.com/events/contact.html",
   "about": {
     "@type": "Organization",
-    "name": "Shadow Protection Group",
+    "name": "SHDW, LLC",
+    "alternateName": "Shadow",
     "url": "https://shdw.com",
     "contactPoint": [
       {
@@ -68,8 +69,6 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-
 
 <!-- =================== NAV =================== -->
 <header class="nav">
@@ -271,18 +270,16 @@
   <div class="container">
     <div class="footer__top">
       <div>
-        <div class="footer__brand-inline"><span class="footer__brand-wordmark footer__brand-wordmark--upper">SHADOW</span><span class="footer__brand-wordmark footer__brand-wordmark--gold">.</span></div>
-        <p class="footer__brand-tag">Proactive event protection. Headquartered in Northern Virginia. Global deployment.</p>
+        <div class="footer__brand-mark">Shadow</div>
+        <div class="footer__brand-sub">Events Division</div>
+        <p class="footer__brand-tag">Anticipatory event protection. Northern Virginia. Global deployment.</p>
       </div>
       <div class="footer__col">
-                <h6>Site</h6>
+        <h6>Site</h6>
         <ul class="footer__list">
           <li><a href="index.html">Overview</a></li>
-          <li><a href="doctrine.html">Doctrine</a></li>
           <li><a href="capabilities.html">Capabilities</a></li>
           <li><a href="case-studies.html">Engagements</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="leadership.html">Leadership</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -304,20 +301,19 @@
           <li><a href="capabilities.html#ep">Executive Protection</a></li>
           <li><a href="capabilities.html#venue">Venue Operations</a></li>
           <li><a href="capabilities.html#command">Command &amp; Coordination</a></li>
-          <li><a href="screening.html">Screening</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h6>Shadow</h6>
         <ul class="footer__list">
           <li><a href="https://shdw.com" target="_blank" rel="noopener">shdw.com</a></li>
-          <li><a href="press.html">Press</a></li>
           <li><a href="contact.html">Inquire</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copy">&copy; 2026 SHDW, LLC. All Rights Reserved.</span>
+      <span class="footer__copy">© SHDW, LLC. All rights reserved.</span>
+      <span class="footer__legal">Licensed / Insured / Confidential</span>
     </div>
   </div>
 </footer>
@@ -346,30 +342,13 @@
   }
 </script>
 
+<script src="../brand.js"></script>
 
 <script>
-(function() {
-  var cursor = document.getElementById('cursor');
-  if (!cursor) return;
-  var t;
-  document.addEventListener('mousemove', function(e) {
-    cursor.style.transform = 'translate(' + (e.clientX - 3) + 'px,' + (e.clientY - 3) + 'px)';
-    cursor.classList.add('moving');
-    clearTimeout(t);
-    t = setTimeout(function() { cursor.classList.remove('moving'); }, 120);
-  });
+(function(){
+  var t=document.getElementById('navToggle'),i=document.getElementById('navInner');
+  if(t&&i) t.addEventListener('click',function(){i.classList.toggle('is-open');});
 })();
 </script>
-
-<script>
-  (function() {
-    var toggle = document.getElementById('navToggle');
-    var inner = document.getElementById('navInner');
-    if (toggle && inner) {
-      toggle.addEventListener('click', function() { inner.classList.toggle('is-open'); });
-    }
-  })();
-</script>
-<script src="../brand.js"></script>
 </body>
 </html>
