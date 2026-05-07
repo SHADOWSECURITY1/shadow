@@ -2412,11 +2412,12 @@ h1, h2, h3, h4 {
 }
 
 /* ── shdw.com brand alignment ─────────────── */
-.nav__brand-dot {
+.nav__brand-sub {
   font-family: var(--font-display);
   font-size: 1.5rem;
   color: var(--tactical-gold);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
 }
 .nav__wordmark { text-transform: uppercase; letter-spacing: 0.28em; }
 .nav__link--active { color: var(--tactical-gold) !important; }
