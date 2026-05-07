@@ -166,7 +166,7 @@ h1, h2, h3, h4 {
 }
 
 .display-xl em {
-  font-style: italic;
+  font-style: normal;
   color: var(--tactical-gold);
   font-weight: 300;
 }
@@ -532,7 +532,7 @@ h1, h2, h3, h4 {
   color: var(--bone);
 }
 
-.audience__title em { font-style: italic; color: var(--tactical-gold); }
+.audience__title em { font-style: normal; color: var(--tactical-gold); }
 
 .audience__body {
   color: var(--bone-dim);
@@ -655,7 +655,7 @@ h1, h2, h3, h4 {
   color: var(--tactical-gold);
   line-height: 0.9;
   flex-shrink: 0;
-  font-style: italic;
+  font-style: normal;
 }
 
 .method__step-body h4 {
@@ -689,7 +689,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 3rem);
   font-weight: 300;
-  font-style: italic;
+  font-style: normal;
   letter-spacing: -0.01em;
   color: var(--bone);
 }
@@ -741,7 +741,7 @@ h1, h2, h3, h4 {
 .engagement__index .num {
   font-family: var(--font-display);
   font-size: 3rem;
-  font-style: italic;
+  font-style: normal;
   font-weight: 300;
   color: var(--tactical-gold);
   letter-spacing: -0.02em;
@@ -1074,7 +1074,7 @@ h1, h2, h3, h4 {
   letter-spacing: -0.015em;
 }
 
-.cta-band__title em { font-style: italic; color: var(--tactical-gold); }
+.cta-band__title em { font-style: normal; color: var(--tactical-gold); }
 
 .cta-band__sub {
   color: var(--bone-dim);
@@ -1114,7 +1114,7 @@ h1, h2, h3, h4 {
 }
 
 .gold { color: var(--tactical-gold); }
-.italic-display { font-family: var(--font-display); font-style: italic; }
+.italic-display { font-family: var(--font-display); font-style: normal; }
 
 /* ============================================
    GLOBAL OPERATIONS SECTION
@@ -1230,7 +1230,7 @@ h1, h2, h3, h4 {
 
 .globalops__region {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.125rem;
   font-weight: 400;
   color: var(--bone-dim);
@@ -1460,7 +1460,7 @@ h1, h2, h3, h4 {
 .pillar__index .num {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 5rem);
-  font-style: italic;
+  font-style: normal;
   font-weight: 300;
   color: var(--tactical-gold);
   line-height: 0.9;
@@ -1618,7 +1618,7 @@ h1, h2, h3, h4 {
 
 .founder__credit {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(1.125rem, 1.6vw, 1.25rem);
   line-height: 1.5;
   color: var(--tactical-gold);
@@ -1711,7 +1711,7 @@ h1, h2, h3, h4 {
 .team-card__initials {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  font-style: italic;
+  font-style: normal;
   color: var(--tactical-gold);
   font-weight: 300;
 }
@@ -1746,7 +1746,7 @@ h1, h2, h3, h4 {
 }
 
 .team-card--callout .team-card__role { color: var(--tactical-gold); }
-.team-card--callout .team-card__name { color: var(--tactical-gold); font-style: italic; font-weight: 400; }
+.team-card--callout .team-card__name { color: var(--tactical-gold); font-style: normal; font-weight: 400; }
 
 /* ============================================
    INSIGHTS - FEATURE & GRID
@@ -1814,7 +1814,7 @@ h1, h2, h3, h4 {
 
 .insight-feature__author .byline {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.125rem;
   color: var(--bone);
 }
@@ -1898,7 +1898,7 @@ h1, h2, h3, h4 {
 
 .insight-card__author .byline {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 0.95rem;
   color: var(--bone);
 }
@@ -2024,7 +2024,7 @@ h1, h2, h3, h4 {
 
 .carry-text {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.05rem;
   line-height: 1.5;
   color: var(--bone);
@@ -2116,7 +2116,7 @@ h1, h2, h3, h4 {
   font-weight: 400;
   line-height: 1.4;
   color: var(--bone);
-  font-style: italic;
+  font-style: normal;
 }
 
 .carry__col--shadow p {
@@ -2173,7 +2173,7 @@ h1, h2, h3, h4 {
 
 .working__chapter-mark .num {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(2.5rem, 4vw, 3.25rem);
   font-weight: 300;
   color: var(--tactical-gold);
@@ -2214,7 +2214,7 @@ h1, h2, h3, h4 {
 
 .working__close p {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(1.25rem, 2.4vw, 1.875rem);
   font-weight: 400;
   line-height: 1.35;
@@ -2225,7 +2225,7 @@ h1, h2, h3, h4 {
 
 .working__close p em {
   color: var(--tactical-gold);
-  font-style: italic;
+  font-style: normal;
 }
 
 /* ============================================
@@ -2254,7 +2254,7 @@ h1, h2, h3, h4 {
   color: var(--tactical-gold);
   margin-bottom: 1.5rem;
   display: block;
-  font-style: italic;
+  font-style: normal;
 }
 
 .founders-note__eyebrow {
@@ -2284,7 +2284,7 @@ h1, h2, h3, h4 {
 .founders-note__signature .name {
   font-family: var(--font-display);
   font-size: 1.3rem;
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   color: var(--bone);
 }
@@ -2395,7 +2395,7 @@ h1, h2, h3, h4 {
   line-height: 1;
   display: block;
   margin-bottom: 0.5rem;
-  font-style: italic;
+  font-style: normal;
 }
 
 .globalops__stat .label {
