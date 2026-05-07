@@ -480,6 +480,17 @@
   @media (max-width: 600px) {
     .footer-top { grid-template-columns: 1fr; }
   }
+
+  .app-video-wrap { position: relative; height: 520px; margin: 60px 0; }
+  .av-main {
+    position: absolute; inset: 0;
+    background: #0e0c0d;
+    border: 1px solid var(--border); overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .av-main video { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+  .av-corner  { position: absolute; top: -10px; left: -10px; width: 72px; height: 72px; border-top: 2px solid var(--red); border-left: 2px solid var(--red); z-index: 2; }
+  .av-corner2 { position: absolute; bottom: -10px; right: -10px; width: 72px; height: 72px; border-bottom: 2px solid var(--red); border-right: 2px solid var(--red); z-index: 2; }
 </style>
 </head>
 <body>
@@ -560,6 +571,17 @@
       <div class="cred-line">Now in Beta Testing &mdash; Limited Early Access Available</div>
     </div>
   </div>
+</div>
+
+
+<div class="app-video-wrap reveal">
+  <div class="av-main">
+    <video autoplay loop muted playsinline>
+      <source src="about_video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="av-corner"></div>
+  <div class="av-corner2"></div>
 </div>
 
 <div class="reveal" style="margin-top:60px">
