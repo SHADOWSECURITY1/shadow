@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Exposure Assessment | SHADOW</title>
+<meta name="description" content="A confidential exposure assessment built on USSS Presidential Protective Division advance methodology. Three minutes. No salesperson. No follow-up unless you ask for one." />
+<meta name="robots" content="index,follow" />
+
+<meta property="og:title" content="Exposure Assessment | SHADOW" />
+<meta property="og:description" content="A confidential exposure assessment built on USSS Presidential Protective Division advance methodology." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://shdw.com/assessment" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --shadow-black: #050505;
+    --shadow-surface: #0c0c0c;
+    --shadow-elevated: #131313;
+    --shadow-border: rgba(201, 168, 76, 0.14);
+    --shadow-border-strong: rgba(201, 168, 76, 0.32);
+    --shadow-divider: rgba(255, 255, 255, 0.06);
+
+    --text-primary: #efe9da;
+    --text-secondary: #a39d8e;
+    --text-muted: #6b6659;
+
+    --tactical-gold: #c9a84c;
+    --tactical-gold-soft: rgba(201, 168, 76, 0.55);
+    --tactical-gold-faint: rgba(201, 168, 76, 0.08);
+
+    --signal-red: #c8302c;
+    --signal-red-glow: rgba(200, 48, 44, 0.5);
+
+    --font-display: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+    --font-accent: "Cormorant Garamond", "Times New Roman", serif;
+    --font-body: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+    --nav-height: 72px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: var(--shadow-black); }
+
+  body {
+    background: var(--shadow-black);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body.menu-open { overflow: hidden; }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(201, 168, 76, 0.06), transparent 55%),
+      radial-gradient(ellipse at 80% 100%, rgba(200, 48, 44, 0.04), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.55;
+    mix-blend-mode: overlay;
+  }
+
+  .shell {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    height: var(--nav-height);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(5, 5, 5, 0.82);
+    border-bottom: 1px solid var(--shadow-divider);
+  }
+  .nav-inner {
+    height: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    line-height: 1;
+    transition: color 0.25s var(--ease-out);
+  }
+  .brand:hover { color: var(--tactical-gold); }
+
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s var(--ease-out);
+  }
+  .nav-links a:hover { color: var(--tactical-gold); }
+
+  .nav-cta {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    background: var(--tactical-gold);
+    color: var(--shadow-black);
+    padding: 12px 22px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--tactical-gold);
+    transition: all 0.25s var(--ease-out);
+  }
+  .nav-cta:hover {
+    background: transparent;
+    color: var(--tactical-gold);
+  }
+
+  .hamburger {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+    z-index: 70;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text-primary);
+    transition: transform 0.3s var(--ease-out), opacity 0.2s var(--ease-out);
+  }
+  body.menu-open .hamburger span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+    background: var(--tactical-gold);
+  }
+  body.menu-open .hamburger span:nth-child(2) { opacity: 0; }
+  body.menu-open .hamburger span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+    background: var(--tactical-gold);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: var(--nav-height) 0 0 0;
+    z-index: 55;
+    background: var(--shadow-black);
+    transform: translateY(-110%);
+    transition: transform 0.45s var(--ease-out);
+    overflow-y: auto;
+    padding: 40px 28px 60px;
+    display: flex;
+    flex-direction: column;
+  }
+  body.menu-open .mobile-menu { transform: translateY(0); }
+  .mobile-menu .menu-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  .mobile-menu ul { list-style: none; border-top: 1px solid var(--shadow-divider); }
+  .mobile-menu li { border-bottom: 1px solid var(--shadow-divider); }
+  .mobile-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.25s var(--ease-out);
+  }
+  .mobile-menu a:hover, .mobile-menu a:active { color: var(--tactical-gold); }
+  .mobile-menu a .num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .mobile-menu .menu-cta {
+    margin-top: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--tactical-gold);
+    color: var(--shadow-black);
+    padding: 18px 24px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--tactical-gold);
+  }
+  .mobile-menu .menu-foot {
+    margin-top: auto;
+    padding-top: 32px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  @media (min-width: 920px) {
+    .nav-links { display: flex; }
+    .nav-cta { display: inline-flex; }
+    .hamburger { display: none; }
+    .mobile-menu { display: none; }
+  }
+
+  /* ============ STAGE ============ */
+  .stage {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 56px 22px 72px;
+  }
+  .stage-inner { width: 100%; max-width: 760px; position: relative; }
+
+  .screen { display: none; }
+  .screen.active {
+    display: block;
+    animation: fadeIn 0.45s var(--ease-out);
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  .eyebrow-dots {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 22px;
+    line-height: 1.6;
+  }
+  .eyebrow-dots .sep { color: var(--tactical-gold); margin: 0 10px; }
+
+  .accent {
+    font-family: var(--font-accent);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(32px, 6vw, 52px);
+    line-height: 1.1;
+    color: var(--text-primary);
+    letter-spacing: -0.005em;
+    margin-bottom: 8px;
+  }
+  .accent em { color: var(--tactical-gold); font-style: italic; }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(54px, 12vw, 112px);
+    line-height: 0.92;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    margin: 0 0 28px;
+    color: var(--text-primary);
+  }
+  .display .gold { color: var(--tactical-gold); }
+
+  .lede {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    max-width: 56ch;
+  }
+
+  .attribute-row {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+  }
+  .attribute {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .attribute-tick { color: var(--tactical-gold); font-size: 13px; line-height: 1; }
+
+  .cta-row {
+    margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+
+  button.primary,
+  a.primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background-color: var(--tactical-gold);
+    color: var(--shadow-black);
+    border: 1px solid var(--tactical-gold);
+    padding: 18px 32px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s var(--ease-out);
+  }
+  button.primary:hover,
+  a.primary:hover {
+    background-color: transparent;
+    color: var(--tactical-gold);
+    transform: translateY(-1px);
+  }
+  button.primary:active, a.primary:active { transform: translateY(0); }
+  button.primary .arrow, a.primary .arrow { transition: transform 0.3s var(--ease-out); }
+  button.primary:hover .arrow, a.primary:hover .arrow { transform: translateX(4px); }
+
+  /* ============ PROGRESS ============ */
+  .progress-wrap {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .progress-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .progress-row .domain { color: var(--tactical-gold); }
+  .progress-bar {
+    height: 2px;
+    background: var(--shadow-divider);
+    position: relative;
+    overflow: hidden;
+  }
+  .progress-fill {
+    position: absolute;
+    inset: 0 100% 0 0;
+    background: var(--tactical-gold);
+    transition: right 0.5s var(--ease-out);
+  }
+
+  /* ============ QUESTIONS ============ */
+  .question-text {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 5.5vw, 42px);
+    line-height: 1.15;
+    letter-spacing: 0;
+    margin-bottom: 36px;
+    color: var(--text-primary);
+  }
+  .options { display: flex; flex-direction: column; gap: 12px; }
+  .option {
+    background: var(--shadow-surface);
+    border: 1px solid var(--shadow-border);
+    color: var(--text-primary);
+    padding: 20px 22px;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 17px;
+    letter-spacing: 0.005em;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: all 0.25s var(--ease-out);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .option:hover {
+    border-color: var(--tactical-gold-soft);
+    background: var(--shadow-elevated);
+  }
+  .option.selected {
+    border-color: var(--tactical-gold);
+    background: var(--shadow-elevated);
+  }
+  .option-marker {
+    width: 14px; height: 14px;
+    border: 1px solid var(--shadow-border-strong);
+    flex-shrink: 0;
+    transition: all 0.25s var(--ease-out);
+  }
+  .option.selected .option-marker {
+    border-color: var(--tactical-gold);
+    background: var(--tactical-gold);
+    box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.18);
+  }
+
+  .nav-row {
+    margin-top: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+  }
+  .nav-back {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 12px 0;
+    transition: color 0.25s var(--ease-out);
+  }
+  .nav-back:hover { color: var(--tactical-gold); }
+  .nav-back:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  .micro {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ============ CALCULATING ============ */
+  .calc-wrap { text-align: center; padding: 80px 20px; }
+  .calc-rings { position: relative; width: 80px; height: 80px; margin: 0 auto 32px; }
+  .calc-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--tactical-gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: ringPulse 2.2s var(--ease-out) infinite;
+  }
+  .calc-ring:nth-child(2) { animation-delay: 0.7s; }
+  .calc-ring:nth-child(3) { animation-delay: 1.4s; }
+  @keyframes ringPulse {
+    0% { opacity: 0.7; transform: scale(0.4); }
+    100% { opacity: 0; transform: scale(1.3); }
+  }
+  .calc-status {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-bottom: 8px;
+  }
+  .calc-text {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--text-secondary);
+  }
+
+  /* ============ SCORE GATE ============ */
+  .score-card {
+    border: 1px solid var(--shadow-border);
+    background: linear-gradient(180deg, var(--shadow-surface), rgba(5, 5, 5, 0.4));
+    padding: 48px 36px;
+    margin-bottom: 28px;
+    text-align: center;
+    position: relative;
+  }
+  .score-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 60px; height: 1px;
+    background: var(--tactical-gold);
+  }
+  .score-tier-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .score-tier-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(44px, 9vw, 72px);
+    color: var(--tactical-gold);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    line-height: 1;
+  }
+  .score-number-row {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .score-number {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .gate {
+    border: 1px solid var(--shadow-border);
+    background: var(--shadow-surface);
+    padding: 36px 32px;
+  }
+  .gate-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-bottom: 16px;
+  }
+  .gate-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(26px, 4.4vw, 36px);
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    margin-bottom: 12px;
+  }
+  .gate-copy {
+    color: var(--text-secondary);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 24px;
+    max-width: 52ch;
+  }
+  .gate-form { display: flex; flex-direction: column; gap: 14px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 540px) {
+    .field-row { grid-template-columns: 1fr; }
+  }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .field input {
+    background: var(--shadow-black);
+    border: 1px solid var(--shadow-border);
+    color: var(--text-primary);
+    padding: 14px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    transition: border-color 0.25s var(--ease-out);
+  }
+  .field input:focus { outline: none; border-color: var(--tactical-gold); }
+  .field input::placeholder { color: var(--text-muted); }
+
+  .gate-fineprint {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+  .form-error {
+    color: var(--signal-red);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 8px;
+    display: none;
+  }
+  .form-error.visible { display: block; }
+
+  /* ============ RESULTS ============ */
+  .results-header { text-align: center; margin-bottom: 44px; }
+  .results-tier-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .results-tier-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(56px, 13vw, 112px);
+    color: var(--tactical-gold);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+  .results-score-line {
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .results-score-num {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0 4px;
+  }
+
+  .domain-grid { display: flex; flex-direction: column; gap: 18px; margin-bottom: 44px; }
+  .domain-row {
+    border: 1px solid var(--shadow-border);
+    background: var(--shadow-surface);
+    padding: 22px 24px;
+  }
+  .domain-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+    gap: 12px;
+  }
+  .domain-name {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+  }
+  .domain-score {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+  .domain-score .max {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    letter-spacing: 0.16em;
+    font-weight: 400;
+  }
+  .domain-bar {
+    height: 2px;
+    background: var(--shadow-divider);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .domain-fill {
+    position: absolute;
+    inset: 0 100% 0 0;
+    background: var(--tactical-gold);
+    transition: right 0.9s var(--ease-out);
+  }
+  .domain-finding {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  /* ============ RECOMMENDATION ============ */
+  .reco {
+    border: 1px solid var(--tactical-gold);
+    background: linear-gradient(180deg, rgba(201, 168, 76, 0.06), rgba(201, 168, 76, 0.01));
+    padding: 40px 32px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .reco::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: 0;
+    width: 80px; height: 2px;
+    background: var(--tactical-gold);
+  }
+  .reco-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .reco-eyebrow .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--signal-red);
+    box-shadow: 0 0 6px var(--signal-red-glow);
+  }
+  .reco-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    margin-bottom: 18px;
+  }
+  .reco-body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    max-width: 56ch;
+    margin-bottom: 28px;
+  }
+  .reco-body p + p { margin-top: 14px; }
+
+  .reco-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--shadow-divider);
+  }
+  .reco-meta-item {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .reco-meta-item strong {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-right: 8px;
+  }
+
+  /* ============ CREDENTIAL ============ */
+  .credential {
+    border-top: 1px solid var(--shadow-divider);
+    padding-top: 36px;
+    margin-top: 36px;
+  }
+  .credential-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .credential-body {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    max-width: 60ch;
+  }
+  .credential-attribution {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-top: 18px;
+  }
+
+  .confidential-bar {
+    background: var(--shadow-elevated);
+    border: 1px solid var(--shadow-border);
+    padding: 18px 22px;
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .confidential-bar .lock {
+    width: 14px; height: 14px;
+    border: 1px solid var(--tactical-gold);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .confidential-bar .lock::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    background: var(--tactical-gold);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--shadow-black);
+    border-top: 1px solid var(--shadow-divider);
+    padding: 64px 22px 32px;
+    margin-top: 48px;
+  }
+  .foot-inner { max-width: 1320px; margin: 0 auto; }
+  .foot-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--shadow-divider);
+  }
+  @media (min-width: 720px) {
+    .foot-top { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; }
+  }
+  .foot-brand-block .foot-brand {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+    display: inline-block;
+    text-decoration: none;
+  }
+  .foot-tagline {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    max-width: 38ch;
+    margin-bottom: 24px;
+  }
+  .foot-social { display: flex; gap: 14px; flex-wrap: wrap; }
+  .foot-social a {
+    width: 36px; height: 36px;
+    border: 1px solid var(--shadow-border);
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.25s var(--ease-out);
+  }
+  .foot-social a:hover {
+    border-color: var(--tactical-gold);
+    color: var(--tactical-gold);
+  }
+  .foot-social svg { width: 14px; height: 14px; fill: currentColor; }
+
+  .foot-col h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .foot-col a {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s var(--ease-out);
+  }
+  .foot-col a:hover { color: var(--tactical-gold); }
+
+  .foot-bottom {
+    padding-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .foot-bottom a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 24px;
+    transition: color 0.2s var(--ease-out);
+  }
+  .foot-bottom a:first-child { margin-left: 0; }
+  .foot-bottom a:hover { color: var(--tactical-gold); }
+  .foot-legal { display: flex; flex-wrap: wrap; gap: 8px 0; }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    :root { --nav-height: 64px; }
+    .stage { padding: 36px 18px 56px; }
+    .nav-inner { padding: 0 18px; }
+    .brand { font-size: 19px; letter-spacing: 0.28em; }
+    .lede { font-size: 17px; }
+    .question-text { font-size: 26px; }
+    .option { padding: 18px; font-size: 16px; }
+    .reco { padding: 30px 22px; }
+    .score-card { padding: 36px 22px; }
+    .gate { padding: 28px 22px; }
+    .domain-row { padding: 20px; }
+    .credential-body { font-size: 17px; }
+    .accent { font-size: clamp(28px, 9vw, 44px); }
+    .display { font-size: clamp(48px, 14vw, 88px); }
+    .results-tier-name { font-size: clamp(52px, 16vw, 88px); }
+    footer { padding: 48px 22px 28px; margin-top: 32px; }
+    .foot-top { padding-bottom: 36px; gap: 36px; }
+  }
+
+  @media (max-width: 380px) {
+    .brand { font-size: 17px; letter-spacing: 0.24em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hidden Netlify form for build-time detection -->
+<form name="exposure-assessment-lead" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field" />
+  <input type="email" name="email" />
+  <input type="text" name="firstName" />
+  <input type="text" name="lastName" />
+  <input type="text" name="organization" />
+  <input type="text" name="role" />
+  <input type="text" name="phone" />
+  <input type="text" name="tier" />
+  <input type="number" name="overallScore" />
+  <input type="number" name="principalExposureScore" />
+  <input type="number" name="movementEnvironmentScore" />
+  <input type="number" name="operationalReadinessScore" />
+  <textarea name="answers"></textarea>
+</form>
+
+<div class="shell">
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="https://shdw.com" class="brand" aria-label="Shadow Home">SHADOW</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="fractional-cso.html" style="color:var(--tactical-gold)">Fractional CSO</a></li>
+        <li><a href="events/index.html">Events</a></li>
+        <li><a href="shdw-app.html">SHDW App</a></li>
+        <li><a href="team.html">The Team</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Deploy Now</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="btn-hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <div class="menu-eyebrow">Navigation</div>
+    <ul>
+      <li><a href="index.html"><span>Home</span><span class="num">01</span></a></li>
+      <li><a href="fractional-cso.html"><span>Fractional CSO</span><span class="num">02</span></a></li>
+      <li><a href="events/index.html"><span>Events</span><span class="num">03</span></a></li>
+      <li><a href="shdw-app.html"><span>SHDW App</span><span class="num">04</span></a></li>
+      <li><a href="team.html"><span>The Team</span><span class="num">05</span></a></li>
+    </ul>
+    <a href="contact.html" class="menu-cta">Deploy Now &rarr;</a>
+    <div class="menu-foot">Northern Virginia &middot; Global Deployment</div>
+  </nav>
+
+  <main class="stage">
+    <div class="stage-inner">
+
+      <!-- LANDING -->
+      <section class="screen active" id="screen-landing" aria-label="Welcome">
+        <div class="eyebrow-dots">
+          Exposure Assessment <span class="sep">&middot;</span>
+          USSS Methodology <span class="sep">&middot;</span>
+          Confidential
+        </div>
+
+        <p class="accent">Find the gaps</p>
+        <h1 class="display">Before<br /><span class="gold">Someone</span><br />Else Does.</h1>
+
+        <p class="lede">
+          Twelve questions. Three to five minutes. A confidential read on the gaps in your protective posture, scored against the same advance methodology used on the Presidential Protective Division.
+        </p>
+
+        <div class="attribute-row">
+          <div class="attribute"><span class="attribute-tick">&#10022;</span>3 to 5 minutes</div>
+          <div class="attribute"><span class="attribute-tick">&#10022;</span>Strictly confidential</div>
+          <div class="attribute"><span class="attribute-tick">&#10022;</span>No salesperson follows up uninvited</div>
+        </div>
+
+        <div class="cta-row">
+          <button class="primary" id="btn-begin">
+            Begin Assessment
+            <span class="arrow" aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+
+        <div class="confidential-bar">
+          <span class="lock"></span>
+          <span>Authored by Michael de Geus, USSS Presidential Protective Division</span>
+        </div>
+      </section>
+
+      <!-- QUESTIONS -->
+      <section class="screen" id="screen-questions" aria-label="Assessment questions">
+        <div class="progress-wrap">
+          <div class="progress-row">
+            <span id="q-counter">01 / 12</span>
+            <span class="domain" id="q-domain">Principal Exposure</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+
+        <h2 class="question-text" id="q-text">Loading...</h2>
+        <div class="options" id="q-options"></div>
+
+        <div class="nav-row">
+          <button class="nav-back" id="btn-back">&larr; Back</button>
+          <span class="micro">Tap to answer</span>
+        </div>
+      </section>
+
+      <!-- CALCULATING -->
+      <section class="screen" id="screen-calc" aria-label="Processing">
+        <div class="calc-wrap">
+          <div class="calc-rings">
+            <div class="calc-ring"></div>
+            <div class="calc-ring"></div>
+            <div class="calc-ring"></div>
+          </div>
+          <div class="calc-status">Analyzing</div>
+          <div class="calc-text">Mapping your exposure profile...</div>
+        </div>
+      </section>
+
+      <!-- SCORE + GATE -->
+      <section class="screen" id="screen-gate" aria-label="Preliminary results">
+        <div class="score-card">
+          <div class="score-tier-label">Preliminary Result</div>
+          <div class="score-tier-name" id="gate-tier">Exposed</div>
+          <div class="score-number-row">
+            <span>Score</span>
+            <span class="score-number" id="gate-score">0</span>
+            <span>/ 100</span>
+          </div>
+        </div>
+
+        <div class="gate">
+          <div class="gate-eyebrow">Unlock Full Assessment</div>
+          <h3 class="gate-title">Where the gaps are.<br />What to do about them.</h3>
+          <p class="gate-copy">
+            Your full assessment includes domain-by-domain breakdown, the specific findings driving your score, and the engagement model best matched to your posture. Delivered to your inbox. Reviewed only by Shadow personnel.
+          </p>
+
+          <form class="gate-form" id="lead-form" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required />
+              </div>
+              <div class="field">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" autocomplete="family-name" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Work Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="organization">Organization</label>
+                <input type="text" id="organization" name="organization" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="role">Role</label>
+                <input type="text" id="role" name="role" placeholder="Founder, CSO, Chief of Staff..." />
+              </div>
+            </div>
+
+            <div class="form-error" id="form-error">Please complete all required fields with a valid email.</div>
+
+            <div class="cta-row" style="margin-top: 8px;">
+              <button class="primary" type="submit" id="btn-submit-lead">
+                Reveal Full Assessment
+                <span class="arrow" aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+
+            <div class="gate-fineprint">
+              Encrypted in transit. Stored under Shadow access controls. Not sold, traded, or shared.
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- RESULTS -->
+      <section class="screen" id="screen-results" aria-label="Full assessment results">
+        <div class="results-header">
+          <div class="results-tier-label">Exposure Profile</div>
+          <h2 class="results-tier-name" id="result-tier">Exposed</h2>
+          <div class="results-score-line">
+            Score
+            <span class="results-score-num" id="result-score">0</span>
+            of 100
+          </div>
+        </div>
+
+        <div class="domain-grid" id="domain-grid"></div>
+
+        <div class="reco" id="reco-block">
+          <div class="reco-eyebrow">
+            <span class="dot"></span>
+            <span id="reco-eyebrow-text">Recommended Engagement</span>
+          </div>
+          <h3 class="reco-title" id="reco-title">Fractional Security Director</h3>
+          <div class="reco-body" id="reco-body"></div>
+
+          <div class="cta-row">
+            <a class="primary" id="reco-cta" href="#">
+              <span id="reco-cta-text">Apply for Engagement</span>
+              <span class="arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          <div class="reco-meta" id="reco-meta"></div>
+        </div>
+
+        <div class="credential">
+          <div class="credential-eyebrow">Methodology</div>
+          <p class="credential-body">
+            This assessment is built on the advance methodology developed inside the United States Secret Service Presidential Protective Division. It is the same operating model Michael de Geus applied across twelve years of federal service, and now applies inside Shadow.
+          </p>
+          <div class="credential-attribution">Michael de Geus, Founder</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-top">
+        <div class="foot-brand-block">
+          <a href="https://shdw.com" class="foot-brand">SHADOW</a>
+          <p class="foot-tagline">
+            The gold standard in safety and protection. Elite-tier security, on demand. Born from the Secret Service. Built for the world.
+          </p>
+          <div class="foot-social" aria-label="Social channels">
+            <a href="https://www.linkedin.com/company/shdwsecurity" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.5c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 12.5h-3v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.41-2.08 2.86v5.49h-3v-11h2.88v1.5h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.61 2.01 3.61 4.62v6.44z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/protectionshadow" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.34 2.69.93 3.36.62 4.15c-.3.76-.5 1.64-.56 2.91C0 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 24 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.39-2.13C21.31 1.34 20.64.93 19.85.62c-.76-.3-1.64-.5-2.91-.56C15.67 0 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
+            </a>
+            <a href="https://x.com/shdwprotection" aria-label="X">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@shadow.protection" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/SHDWnetwork" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="foot-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="https://shdw.com/executive-protection">Executive Protection</a></li>
+            <li><a href="https://shdw.com/event-security">Event Security</a></li>
+            <li><a href="https://shdw.com/threat-assessment">Threat Assessment</a></li>
+            <li><a href="https://shdw.com/advance-operations">Advance Operations</a></li>
+            <li><a href="https://shdw.com/corporate-consulting">Corporate Consulting</a></li>
+            <li><a href="https://shdw.com/on-demand">On-Demand</a></li>
+            <li><a href="https://shdw.com/events/leadership.html">The Books</a></li>
+          </ul>
+        </div>
+
+        <div class="foot-col">
+          <h4>Industries</h4>
+          <ul>
+            <li><a href="https://shdw.com/entertainment">Entertainment</a></li>
+            <li><a href="https://shdw.com/sports">Sports &amp; Athletics</a></li>
+            <li><a href="https://shdw.com/corporate">Corporate</a></li>
+            <li><a href="https://shdw.com/film-tv">Film &amp; TV</a></li>
+            <li><a href="https://shdw.com/political">Political</a></li>
+            <li><a href="https://shdw.com/private-events">Private Events</a></li>
+          </ul>
+        </div>
+
+        <div class="foot-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="https://shdw.com/about">About Shadow</a></li>
+            <li><a href="https://shdw.com/team">Our Team</a></li>
+            <li><a href="https://shdw.com/careers">Careers</a></li>
+            <li><a href="https://shdw.com/press">Press</a></li>
+            <li><a href="https://shdw.com/contact">Contact</a></li>
+            <li><a href="https://shdw.com/join">Join the Network</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <div>&copy; 2026 SHDW, LLC. All Rights Reserved.</div>
+        <div class="foot-legal">
+          <a href="https://shdw.com/privacy-policy">Privacy Policy</a>
+          <a href="https://shdw.com/terms-of-service">Terms</a>
+          <a href="https://shdw.com/ndas-confidentiality">NDAs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  const QUESTIONS = [
+    { domain: "Principal Exposure", text: "How publicly visible is the principal's role?",
+      options: [
+        { label: "Private. Low media presence, no public-facing role.", score: 0 },
+        { label: "Industry-known. Board roles, conferences, trade press.", score: 1 },
+        { label: "Public figure. Frequent media presence and public statements.", score: 2 },
+        { label: "High-profile. Constant coverage, polarizing topics, or activism.", score: 3 }
+      ]},
+    { domain: "Principal Exposure", text: "When was the principal's digital footprint and OSINT exposure last audited?",
+      options: [
+        { label: "Within the last six months.", score: 0 },
+        { label: "Within the last twelve months.", score: 1 },
+        { label: "More than a year ago.", score: 2 },
+        { label: "Never formally audited.", score: 3 }
+      ]},
+    { domain: "Principal Exposure", text: "How predictable is the principal's daily and weekly routine?",
+      options: [
+        { label: "Highly variable. No fixed pattern outsiders could map.", score: 0 },
+        { label: "Some routine, but flexible and rotated.", score: 1 },
+        { label: "Mostly predictable. Same gym, restaurants, routes, commute times.", score: 2 },
+        { label: "Highly predictable. Schedule is published, shared, or easily inferred.", score: 3 }
+      ]},
+    { domain: "Principal Exposure", text: "How exposed are family members and dependents online?",
+      options: [
+        { label: "Fully scrubbed. No publicly searchable information.", score: 0 },
+        { label: "Limited. Some basic information but no routines or locations.", score: 1 },
+        { label: "Moderate. Schools, neighborhoods, or routines surface in search.", score: 2 },
+        { label: "Significant. Active social media, press, or public schedules.", score: 3 }
+      ]},
+    { domain: "Movement & Environment", text: "How frequently does the principal travel internationally?",
+      options: [
+        { label: "Rarely or never.", score: 0 },
+        { label: "A few times a year.", score: 1 },
+        { label: "Roughly monthly.", score: 2 },
+        { label: "Weekly or near-weekly, including high-risk regions.", score: 3 }
+      ]},
+    { domain: "Movement & Environment", text: "Who handles travel planning and venue logistics?",
+      options: [
+        { label: "Trained advance team or protective professional.", score: 0 },
+        { label: "Mix. Trained advance for some trips, EA for others.", score: 1 },
+        { label: "Executive or personal assistant handles most logistics.", score: 2 },
+        { label: "Principal handles personal travel directly.", score: 3 }
+      ]},
+    { domain: "Movement & Environment", text: "Describe the residence security posture.",
+      options: [
+        { label: "24/7 manned, integrated technical systems, vetted staff, defined procedures.", score: 0 },
+        { label: "Technical systems and staffed during occupancy. No 24/7 coverage.", score: 1 },
+        { label: "Alarm and cameras only. No on-site personnel.", score: 2 },
+        { label: "No formal residential security in place.", score: 3 }
+      ]},
+    { domain: "Movement & Environment", text: "How often does the principal attend public events, galas, or major venues?",
+      options: [
+        { label: "Rarely. Private settings preferred.", score: 0 },
+        { label: "A few times a year, with advance work each time.", score: 1 },
+        { label: "Monthly, with advance work on some appearances.", score: 2 },
+        { label: "Frequently. Often without dedicated advance work.", score: 3 }
+      ]},
+    { domain: "Operational Readiness", text: "When was the last formal threat assessment completed for the principal?",
+      options: [
+        { label: "Updated within the last quarter.", score: 0 },
+        { label: "Completed within the last twelve months.", score: 1 },
+        { label: "Older than a year, or done at one point in time.", score: 2 },
+        { label: "Never formally assessed.", score: 3 }
+      ]},
+    { domain: "Operational Readiness", text: "If a credible threat surfaced tonight, who is the first call?",
+      options: [
+        { label: "Dedicated security director or program lead, available now.", score: 0 },
+        { label: "Protective firm on retainer, with response within hours.", score: 1 },
+        { label: "Local law enforcement or general counsel.", score: 2 },
+        { label: "Unclear. No defined chain of action.", score: 3 }
+      ]},
+    { domain: "Operational Readiness", text: "When were household, office, and close-protection staff last vetted?",
+      options: [
+        { label: "All staff, recently and on a defined cadence.", score: 0 },
+        { label: "Most staff, with some gaps.", score: 1 },
+        { label: "Vetting was performed at hire only.", score: 2 },
+        { label: "No formal vetting process exists.", score: 3 }
+      ]},
+    { domain: "Operational Readiness", text: "What level of senior security leadership does the program have access to?",
+      options: [
+        { label: "Full-time Chief Security Officer or Director of Security.", score: 0 },
+        { label: "Fractional or part-time senior security leader.", score: 1 },
+        { label: "External consultant on call when needed.", score: 2 },
+        { label: "None. No senior security leadership in place.", score: 3 }
+      ]}
+  ];
+
+  const TIERS = [
+    { min: 0, max: 20, name: "Hardened" },
+    { min: 21, max: 40, name: "Stable" },
+    { min: 41, max: 60, name: "Exposed" },
+    { min: 61, max: 80, name: "At Risk" },
+    { min: 81, max: 100, name: "Compromised" }
+  ];
+
+  const TIER_CONTENT = {
+    "Hardened": {
+      ctaText: "Receive the Quarterly Brief",
+      ctaHref: "mailto:hello@shdw.com?subject=Subscribe%20Quarterly%20Brief",
+      ecosystem: "Maintenance Posture",
+      title: "You are running a serious program.",
+      body: [
+        "Your exposure score sits in the top tier of programs Shadow evaluates. The protections in place are appropriate to the threat surface, and the operational habits, vetting cadence, and senior leadership coverage all reinforce one another.",
+        "The work at this stage is sustainment. Stay subscribed to the Shadow quarterly threat brief, and re-take this assessment annually or after any material change in role, geography, or family situation."
+      ],
+      meta: [{ label: "Cadence", value: "Annual" }, { label: "Posture", value: "Sustain" }]
+    },
+    "Stable": {
+      ctaText: "Schedule Posture Review",
+      ctaHref: "mailto:hello@shdw.com?subject=Posture%20Review%20Inquiry",
+      ecosystem: "Posture Review",
+      title: "Solid foundation. Hidden gaps to find.",
+      body: [
+        "Your foundation is in place, but most programs at this level carry latent gaps that surface during travel, public appearances, or staff turnover. The questions you answered point to specific areas worth a closer look.",
+        "A short engagement with a Shadow Director, structured as a posture review rather than a standing retainer, is the right next step. We will identify the gaps your current program does not see, and you decide what to do with the findings."
+      ],
+      meta: [{ label: "Format", value: "Single Engagement" }, { label: "Output", value: "Findings & Roadmap" }]
+    },
+    "Exposed": {
+      ctaText: "Apply for Fractional Security Director",
+      ctaHref: "mailto:hello@shdw.com?subject=Fractional%20Security%20Director%20Inquiry",
+      ecosystem: "Fractional Security Director",
+      title: "The exposure exceeds the protections in place.",
+      body: [
+        "Your assessment surfaces gaps that ad hoc coverage and reactive measures will not close. Programs in this range typically have grown faster than the security function around them.",
+        "This is the gap the Fractional Security Director was built for. A senior protective leader, applied to your specific risk profile, on a defined monthly engagement. Not a guard service. Not a consultant. The senior security leadership a full-time CSO would provide, sized to where you actually are."
+      ],
+      meta: [{ label: "Engagement", value: "Recurring" }, { label: "Target Onset", value: "Within 30 Days" }]
+    },
+    "At Risk": {
+      ctaText: "Apply for Fractional Security Director",
+      ctaHref: "mailto:hello@shdw.com?subject=URGENT%20Fractional%20Security%20Director%20Inquiry",
+      ecosystem: "Fractional Security Director",
+      title: "Multiple unaddressed vulnerabilities.",
+      body: [
+        "Your profile carries vulnerabilities across more than one domain, with limited senior leadership in place to direct response. This is the posture in which preventable incidents become incidents.",
+        "A Fractional Security Director should be in place inside thirty days. Apply for an introductory call directly with Michael de Geus to determine the right scope and tempo for your situation.",
+        "If you believe a credible threat is active right now, do not wait on this form. Contact Shadow directly at the number on the website."
+      ],
+      meta: [{ label: "Priority", value: "High" }, { label: "Onset", value: "30 Days or Less" }]
+    },
+    "Compromised": {
+      ctaText: "Direct Contact",
+      ctaHref: "mailto:hello@shdw.com?subject=URGENT%20Direct%20Contact",
+      ecosystem: "Direct Engagement",
+      title: "Your profile indicates active risk.",
+      body: [
+        "The combination of exposures you described requires a direct conversation, not an intake funnel. We treat every result at this level as time-sensitive until proven otherwise.",
+        "Reach Michael de Geus directly. We will determine in the first call whether the right path is an immediate protective deployment, a Fractional Security Director engagement, or both."
+      ],
+      meta: [{ label: "Priority", value: "Immediate" }, { label: "Path", value: "Direct" }]
+    }
+  };
+
+  const state = {
+    currentQuestion: 0,
+    answers: new Array(QUESTIONS.length).fill(null),
+    overallScore: 0,
+    tier: null,
+    domainScores: {}
+  };
+
+  const screens = {
+    landing: document.getElementById("screen-landing"),
+    questions: document.getElementById("screen-questions"),
+    calc: document.getElementById("screen-calc"),
+    gate: document.getElementById("screen-gate"),
+    results: document.getElementById("screen-results")
+  };
+
+  function showScreen(name) {
+    Object.values(screens).forEach(s => s.classList.remove("active"));
+    screens[name].classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Hamburger
+  const hamBtn = document.getElementById("btn-hamburger");
+  hamBtn.addEventListener("click", () => {
+    const open = document.body.classList.toggle("menu-open");
+    hamBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.querySelectorAll(".mobile-menu a").forEach(a => {
+    a.addEventListener("click", () => {
+      document.body.classList.remove("menu-open");
+      hamBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  function renderQuestion() {
+    const q = QUESTIONS[state.currentQuestion];
+    document.getElementById("q-counter").textContent =
+      String(state.currentQuestion + 1).padStart(2, "0") + " / " + String(QUESTIONS.length).padStart(2, "0");
+    document.getElementById("q-domain").textContent = q.domain;
+    document.getElementById("q-text").textContent = q.text;
+
+    const optionsContainer = document.getElementById("q-options");
+    optionsContainer.innerHTML = "";
+
+    q.options.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.className = "option";
+      if (state.answers[state.currentQuestion] === idx) btn.classList.add("selected");
+      btn.innerHTML = '<span class="option-marker"></span><span>' + opt.label + "</span>";
+      btn.addEventListener("click", () => selectOption(idx));
+      optionsContainer.appendChild(btn);
+    });
+
+    const progress = ((state.currentQuestion) / QUESTIONS.length) * 100;
+    document.getElementById("progress-fill").style.right = (100 - progress) + "%";
+    document.getElementById("btn-back").disabled = state.currentQuestion === 0;
+  }
+
+  function selectOption(idx) {
+    state.answers[state.currentQuestion] = idx;
+    renderQuestion();
+    setTimeout(() => {
+      if (state.currentQuestion < QUESTIONS.length - 1) {
+        state.currentQuestion++;
+        renderQuestion();
+        const progress = ((state.currentQuestion) / QUESTIONS.length) * 100;
+        document.getElementById("progress-fill").style.right = (100 - progress) + "%";
+      } else {
+        finishAssessment();
+      }
+    }, 240);
+  }
+
+  function goBack() {
+    if (state.currentQuestion > 0) {
+      state.currentQuestion--;
+      renderQuestion();
+    }
+  }
+
+  function calculateScores() {
+    const domains = ["Principal Exposure", "Movement & Environment", "Operational Readiness"];
+    const domainTotals = {};
+    const domainCounts = {};
+    domains.forEach(d => { domainTotals[d] = 0; domainCounts[d] = 0; });
+    QUESTIONS.forEach((q, i) => {
+      const ansIdx = state.answers[i];
+      const score = ansIdx !== null ? q.options[ansIdx].score : 0;
+      domainTotals[q.domain] += score;
+      domainCounts[q.domain] += 1;
+    });
+    const domainScores = {};
+    domains.forEach(d => {
+      const avg = domainTotals[d] / Math.max(domainCounts[d], 1);
+      domainScores[d] = Math.round((avg / 3) * 100);
+    });
+    const overall = Math.round(
+      (domainScores[domains[0]] + domainScores[domains[1]] + domainScores[domains[2]]) / 3
+    );
+    return { overall, domainScores };
+  }
+
+  function tierForScore(score) {
+    return TIERS.find(t => score >= t.min && score <= t.max).name;
+  }
+
+  function finishAssessment() {
+    const { overall, domainScores } = calculateScores();
+    state.overallScore = overall;
+    state.domainScores = domainScores;
+    state.tier = tierForScore(overall);
+    showScreen("calc");
+    setTimeout(() => {
+      document.getElementById("gate-tier").textContent = state.tier;
+      document.getElementById("gate-score").textContent = state.overallScore;
+      showScreen("gate");
+    }, 2400);
+  }
+
+  function buildFindings() {
+    const range = (s) => s <= 20 ? "low" : s <= 40 ? "stable" : s <= 60 ? "moderate" : s <= 80 ? "elevated" : "critical";
+    const f = {
+      "Principal Exposure": {
+        low: "Visibility, predictability, and digital footprint are well managed. Sustain current discipline.",
+        stable: "Posture is reasonable but a deliberate footprint review would surface targetable patterns.",
+        moderate: "Routine, footprint, or family exposure is creating a targetable profile.",
+        elevated: "Multiple signals are public. A determined adversary could build a usable profile in hours.",
+        critical: "The exposure is severe. Adversary research has very few unknowns to fill in."
+      },
+      "Movement & Environment": {
+        low: "Travel discipline, residence, and venue posture reinforce each other. Sustain.",
+        stable: "Coverage is adequate, but advance work and residence layering have gaps under stress.",
+        moderate: "Movement is the weak point. Travel and venues are not consistently advanced.",
+        elevated: "High movement frequency without proportional advance work is the central vulnerability.",
+        critical: "Movement is unmanaged at the level your profile requires."
+      },
+      "Operational Readiness": {
+        low: "Threat assessment, response chain, vetting, and leadership are all current.",
+        stable: "Foundations are in place, but cadence and senior leadership depth are thin.",
+        moderate: "The program reacts to events rather than anticipating them. Senior leadership is thin.",
+        elevated: "There is no clear chain of action under stress, and no senior security lead directing the program.",
+        critical: "The program is operating without leadership, doctrine, or rehearsed response."
+      }
+    };
+    const out = {};
+    Object.entries(state.domainScores).forEach(([d, s]) => { out[d] = f[d][range(s)]; });
+    return out;
+  }
+
+  function renderResults() {
+    document.getElementById("result-tier").textContent = state.tier;
+    document.getElementById("result-score").textContent = state.overallScore;
+
+    const grid = document.getElementById("domain-grid");
+    grid.innerHTML = "";
+    const findings = buildFindings();
+
+    Object.entries(state.domainScores).forEach(([domain, score]) => {
+      const row = document.createElement("div");
+      row.className = "domain-row";
+      row.innerHTML =
+        '<div class="domain-row-top">' +
+          '<div class="domain-name">' + domain + '</div>' +
+          '<div class="domain-score">' + score + '<span class="max"> / 100</span></div>' +
+        '</div>' +
+        '<div class="domain-bar"><div class="domain-fill"></div></div>' +
+        '<div class="domain-finding">' + (findings[domain] || "") + '</div>';
+      grid.appendChild(row);
+      requestAnimationFrame(() => {
+        const fill = row.querySelector(".domain-fill");
+        fill.style.right = (100 - score) + "%";
+      });
+    });
+
+    const content = TIER_CONTENT[state.tier];
+    document.getElementById("reco-eyebrow-text").textContent = content.ecosystem;
+    document.getElementById("reco-title").textContent = content.title;
+    document.getElementById("reco-body").innerHTML = content.body.map(p => "<p>" + p + "</p>").join("");
+    const ctaEl = document.getElementById("reco-cta");
+    ctaEl.href = content.ctaHref;
+    document.getElementById("reco-cta-text").textContent = content.ctaText;
+    document.getElementById("reco-meta").innerHTML = content.meta.map(m =>
+      '<div class="reco-meta-item"><strong>' + m.label + '</strong>' + m.value + '</div>'
+    ).join("");
+  }
+
+  function encode(data) {
+    return Object.keys(data).map(k => encodeURIComponent(k) + "=" + encodeURIComponent(data[k] || "")).join("&");
+  }
+
+  async function submitLead(e) {
+    e.preventDefault();
+    const errEl = document.getElementById("form-error");
+    errEl.classList.remove("visible");
+
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const organization = document.getElementById("organization").value.trim();
+    const role = document.getElementById("role").value.trim();
+
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!firstName || !lastName || !emailValid) {
+      errEl.classList.add("visible");
+      return;
+    }
+
+    const submitBtn = document.getElementById("btn-submit-lead");
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = "0.6";
+
+    const answersDetail = QUESTIONS.map((q, i) => {
+      const ai = state.answers[i];
+      return (i + 1) + ". [" + q.domain + "] " + q.text + " => " +
+        (ai !== null ? q.options[ai].label + " (score " + q.options[ai].score + ")" : "no answer");
+    }).join("\n");
+
+    const payload = {
+      "form-name": "exposure-assessment-lead",
+      firstName, lastName, email, organization, role,
+      tier: state.tier,
+      overallScore: String(state.overallScore),
+      principalExposureScore: String(state.domainScores["Principal Exposure"] || 0),
+      movementEnvironmentScore: String(state.domainScores["Movement & Environment"] || 0),
+      operationalReadinessScore: String(state.domainScores["Operational Readiness"] || 0),
+      answers: answersDetail
+    };
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(payload)
+      });
+    } catch (err) {
+      console.warn("Submission deferred:", err);
+    }
+
+    renderResults();
+    showScreen("results");
+  }
+
+  document.getElementById("btn-begin").addEventListener("click", () => {
+    state.currentQuestion = 0;
+    renderQuestion();
+    showScreen("questions");
+  });
+  document.getElementById("btn-back").addEventListener("click", goBack);
+  document.getElementById("lead-form").addEventListener("submit", submitLead);
+</script>
+
+<script src="brand.js"></script>
+</body>
+</html>
