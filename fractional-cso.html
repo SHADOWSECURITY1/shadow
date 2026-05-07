@@ -17,7 +17,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -39,10 +39,10 @@
     --signal-red: #c8302c;
     --signal-red-glow: rgba(200, 48, 44, 0.5);
 
-    --font-display: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
-    --font-accent: "Cormorant Garamond", "Times New Roman", serif;
-    --font-body: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
-    --font-mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+    --font-display: "Bebas Neue", "Barlow Condensed", sans-serif;
+    --font-accent: "Barlow Condensed", "Helvetica Neue", sans-serif;
+    --font-body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "Barlow Condensed", "Helvetica Neue", sans-serif;
 
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -318,14 +318,14 @@
   .accent {
     font-family: var(--font-accent);
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     font-size: clamp(32px, 6vw, 52px);
     line-height: 1.1;
     color: var(--text-primary);
     letter-spacing: -0.005em;
     margin-bottom: 8px;
   }
-  .accent em { color: var(--tactical-gold); font-style: italic; }
+  .accent em { color: var(--tactical-gold); font-style: normal; }
 
   .display {
     font-family: var(--font-display);
@@ -537,7 +537,7 @@
   }
   .calc-text {
     font-family: var(--font-accent);
-    font-style: italic;
+    font-style: normal;
     font-size: 22px;
     color: var(--text-secondary);
   }
@@ -850,7 +850,7 @@
   }
   .credential-body {
     font-family: var(--font-accent);
-    font-style: italic;
+    font-style: normal;
     font-size: 19px;
     line-height: 1.55;
     color: var(--text-secondary);
@@ -1044,8 +1044,8 @@
       <a href="https://shdw.com" class="brand" aria-label="Shadow Home">SHADOW</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="fractional-cso.html" style="color:var(--tactical-gold)">Fractional CSO</a></li>
         <li><a href="events/index.html">Events</a></li>
+        <li><a href="fractional-cso.html" style="color:var(--tactical-gold)">Fractional CSO</a></li>
         <li><a href="shdw-app.html">SHDW App</a></li>
         <li><a href="team.html">The Team</a></li>
       </ul>
@@ -1060,8 +1060,8 @@
     <div class="menu-eyebrow">Navigation</div>
     <ul>
       <li><a href="index.html"><span>Home</span><span class="num">01</span></a></li>
-      <li><a href="fractional-cso.html"><span>Fractional CSO</span><span class="num">02</span></a></li>
-      <li><a href="events/index.html"><span>Events</span><span class="num">03</span></a></li>
+      <li><a href="events/index.html"><span>Events</span><span class="num">02</span></a></li>
+      <li><a href="fractional-cso.html"><span>Fractional CSO</span><span class="num">03</span></a></li>
       <li><a href="shdw-app.html"><span>SHDW App</span><span class="num">04</span></a></li>
       <li><a href="team.html"><span>The Team</span><span class="num">05</span></a></li>
     </ul>
