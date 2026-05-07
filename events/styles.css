@@ -3319,3 +3319,28 @@ h1, h2, h3, h4 {
 .founder__left .founder__books-caption {
   width: 84%;
 }
+
+/* Mobile: founder section */
+@media (max-width: 980px) {
+  .founder__photo { width: 85%; }
+  .founder__left .founder__books { width: 85%; }
+  .founder__left .founder__books-caption { width: 85%; }
+}
+
+@media (max-width: 600px) {
+  .founder__photo { width: 100%; }
+  .founder__left { align-items: stretch; }
+  .founder__left .founder__books { width: 100%; }
+  .founder__left .founder__books-caption { width: 100%; }
+}
+
+/* Mobile: cred-grid tighter screens */
+@media (max-width: 480px) {
+  .cred-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-grid { grid-template-columns: 1fr; }
+}
+
+/* Mobile: team card photo size */
+@media (max-width: 600px) {
+  .team-card__photo { width: 110px; height: 110px; }
+}
