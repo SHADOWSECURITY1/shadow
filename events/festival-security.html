@@ -8,7 +8,7 @@
 <title>Music Festival &amp; Mass Attendance Event Security | Shadow Events</title>
 <meta name="description" content="Music festival security, multi-day mass attendance event protection, crowd dynamics planning. Perimeter, search throughput, weather contingency. USSS-trained leadership." />
 <meta name="keywords" content="festival security, music festival security, multi-day festival security, mass attendance security, crowd management, crowd dynamics, festival ingress egress, festival perimeter security, festival event security, public event security" />
-<meta name="author" content="Shadow Protection Group" />
+<meta name="author" content="SHDW, LLC" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <link rel="canonical" href="https://shdw.com/events/festival-security.html" />
 
@@ -38,7 +38,8 @@
   "description": "Multi-day festival security and mass attendance event protection. Perimeter design, search throughput, crowd dynamics, weather contingency, mass casualty planning, integrated medical.",
   "parentOrganization": {
     "@type": "Organization",
-    "name": "Shadow Protection Group",
+    "name": "SHDW, LLC",
+    "alternateName": "Shadow",
     "url": "https://shdw.com"
   },
   "serviceType": [
@@ -53,8 +54,6 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-
 
 <!-- =================== NAV =================== -->
 <header class="nav">
@@ -115,15 +114,6 @@
     </div>
   </div>
 </section>
-
-<!-- =================== VIDEO STRIP =================== -->
-<div class="video-strip">
-  <video autoplay muted loop playsinline preload="none">
-    <source src="https://www.shdw.com/event-video-2.mp4" type="video/mp4">
-  </video>
-  <div class="video-strip__overlay"></div>
-  <span class="video-strip__caption">Shadow Events / On the ground</span>
-</div>
 
 <!-- =================== CAPABILITIES =================== -->
 <section class="section">
@@ -219,18 +209,16 @@
   <div class="container">
     <div class="footer__top">
       <div>
-        <div class="footer__brand-inline"><span class="footer__brand-wordmark footer__brand-wordmark--upper">SHADOW</span><span class="footer__brand-wordmark footer__brand-wordmark--gold">.</span></div>
-        <p class="footer__brand-tag">Proactive event protection. Headquartered in Northern Virginia. Global deployment.</p>
+        <div class="footer__brand-mark">Shadow</div>
+        <div class="footer__brand-sub">Events Division</div>
+        <p class="footer__brand-tag">Anticipatory event protection. Northern Virginia. Global deployment.</p>
       </div>
       <div class="footer__col">
-                <h6>Site</h6>
+        <h6>Site</h6>
         <ul class="footer__list">
           <li><a href="index.html">Overview</a></li>
-          <li><a href="doctrine.html">Doctrine</a></li>
           <li><a href="capabilities.html">Capabilities</a></li>
           <li><a href="case-studies.html">Engagements</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="leadership.html">Leadership</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -249,41 +237,24 @@
         <h6>Shadow</h6>
         <ul class="footer__list">
           <li><a href="https://shdw.com" target="_blank" rel="noopener">shdw.com</a></li>
-          <li><a href="press.html">Press</a></li>
           <li><a href="contact.html">Inquire</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copy">&copy; 2026 SHDW, LLC. All Rights Reserved.</span>
+      <span class="footer__copy">© SHDW, LLC. All rights reserved.</span>
+      <span class="footer__legal">Licensed / Insured / Confidential</span>
     </div>
   </div>
 </footer>
 
+<script src="../brand.js"></script>
 
 <script>
-(function() {
-  var cursor = document.getElementById('cursor');
-  if (!cursor) return;
-  var t;
-  document.addEventListener('mousemove', function(e) {
-    cursor.style.transform = 'translate(' + (e.clientX - 3) + 'px,' + (e.clientY - 3) + 'px)';
-    cursor.classList.add('moving');
-    clearTimeout(t);
-    t = setTimeout(function() { cursor.classList.remove('moving'); }, 120);
-  });
+(function(){
+  var t=document.getElementById('navToggle'),i=document.getElementById('navInner');
+  if(t&&i) t.addEventListener('click',function(){i.classList.toggle('is-open');});
 })();
 </script>
-
-<script>
-  (function() {
-    var toggle = document.getElementById('navToggle');
-    var inner = document.getElementById('navInner');
-    if (toggle && inner) {
-      toggle.addEventListener('click', function() { inner.classList.toggle('is-open'); });
-    }
-  })();
-</script>
-<script src="../brand.js"></script>
 </body>
 </html>
