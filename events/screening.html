@@ -1124,7 +1124,7 @@
   <div class="container">
     <div class="footer__top">
       <div>
-        <div class="footer__brand-inline"><span class="footer__brand-wordmark footer__brand-wordmark--upper">SHADOW</span><span class="footer__brand-wordmark footer__brand-wordmark--gold">.</span></div>
+        <div class="footer__brand-inline"><span class="footer__brand-wordmark footer__brand-wordmark--upper">SHADOW</span> <span class="footer__brand-wordmark footer__brand-wordmark--gold">EVENTS</span></div>
         <p class="footer__brand-tag">Proactive event protection. Headquartered in Northern Virginia. Global deployment.</p>
       </div>
       <div class="footer__col">
@@ -1197,16 +1197,12 @@
 })();
 </script>
 
-
-<script>
-  (function() {
-    var toggle = document.getElementById('navToggle');
-    var inner = document.getElementById('navInner');
-    if (toggle && inner) {
-      toggle.addEventListener('click', function() { inner.classList.toggle('is-open'); });
-    }
-  })();
-</script>
 <script src="../brand.js"></script>
+<script>
+(function(){
+  var t=document.getElementById('navToggle'),i=document.getElementById('navInner');
+  if(t&&i) t.addEventListener('click',function(){i.classList.toggle('is-open');});
+})();
+</script>
 </body>
 </html>
