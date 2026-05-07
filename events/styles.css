@@ -3240,3 +3240,17 @@ h1, h2, h3, h4 {
   display: block;
   border: 1px solid var(--hairline);
 }
+
+/* Founder left column wrapper */
+.founder__left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+/* Override: books take full width of left column, not capped at 70% of founder */
+.founder__left .founder__books {
+  max-width: 100%;
+  width: 100%;
+}
