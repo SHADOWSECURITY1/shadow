@@ -1741,7 +1741,7 @@ h1, h2, h3, h4 {
   background: var(--shadow-coal);
   border: 1px solid var(--hairline);
   overflow: hidden;
-  max-width: 70%;
+  width: 70%;
 }
 
 .founder__photo::before,
@@ -3204,12 +3204,27 @@ h1, h2, h3, h4 {
   color: var(--text-secondary);
 }
 
+.team-card__photo {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.team-card:hover .team-card__photo {
+  border-color: var(--tactical-gold);
+  box-shadow: 0 0 0 1px var(--tactical-gold);
+}
+
 .team-card__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
+  transition: transform 0.35s ease;
+}
+
+.team-card:hover .team-card__photo img {
+  transform: scale(1.07);
 }
 
 /* Founder book thumbnail strip */
@@ -3249,8 +3264,6 @@ h1, h2, h3, h4 {
   align-items: flex-start;
 }
 
-/* Override: books take full width of left column, not capped at 70% of founder */
 .founder__left .founder__books {
-  max-width: 100%;
-  width: 100%;
+  width: 70%;
 }
