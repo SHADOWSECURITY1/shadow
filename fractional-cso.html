@@ -1015,6 +1015,328 @@
   @media (max-width: 380px) {
     .brand { font-size: 17px; letter-spacing: 0.24em; }
   }
+
+  /* ============ EDITORIAL SECTIONS ============ */
+
+  .ed-section {
+    width: 100%;
+    padding: 0 24px;
+  }
+  .ed-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  /* DOCTRINE HERO */
+  .doctrine-hero {
+    padding: 96px 24px 80px;
+    border-bottom: 1px solid var(--shadow-divider);
+  }
+  .doctrine-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    display: block;
+  }
+  .doctrine-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 7.5vw, 96px);
+    line-height: 0.93;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 36px;
+  }
+  .doctrine-h1 .gold { color: var(--tactical-gold); }
+  .doctrine-body {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 68ch;
+    margin-bottom: 40px;
+  }
+  .transition-callout {
+    border-left: 2px solid var(--tactical-gold);
+    padding: 22px 28px;
+    background: var(--shadow-elevated);
+    max-width: 560px;
+  }
+  .transition-callout-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .transition-callout p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  /* SECURITY VS PROTECTION */
+  .compare-section {
+    padding: 80px 24px;
+    border-bottom: 1px solid var(--shadow-divider);
+  }
+  .compare-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+    display: block;
+  }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--shadow-divider);
+    border: 1px solid var(--shadow-divider);
+  }
+  .compare-col {
+    background: var(--shadow-elevated);
+    padding: 44px 40px;
+  }
+  .compare-col-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .compare-col-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+    line-height: 1;
+  }
+  .compare-col--gold .compare-col-title { color: var(--tactical-gold); }
+  .compare-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border-top: 1px solid var(--shadow-divider);
+    padding-top: 24px;
+  }
+  .compare-list li {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    padding-left: 22px;
+    position: relative;
+  }
+  .compare-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+  }
+  .compare-col--gold .compare-list li::before { color: var(--tactical-gold); }
+  .compare-footer {
+    margin-top: 32px;
+    padding: 20px 28px;
+    background: rgba(201, 168, 76, 0.06);
+    border: 1px solid var(--shadow-border);
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--tactical-gold);
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+
+  /* FRACTIONAL CSO OFFERING */
+  .fcso-section {
+    padding: 80px 24px;
+    border-bottom: 1px solid var(--shadow-divider);
+  }
+  .fcso-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .fcso-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .fcso-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    margin-bottom: 20px;
+  }
+  .fcso-sub {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+    max-width: 46ch;
+  }
+  .fcso-list {
+    list-style: none;
+    border-top: 1px solid var(--shadow-divider);
+  }
+  .fcso-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--shadow-divider);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .fcso-list li::before {
+    content: "—";
+    color: var(--tactical-gold);
+    flex-shrink: 0;
+  }
+  .fcso-best-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 32px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .fcso-best-text {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+  .fcso-field-note {
+    margin-top: 32px;
+    border-left: 2px solid var(--shadow-border-strong);
+    padding: 18px 22px;
+    background: var(--shadow-elevated);
+  }
+  .fcso-field-note-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .fcso-field-note p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+  .fcso-field-note em {
+    display: block;
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-style: normal;
+  }
+
+  /* STATS BAR */
+  .stats-section {
+    padding: 0 24px 0;
+    border-bottom: 1px solid var(--shadow-divider);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--shadow-divider);
+    border: 1px solid var(--shadow-divider);
+  }
+  .stat-cell {
+    background: var(--shadow-surface);
+    padding: 44px 36px;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 5.5vw, 72px);
+    color: var(--tactical-gold);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ASSESSMENT INTRO */
+  .assessment-bridge {
+    padding: 72px 24px 0;
+  }
+  .bridge-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--shadow-divider);
+  }
+  .bridge-left {}
+  .bridge-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .bridge-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 60px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+  }
+  .bridge-right {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 46ch;
+  }
+
+  @media (max-width: 900px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .fcso-grid { grid-template-columns: 1fr; gap: 48px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .doctrine-hero { padding: 60px 18px 56px; }
+    .compare-section, .fcso-section, .assessment-bridge { padding-left: 18px; padding-right: 18px; }
+    .stats-section { padding-left: 18px; padding-right: 18px; }
+    .compare-col { padding: 28px 22px; }
+    .fcso-grid { gap: 32px; }
+    .bridge-inner { flex-direction: column; }
+  }
 </style>
 </head>
 <body>
@@ -1069,38 +1391,138 @@
     <div class="menu-foot">Northern Virginia &middot; Global Deployment</div>
   </nav>
 
+  <!-- DOCTRINE HERO -->
+  <section class="doctrine-hero ed-section">
+    <div class="ed-inner">
+      <span class="doctrine-eyebrow">Fractional CSO &middot; Shadow Protection Group &middot; Northern Virginia</span>
+      <h1 class="doctrine-h1">
+        Your event isn&rsquo;t the risk.<br>
+        <span class="gold">The ninety seconds<br>inside of it are.</span>
+      </h1>
+      <p class="doctrine-body">
+        Product launches. Shareholder meetings. Keynotes. User conferences. The perimeter is rehearsed, the guest list is vetted, the venue is cleared. Then someone crosses a rope line, steps off a stage, or walks to a car, and every assumption gets tested in the same narrow window.
+      </p>
+      <div class="transition-callout">
+        <span class="transition-callout-label">The Transition Window</span>
+        <p>Arrival. Stage transition. Meet &amp; greet. Rope line. Motorcade. These are the 90-second intervals where protection either holds or fails.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY vs PROTECTION -->
+  <section class="compare-section ed-section">
+    <div class="ed-inner">
+      <span class="compare-eyebrow">Two Different Disciplines</span>
+      <div class="compare-grid">
+        <div class="compare-col">
+          <span class="compare-col-tag">Security</span>
+          <div class="compare-col-title">Reactive.</div>
+          <ul class="compare-list">
+            <li>Responds after an incident has begun.</li>
+            <li>Visible posture, fixed positions, uniformed presence.</li>
+            <li>Optimized for deterrence and crowd management.</li>
+            <li>Success measured by incidents contained.</li>
+          </ul>
+        </div>
+        <div class="compare-col compare-col--gold">
+          <span class="compare-col-tag">Protection</span>
+          <div class="compare-col-title">Proactive. Anticipatory.</div>
+          <ul class="compare-list">
+            <li>Neutralizes threats before they materialize.</li>
+            <li>Invisible posture, dynamic positioning, advance-driven.</li>
+            <li>Optimized for principal continuity at every transition.</li>
+            <li>Success measured by incidents that never occur.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="compare-footer">Most events just buy security&hellip; not the protection they need.</div>
+    </div>
+  </section>
+
+  <!-- FRACTIONAL CSO OFFERING -->
+  <section class="fcso-section ed-section">
+    <div class="ed-inner">
+      <div class="fcso-grid">
+        <div class="fcso-left">
+          <span class="fcso-eyebrow">Tier 03 &middot; Engagement</span>
+          <h2 class="fcso-h2">Senior security leadership. Ongoing.</h2>
+          <p class="fcso-sub">For businesses that need a CSO without the full-time hire costs. Not a guard service. Not a consultant. The senior security leadership a full-time CSO would provide, sized to where you actually are.</p>
+          <div class="fcso-field-note">
+            <span class="fcso-field-note-label">Field Observation</span>
+            <p>Planning is strong. Visibility is high. Execution under pressure is inconsistent. Gaps emerge during transitions. The system performs well until it has to adapt in real time.</p>
+            <em>This is not a personnel failure. It is a systems design failure.</em>
+          </div>
+        </div>
+        <div class="fcso-right">
+          <ul class="fcso-list">
+            <li>Standing advisory on risk posture</li>
+            <li>Event calendar fully integrated</li>
+            <li>Vendor oversight and rationalization</li>
+            <li>Advance methodology applied to every engagement</li>
+            <li>Direct line to founder-operator</li>
+            <li>Billed bi-monthly or monthly</li>
+          </ul>
+          <span class="fcso-best-label">Best For</span>
+          <p class="fcso-best-text">Public-company CEOs, founder-principals, private-company scale, and event-heavy functions: Communications, IR, and Chief-of-Staff leaders responsible for principal safety across a calendar of public engagements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section ed-section">
+    <div class="ed-inner">
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Events Secured</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Incidents on Record</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Continents Operational</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">Years of Team Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSESSMENT BRIDGE -->
+  <section class="assessment-bridge">
+    <div class="bridge-inner">
+      <div class="bridge-left">
+        <span class="bridge-eyebrow">Exposure Assessment &middot; USSS Methodology &middot; Confidential</span>
+        <h2 class="bridge-h2">Find the gaps<br>before someone<br>else does.</h2>
+      </div>
+      <div class="bridge-right">
+        Twelve questions. Three to five minutes. A confidential read on the gaps in your protective posture, scored against the same advance methodology used on the Presidential Protective Division. No salesperson follows up uninvited.
+      </div>
+    </div>
+  </section>
+
   <main class="stage">
     <div class="stage-inner">
 
       <!-- LANDING -->
       <section class="screen active" id="screen-landing" aria-label="Welcome">
-        <div class="eyebrow-dots">
-          Exposure Assessment <span class="sep">&middot;</span>
-          USSS Methodology <span class="sep">&middot;</span>
-          Confidential
-        </div>
-
-        <p class="accent">Find the gaps</p>
-        <h1 class="display">Before<br /><span class="gold">Someone</span><br />Else Does.</h1>
-
-        <p class="lede">
-          Twelve questions. Three to five minutes. A confidential read on the gaps in your protective posture, scored against the same advance methodology used on the Presidential Protective Division.
-        </p>
-
-        <div class="attribute-row">
-          <div class="attribute"><span class="attribute-tick">&#10022;</span>3 to 5 minutes</div>
-          <div class="attribute"><span class="attribute-tick">&#10022;</span>Strictly confidential</div>
-          <div class="attribute"><span class="attribute-tick">&#10022;</span>No salesperson follows up uninvited</div>
-        </div>
-
-        <div class="cta-row">
+        <div class="cta-row" style="margin-bottom: 24px;">
           <button class="primary" id="btn-begin">
             Begin Assessment
             <span class="arrow" aria-hidden="true">&rarr;</span>
           </button>
         </div>
-
-        <div class="confidential-bar">
+        <div class="attribute-row" style="margin-top: 0;">
+          <div class="attribute"><span class="attribute-tick">&#10022;</span>12 questions &middot; 3 to 5 minutes</div>
+          <div class="attribute"><span class="attribute-tick">&#10022;</span>Strictly confidential</div>
+          <div class="attribute"><span class="attribute-tick">&#10022;</span>No salesperson follows up uninvited</div>
+        </div>
+        <div class="confidential-bar" style="margin-top: 32px;">
           <span class="lock"></span>
           <span>Authored by Michael de Geus, USSS Presidential Protective Division</span>
         </div>
