@@ -3211,3 +3211,32 @@ h1, h2, h3, h4 {
   object-position: center top;
   display: block;
 }
+
+/* Founder book thumbnail strip */
+.founder__books {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  max-width: 70%;
+}
+
+.founder__book-link {
+  flex: 1;
+  display: block;
+  opacity: 0.85;
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.founder__book-link:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.founder__book-link img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border: 1px solid var(--hairline);
+}
