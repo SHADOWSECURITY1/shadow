@@ -29,6 +29,33 @@
   <url><loc>https://www.shdw.com/press.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.shdw.com/hero-family.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
+  <!-- Shadow Events Hub -->
+  <url><loc>https://www.shdw.com/events/</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/capabilities.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/case-studies.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/doctrine.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/leadership.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/insights.html</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/screening.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/contact.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <!-- Events Practice Areas -->
+  <url><loc>https://www.shdw.com/events/tour-security.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/motorsport-security.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/festival-security.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/red-carpet-security.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/wedding-security.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/private-event-security.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/corporate-events-security.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/production-security.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/tech-conference-security.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/trade-show-security.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <!-- Events Insights -->
+  <url><loc>https://www.shdw.com/events/insight-playbook-book1.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/insight-playbook-book2.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/insight-playbook-book3.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/insight-protection-not-security.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.shdw.com/events/insight-tour-advance.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
   <!-- Legal -->
   <url><loc>https://www.shdw.com/privacy-policy.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.shdw.com/terms-of-service.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
