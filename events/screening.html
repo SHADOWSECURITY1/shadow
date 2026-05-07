@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Primary SEO -->
+<title>Shadow Screening | Garrett PD6500i Deployment | Shadow Events</title>
+<meta name="description" content="Shadow Screening deploys the Garrett PD6500i walk-through metal detector — the same equipment trusted by the U.S. Secret Service. Operated by trained Shadow agents. $350/day per unit." />
+<meta name="keywords" content="metal detector rental, walk-through metal detector, event screening, Garrett PD6500i, Secret Service metal detector, event access control, shadow screening" />
+<meta name="author" content="Shadow Protection Group" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<link rel="canonical" href="https://shdw.com/events/screening.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Shadow Events" />
+<meta property="og:title" content="Shadow Screening | Garrett PD6500i Deployment | Shadow Events" />
+<meta property="og:description" content="Shadow Screening deploys the Garrett PD6500i walk-through metal detector — the same equipment trusted by the U.S. Secret Service. Operated by trained Shadow agents. $350/day per unit." />
+<meta property="og:url" content="https://shdw.com/events/screening.html" />
+<meta property="og:image" content="https://shdw.com/events/og-image.jpg" />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Shadow Screening | Garrett PD6500i Deployment | Shadow Events" />
+<meta name="twitter:description" content="Shadow Screening deploys the Garrett PD6500i walk-through metal detector — USSS standard equipment operated by trained Shadow agents." />
+<meta name="twitter:image" content="https://shdw.com/events/og-image.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Shadow Screening",
+  "serviceType": "Walk-Through Metal Detector Deployment",
+  "description": "Garrett PD6500i walk-through metal detector deployment operated by trained Shadow agents. USSS-standard equipment. $350/day per unit.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Shadow Protection Group",
+    "url": "https://shdw.com"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Single Day",
+      "description": "Full deployment includes equipment, calibration, and a trained Shadow operator for the duration of your event.",
+      "price": "350",
+      "priceCurrency": "USD",
+      "unitText": "per unit / per day"
+    },
+    {
+      "@type": "Offer",
+      "name": "Two-Day Rental",
+      "description": "Extended deployment for multi-day events, conferences, or back-to-back event days.",
+      "price": "550",
+      "priceCurrency": "USD",
+      "unitText": "per unit / 2 days"
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* =====================================================
+   SCREENING PAGE — INLINE STYLES
+   Bebas Neue experiment (page-specific only)
+   ===================================================== */
+
+/* --- Bebas Neue typographic overrides --- */
+.scr-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 12vw, 10rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  color: var(--bone);
+  margin: 0;
+}
+
+.scr-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: var(--bone);
+  margin: 0 0 2rem;
+}
+
+.scr-h2--md {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.scr-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--bone);
+  letter-spacing: 0.01em;
+}
+
+.scr-stat-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 1;
+  color: var(--tactical-gold);
+  letter-spacing: 0.01em;
+}
+
+.scr-feature-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  color: var(--bone);
+  margin: 0 0 0.75rem;
+}
+
+.scr-body {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: rgba(245, 241, 232, 0.72);
+}
+
+.scr-body--sm {
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* --- @keyframes --- */
+@keyframes scanline {
+  0%   { top: 0; opacity: 1; }
+  95%  { opacity: 0.4; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes tickroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scr-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Reveal --- */
+.scr-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.scr-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================================
+   HERO
+   ===================================================== */
+.scr-hero {
+  position: relative;
+  min-height: 65vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.scr-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  filter: brightness(0.45) saturate(0.7);
+}
+
+.scr-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 80% 55% at 70% 40%, rgba(201, 168, 76, 0.08) 0%, transparent 65%), rgba(5,5,5,0.45);
+}
+
+.scr-hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(201, 168, 76, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+.scr-hero-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201, 168, 76, 0.55) 30%, rgba(201, 168, 76, 0.85) 50%, rgba(201, 168, 76, 0.55) 70%, transparent 100%);
+  z-index: 3;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+.scr-hero-content {
+  position: relative;
+  z-index: 4;
+  padding: 160px 80px 80px;
+  max-width: 860px;
+}
+
+.scr-hero-eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--tactical-gold);
+  margin: 0 0 1.5rem;
+  display: block;
+}
+
+.scr-hero-sub {
+  font-family: 'Barlow Condensed', var(--font-ui), sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.45);
+  margin: 1.75rem 0 0;
+}
+
+/* =====================================================
+   TICKER
+   ===================================================== */
+.scr-ticker {
+  width: 100%;
+  background: var(--tactical-gold);
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.scr-ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: tickroll 24s linear infinite;
+  will-change: transform;
+}
+
+.scr-ticker-item {
+  font-family: 'Barlow Condensed', var(--font-ui), sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #050505;
+  font-weight: 600;
+  padding: 0 40px;
+  flex-shrink: 0;
+}
+
+.scr-ticker-item::after {
+  content: '·';
+  margin-left: 40px;
+  opacity: 0.5;
+}
+
+/* =====================================================
+   INTRO
+   ===================================================== */
+.scr-intro {
+  padding: 100px 0;
+  background: var(--shadow-black);
+}
+
+.scr-intro__inner {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.scr-intro-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--tactical-gold);
+  margin: 0 0 1.5rem;
+  display: block;
+}
+
+.scr-credential-card {
+  background: var(--shadow-coal);
+  border: 1px solid var(--hairline);
+  padding: 2.5rem 2rem;
+  position: sticky;
+  top: 100px;
+}
+
+.scr-credential-card__label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--tactical-gold);
+  margin: 0 0 1rem;
+  display: block;
+}
+
+.scr-credential-card__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--bone);
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.scr-credential-card__body {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(245, 241, 232, 0.65);
+  margin: 0 0 1.75rem;
+}
+
+.scr-credential-card__rule {
+  border: none;
+  border-top: 1px solid rgba(201, 168, 76, 0.3);
+  margin: 0;
+}
+
+/* =====================================================
+   DOCTRINE — COMPARISON TABLE
+   ===================================================== */
+.scr-doctrine {
+  padding: 100px 0;
+  background: var(--shadow-coal);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.scr-doctrine__head {
+  margin-bottom: 3.5rem;
+}
+
+.scr-doctrine__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scr-doctrine__table thead tr {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.scr-doctrine__table thead th {
+  padding: 0 0 1.25rem;
+  text-align: left;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.3);
+}
+
+.scr-doctrine__col-head {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.scr-doctrine__col-head--faint {
+  color: rgba(245, 241, 232, 0.3);
+}
+
+.scr-doctrine__col-head--gold {
+  color: var(--tactical-gold);
+}
+
+.scr-doctrine__table tbody tr {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.scr-doctrine__table tbody td {
+  padding: 1.1rem 0;
+  vertical-align: top;
+}
+
+.scr-doctrine__table tbody td:first-child {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.4);
+  width: 20%;
+  padding-right: 1.5rem;
+}
+
+.scr-doctrine__table tbody td:nth-child(2) {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 0.88rem;
+  color: rgba(245, 241, 232, 0.45);
+  width: 40%;
+  padding-right: 2rem;
+}
+
+.scr-doctrine__table tbody td:nth-child(3) {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 0.88rem;
+  color: var(--bone);
+  width: 40%;
+}
+
+.scr-doctrine__pullquote {
+  margin-top: 3rem;
+  border-left: 3px solid var(--tactical-gold);
+  padding: 1.5rem 2rem;
+  background: rgba(201, 168, 76, 0.04);
+}
+
+.scr-doctrine__pullquote p {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--bone);
+  margin: 0;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+/* =====================================================
+   PRICING
+   ===================================================== */
+.scr-pricing {
+  padding: 100px 0;
+  background: var(--shadow-black);
+}
+
+.scr-pricing__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 3.5rem;
+}
+
+.scr-pricing-card {
+  background: var(--shadow-coal);
+  border: 1px solid var(--hairline);
+  padding: 3rem 2.5rem;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.scr-pricing-card:hover {
+  border-top-color: var(--tactical-gold);
+}
+
+.scr-pricing-card__label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.45);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.scr-pricing-card__badge {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--tactical-gold);
+  color: #050505;
+  padding: 2px 7px;
+  font-weight: 700;
+}
+
+.scr-pricing-card__per {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.3);
+  margin: 0.25rem 0 1.5rem;
+}
+
+.scr-pricing-card__desc {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: rgba(245, 241, 232, 0.6);
+  margin: 0;
+  border-top: 1px solid var(--hairline);
+  padding-top: 1.5rem;
+}
+
+.scr-pricing__note {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.35);
+  margin-top: 2rem;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   FEATURE GRID
+   ===================================================== */
+.scr-feature-section {
+  padding: 100px 0;
+  background: var(--shadow-coal);
+  border-top: 1px solid var(--hairline);
+}
+
+.scr-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 3.5rem;
+}
+
+.scr-feature-card {
+  background: var(--shadow-black);
+  border: 1px solid var(--hairline);
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.scr-feature-card:hover {
+  border-color: rgba(201, 168, 76, 0.25);
+}
+
+.scr-feature-card__num {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  color: var(--tactical-gold);
+  margin: 0 0 1.25rem;
+  display: block;
+}
+
+.scr-feature-card__body {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: rgba(245, 241, 232, 0.6);
+  margin: 0;
+}
+
+/* =====================================================
+   STATS
+   ===================================================== */
+.scr-stats {
+  padding: 80px 0;
+  background: var(--shadow-black);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.scr-stats__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.scr-stat {
+  padding: 2rem 2.5rem;
+  border-right: 1px solid var(--hairline);
+  text-align: center;
+}
+
+.scr-stat:last-child {
+  border-right: none;
+}
+
+.scr-stat__label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.4);
+  margin-top: 0.75rem;
+  display: block;
+}
+
+/* =====================================================
+   VENUES
+   ===================================================== */
+.scr-venues {
+  padding: 100px 0;
+  background: var(--shadow-coal);
+  border-top: 1px solid var(--hairline);
+}
+
+.scr-venues__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.scr-venue-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--hairline);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 0.88rem;
+  color: rgba(245, 241, 232, 0.7);
+}
+
+.scr-venue-item:nth-child(odd) {
+  padding-right: 3rem;
+}
+
+.scr-venue-item:nth-child(even) {
+  padding-left: 2rem;
+  border-left: 1px solid var(--hairline);
+}
+
+.scr-venue-item__slash {
+  font-family: var(--font-mono), monospace;
+  color: var(--tactical-gold);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+/* --- Shared section label --- */
+.scr-section-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--tactical-gold);
+  margin: 0 0 1.5rem;
+  display: block;
+}
+
+/* =====================================================
+   OPS PHOTOS
+   ===================================================== */
+.scr-ops-photo {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 36vw, 520px);
+  overflow: hidden;
+}
+
+.scr-ops-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  filter: brightness(0.75) saturate(0.85);
+}
+
+.scr-ops-photo__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(5,5,5,0.35) 0%, transparent 40%, transparent 60%, rgba(5,5,5,0.5) 100%);
+  z-index: 1;
+}
+
+.scr-ops-photo__caption {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.4);
+  z-index: 2;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 900px) {
+  .scr-hero-content {
+    padding: 120px 40px 60px;
+  }
+
+  .scr-intro__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .scr-credential-card {
+    position: static;
+  }
+
+  .scr-doctrine__table thead th:nth-child(2),
+  .scr-doctrine__table tbody td:nth-child(2) {
+    display: none;
+  }
+
+  .scr-pricing__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .scr-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .scr-stats__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .scr-stat:nth-child(2) {
+    border-right: none;
+  }
+
+  .scr-stat:nth-child(3) {
+    border-right: 1px solid var(--hairline);
+    border-top: 1px solid var(--hairline);
+  }
+
+  .scr-stat:nth-child(4) {
+    border-right: none;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .scr-venues__list {
+    grid-template-columns: 1fr;
+  }
+
+  .scr-venue-item:nth-child(even) {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .scr-venue-item:nth-child(odd) {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .scr-hero-content {
+    padding: 100px 24px 48px;
+  }
+
+  .scr-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scr-stats__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .scr-pricing__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .scr-doctrine__table tbody td:first-child {
+    font-size: 0.55rem;
+    padding-right: 0.75rem;
+  }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<!-- =================== NAV =================== -->
+<header class="nav">
+  <div class="nav__inner" id="navInner">
+    <a href="../index.html" class="nav__brand">
+      <span class="nav__wordmark">SHADOW</span><span class="nav__brand-dot">.</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../index.html" class="nav__link">Home</a></li>
+      <li><a href="../about.html" class="nav__link">About</a></li>
+      <li><a href="../index.html#services" class="nav__link">Services</a></li>
+      <li><a href="../index.html#verticals" class="nav__link">Industries</a></li>
+      <li><a href="index.html" class="nav__link nav__link--active">Events</a></li>
+      <li><a href="../contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <a href="../contact.html" class="nav__cta">Deploy Now</a>
+    <button class="nav__toggle" id="navToggle">&#9776;</button>
+  </div>
+</header>
+
+<!-- =================== SECTION 1: HERO =================== -->
+<section class="scr-hero">
+  <img class="scr-hero-img" src="md-hero.jpg" alt="" aria-hidden="true">
+  <div class="scr-hero-bg"></div>
+  <div class="scr-hero-grid"></div>
+  <div class="scr-hero-scan"></div>
+  <div class="scr-hero-content">
+    <span class="scr-hero-eyebrow">Shadow Screening / Equipment &amp; Access Control</span>
+    <h1 class="scr-h1">THREAT STOPPED.<br>AT THE DOOR.</h1>
+    <p class="scr-hero-sub">Garrett PD6500i &middot; Operated by Shadow Agents &middot; USSS Standard</p>
+  </div>
+</section>
+
+<!-- =================== SECTION 2: TICKER =================== -->
+<div class="scr-ticker" aria-hidden="true">
+  <div class="scr-ticker-track">
+    <span class="scr-ticker-item">Shadow Screening</span>
+    <span class="scr-ticker-item">Garrett PD6500i</span>
+    <span class="scr-ticker-item">Certified Operators</span>
+    <span class="scr-ticker-item">USSS Standard</span>
+    <span class="scr-ticker-item">Access Control</span>
+    <span class="scr-ticker-item">Walk-Through Deployment</span>
+    <span class="scr-ticker-item">Threat Detection</span>
+    <span class="scr-ticker-item">33 Pinpoint Zones</span>
+    <span class="scr-ticker-item">900/hr Throughput</span>
+    <!-- Duplicated for seamless loop -->
+    <span class="scr-ticker-item">Shadow Screening</span>
+    <span class="scr-ticker-item">Garrett PD6500i</span>
+    <span class="scr-ticker-item">Certified Operators</span>
+    <span class="scr-ticker-item">USSS Standard</span>
+    <span class="scr-ticker-item">Access Control</span>
+    <span class="scr-ticker-item">Walk-Through Deployment</span>
+    <span class="scr-ticker-item">Threat Detection</span>
+    <span class="scr-ticker-item">33 Pinpoint Zones</span>
+    <span class="scr-ticker-item">900/hr Throughput</span>
+  </div>
+</div>
+
+<!-- =================== SECTION 3: INTRO =================== -->
+<section class="scr-intro">
+  <div class="container">
+    <div class="scr-intro__inner">
+
+      <!-- Left: text -->
+      <div>
+        <span class="scr-section-label scr-reveal">Professional Screening</span>
+        <h2 class="scr-h2 scr-reveal">The Same Equipment.<br>The Same Standard.</h2>
+        <p class="scr-body scr-reveal">
+          Shadow Screening deploys the Garrett PD6500i walk-through metal detector: the same unit trusted by airports, federal courthouses, and major sporting venues worldwide. When your event requires certified screening, we don't rent you equipment and leave. We deploy it, operate it, and staff it with trained Shadow agents who understand the threat environment, not just the technology.
+        </p>
+        <p class="scr-body scr-reveal" style="margin-top:1.5rem;">
+          Every unit is tested, calibrated, and operated by a named Shadow agent. Whether you are running a private gala, a corporate summit, a political fundraiser, or a multi-day festival, Shadow Screening integrates directly into your access control and advance plan. The agent at the gate is the same agent who was briefed on your threat picture.
+        </p>
+      </div>
+
+      <!-- Right: USSS credential card -->
+      <div class="scr-reveal">
+        <div class="scr-credential-card">
+          <span class="scr-credential-card__label">Authority Signal</span>
+          <div class="scr-credential-card__title">United States Secret Service</div>
+          <p class="scr-credential-card__body">The Garrett PD6500i is the walk-through metal detector standard for federal protective operations in the United States, including USSS presidential advance deployments. Shadow brings that standard to private and commercial events.</p>
+          <hr class="scr-credential-card__rule" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== OPS PHOTO 1 =================== -->
+<div class="scr-ops-photo">
+  <img src="md-ops-1.jpg" alt="Shadow Screening deployment at large outdoor event" loading="lazy">
+  <div class="scr-ops-photo__overlay"></div>
+  <span class="scr-ops-photo__caption">Shadow Screening / Field Deployment</span>
+</div>
+
+<!-- =================== SECTION 4: SCREENING DOCTRINE =================== -->
+<section class="scr-doctrine">
+  <div class="container">
+
+    <div class="scr-doctrine__head scr-reveal">
+      <span class="scr-section-label">The Screening Doctrine</span>
+      <h2 class="scr-h2">Precision Over<br>Throughput.</h2>
+    </div>
+
+    <div class="scr-reveal">
+      <table class="scr-doctrine__table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>
+              <span class="scr-doctrine__col-head scr-doctrine__col-head--faint">AI-Powered Screening</span>
+            </th>
+            <th>
+              <span class="scr-doctrine__col-head scr-doctrine__col-head--gold">Shadow Screening</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Equipment</td>
+            <td>Evolv / CEIA proprietary</td>
+            <td>Garrett PD6500i</td>
+          </tr>
+          <tr>
+            <td>Standard</td>
+            <td>Commercial AI</td>
+            <td>U.S. Secret Service</td>
+          </tr>
+          <tr>
+            <td>Operator</td>
+            <td>Algorithm</td>
+            <td>Named Shadow Agent</td>
+          </tr>
+          <tr>
+            <td>Accountability</td>
+            <td>System logs</td>
+            <td>Agent on the record</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Stadium volume</td>
+            <td>Principal protection</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="scr-doctrine__pullquote scr-reveal">
+      <p>"AI Screening optimizes for volume. Shadow Screening optimizes for the event."</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================== SECTION 5: PRICING =================== -->
+<section class="scr-pricing">
+  <div class="container">
+
+    <span class="scr-section-label scr-reveal">Rental Pricing</span>
+    <h2 class="scr-h2 scr-h2--md scr-reveal">Transparent. Flat Rate.<br>No Surprises.</h2>
+
+    <div class="scr-pricing__cards">
+
+      <!-- Card 1: Single Day -->
+      <div class="scr-pricing-card scr-reveal">
+        <div class="scr-pricing-card__label">Single Day</div>
+        <div class="scr-price">$350</div>
+        <div class="scr-pricing-card__per">per unit / per day</div>
+        <p class="scr-pricing-card__desc">Full deployment includes equipment, calibration, and a trained Shadow operator for the duration of your event.</p>
+      </div>
+
+      <!-- Card 2: Two-Day -->
+      <div class="scr-pricing-card scr-reveal">
+        <div class="scr-pricing-card__label">
+          Two-Day Rental
+          <span class="scr-pricing-card__badge">Best Value</span>
+        </div>
+        <div class="scr-price">$550</div>
+        <div class="scr-pricing-card__per">per unit / 2 days</div>
+        <p class="scr-pricing-card__desc">Extended deployment for multi-day events, conferences, or back-to-back event days.</p>
+      </div>
+
+    </div>
+
+    <p class="scr-pricing__note scr-reveal">
+      Pricing is per unit. Multi-unit deployments available.<br>
+      Contact us for volume pricing and staffing packages.
+    </p>
+
+  </div>
+</section>
+
+<!-- =================== SECTION 6: FEATURE GRID =================== -->
+<section class="scr-feature-section">
+  <div class="container">
+
+    <span class="scr-section-label scr-reveal">Garrett PD6500i Capabilities</span>
+    <h2 class="scr-h2 scr-reveal">Professional Grade.<br>Field Proven.</h2>
+
+    <div class="scr-feature-grid">
+
+      <div class="scr-feature-card scr-reveal">
+        <span class="scr-feature-card__num">01</span>
+        <div class="scr-feature-title">33 Pinpoint Zones</div>
+        <p class="scr-feature-card__body">Precisely identifies the location of a detected item on the body, reducing secondary screening time and keeping your entry flow moving.</p>
+      </div>
+
+      <div class="scr-feature-card scr-reveal">
+        <span class="scr-feature-card__num">02</span>
+        <div class="scr-feature-title">Threat Discrimination</div>
+        <p class="scr-feature-card__body">Distinguishes between firearms, knives, and other metallic threat items from harmless objects. Fewer false alarms. Faster throughput.</p>
+      </div>
+
+      <div class="scr-feature-card scr-reveal">
+        <span class="scr-feature-card__num">03</span>
+        <div class="scr-feature-title">900/hr Throughput</div>
+        <p class="scr-feature-card__body">Processes up to 900 individuals per hour. Built for high-volume events where speed and security must coexist.</p>
+      </div>
+
+      <div class="scr-feature-card scr-reveal">
+        <span class="scr-feature-card__num">04</span>
+        <div class="scr-feature-title">Weather Resistant</div>
+        <p class="scr-feature-card__body">Engineered for indoor and outdoor deployment. Operates reliably in heat, humidity, and variable conditions.</p>
+      </div>
+
+      <div class="scr-feature-card scr-reveal">
+        <span class="scr-feature-card__num">05</span>
+        <div class="scr-feature-title">ADA Compliant</div>
+        <p class="scr-feature-card__body">Meets ADA accessibility requirements, ensuring your screening process is compliant and inclusive.</p>
+      </div>
+
+      <div class="scr-feature-card scr-reveal">
+        <span class="scr-feature-card__num">06</span>
+        <div class="scr-feature-title">Under 15-Minute Setup</div>
+        <p class="scr-feature-card__body">Deploys fast. Shadow agents handle setup, calibration, operation, and breakdown with zero burden on your staff.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== OPS PHOTO 2 =================== -->
+<div class="scr-ops-photo">
+  <img src="md-ops-2.jpg" alt="High-volume crowd screening with Shadow metal detectors at outdoor venue" loading="lazy">
+  <div class="scr-ops-photo__overlay"></div>
+  <span class="scr-ops-photo__caption">Shadow Screening / High-Volume Access Control</span>
+</div>
+
+<!-- =================== SECTION 7: STATS ROW =================== -->
+<section class="scr-stats">
+  <div class="container">
+    <div class="scr-stats__inner">
+
+      <div class="scr-stat scr-reveal">
+        <div class="scr-stat-n">900</div>
+        <span class="scr-stat__label">Individuals Per Hour</span>
+      </div>
+
+      <div class="scr-stat scr-reveal">
+        <div class="scr-stat-n">33</div>
+        <span class="scr-stat__label">Pinpoint Detection Zones</span>
+      </div>
+
+      <div class="scr-stat scr-reveal">
+        <div class="scr-stat-n">&lt;15</div>
+        <span class="scr-stat__label">Minute Setup Time</span>
+      </div>
+
+      <div class="scr-stat scr-reveal">
+        <div class="scr-stat-n">24/7</div>
+        <span class="scr-stat__label">Deployment Available</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== SECTION 8: WHO NEEDS THIS =================== -->
+<section class="scr-venues">
+  <div class="container">
+
+    <span class="scr-section-label scr-reveal">Deployment Context</span>
+    <h2 class="scr-h2 scr-reveal">Built for Every Venue.</h2>
+
+    <div class="scr-venues__list">
+      <div class="scr-venue-item scr-reveal">
+        <span class="scr-venue-item__slash">/</span>
+        Private galas and estate events
+      </div>
+      <div class="scr-venue-item scr-reveal">
+        <span class="scr-venue-item__slash">/</span>
+        Corporate conferences and executive summits
+      </div>
+      <div class="scr-venue-item scr-reveal">
+        <span class="scr-venue-item__slash">/</span>
+        Concert tours and festival access points
+      </div>
+      <div class="scr-venue-item scr-reveal">
+        <span class="scr-venue-item__slash">/</span>
+        Red carpet arrivals and awards productions
+      </div>
+      <div class="scr-venue-item scr-reveal">
+        <span class="scr-venue-item__slash">/</span>
+        Motorsport paddock and VIP access
+      </div>
+      <div class="scr-venue-item scr-reveal">
+        <span class="scr-venue-item__slash">/</span>
+        Political events, fundraisers, and rallies
+      </div>
+      <div class="scr-venue-item scr-reveal">
+        <span class="scr-venue-item__slash">/</span>
+        Houses of worship and schools
+      </div>
+      <div class="scr-venue-item scr-reveal">
+        <span class="scr-venue-item__slash">/</span>
+        Any venue requiring certified access control screening
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================== SECTION 9: CTA BAND =================== -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-band__inner">
+      <div>
+        <h2 class="cta-band__title">Deploy Screening at <em>your event</em>.</h2>
+        <p class="cta-band__sub">Every access point is a threat vector. Shadow closes it. Initial conversations are confidential and reviewed by leadership.</p>
+      </div>
+      <a href="contact.html" class="btn">Request Deployment</a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-inline"><span class="footer__brand-wordmark footer__brand-wordmark--upper">SHADOW</span><span class="footer__brand-wordmark footer__brand-wordmark--gold">.</span></div>
+        <p class="footer__brand-tag">Proactive event protection. Headquartered in Northern Virginia. Global deployment.</p>
+      </div>
+      <div class="footer__col">
+                <h6>Site</h6>
+        <ul class="footer__list">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="doctrine.html">Doctrine</a></li>
+          <li><a href="capabilities.html">Capabilities</a></li>
+          <li><a href="case-studies.html">Engagements</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h6>Practice Areas</h6>
+        <ul class="footer__list">
+          <li><a href="tour-security.html">Tour Security</a></li>
+          <li><a href="motorsport-security.html">Motorsport</a></li>
+          <li><a href="festival-security.html">Festivals</a></li>
+          <li><a href="red-carpet-security.html">Red Carpet</a></li>
+          <li><a href="wedding-security.html">Weddings</a></li>
+          <li><a href="private-event-security.html">Private Events</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h6>Capabilities</h6>
+        <ul class="footer__list">
+          <li><a href="capabilities.html#advance">Advance &amp; Site Survey</a></li>
+          <li><a href="capabilities.html#ep">Executive Protection</a></li>
+          <li><a href="capabilities.html#venue">Venue Operations</a></li>
+          <li><a href="capabilities.html#command">Command &amp; Coordination</a></li>
+          <li><a href="screening.html">Screening</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h6>Shadow</h6>
+        <ul class="footer__list">
+          <li><a href="https://shdw.com" target="_blank" rel="noopener">shdw.com</a></li>
+          <li><a href="press.html">Press</a></li>
+          <li><a href="contact.html">Inquire</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">&copy; 2026 SHDW, LLC. All Rights Reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Cursor -->
+<script>
+(function(){var c=document.getElementById('cursor'),t;document.addEventListener('mousemove',function(e){c.style.transform='translate('+(e.clientX-3)+'px,'+(e.clientY-3)+'px)';c.classList.add('moving');clearTimeout(t);t=setTimeout(function(){c.classList.remove('moving');},120);});})();
+</script>
+
+<!-- Scroll reveal -->
+<script>
+(function () {
+  var els = document.querySelectorAll('.scr-reveal');
+  if (!els.length) return;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+
+
+<script>
+  (function() {
+    var toggle = document.getElementById('navToggle');
+    var inner = document.getElementById('navInner');
+    if (toggle && inner) {
+      toggle.addEventListener('click', function() { inner.classList.toggle('is-open'); });
+    }
+  })();
+</script>
+<script src="../brand.js"></script>
+</body>
+</html>
