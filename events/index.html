@@ -6,9 +6,9 @@
 
 <!-- Primary SEO -->
 <title>Shadow Events | Executive Protection &amp; Event Security</title>
-<meta name="description" content="Proactive event security and executive protection led by U.S. Secret Service Presidential Protective Division methodology. Tours, festivals, motorsport, sports, awards, and private events." />
-<meta name="keywords" content="event security, executive protection, event security services, event security consulting, crowd management, venue security, tour security, concert security, festival security, motorsport security, sports security, USSS executive protection, proactive protection, advance work" />
-<meta name="author" content="Shadow Protection Group" />
+<meta name="description" content="Anticipatory event security and executive protection led by U.S. Secret Service Presidential Protective Division methodology. Tours, festivals, motorsport, sports, awards, and private events." />
+<meta name="keywords" content="event security, executive protection, event security services, event security consulting, crowd management, venue security, tour security, concert security, festival security, motorsport security, sports security, USSS executive protection, anticipatory protection, advance work" />
+<meta name="author" content="SHDW, LLC" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <link rel="canonical" href="https://shdw.com/events/" />
 
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Shadow Events" />
 <meta property="og:title" content="Shadow Events | Executive Protection &amp; Event Security" />
-<meta property="og:description" content="Proactive event security and executive protection. U.S. Secret Service methodology. Tours, festivals, motorsport, sports, awards, and private events." />
+<meta property="og:description" content="Anticipatory event security and executive protection. U.S. Secret Service methodology. Tours, festivals, motorsport, sports, awards, and private events." />
 <meta property="og:url" content="https://shdw.com/events/" />
 <meta property="og:image" content="https://shdw.com/events/og-image.jpg" />
 <meta property="og:image:alt" content="Shadow Events" />
@@ -25,7 +25,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Shadow Events | Executive Protection &amp; Event Security" />
-<meta name="twitter:description" content="Proactive event security and executive protection. U.S. Secret Service methodology." />
+<meta name="twitter:description" content="Anticipatory event security and executive protection. U.S. Secret Service methodology." />
 <meta name="twitter:image" content="https://shdw.com/events/og-image.jpg" />
 
 <!-- Structured Data: Organization + Service -->
@@ -36,7 +36,8 @@
     {
       "@type": "Organization",
       "@id": "https://shdw.com/#organization",
-      "name": "Shadow Protection Group",
+      "name": "SHDW, LLC",
+    "alternateName": "Shadow",
       "alternateName": "Shadow",
       "url": "https://shdw.com",
       "description": "Premium executive protection and private security firm founded by a former U.S. Secret Service Special Agent from the Presidential Protective Division. Headquartered in Northern Virginia with global deployment.",
@@ -72,7 +73,7 @@
       "@type": "ProfessionalService",
       "@id": "https://shdw.com/events/#service",
       "name": "Shadow Events",
-      "description": "Proactive event security and executive protection for tours, festivals, motorsport, sports, awards, and private events. Methodology drawn from the U.S. Secret Service Presidential Protective Division.",
+      "description": "Anticipatory event security and executive protection for tours, festivals, motorsport, sports, awards, and private events. Methodology drawn from the U.S. Secret Service Presidential Protective Division.",
       "url": "https://shdw.com/events/",
       "parentOrganization": { "@id": "https://shdw.com/#organization" },
       "serviceType": [
@@ -98,8 +99,6 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-
 
 <!-- =================== NAV =================== -->
 <header class="nav">
@@ -122,14 +121,11 @@
 
 <!-- =================== HERO =================== -->
 <section class="hero">
-  <video class="hero__video" autoplay muted loop playsinline preload="auto">
-    <source src="https://www.shdw.com/event-video-1.mp4" type="video/mp4">
-  </video>
   <div class="hero__background"></div>
   <div class="container hero__inner">
     <div class="hero__meta">
       <span class="eyebrow eyebrow--with-dot">Operational</span>
-      <span class="tactical-label">HQ: Northern Virginia / Global Deployment</span>
+      <span class="tactical-label">Northern Virginia / Global Deployment</span>
     </div>
 
     <h1 class="display-xl hero__title">
@@ -138,10 +134,14 @@
     </h1>
 
     <p class="lead hero__lede">
-      Shadow Events delivers proactive event security and executive protection for tours, festivals, motorsport, sports, awards, and private events. The methodology is drawn from the U.S. Secret Service Presidential Protective Division. The standard is zero incident.
+      Shadow Events delivers anticipatory event security and executive protection for tours, festivals, motorsport, sports, awards, and private events. The methodology is drawn from the U.S. Secret Service Presidential Protective Division. The standard is zero incident.
     </p>
 
     <div class="hero__credential">
+      <div class="hero__credential-item">
+        <span class="num">12</span>
+        <span class="label">Years U.S. Secret Service<br>Presidential Protective Division</span>
+      </div>
       <div class="hero__credential-item">
         <span class="num">500+</span>
         <span class="label">Events Secured<br>Across Career</span>
@@ -173,7 +173,7 @@
     <div class="globalops__viz">
       <!-- Cycling display panel -->
       <div class="globalops__display">
-        <img id="gop-bg" class="globalops__display-img" src="" alt="" aria-hidden="true">
+        <span class="eyebrow">Now Operating</span>
         <h3 class="globalops__city" id="gop-city">Tokyo</h3>
         <div class="globalops__coords" id="gop-coords">35.6762° N · 139.6503° E</div>
         <div class="globalops__region" id="gop-region">Asia Pacific</div>
@@ -215,20 +215,16 @@
   // Cities Shadow operates in. Edit this list to adjust what's shown.
   // lat / lon are degrees; region is the displayed grouping.
   var SHADOW_CITIES = [
-    { name: "Washington D.C.", lat: 38.9072,  lon: -77.0369,  region: "Americas",     img: "https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=800&q=55" },
-    { name: "New York City",   lat: 40.7128,  lon: -74.0060,  region: "Americas",     img: "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=800&q=55" },
-    { name: "Las Vegas",       lat: 36.1699,  lon: -115.1398, region: "Americas",     img: "https://images.pexels.com/photos/2837907/pexels-photo-2837907.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop" },
-    { name: "Los Angeles",     lat: 34.0522,  lon: -118.2437, region: "Americas",     img: "https://images.pexels.com/photos/4609912/pexels-photo-4609912.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop" },
-    { name: "Miami",           lat: 25.7617,  lon: -80.1918,  region: "Americas",     img: "https://images.pexels.com/photos/1549326/pexels-photo-1549326.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop" },
-    { name: "Austin",          lat: 30.2672,  lon: -97.7431,  region: "Americas",     img: "https://images.unsplash.com/photo-1531218150217-54595bc2b934?auto=format&fit=crop&w=800&q=55" },
-    { name: "Dallas",          lat: 32.7767,  lon: -96.7970,  region: "Americas",     img: "https://images.pexels.com/photos/280193/pexels-photo-280193.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop" },
-    { name: "Detroit",         lat: 42.3314,  lon: -83.0458,  region: "Americas",     img: "https://images.pexels.com/photos/702343/pexels-photo-702343.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop" },
-    { name: "Mexico City",     lat: 19.4326,  lon: -99.1332,  region: "Americas",     img: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=55" },
-    { name: "Buenos Aires",    lat: -34.6037, lon: -58.3816,  region: "Americas",     img: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=800&q=55" },
-    { name: "Paris",           lat: 48.8566,  lon: 2.3522,    region: "Europe",       img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=55" },
-    { name: "Rome",            lat: 41.9028,  lon: 12.4964,   region: "Europe",       img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=55" },
-    { name: "Bucharest",       lat: 44.4268,  lon: 26.1025,   region: "Europe",       img: "https://images.pexels.com/photos/2957457/pexels-photo-2957457.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop" },
-    { name: "Seoul",           lat: 37.5665,  lon: 126.9780,  region: "Asia Pacific", img: "https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=800&q=55" }
+    { name: "Washington D.C.", lat: 38.9072,  lon: -77.0369,  region: "Americas" },
+    { name: "New York City",   lat: 40.7128,  lon: -74.0060,  region: "Americas" },
+    { name: "Las Vegas",       lat: 36.1699,  lon: -115.1398, region: "Americas" },
+    { name: "Los Angeles",     lat: 34.0522,  lon: -118.2437, region: "Americas" },
+    { name: "Mexico City",     lat: 19.4326,  lon: -99.1332,  region: "Americas" },
+    { name: "Buenos Aires",    lat: -34.6037, lon: -58.3816,  region: "Americas" },
+    { name: "Paris",           lat: 48.8566,  lon: 2.3522,    region: "Europe" },
+    { name: "Rome",            lat: 41.9028,  lon: 12.4964,   region: "Europe" },
+    { name: "Bucharest",       lat: 44.4268,  lon: 26.1025,   region: "Europe" },
+    { name: "Seoul",           lat: 37.5665,  lon: 126.9780,  region: "Asia Pacific" }
   ];
   // Shadow HQ origin point for deployment arcs (Warrenton, Virginia)
   var SHADOW_HQ = { name: "Warrenton, VA", lat: 38.7134, lon: -77.7953 };
@@ -374,7 +370,6 @@
 
   // ---- Cycle ----
   var cityEl = document.getElementById("gop-city");
-  var bgEl = document.getElementById("gop-bg");
   var coordsEl = document.getElementById("gop-coords");
   var regionEl = document.getElementById("gop-region");
   var indexEl = document.getElementById("gop-index");
@@ -392,7 +387,6 @@
   function update(i) {
     var c = SHADOW_CITIES[i];
     [cityEl, coordsEl, regionEl].forEach(function(el) { el.style.opacity = "0"; });
-    if (bgEl && c.img) { bgEl.style.opacity = "0"; }
     setTimeout(function() {
       cityEl.textContent = c.name;
       coordsEl.textContent = fmtCoord(c.lat, c.lon);
@@ -400,11 +394,6 @@
       indexEl.textContent = String(i + 1).padStart(2, "0");
       barEl.style.right = (100 - ((i + 1) / SHADOW_CITIES.length) * 100) + "%";
       [cityEl, coordsEl, regionEl].forEach(function(el) { el.style.opacity = "1"; });
-      if (bgEl && c.img) {
-        bgEl.src = c.img;
-        bgEl.onload = function() { bgEl.style.opacity = "1"; };
-        bgEl.onerror = function() { bgEl.style.opacity = "0"; };
-      }
     }, 280);
 
     overlay.querySelectorAll(".globalops__city-marker").forEach(function(el) {
@@ -447,6 +436,85 @@
   startTimer();
 })();
 </script>
+
+<!-- =================== WHAT YOU CARRY / WHAT WE HOLD =================== -->
+<section class="carry">
+  <div class="container">
+    <div class="carry__intro">
+      <span class="eyebrow eyebrow--bone">The Conversation We Have With Every Client</span>
+      <h2 class="display-l" style="margin-top:1.5rem;">You're carrying this. <em class="italic-display gold">We carry it with you.</em></h2>
+      <p class="lead" style="margin-top:1.5rem;">By the time you are looking at firms like Shadow, you have already spent nights with the list. The medical scenario. The missing person. The press leak. The weather call. The estranged guest. The principal's family during the photographed moments. Shadow is the team that takes that list off your shoulders.</p>
+    </div>
+
+    <div class="carry__pair-list">
+      <div class="carry__pair">
+        <div class="carry__col carry__col--you">
+          <span class="eyebrow eyebrow--bone">What you've been carrying</span>
+          <p>The medical scenario at the worst possible moment.</p>
+        </div>
+        <div class="carry__col carry__col--shadow">
+          <span class="eyebrow">What Shadow holds</span>
+          <p>A medical posture matched to the size of the event, integrated with EMS and on site medical, rehearsed before doors.</p>
+        </div>
+      </div>
+
+      <div class="carry__pair">
+        <div class="carry__col carry__col--you">
+          <span class="eyebrow eyebrow--bone">What you've been carrying</span>
+          <p>A missing person, especially a child, especially in front of a crowd.</p>
+        </div>
+        <div class="carry__col carry__col--shadow">
+          <span class="eyebrow">What Shadow holds</span>
+          <p>A protocol drafted, shared with venue and public safety partners on site, and rehearsed with the team before the doors open.</p>
+        </div>
+      </div>
+
+      <div class="carry__pair">
+        <div class="carry__col carry__col--you">
+          <span class="eyebrow eyebrow--bone">What you've been carrying</span>
+          <p>The press leak that breaks the announcement before you are ready.</p>
+        </div>
+        <div class="carry__col carry__col--shadow">
+          <span class="eyebrow">What Shadow holds</span>
+          <p>A communications protocol that holds the perimeter of information until the host is ready to release it.</p>
+        </div>
+      </div>
+
+      <div class="carry__pair">
+        <div class="carry__col carry__col--you">
+          <span class="eyebrow eyebrow--bone">What you've been carrying</span>
+          <p>The estranged guest, the ex, the person who shouldn't have made the list.</p>
+        </div>
+        <div class="carry__col carry__col--shadow">
+          <span class="eyebrow">What Shadow holds</span>
+          <p>An access plan calibrated guest by guest, executed without ever becoming the story of the night.</p>
+        </div>
+      </div>
+
+      <div class="carry__pair">
+        <div class="carry__col carry__col--you">
+          <span class="eyebrow eyebrow--bone">What you've been carrying</span>
+          <p>The weather call, and the optics either way.</p>
+        </div>
+        <div class="carry__col carry__col--shadow">
+          <span class="eyebrow">What Shadow holds</span>
+          <p>A weather decision tree built into the operations order, with the call already framed before the sky turns.</p>
+        </div>
+      </div>
+
+      <div class="carry__pair">
+        <div class="carry__col carry__col--you">
+          <span class="eyebrow eyebrow--bone">What you've been carrying</span>
+          <p>The principal's children during the most photographed moments of the night.</p>
+        </div>
+        <div class="carry__col carry__col--shadow">
+          <span class="eyebrow">What Shadow holds</span>
+          <p>A discreet detail that moves with the family, that the family does not notice, and that the cameras never see.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- =================== WORKING WITH SHADOW =================== -->
 <section class="working">
@@ -493,6 +561,22 @@
 
     <div class="working__close">
       <p>The morning after a Shadow event, the only call you take is the one <em>congratulating you on the night.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FOUNDER'S NOTE =================== -->
+<section class="founders-note">
+  <div class="container founders-note__inner">
+    <span class="founders-note__mark">"</span>
+    <span class="eyebrow eyebrow--bone founders-note__eyebrow">A note from the founder</span>
+    <div class="founders-note__body">
+      <p>Twelve years on the U.S. Secret Service Presidential Protective Division taught me that the work happens long before the day of show. Six years in the private sector taught me the rest: that the events that go right are the ones where someone took the weight off the host before the host knew they were carrying it.</p>
+      <p>That is what Shadow Events is built to do. If you are planning something and want to talk it through, my team and I are reachable directly. The first conversation is on us.</p>
+    </div>
+    <div class="founders-note__signature">
+      <span class="name">Michael de Geus</span>
+      <span class="role">Founder, Shadow</span>
     </div>
   </div>
 </section>
@@ -641,107 +725,12 @@
   </div>
 </section>
 
-<!-- =================== PRESS =================== -->
-<section class="section section--bordered">
-  <div class="container">
-    <div class="section__head section__head--split">
-      <div>
-        <span class="eyebrow eyebrow--bone">Press &amp; Media</span>
-        <h2 class="display-l" style="margin-top:1.25rem;">Shadow in the news.</h2>
-      </div>
-      <p class="body-text">Michael de Geus, former U.S. Secret Service Presidential Protective Division, as a named expert source on event security, executive protection, and advance methodology.</p>
-    </div>
-
-    <div class="press-grid">
-
-      <a href="https://podcasts.apple.com/gb/podcast/how-the-secret-service-protects-the-president-an/id1496246490?i=1000765556425" target="_blank" rel="noopener" class="press-item">
-        <div class="press-item__outlet">The Bunker / Podmasters <span class="press-item__type">Podcast &middot; 21 min</span></div>
-        <h3 class="press-item__title">How the Secret Service protects the president: An ex-agent reveals all</h3>
-        <div class="press-item__footer">
-          <span class="press-item__date">May 2026</span>
-          <span class="press-item__arrow">&#8599;</span>
-        </div>
-      </a>
-
-      <a href="https://time.com/article/2026/04/28/trump-white-house-ballroom-WHCA-shooting/" target="_blank" rel="noopener" class="press-item">
-        <div class="press-item__outlet">Time Magazine <span class="press-item__type">Article</span></div>
-        <h3 class="press-item__title">Trump Says the White House Ballroom Is Essential for Security. Does He Have a Point?</h3>
-        <p class="press-item__quote">&ldquo;They effectively have tactical control of that site, where the president will be, not the entire hotel.&rdquo;</p>
-        <div class="press-item__footer">
-          <span class="press-item__date">April 28, 2026</span>
-          <span class="press-item__arrow">&#8599;</span>
-        </div>
-      </a>
-
-      <a href="https://www.nbcsandiego.com/news/local/former-u-s-secret-service-agent-weighs-in-on-security-at-whcd/4015731/" target="_blank" rel="noopener" class="press-item">
-        <div class="press-item__outlet">NBC News <span class="press-item__type">TV Interview</span></div>
-        <h3 class="press-item__title">Former Secret Service Agent Credits Security Amid Correspondents&rsquo; Dinner Shooting</h3>
-        <div class="press-item__footer">
-          <span class="press-item__date">April 27, 2026</span>
-          <span class="press-item__arrow">&#8599;</span>
-        </div>
-      </a>
-
-    </div>
-
-    <div style="margin-top:2rem;">
-      <a href="press.html" class="btn btn--ghost">All Press Coverage</a>
-    </div>
-  </div>
-</section>
-
-<!-- =================== PLAYBOOK =================== -->
-<section class="section section--coal section--bordered">
-  <div class="container">
-    <div class="section__head section__head--split">
-      <div>
-        <span class="eyebrow eyebrow--bone">Publications</span>
-        <h2 class="display-l" style="margin-top:1.25rem;">The Shadow Playbook series.</h2>
-      </div>
-      <p class="body-text">Three books on the doctrine, methodology, and field practice behind Shadow engagements. Written from nearly two decades of operational experience: federal service and private sector. All three titles publishing in 2026.</p>
-    </div>
-
-    <div class="books-grid">
-      <div class="book-card">
-        <img src="playbook-book1-cover.jpg" alt="The Corporate Safety &amp; Security Playbook cover" class="book-card__cover">
-        <div class="book-card__body">
-        <div class="book-card__num">Book One</div>
-        <h3 class="book-card__title">The Corporate Safety &amp; Security Playbook</h3>
-        <p class="book-card__desc">Advance methodology, venue operations, crowd dynamics, command and coordination, and mass casualty planning. The operational doctrine behind every Shadow event engagement. Nearly 200 pages written from the field, not the classroom.</p>
-        <div class="book-card__status">Publishing 2026</div>
-        <a href="insight-playbook-book1.html" class="btn btn--ghost" style="margin-top:1.5rem;align-self:center;">Read Excerpt</a>
-        </div>
-      </div>
-      <div class="book-card">
-        <img src="playbook-book2-cover.jpg" alt="The Executive Protection Playbook cover" class="book-card__cover">
-        <div class="book-card__body">
-        <div class="book-card__num">Book Two</div>
-        <h3 class="book-card__title">The Executive Protection Playbook</h3>
-        <p class="book-card__desc">Close personal protection doctrine from the principal relationship through detail design, advance, motorcades, and the moments of greatest exposure. The full methodology for protecting individuals, not just buildings.</p>
-        <div class="book-card__status">Publishing 2026</div>
-        <a href="insight-playbook-book2.html" class="btn btn--ghost" style="margin-top:1.5rem;align-self:center;">Read Excerpt</a>
-        </div>
-      </div>
-      <div class="book-card">
-        <img src="playbook-book3-cover.jpg" alt="The Event Safety &amp; Protection Playbook cover" class="book-card__cover">
-        <div class="book-card__body">
-        <div class="book-card__num">Book Three</div>
-        <h3 class="book-card__title">The Event Safety &amp; Protection Playbook</h3>
-        <p class="book-card__desc">The third title in the Shadow Playbook series. The series covers the full scope of Shadow doctrine: events, executive protection, and the intelligence and advance work that governs both.</p>
-        <div class="book-card__status">Publishing 2026</div>
-        <a href="insight-playbook-book3.html" class="btn btn--ghost" style="margin-top:1.5rem;align-self:center;">Read Excerpt</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- =================== CTA BAND =================== -->
 <section class="cta-band">
   <div class="container">
     <div class="cta-band__inner">
       <div>
-        <h2 class="cta-band__title">Contact Shadow <em>Events</em> for your next event.</h2>
+        <h2 class="cta-band__title">Bring Shadow into <em>your next event</em>.</h2>
         <p class="cta-band__sub">Inquiries are reviewed by our principals. Initial conversations are confidential. We respond inside 48 hours.</p>
       </div>
       <a href="contact.html" class="btn">Open Inquiry</a>
@@ -754,18 +743,16 @@
   <div class="container">
     <div class="footer__top">
       <div>
-        <div class="footer__brand-inline"><span class="footer__brand-wordmark footer__brand-wordmark--upper">SHADOW</span><span class="footer__brand-wordmark footer__brand-wordmark--gold">.</span></div>
-        <p class="footer__brand-tag">Proactive event protection. Headquartered in Northern Virginia. Global deployment.</p>
+        <div class="footer__brand-mark">Shadow</div>
+        <div class="footer__brand-sub">Events Division</div>
+        <p class="footer__brand-tag">Anticipatory event protection. Northern Virginia. Global deployment.</p>
       </div>
       <div class="footer__col">
-                <h6>Site</h6>
+        <h6>Site</h6>
         <ul class="footer__list">
           <li><a href="index.html">Overview</a></li>
-          <li><a href="doctrine.html">Doctrine</a></li>
           <li><a href="capabilities.html">Capabilities</a></li>
           <li><a href="case-studies.html">Engagements</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="leadership.html">Leadership</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -787,48 +774,30 @@
           <li><a href="capabilities.html#ep">Executive Protection</a></li>
           <li><a href="capabilities.html#venue">Venue Operations</a></li>
           <li><a href="capabilities.html#command">Command &amp; Coordination</a></li>
-          <li><a href="screening.html">Screening</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h6>Shadow</h6>
         <ul class="footer__list">
           <li><a href="https://shdw.com" target="_blank" rel="noopener">shdw.com</a></li>
-          <li><a href="press.html">Press</a></li>
           <li><a href="contact.html">Inquire</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copy">&copy; 2026 SHDW, LLC. All Rights Reserved.</span>
+      <span class="footer__copy">© SHDW, LLC. All rights reserved.</span>
+      <span class="footer__legal">Licensed / Insured / Confidential</span>
     </div>
   </div>
 </footer>
 
+<script src="../brand.js"></script>
 
 <script>
-(function() {
-  var cursor = document.getElementById('cursor');
-  if (!cursor) return;
-  var t;
-  document.addEventListener('mousemove', function(e) {
-    cursor.style.transform = 'translate(' + (e.clientX - 3) + 'px,' + (e.clientY - 3) + 'px)';
-    cursor.classList.add('moving');
-    clearTimeout(t);
-    t = setTimeout(function() { cursor.classList.remove('moving'); }, 120);
-  });
+(function(){
+  var t=document.getElementById('navToggle'),i=document.getElementById('navInner');
+  if(t&&i) t.addEventListener('click',function(){i.classList.toggle('is-open');});
 })();
 </script>
-
-<script>
-  (function() {
-    var toggle = document.getElementById('navToggle');
-    var inner = document.getElementById('navInner');
-    if (toggle && inner) {
-      toggle.addEventListener('click', function() { inner.classList.toggle('is-open'); });
-    }
-  })();
-</script>
-<script src="../brand.js"></script>
 </body>
 </html>
