@@ -1287,6 +1287,101 @@
     padding: 18px 22px;
     background: var(--shadow-elevated);
   }
+  /* CTA block */
+  .fcso-cta-block {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 1px solid var(--shadow-divider);
+    padding-top: 28px;
+  }
+
+  .fcso-pricing {
+    background: var(--shadow-elevated);
+    border: 1px solid var(--shadow-border);
+    padding: 24px 24px 20px;
+  }
+  .fcso-pricing-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .fcso-pricing-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 1;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+  }
+  .fcso-pricing-period {
+    font-size: 22px;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+  }
+  .fcso-pricing-note {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-top: 10px;
+  }
+
+  .fcso-free-call {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px 20px;
+    background: rgba(201, 168, 76, 0.06);
+    border: 1px solid var(--shadow-border);
+  }
+  .fcso-free-call-icon {
+    color: var(--tactical-gold);
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .fcso-free-call strong {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .fcso-free-call p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .fcso-apply-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--tactical-gold);
+    color: var(--shadow-black);
+    border: 1px solid var(--tactical-gold);
+    padding: 18px 28px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.25s var(--ease-out);
+    align-self: flex-start;
+  }
+  .fcso-apply-btn:hover {
+    background: transparent;
+    color: var(--tactical-gold);
+  }
+
   .fcso-field-note-label {
     font-family: var(--font-mono);
     font-size: 10px;
@@ -1521,6 +1616,24 @@
           </ul>
           <span class="fcso-best-label">Best For</span>
           <p class="fcso-best-text">Public-company CEOs, founder-principals, private-company scale, and event-heavy functions: Communications, IR, and Chief-of-Staff leaders responsible for principal safety across a calendar of public engagements.</p>
+
+          <div class="fcso-cta-block">
+            <div class="fcso-pricing">
+              <span class="fcso-pricing-label">Starting At</span>
+              <div class="fcso-pricing-num">$4,000<span class="fcso-pricing-period">/mo</span></div>
+              <p class="fcso-pricing-note">Dedicated entirely to your business. Billed bi-monthly or monthly. No retainer minimums. Cancel with 30 days notice.</p>
+            </div>
+            <div class="fcso-free-call">
+              <span class="fcso-free-call-icon">&#10022;</span>
+              <div>
+                <strong>Complimentary 30-Minute Discovery Call</strong>
+                <p>We discuss your risk profile, event calendar, and specific needs before any engagement begins. No obligation. No salesperson.</p>
+              </div>
+            </div>
+            <a href="mailto:hello@shdw.com?subject=Fractional%20CSO%20Inquiry%20%E2%80%94%20Discovery%20Call" class="fcso-apply-btn">
+              Schedule Free Discovery Call &rarr;
+            </a>
+          </div>
         </div>
       </div>
     </div>
