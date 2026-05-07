@@ -8,7 +8,7 @@
 <title>Insights | Doctrine, Dispatches &amp; Field Notes | Shadow Events</title>
 <meta name="description" content="Shadow Events Insights: doctrine essays, field notes, after-action observations, and excerpts from the Shadow Playbook book series. Written by Shadow leadership and senior team." />
 <meta name="keywords" content="shadow events insights, executive protection insights, event security blog, USSS insights, advance methodology, security doctrine writing, shadow playbook" />
-<meta name="author" content="SHDW, LLC" />
+<meta name="author" content="Shadow Protection Group" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <link rel="canonical" href="https://shdw.com/events/insights.html" />
 
@@ -31,11 +31,10 @@
   "@type": "Blog",
   "name": "Shadow Events Insights",
   "url": "https://shdw.com/events/insights.html",
-  "description": "Doctrine essays, field notes, and after-action observations from Shadow leadership.",
+  "description": "Doctrine essays, field notes, and after-action observations from Shadow Protection Group leadership.",
   "publisher": {
     "@type": "Organization",
-    "name": "SHDW, LLC",
-    "alternateName": "Shadow",
+    "name": "Shadow Protection Group",
     "url": "https://shdw.com"
   }
 }
@@ -46,6 +45,8 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+
 
 <!-- =================== NAV =================== -->
 <header class="nav">
@@ -88,14 +89,14 @@
     <article class="insight-feature">
       <div class="insight-feature__meta">
         <span class="insight-feature__category">Doctrine</span>
-        <span class="insight-feature__date">Forthcoming</span>
-        <span class="insight-feature__readtime">12 min read</span>
+        <span class="insight-feature__date">May 2026</span>
+        <span class="insight-feature__readtime">6 min read</span>
       </div>
-      <h3 class="insight-feature__title"><a href="#">Why we call it protection, not security.</a></h3>
-      <p class="insight-feature__excerpt">An essay on the foundational distinction that defines the Shadow Doctrine. Security is reactive. Protection is anticipatory. The work happens at different times, the team holds different disciplines, and the outcomes are measured against different standards. By Michael de Geus.</p>
+      <h3 class="insight-feature__title"><a href="insight-protection-not-security.html">Why we call it protection, not security.</a></h3>
+      <p class="insight-feature__excerpt">An essay on the foundational distinction that defines the Shadow Doctrine. Security is reactive. Protection is proactive. The work happens at different times, the team holds different disciplines, and the outcomes are measured against different standards. By Michael de Geus.</p>
       <div class="insight-feature__author">
         <span class="byline">Michael de Geus</span>
-        <span class="byline-sub">Founder &amp; CEO, Shadow</span>
+        <span class="byline-sub">Founder &amp; CEO, Shadow Protection Group</span>
       </div>
     </article>
   </div>
@@ -114,9 +115,9 @@
       <article class="insight-card">
         <div class="insight-card__meta">
           <span class="cat">Field Note</span>
-          <span class="date">Forthcoming</span>
+          <span class="date">May 2026</span>
         </div>
-        <h3 class="insight-card__title"><a href="#">The advance is the work: an inside view of how a stadium tour gets built.</a></h3>
+        <h3 class="insight-card__title"><a href="insight-tour-advance.html">The advance is the work: an inside view of how a stadium tour gets built.</a></h3>
         <p class="insight-card__excerpt">A walkthrough of the advance program for a multi-city stadium tour, from the first venue survey to the final after-action review. What the Advance Team carries when they cycle ahead of the principal, why the operations order is the most important document of the run, and how doctrine compounds across forty cities.</p>
         <div class="insight-card__author">
           <span class="byline">Bradley de Geus</span>
@@ -231,12 +232,11 @@
   <div class="container">
     <div class="footer__top">
       <div>
-        <div class="footer__brand-mark">Shadow</div>
-        <div class="footer__brand-sub">Events Division</div>
-        <p class="footer__brand-tag">Anticipatory event protection. Northern Virginia. Global deployment.</p>
+        <div class="footer__brand-inline"><span class="footer__brand-wordmark footer__brand-wordmark--upper">SHADOW</span> <span class="footer__brand-wordmark footer__brand-wordmark--gold">EVENTS</span></div>
+        <p class="footer__brand-tag">Proactive event protection. Headquartered in Northern Virginia. Global deployment.</p>
       </div>
       <div class="footer__col">
-        <h6>Site</h6>
+                <h6>Site</h6>
         <ul class="footer__list">
           <li><a href="index.html">Overview</a></li>
           <li><a href="doctrine.html">Doctrine</a></li>
@@ -265,25 +265,39 @@
           <li><a href="capabilities.html#ep">Executive Protection</a></li>
           <li><a href="capabilities.html#venue">Venue Operations</a></li>
           <li><a href="capabilities.html#command">Command &amp; Coordination</a></li>
+          <li><a href="screening.html">Screening</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h6>Shadow</h6>
         <ul class="footer__list">
           <li><a href="https://shdw.com" target="_blank" rel="noopener">shdw.com</a></li>
+          <li><a href="press.html">Press</a></li>
           <li><a href="contact.html">Inquire</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copy">© SHDW, LLC. All rights reserved.</span>
-      <span class="footer__legal">Licensed / Insured / Confidential</span>
+      <span class="footer__copy">&copy; 2026 SHDW, LLC. All Rights Reserved.</span>
     </div>
   </div>
 </footer>
 
-<script src="../brand.js"></script>
 
+<script>
+(function() {
+  var cursor = document.getElementById('cursor');
+  if (!cursor) return;
+  var t;
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.transform = 'translate(' + (e.clientX - 3) + 'px,' + (e.clientY - 3) + 'px)';
+    cursor.classList.add('moving');
+    clearTimeout(t);
+    t = setTimeout(function() { cursor.classList.remove('moving'); }, 120);
+  });
+})();
+</script>
+<script src="../brand.js"></script>
 <script>
 (function(){
   var t=document.getElementById('navToggle'),i=document.getElementById('navInner');
