@@ -289,9 +289,26 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 56px 22px 72px;
+    padding: 0 0 0;
+    background: var(--tactical-gold);
   }
-  .stage-inner { width: 100%; max-width: 760px; position: relative; }
+  .stage-inner {
+    width: 100%;
+    max-width: 1120px;
+    padding: 56px 48px 72px;
+    position: relative;
+  }
+
+  /* Questions / results screens restore dark bg */
+  #screen-questions,
+  #screen-calc,
+  #screen-gate,
+  #screen-results {
+    background: var(--shadow-black);
+    padding: 56px 24px 72px;
+    margin: -56px -48px -72px;
+    min-height: 600px;
+  }
 
   .screen { display: none; }
   .screen.active {
@@ -892,6 +909,44 @@
     background: var(--tactical-gold);
   }
 
+  /* ============ LANDING SCREEN GOLD TREATMENT ============ */
+  #screen-landing .cta-row {
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+
+  #screen-landing button.primary {
+    background-color: var(--shadow-black);
+    color: var(--tactical-gold);
+    border-color: var(--shadow-black);
+    font-size: 15px;
+    padding: 22px 40px;
+  }
+  #screen-landing button.primary:hover {
+    background-color: transparent;
+    color: var(--shadow-black);
+    border-color: var(--shadow-black);
+  }
+
+  #screen-landing .attribute {
+    color: rgba(5, 5, 5, 0.65);
+  }
+  #screen-landing .attribute-tick {
+    color: var(--shadow-black);
+  }
+
+  #screen-landing .confidential-bar {
+    background: rgba(5, 5, 5, 0.12);
+    border-color: rgba(5, 5, 5, 0.2);
+    color: rgba(5, 5, 5, 0.55);
+  }
+  #screen-landing .confidential-bar .lock {
+    border-color: rgba(5, 5, 5, 0.4);
+  }
+  #screen-landing .confidential-bar .lock::after {
+    background: rgba(5, 5, 5, 0.4);
+  }
+
   /* ============ FOOTER ============ */
   footer {
     background: var(--shadow-black);
@@ -1288,6 +1343,7 @@
   /* ASSESSMENT INTRO */
   .assessment-bridge {
     padding: 72px 24px 0;
+    background: var(--tactical-gold);
   }
   .bridge-inner {
     max-width: 1120px;
@@ -1298,7 +1354,7 @@
     gap: 32px;
     flex-wrap: wrap;
     padding-bottom: 48px;
-    border-bottom: 1px solid var(--shadow-divider);
+    border-bottom: 1px solid rgba(5, 5, 5, 0.15);
   }
   .bridge-left {}
   .bridge-eyebrow {
@@ -1306,7 +1362,7 @@
     font-size: 11px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: rgba(5, 5, 5, 0.55);
     margin-bottom: 16px;
     display: block;
   }
@@ -1316,11 +1372,12 @@
     text-transform: uppercase;
     letter-spacing: 0.02em;
     line-height: 0.95;
+    color: var(--shadow-black);
   }
   .bridge-right {
     font-size: 16px;
     line-height: 1.6;
-    color: var(--text-secondary);
+    color: rgba(5, 5, 5, 0.65);
     max-width: 46ch;
   }
 
