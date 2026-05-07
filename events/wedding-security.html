@@ -8,7 +8,7 @@
 <title>Wedding Security &amp; Private Celebration Protection | Shadow Events</title>
 <meta name="description" content="Wedding security and private celebration protection for high-net-worth families. Lower visibility posture, full advance methodology, agents who blend with your guest list. USSS-trained leadership." />
 <meta name="keywords" content="wedding security, high net worth wedding security, luxury wedding security, private wedding protection, family wedding security, celebrity wedding security, destination wedding security, wedding security firm, discreet wedding security, wedding event security" />
-<meta name="author" content="SHDW, LLC" />
+<meta name="author" content="Shadow Protection Group" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <link rel="canonical" href="https://shdw.com/events/wedding-security.html" />
 
@@ -34,8 +34,7 @@
   "description": "Discreet wedding security and private celebration protection for high-net-worth families. Lower visibility posture, full advance methodology, agents who blend with the guest list.",
   "parentOrganization": {
     "@type": "Organization",
-    "name": "SHDW, LLC",
-    "alternateName": "Shadow",
+    "name": "Shadow Protection Group",
     "url": "https://shdw.com"
   },
   "serviceType": "Wedding Security and Private Celebration Protection",
@@ -48,6 +47,8 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+
 
 <!-- =================== NAV =================== -->
 <header class="nav">
@@ -320,12 +321,11 @@
   <div class="container">
     <div class="footer__top">
       <div>
-        <div class="footer__brand-mark">Shadow</div>
-        <div class="footer__brand-sub">Events Division</div>
-        <p class="footer__brand-tag">Anticipatory event protection. Northern Virginia. Global deployment.</p>
+        <div class="footer__brand-inline"><span class="footer__brand-wordmark footer__brand-wordmark--upper">SHADOW</span> <span class="footer__brand-wordmark footer__brand-wordmark--gold">EVENTS</span></div>
+        <p class="footer__brand-tag">Proactive event protection. Headquartered in Northern Virginia. Global deployment.</p>
       </div>
       <div class="footer__col">
-        <h6>Site</h6>
+                <h6>Site</h6>
         <ul class="footer__list">
           <li><a href="index.html">Overview</a></li>
           <li><a href="doctrine.html">Doctrine</a></li>
@@ -354,25 +354,39 @@
           <li><a href="capabilities.html#ep">Executive Protection</a></li>
           <li><a href="capabilities.html#venue">Venue Operations</a></li>
           <li><a href="capabilities.html#command">Command &amp; Coordination</a></li>
+          <li><a href="screening.html">Screening</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h6>Shadow</h6>
         <ul class="footer__list">
           <li><a href="https://shdw.com" target="_blank" rel="noopener">shdw.com</a></li>
+          <li><a href="press.html">Press</a></li>
           <li><a href="contact.html">Inquire</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copy">© SHDW, LLC. All rights reserved.</span>
-      <span class="footer__legal">Licensed / Insured / Confidential</span>
+      <span class="footer__copy">&copy; 2026 SHDW, LLC. All Rights Reserved.</span>
     </div>
   </div>
 </footer>
 
-<script src="../brand.js"></script>
 
+<script>
+(function() {
+  var cursor = document.getElementById('cursor');
+  if (!cursor) return;
+  var t;
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.transform = 'translate(' + (e.clientX - 3) + 'px,' + (e.clientY - 3) + 'px)';
+    cursor.classList.add('moving');
+    clearTimeout(t);
+    t = setTimeout(function() { cursor.classList.remove('moving'); }, 120);
+  });
+})();
+</script>
+<script src="../brand.js"></script>
 <script>
 (function(){
   var t=document.getElementById('navToggle'),i=document.getElementById('navInner');
