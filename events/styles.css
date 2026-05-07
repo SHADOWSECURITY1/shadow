@@ -1858,8 +1858,8 @@ h1, h2, h3, h4 {
 .team-card:hover { background: var(--shadow-coal); }
 
 .team-card__photo {
-  width: 80px;
-  height: 80px;
+  width: 136px;
+  height: 136px;
   border: 1px solid var(--tactical-gold-faint);
   display: flex;
   align-items: center;
