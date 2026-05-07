@@ -289,26 +289,9 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 0 0 0;
-    background: var(--tactical-gold);
+    padding: 56px 22px 72px;
   }
-  .stage-inner {
-    width: 100%;
-    max-width: 1120px;
-    padding: 56px 48px 72px;
-    position: relative;
-  }
-
-  /* Questions / results screens restore dark bg */
-  #screen-questions,
-  #screen-calc,
-  #screen-gate,
-  #screen-results {
-    background: var(--shadow-black);
-    padding: 56px 24px 72px;
-    margin: -56px -48px -72px;
-    min-height: 600px;
-  }
+  .stage-inner { width: 100%; max-width: 760px; position: relative; }
 
   .screen { display: none; }
   .screen.active {
@@ -909,42 +892,9 @@
     background: var(--tactical-gold);
   }
 
-  /* ============ LANDING SCREEN GOLD TREATMENT ============ */
   #screen-landing .cta-row {
     margin-top: 0;
     margin-bottom: 32px;
-  }
-
-  #screen-landing button.primary {
-    background-color: var(--shadow-black);
-    color: var(--tactical-gold);
-    border-color: var(--shadow-black);
-    font-size: 15px;
-    padding: 22px 40px;
-  }
-  #screen-landing button.primary:hover {
-    background-color: transparent;
-    color: var(--shadow-black);
-    border-color: var(--shadow-black);
-  }
-
-  #screen-landing .attribute {
-    color: rgba(5, 5, 5, 0.65);
-  }
-  #screen-landing .attribute-tick {
-    color: var(--shadow-black);
-  }
-
-  #screen-landing .confidential-bar {
-    background: rgba(5, 5, 5, 0.12);
-    border-color: rgba(5, 5, 5, 0.2);
-    color: rgba(5, 5, 5, 0.55);
-  }
-  #screen-landing .confidential-bar .lock {
-    border-color: rgba(5, 5, 5, 0.4);
-  }
-  #screen-landing .confidential-bar .lock::after {
-    background: rgba(5, 5, 5, 0.4);
   }
 
   /* ============ FOOTER ============ */
@@ -1438,7 +1388,7 @@
   /* ASSESSMENT INTRO */
   .assessment-bridge {
     padding: 72px 24px 0;
-    background: var(--tactical-gold);
+    border-bottom: none;
   }
   .bridge-inner {
     max-width: 1120px;
@@ -1449,7 +1399,7 @@
     gap: 32px;
     flex-wrap: wrap;
     padding-bottom: 48px;
-    border-bottom: 1px solid rgba(5, 5, 5, 0.15);
+    border-bottom: 1px solid var(--shadow-divider);
   }
   .bridge-left {}
   .bridge-eyebrow {
@@ -1457,7 +1407,7 @@
     font-size: 11px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: rgba(5, 5, 5, 0.55);
+    color: var(--text-muted);
     margin-bottom: 16px;
     display: block;
   }
@@ -1467,12 +1417,11 @@
     text-transform: uppercase;
     letter-spacing: 0.02em;
     line-height: 0.95;
-    color: var(--shadow-black);
   }
   .bridge-right {
     font-size: 16px;
     line-height: 1.6;
-    color: rgba(5, 5, 5, 0.65);
+    color: var(--text-secondary);
     max-width: 46ch;
   }
 
@@ -1557,108 +1506,6 @@
       <div class="transition-callout">
         <span class="transition-callout-label">The Transition Window</span>
         <p>Arrival. Stage transition. Meet &amp; greet. Rope line. Motorcade. These are the 90-second intervals where protection either holds or fails.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECURITY vs PROTECTION -->
-  <section class="compare-section ed-section">
-    <div class="ed-inner">
-      <span class="compare-eyebrow">Two Different Disciplines</span>
-      <div class="compare-grid">
-        <div class="compare-col">
-          <span class="compare-col-tag">Security</span>
-          <div class="compare-col-title">Reactive.</div>
-          <ul class="compare-list">
-            <li>Responds after an incident has begun.</li>
-            <li>Visible posture, fixed positions, uniformed presence.</li>
-            <li>Optimized for deterrence and crowd management.</li>
-            <li>Success measured by incidents contained.</li>
-          </ul>
-        </div>
-        <div class="compare-col compare-col--gold">
-          <span class="compare-col-tag">Protection</span>
-          <div class="compare-col-title">Proactive. Anticipatory.</div>
-          <ul class="compare-list">
-            <li>Neutralizes threats before they materialize.</li>
-            <li>Invisible posture, dynamic positioning, advance-driven.</li>
-            <li>Optimized for principal continuity at every transition.</li>
-            <li>Success measured by incidents that never occur.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="compare-footer">Most events just buy security&hellip; not the protection they need.</div>
-    </div>
-  </section>
-
-  <!-- FRACTIONAL CSO OFFERING -->
-  <section class="fcso-section ed-section">
-    <div class="ed-inner">
-      <div class="fcso-grid">
-        <div class="fcso-left">
-          <span class="fcso-eyebrow">Tier 03 &middot; Engagement</span>
-          <h2 class="fcso-h2">Senior security leadership. Ongoing.</h2>
-          <p class="fcso-sub">For businesses that need a CSO without the full-time hire costs. Not a guard service. Not a consultant. The senior security leadership a full-time CSO would provide, sized to where you actually are.</p>
-          <div class="fcso-field-note">
-            <span class="fcso-field-note-label">Field Observation</span>
-            <p>Planning is strong. Visibility is high. Execution under pressure is inconsistent. Gaps emerge during transitions. The system performs well until it has to adapt in real time.</p>
-            <em>This is not a personnel failure. It is a systems design failure.</em>
-          </div>
-        </div>
-        <div class="fcso-right">
-          <ul class="fcso-list">
-            <li>Standing advisory on risk posture</li>
-            <li>Event calendar fully integrated</li>
-            <li>Vendor oversight and rationalization</li>
-            <li>Advance methodology applied to every engagement</li>
-            <li>Direct line to founder-operator</li>
-            <li>Billed bi-monthly or monthly</li>
-          </ul>
-          <span class="fcso-best-label">Best For</span>
-          <p class="fcso-best-text">Public-company CEOs, founder-principals, private-company scale, and event-heavy functions: Communications, IR, and Chief-of-Staff leaders responsible for principal safety across a calendar of public engagements.</p>
-
-          <div class="fcso-cta-block">
-            <div class="fcso-pricing">
-              <span class="fcso-pricing-label">Starting At</span>
-              <div class="fcso-pricing-num">$4,000<span class="fcso-pricing-period">/mo</span></div>
-              <p class="fcso-pricing-note">Dedicated entirely to your business. Billed bi-monthly or monthly. No retainer minimums. Cancel with 30 days notice.</p>
-            </div>
-            <div class="fcso-free-call">
-              <span class="fcso-free-call-icon">&#10022;</span>
-              <div>
-                <strong>Complimentary 30-Minute Discovery Call</strong>
-                <p>We discuss your risk profile, event calendar, and specific needs before any engagement begins. No obligation. No salesperson.</p>
-              </div>
-            </div>
-            <a href="mailto:hello@shdw.com?subject=Fractional%20CSO%20Inquiry%20%E2%80%94%20Discovery%20Call" class="fcso-apply-btn">
-              Schedule Free Discovery Call &rarr;
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="stats-section ed-section">
-    <div class="ed-inner">
-      <div class="stats-grid">
-        <div class="stat-cell">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Events Secured</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">0</div>
-          <div class="stat-label">Incidents on Record</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Continents Operational</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">100+</div>
-          <div class="stat-label">Years of Team Experience</div>
-        </div>
       </div>
     </div>
   </section>
@@ -1836,6 +1683,110 @@
 
     </div>
   </main>
+
+  <!-- FRACTIONAL CSO OFFERING -->
+  <section class="fcso-section ed-section">
+    <div class="ed-inner">
+      <div class="fcso-grid">
+        <div class="fcso-left">
+          <span class="fcso-eyebrow">Tier 03 &middot; Engagement</span>
+          <h2 class="fcso-h2">Senior security leadership. Ongoing.</h2>
+          <p class="fcso-sub">For businesses that need a CSO without the full-time hire costs. Not a guard service. Not a consultant. The senior security leadership a full-time CSO would provide, sized to where you actually are.</p>
+          <div class="fcso-field-note">
+            <span class="fcso-field-note-label">Field Observation</span>
+            <p>Planning is strong. Visibility is high. Execution under pressure is inconsistent. Gaps emerge during transitions. The system performs well until it has to adapt in real time.</p>
+            <em>This is not a personnel failure. It is a systems design failure.</em>
+          </div>
+        </div>
+        <div class="fcso-right">
+          <ul class="fcso-list">
+            <li>Standing advisory on risk posture</li>
+            <li>Event calendar fully integrated</li>
+            <li>Vendor oversight and rationalization</li>
+            <li>Advance methodology applied to every engagement</li>
+            <li>Direct line to founder-operator</li>
+            <li>Billed bi-monthly or monthly</li>
+          </ul>
+          <span class="fcso-best-label">Best For</span>
+          <p class="fcso-best-text">Public-company CEOs, founder-principals, private-company scale, and event-heavy functions: Communications, IR, and Chief-of-Staff leaders responsible for principal safety across a calendar of public engagements.</p>
+
+          <div class="fcso-cta-block">
+            <div class="fcso-pricing">
+              <span class="fcso-pricing-label">Starting At</span>
+              <div class="fcso-pricing-num">$4,000<span class="fcso-pricing-period">/mo</span></div>
+              <p class="fcso-pricing-note">Dedicated entirely to your business. Billed bi-monthly or monthly. No retainer minimums. Cancel with 30 days notice.</p>
+            </div>
+            <div class="fcso-free-call">
+              <span class="fcso-free-call-icon">&#10022;</span>
+              <div>
+                <strong>Complimentary 30-Minute Discovery Call</strong>
+                <p>We discuss your risk profile, event calendar, and specific needs before any engagement begins. No obligation. No salesperson.</p>
+              </div>
+            </div>
+            <a href="mailto:hello@shdw.com?subject=Fractional%20CSO%20Inquiry%20%E2%80%94%20Discovery%20Call" class="fcso-apply-btn">
+              Schedule Free Discovery Call &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY vs PROTECTION -->
+  <section class="compare-section ed-section">
+    <div class="ed-inner">
+      <span class="compare-eyebrow">Two Different Disciplines</span>
+      <div class="compare-grid">
+        <div class="compare-col">
+          <span class="compare-col-tag">Security</span>
+          <div class="compare-col-title">Reactive.</div>
+          <ul class="compare-list">
+            <li>Responds after an incident has begun.</li>
+            <li>Visible posture, fixed positions, uniformed presence.</li>
+            <li>Optimized for deterrence and crowd management.</li>
+            <li>Success measured by incidents contained.</li>
+          </ul>
+        </div>
+        <div class="compare-col compare-col--gold">
+          <span class="compare-col-tag">Protection</span>
+          <div class="compare-col-title">Proactive. Anticipatory.</div>
+          <ul class="compare-list">
+            <li>Neutralizes threats before they materialize.</li>
+            <li>Invisible posture, dynamic positioning, advance-driven.</li>
+            <li>Optimized for principal continuity at every transition.</li>
+            <li>Success measured by incidents that never occur.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="compare-footer">Most events just buy security&hellip; not the protection they need.</div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section ed-section">
+    <div class="ed-inner">
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Events Secured</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Incidents on Record</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Continents Operational</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">Years of Team Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
   <!-- FOOTER -->
   <footer>
