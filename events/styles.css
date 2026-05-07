@@ -3166,3 +3166,39 @@ h1, h2, h3, h4 {
 .nav__wordmark { text-transform: uppercase; letter-spacing: 0.28em; }
 .nav__link--active { color: var(--tactical-gold) !important; }
 .footer__brand-wordmark--upper { text-transform: uppercase; letter-spacing: 0.28em; }
+
+/* =================== GOLD STANDARD FEATURE GRID =================== */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: var(--shadow-black);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: background 0.3s;
+}
+
+.feature-card:hover { background: var(--shadow-coal); }
+
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+
+.feature-desc {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
