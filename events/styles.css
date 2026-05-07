@@ -1741,6 +1741,7 @@ h1, h2, h3, h4 {
   background: var(--shadow-coal);
   border: 1px solid var(--hairline);
   overflow: hidden;
+  max-width: 70%;
 }
 
 .founder__photo::before,
