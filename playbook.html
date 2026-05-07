@@ -465,6 +465,65 @@
     .stats-row { flex-direction: column; gap: 24px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   }
+
+  /* BOOKS GRID */
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  @media (max-width: 900px) { .books-grid { grid-template-columns: 1fr; } }
+  .book-card {
+    background: var(--card);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .book-card:hover { background: #141414; }
+  .book-cover {
+    width: 60%; aspect-ratio: 2/3;
+    object-fit: cover; object-position: top center;
+    display: block; margin: 2rem auto 0;
+    border: 1px solid var(--border);
+  }
+  .book-body {
+    padding: 2rem; display: flex; flex-direction: column;
+    gap: 1.25rem; flex: 1;
+  }
+  .book-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--red);
+  }
+  .book-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    letter-spacing: 0.06em; line-height: 1.15; color: var(--white);
+  }
+  .book-desc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.875rem; line-height: 1.65;
+    color: var(--light); flex: 1;
+  }
+  .book-status {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gray);
+    padding-top: 1rem; border-top: 1px solid var(--border);
+  }
+  .book-cta {
+    display: inline-block; margin-top: 1rem;
+    padding: 14px 24px; border: 1px solid var(--border);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--light);
+    text-decoration: none; text-align: center;
+    transition: all 0.25s;
+  }
+  .book-cta:hover { border-color: var(--red); color: var(--red); }
 </style>
 </head>
 <body>
@@ -530,75 +589,41 @@
 <!-- CONTENT -->
 <div class="page-content">
 <div class="intro-block reveal">
-  <div class="label">The Book</div>
-  <h2 class="section-h">The Corporate Safety<br>&amp; Security Playbook.</h2>
-  <p>Written by a former U.S. Secret Service Special Agent, The Corporate Safety &amp; Security Playbook is the definitive guide for organizations ready to build a professional-grade security program from the ground up. This is not a theoretical framework, it is a field-tested, operationally proven playbook drawn from decades of real-world protective operations at the highest levels of government and private sector security.</p>
-  <p>Whether you are a C-suite executive, a corporate security manager, or an entrepreneur protecting your business for the first time, this book delivers the knowledge, frameworks, and tools to make your organization significantly harder to target.</p>
-</div>
-<div class="reveal">
-  <div class="label">What You'll Learn</div>
-  <h2 class="section-h">Six Core Topics.</h2>
-<div class="feature-grid">
-  <div class="feature-card reveal">
-    <div class="feature-title">Threat Assessment Fundamentals</div>
-    <p class="feature-desc">How to identify, evaluate, and prioritize threats before they become incidents. The same methodology used to protect U.S. presidents.</p>
-  </div>
-  <div class="feature-card reveal">
-    <div class="feature-title">Building a Security Culture</div>
-    <p class="feature-desc">How to embed security awareness across your organization, from the C-suite to the front desk, without creating a paranoid environment.</p>
-  </div>
-  <div class="feature-card reveal">
-    <div class="feature-title">Executive Protection Basics</div>
-    <p class="feature-desc">What every executive needs to know about their own protection, including travel security, residential security, and digital exposure.</p>
-  </div>
-  <div class="feature-card reveal">
-    <div class="feature-title">Event Security Planning</div>
-    <p class="feature-desc">A step-by-step framework for planning and executing security operations for corporate events of any scale.</p>
-  </div>
-  <div class="feature-card reveal">
-    <div class="feature-title">Crisis Communication</div>
-    <p class="feature-desc">How to communicate during a security incident to protect your people, your brand, and your operational continuity.</p>
-  </div>
-  <div class="feature-card reveal">
-    <div class="feature-title">Vendor &amp; Contractor Vetting</div>
-    <p class="feature-desc">The security industry is unregulated. Learn how to identify qualified vendors and avoid operators who will put your organization at risk.</p>
-  </div>
-</div>
+  <div class="label">Publications</div>
+  <h2 class="section-h">The Shadow<br>Playbook Series.</h2>
+  <p>Three books on Corporate Safety &amp; Security, Executive Protection and Event Security, written by Michael de Geus from nearly two decades of field experience in federal service and the private sector.</p>
 </div>
 
-<!-- DOWNLOAD BLOCK -->
-<div class="purchase-block reveal" id="download">
-  <div class="purchase-cover">
-    <img src="playbook-cover.jpg" alt="The Corporate Safety &amp; Security Playbook — Book Cover">
+<div class="books-grid reveal">
+  <div class="book-card">
+    <img src="events/playbook-book1-cover.jpg" alt="The Corporate Safety &amp; Security Playbook cover" class="book-cover">
+    <div class="book-body">
+      <div class="book-num">Book One</div>
+      <h3 class="book-title">The Corporate Safety &amp; Security Playbook</h3>
+      <p class="book-desc">Advance methodology, venue operations, crowd dynamics, command and coordination, and mass casualty planning. Nearly 200 pages of operational doctrine drawn from 500-plus events across four continents. Written for event producers, security directors, and anyone responsible for keeping a large gathering safe.</p>
+      <div class="book-status">Publishing 2026</div>
+      <a href="events/insight-playbook-book1.html" class="book-cta">Read Excerpt</a>
+    </div>
   </div>
-  <div class="purchase-info">
-    <div class="purchase-label">Free Download</div>
-    <div class="purchase-title">The Corporate Safety &amp; Security Playbook</div>
-    <div style="font-size:0.875rem;color:var(--light);margin-top:8px;margin-bottom:28px;line-height:1.7">Written by a Former U.S. Secret Service Special Agent. Enter your details below and we'll send your copy directly to your inbox.</div>
-    <form id="playbookForm" style="display:flex;flex-direction:column;gap:16px">
-      <div class="form-row">
-        <div class="form-field">
-          <label for="pb-name">Full Name</label>
-          <input type="text" id="pb-name" name="first_name" placeholder="Your full name" required>
-        </div>
-        <div class="form-field">
-          <label for="pb-email">Work Email</label>
-          <input type="email" id="pb-email" name="email" placeholder="your@company.com" required>
-        </div>
-      </div>
-      <div class="form-field">
-        <label for="pb-phone">Mobile Number</label>
-        <input type="tel" id="pb-phone" name="phone" placeholder="+1 (555) 000-0000">
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:12px;margin-top:4px">
-        <input type="checkbox" id="pb-consent" style="width:16px;height:16px;flex-shrink:0;margin-top:3px;accent-color:var(--red)">
-        <label for="pb-consent" style="font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:0.08em;color:var(--gray);line-height:1.6">By submitting this form I agree to receive the Corporate Safety &amp; Security Playbook and future communications from SHADOW by email and SMS. Message and data rates may apply. You may opt out at any time.</label>
-      </div>
-      <div id="pbMsg" style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:0.12em;padding:10px 14px;background:rgba(192,57,43,0.12);border-left:2px solid #c0392b;color:#e07060"></div>
-      <div>
-        <button type="submit" class="form-submit" id="pbSubmit">Get the Book →</button>
-      </div>
-    </form>
+  <div class="book-card">
+    <img src="events/playbook-book2-cover.jpg" alt="The Executive Protection Playbook cover" class="book-cover">
+    <div class="book-body">
+      <div class="book-num">Book Two</div>
+      <h3 class="book-title">The Executive Protection Playbook</h3>
+      <p class="book-desc">The complete methodology for close personal protection: the principal relationship, detail design, advance, motorcades, arrival and egress choreography, and the moments of greatest exposure. Written from U.S. Secret Service PPD training and a decade of private-sector principal protection.</p>
+      <div class="book-status">Publishing 2026</div>
+      <a href="events/insight-playbook-book2.html" class="book-cta">Read Excerpt</a>
+    </div>
+  </div>
+  <div class="book-card">
+    <img src="events/playbook-book3-cover.jpg" alt="The Event Safety &amp; Protection Playbook cover" class="book-cover">
+    <div class="book-body">
+      <div class="book-num">Book Three</div>
+      <h3 class="book-title">The Event Safety &amp; Protection Playbook</h3>
+      <p class="book-desc">The third title in the Shadow Playbook series. The series covers the full scope of Shadow doctrine: events, executive protection, and the intelligence and advance work that governs both.</p>
+      <div class="book-status">Publishing 2026</div>
+      <a href="events/insight-playbook-book3.html" class="book-cta">Read Excerpt</a>
+    </div>
   </div>
 </div>
 
