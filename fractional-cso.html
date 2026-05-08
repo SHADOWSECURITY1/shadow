@@ -101,20 +101,19 @@
 
   /* ============ NAV ============ */
   .nav {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 60;
+    left: 0;
+    right: 0;
+    z-index: 200;
     height: var(--nav-height);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(5, 5, 5, 0.82);
+    background: rgba(5, 5, 5, 0.97);
     border-bottom: 1px solid var(--shadow-divider);
+    transition: background 0.4s;
   }
   .nav-inner {
     height: 100%;
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -127,7 +126,7 @@
     color: var(--text-primary);
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: 22px;
+    font-size: 2rem;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     line-height: 1;
@@ -206,81 +205,47 @@
 
   .mobile-menu {
     position: fixed;
-    inset: var(--nav-height) 0 0 0;
-    z-index: 55;
-    background: var(--shadow-black);
-    transform: translateY(-110%);
-    transition: transform 0.45s var(--ease-out);
-    overflow-y: auto;
-    padding: 40px 28px 60px;
+    inset: 0;
+    z-index: 199;
+    background: rgba(5, 5, 5, 0.98);
     display: flex;
     flex-direction: column;
-  }
-  body.menu-open .mobile-menu { transform: translateY(0); }
-  .mobile-menu .menu-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-  }
-  .mobile-menu ul { list-style: none; border-top: 1px solid var(--shadow-divider); }
-  .mobile-menu li { border-bottom: 1px solid var(--shadow-divider); }
-  .mobile-menu a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 22px 0;
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.25s var(--ease-out);
-  }
-  .mobile-menu a:hover, .mobile-menu a:active { color: var(--tactical-gold); }
-  .mobile-menu a .num {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
-    font-weight: 400;
-  }
-  .mobile-menu .menu-cta {
-    margin-top: 36px;
-    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 32px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  body.menu-open .mobile-menu { opacity: 1; pointer-events: all; }
+  .mobile-link {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    letter-spacing: 0.08em;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .mobile-link:hover, .mobile-link:active { color: var(--tactical-gold); }
+  .mobile-menu .menu-cta {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
     background: var(--tactical-gold);
     color: var(--shadow-black);
-    padding: 18px 24px;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
+    padding: 14px 36px;
     text-decoration: none;
-    border: 1px solid var(--tactical-gold);
-  }
-  .mobile-menu .menu-foot {
-    margin-top: auto;
-    padding-top: 32px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    margin-top: 8px;
   }
 
-  @media (min-width: 920px) {
+  @media (min-width: 960px) {
     .nav-links { display: flex; }
     .nav-cta { display: inline-flex; }
     .hamburger { display: none; }
-    .mobile-menu { display: none; }
+  }
+  @media (max-width: 960px) {
+    .nav-inner { padding: 0 32px; }
   }
 
   /* ============ STAGE ============ */
@@ -1000,8 +965,7 @@
     body { font-size: 16px; }
     :root { --nav-height: 64px; }
     .stage { padding: 36px 18px 56px; }
-    .nav-inner { padding: 0 18px; }
-    .brand { font-size: 19px; letter-spacing: 0.28em; }
+    .nav-inner { padding: 0 20px; }
     .lede { font-size: 17px; }
     .question-text { font-size: 26px; }
     .option { padding: 18px; font-size: 16px; }
@@ -1431,7 +1395,7 @@
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 600px) {
-    .doctrine-hero { padding: 60px 18px 56px; }
+    .doctrine-hero { padding: 80px 18px 56px; }
     .compare-section, .fcso-section, .assessment-bridge { padding-left: 18px; padding-right: 18px; }
     .stats-section { padding-left: 18px; padding-right: 18px; }
     .compare-col { padding: 28px 22px; }
@@ -1491,16 +1455,12 @@
   </header>
 
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
-    <div class="menu-eyebrow">Navigation</div>
-    <ul>
-      <li><a href="index.html"><span>Home</span><span class="num">01</span></a></li>
-      <li><a href="events/index.html"><span>Events</span><span class="num">02</span></a></li>
-      <li><a href="fractional-cso.html"><span>Fractional CSO</span><span class="num">03</span></a></li>
-      <li><a href="shdw-app.html"><span>SHDW App</span><span class="num">04</span></a></li>
-      <li><a href="team.html"><span>The Team</span><span class="num">05</span></a></li>
-    </ul>
-    <a href="contact.html" class="menu-cta">Deploy Now &rarr;</a>
-    <div class="menu-foot">Northern Virginia &middot; Global Deployment</div>
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="events/index.html" class="mobile-link">Events</a>
+    <a href="fractional-cso.html" class="mobile-link">Fractional CSO</a>
+    <a href="shdw-app.html" class="mobile-link">SHDW App</a>
+    <a href="team.html" class="mobile-link">The Team</a>
+    <a href="contact.html" class="menu-cta">Deploy Now</a>
   </nav>
 
   <!-- DOCTRINE HERO -->
