@@ -48,6 +48,12 @@
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
     --nav-height: 72px;
+
+    --red: #C9A84C;
+    --white: #f0ede8;
+    --black: #080808;
+    --light: #c8c4be;
+    --border: #1e1e1e;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -68,7 +74,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body.menu-open { overflow: hidden; }
+  /* nav responsive handled in media queries below */
 
   body::before {
     content: "";
@@ -100,152 +106,71 @@
   }
 
   /* ============ NAV ============ */
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 200;
-    height: var(--nav-height);
-    background: rgba(5, 5, 5, 0.97);
-    border-bottom: 1px solid var(--shadow-divider);
-    transition: background 0.4s;
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px 64px;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.98) 0%, transparent 100%);
+    transition: background 0.4s, padding 0.3s;
   }
-  .nav-inner {
-    height: 100%;
-    padding: 0 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+  nav.scrolled { background: rgba(8,8,8,0.98); padding: 20px 64px; border-bottom: 1px solid var(--border); }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; letter-spacing: 0.3em; color: var(--white); text-decoration: none;
   }
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--text-primary);
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 2rem;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    line-height: 1;
-    transition: color 0.25s var(--ease-out);
-  }
-  .brand:hover { color: var(--tactical-gold); }
-
-  .nav-links {
-    display: none;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
   .nav-links a {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 13px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s var(--ease-out);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--light); text-decoration: none; transition: color 0.2s;
+    position: relative;
   }
-  .nav-links a:hover { color: var(--tactical-gold); }
-
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0;
+    width: 0; height: 1px; background: var(--red); transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
   .nav-cta {
-    display: none;
-    align-items: center;
-    gap: 10px;
-    background: var(--tactical-gold);
-    color: var(--shadow-black);
-    padding: 12px 22px;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid var(--tactical-gold);
-    transition: all 0.25s var(--ease-out);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 11px 26px;
+    text-decoration: none; transition: background 0.2s;
   }
-  .nav-cta:hover {
-    background: transparent;
-    color: var(--tactical-gold);
-  }
+  .nav-cta:hover { background: #b8962e; }
 
+  /* HAMBURGER */
   .hamburger {
-    width: 28px;
-    height: 28px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    padding: 0;
-    z-index: 70;
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; padding: 4px; z-index: 201; cursor: pointer;
   }
   .hamburger span {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--text-primary);
-    transition: transform 0.3s var(--ease-out), opacity 0.2s var(--ease-out);
+    display: block; width: 28px; height: 2px; background: var(--white);
+    transition: transform 0.3s, opacity 0.3s, width 0.3s;
+    transform-origin: center;
   }
-  body.menu-open .hamburger span:nth-child(1) {
-    transform: translateY(6.5px) rotate(45deg);
-    background: var(--tactical-gold);
-  }
-  body.menu-open .hamburger span:nth-child(2) { opacity: 0; }
-  body.menu-open .hamburger span:nth-child(3) {
-    transform: translateY(-6.5px) rotate(-45deg);
-    background: var(--tactical-gold);
-  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  .mobile-menu {
-    position: fixed;
-    inset: 0;
-    z-index: 199;
-    background: rgba(5, 5, 5, 0.98);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
+  /* MOBILE NAV */
+  .mobile-nav {
+    position: fixed; inset: 0; z-index: 199;
+    background: rgba(8,8,8,0.98); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 32px;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
   }
-  body.menu-open .mobile-menu { opacity: 1; pointer-events: all; }
+  .mobile-nav.open { opacity: 1; pointer-events: all; }
   .mobile-link {
-    font-family: var(--font-display);
-    font-size: 3rem;
-    letter-spacing: 0.08em;
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.2s;
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.1em;
+    color: var(--white); text-decoration: none; transition: color 0.2s;
   }
-  .mobile-link:hover, .mobile-link:active { color: var(--tactical-gold); }
-  .mobile-menu .menu-cta {
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    background: var(--tactical-gold);
-    color: var(--shadow-black);
-    padding: 14px 36px;
-    text-decoration: none;
-    margin-top: 8px;
-  }
-
-  @media (min-width: 960px) {
-    .nav-links { display: flex; }
-    .nav-cta { display: inline-flex; }
-    .hamburger { display: none; }
-  }
-  @media (max-width: 960px) {
-    .nav-inner { padding: 0 32px; }
+  .mobile-link:hover { color: var(--red); }
+  .mobile-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 14px 40px;
+    text-decoration: none; margin-top: 8px;
   }
 
   /* ============ STAGE ============ */
@@ -1389,6 +1314,17 @@
     max-width: 46ch;
   }
 
+  @media (max-width: 960px) {
+    nav { padding: 22px 28px; }
+    nav.scrolled { padding: 16px 28px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 560px) {
+    nav { padding: 18px 20px; }
+    nav.scrolled { padding: 14px 20px; }
+  }
+
   @media (max-width: 900px) {
     .compare-grid { grid-template-columns: 1fr; }
     .fcso-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -1437,31 +1373,30 @@
 <div class="shell">
 
   <!-- NAV -->
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="https://shdw.com" class="brand" aria-label="Shadow Home">SHADOW</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="events/index.html">Events</a></li>
-        <li><a href="fractional-cso.html" style="color:var(--tactical-gold)">Fractional CSO</a></li>
-        <li><a href="shdw-app.html">SHDW App</a></li>
-        <li><a href="team.html">The Team</a></li>
-      </ul>
-      <a href="contact.html" class="nav-cta">Deploy Now</a>
-      <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="btn-hamburger">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">SHADOW</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="events/index.html">Events</a></li>
+    <li><a href="fractional-cso.html" style="color:var(--red)">Fractional CSO</a></li>
+    <li><a href="shdw-app.html">SHDW App</a></li>
+    <li><a href="team.html">The Team</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Deploy Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
-    <a href="index.html" class="mobile-link">Home</a>
-    <a href="events/index.html" class="mobile-link">Events</a>
-    <a href="fractional-cso.html" class="mobile-link">Fractional CSO</a>
-    <a href="shdw-app.html" class="mobile-link">SHDW App</a>
-    <a href="team.html" class="mobile-link">The Team</a>
-    <a href="contact.html" class="menu-cta">Deploy Now</a>
-  </nav>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" class="mobile-link">Home</a>
+  <a href="events/index.html" class="mobile-link">Events</a>
+  <a href="fractional-cso.html" class="mobile-link">Fractional CSO</a>
+  <a href="shdw-app.html" class="mobile-link">SHDW App</a>
+  <a href="team.html" class="mobile-link">The Team</a>
+  <a href="contact.html" class="mobile-cta">Deploy Now</a>
+</div>
 
   <!-- DOCTRINE HERO -->
   <section class="doctrine-hero ed-section">
@@ -2015,18 +1950,25 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // Hamburger
-  const hamBtn = document.getElementById("btn-hamburger");
-  hamBtn.addEventListener("click", () => {
-    const open = document.body.classList.toggle("menu-open");
-    hamBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  // HAMBURGER
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
   });
-  document.querySelectorAll(".mobile-menu a").forEach(a => {
-    a.addEventListener("click", () => {
-      document.body.classList.remove("menu-open");
-      hamBtn.setAttribute("aria-expanded", "false");
+  document.querySelectorAll('.mobile-link, .mobile-cta').forEach(el => {
+    el.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
     });
   });
+
+  // NAV SCROLL
+  const navEl = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 60); });
 
   function renderQuestion() {
     const q = QUESTIONS[state.currentQuestion];
