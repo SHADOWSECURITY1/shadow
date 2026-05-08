@@ -217,15 +217,58 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
 <!-- =================== SUBSCRIBE =================== -->
 <section class="cta-band">
   <div class="container">
-    <div class="cta-band__inner">
+    <div class="cta-band__inner" style="flex-direction:column; align-items:flex-start; gap:2rem;">
       <div>
         <h2 class="cta-band__title">Subscribe to <em>Shadow Insights</em>.</h2>
         <p class="cta-band__sub">A monthly dispatch from Shadow leadership. Doctrine essays, field notes, and excerpts from the Shadow Playbook book series. No promotional content. Reading time twelve minutes or less per issue.</p>
       </div>
-      <a href="contact.html" class="btn">Request Subscription</a>
+      <form
+        id="insights-subscribe-form"
+        name="shadow-insights-subscribe"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        style="width:100%; max-width:560px;"
+        onsubmit="handleInsightsSubscribe(event)"
+      >
+        <input type="hidden" name="form-name" value="shadow-insights-subscribe">
+        <input type="hidden" name="bot-field">
+        <input type="hidden" name="_to" value="hello@shdw.com">
+        <div style="display:flex; gap:0; width:100%;">
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Your email address"
+            style="flex:1; background:#0c0c0c; border:1px solid #2a2a2a; border-right:none; color:#f0ede8; font-family:'Barlow Condensed',sans-serif; font-size:13px; letter-spacing:0.12em; padding:16px 20px; outline:none; min-width:0;"
+            onfocus="this.style.borderColor='rgba(201,168,76,0.5)'"
+            onblur="this.style.borderColor='#2a2a2a'"
+          >
+          <button
+            type="submit"
+            style="background:#C9A84C; color:#080808; border:none; font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:0.22em; padding:16px 28px; white-space:nowrap; cursor:pointer; transition:background 0.2s;"
+            onmouseover="this.style.background='#b8963e'"
+            onmouseout="this.style.background='#C9A84C'"
+          >Sign Up to Receive &rarr;</button>
+        </div>
+      </form>
+      <div id="insights-subscribe-success" style="display:none; font-family:'Barlow Condensed',sans-serif; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:#C9A84C;">
+        &#10022; &nbsp;You're on the list. First issue incoming.
+      </div>
     </div>
   </div>
 </section>
+<script>
+  function handleInsightsSubscribe(e) {
+    e.preventDefault();
+    const form = document.getElementById('insights-subscribe-form');
+    fetch('/', { method: 'POST', headers: {'Content-Type':'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).catch(() => {});
+    form.style.display = 'none';
+    document.getElementById('insights-subscribe-success').style.display = 'block';
+  }
+</script>
 
 <!-- =================== FOOTER =================== -->
 <footer class="footer">
