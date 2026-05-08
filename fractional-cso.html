@@ -1,111 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#000000" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Exposure Assessment | SHADOW</title>
-<meta name="description" content="A confidential exposure assessment built on USSS Presidential Protective Division advance methodology. Three minutes. No salesperson. No follow-up unless you ask for one." />
-<meta name="robots" content="index,follow" />
-
-<meta property="og:title" content="Exposure Assessment | SHADOW" />
-<meta property="og:description" content="A confidential exposure assessment built on USSS Presidential Protective Division advance methodology." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://shdw.com/assessment" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-
+<meta name="description" content="A confidential exposure assessment built on USSS Presidential Protective Division advance methodology. Three minutes. No salesperson. No follow-up unless you ask for one.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SHADOW">
+<meta property="og:title" content="Fractional CSO | SHADOW">
+<meta property="og:url" content="https://www.shdw.com/fractional-cso.html">
+<meta property="og:image" content="https://www.shdw.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.shdw.com/fractional-cso.html">
+<meta name="robots" content="index, follow">
+<title>Fractional CSO | SHADOW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --shadow-black: #050505;
-    --shadow-surface: #0c0c0c;
-    --shadow-elevated: #131313;
-    --shadow-border: rgba(201, 168, 76, 0.14);
-    --shadow-border-strong: rgba(201, 168, 76, 0.32);
-    --shadow-divider: rgba(255, 255, 255, 0.06);
-
-    --text-primary: #efe9da;
-    --text-secondary: #a39d8e;
-    --text-muted: #6b6659;
-
-    --tactical-gold: #c9a84c;
-    --tactical-gold-soft: rgba(201, 168, 76, 0.55);
-    --tactical-gold-faint: rgba(201, 168, 76, 0.08);
-
-    --signal-red: #c8302c;
-    --signal-red-glow: rgba(200, 48, 44, 0.5);
-
-    --font-display: "Bebas Neue", "Barlow Condensed", sans-serif;
-    --font-accent: "Barlow Condensed", "Helvetica Neue", sans-serif;
-    --font-body: "Barlow", "Helvetica Neue", Arial, sans-serif;
-    --font-mono: "Barlow Condensed", "Helvetica Neue", sans-serif;
-
-    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-
-    --nav-height: 72px;
-
+    --black: #080808;
+    --deep: #0c0c0c;
+    --card: #111111;
+    --border: #1e1e1e;
     --red: #C9A84C;
     --white: #f0ede8;
-    --black: #080808;
+    --gray: #888888;
     --light: #c8c4be;
-    --border: #1e1e1e;
+    /* Assessment alias variables */
+    --shadow-black: #080808;
+    --shadow-surface: #0c0c0c;
+    --shadow-elevated: #111111;
+    --shadow-border: rgba(201,168,76,0.14);
+    --shadow-border-strong: rgba(201,168,76,0.32);
+    --shadow-divider: #1e1e1e;
+    --text-primary: #f0ede8;
+    --text-secondary: #c8c4be;
+    --text-muted: #888888;
+    --tactical-gold: #C9A84C;
+    --tactical-gold-soft: rgba(201,168,76,0.55);
+    --tactical-gold-faint: rgba(201,168,76,0.08);
+    --signal-red: #c8302c;
+    --signal-red-glow: rgba(200,48,44,0.5);
+    --font-display: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+    --font-accent: 'Barlow Condensed', sans-serif;
+    --font-mono: 'Barlow Condensed', sans-serif;
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { background: var(--shadow-black); }
-
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; background: #080808; }
   body {
-    background: var(--shadow-black);
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 1.55;
-    letter-spacing: 0.01em;
-    min-height: 100vh;
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  *, *::before, *::after { cursor: none !important; }
 
-  /* nav responsive handled in media queries below */
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image:
-      radial-gradient(ellipse at 20% 0%, rgba(201, 168, 76, 0.06), transparent 55%),
-      radial-gradient(ellipse at 80% 100%, rgba(200, 48, 44, 0.04), transparent 60%);
-    pointer-events: none;
-    z-index: 0;
+  /* CURSOR */
+  .cursor {
+    position: fixed; top: 0; left: 0;
+    width: 6px; height: 6px;
+    background: #ff1a1a; border-radius: 50%;
+    pointer-events: none; z-index: 2147483647;
+    will-change: transform;
+    transform: translate(-200px, -200px);
+    opacity: 0;
+    box-shadow: 0 0 3px 1px #ff1a1a, 0 0 8px 3px rgba(255,26,26,0.7), 0 0 16px 6px rgba(255,26,26,0.3);
+    transition: box-shadow 0.15s, opacity 0.1s;
   }
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.55;
-    mix-blend-mode: overlay;
+  .cursor.visible { opacity: 1; }
+  .cursor.moving {
+    box-shadow: 0 0 3px 1px #ff1a1a, 0 0 14px 6px rgba(255,26,26,0.95), 0 0 28px 12px rgba(255,26,26,0.55), 0 0 44px 18px rgba(255,26,26,0.2);
   }
-
-  .shell {
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  @media (hover: none) and (pointer: coarse) {
+    *, *::before, *::after { cursor: auto !important; }
+    .cursor { display: none !important; }
   }
 
-  /* ============ NAV ============ */
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes gpulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  @keyframes scanline { 0%{top:0;opacity:1} 95%{opacity:0.4} 100%{top:100%;opacity:0} }
+  @keyframes ringPulse { 0%{opacity:0.7;transform:scale(0.4)} 100%{opacity:0;transform:scale(1.3)} }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.12s; }
+  .reveal-delay-2 { transition-delay: 0.24s; }
+
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     display: flex; justify-content: space-between; align-items: center;
@@ -142,16 +133,16 @@
   /* HAMBURGER */
   .hamburger {
     display: none; flex-direction: column; gap: 5px;
-    background: none; border: none; padding: 4px; z-index: 201; cursor: pointer;
+    background: none; border: none; padding: 4px; z-index: 201;
   }
   .hamburger span {
-    display: block; width: 28px; height: 2px; background: var(--white);
+    display: block; width: 26px; height: 1px; background: var(--white);
     transition: transform 0.3s, opacity 0.3s, width 0.3s;
     transform-origin: center;
   }
-  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
   /* MOBILE NAV */
   .mobile-nav {
@@ -162,7 +153,7 @@
   }
   .mobile-nav.open { opacity: 1; pointer-events: all; }
   .mobile-link {
-    font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.1em;
+    font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 0.08em;
     color: var(--white); text-decoration: none; transition: color 0.2s;
   }
   .mobile-link:hover { color: var(--red); }
@@ -173,1203 +164,453 @@
     text-decoration: none; margin-top: 8px;
   }
 
-  /* ============ STAGE ============ */
-  .stage {
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 56px 22px 72px;
+  /* PAGE HERO */
+  .page-hero {
+    position: relative;
+    display: flex; align-items: flex-start;
+    padding: 160px 64px 100px;
+    overflow: hidden;
+    background: #080808;
   }
-  .stage-inner { width: 100%; max-width: 760px; position: relative; }
+  .page-hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 72% 38%, rgba(201,168,76,0.06) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 70% at 15% 65%, rgba(201,168,76,0.03) 0%, transparent 55%),
+      linear-gradient(175deg, #0a0a08 0%, #080808 100%);
+  }
+  .page-hero-grid {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%);
+    mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%);
+    animation: gpulse 10s ease-in-out infinite;
+  }
+  .page-hero-scan {
+    position: absolute; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.7), transparent);
+    animation: scanline 7s linear infinite;
+  }
+  .page-hero-slash {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 42%;
+    border-left: 1px solid rgba(201,168,76,0.07);
+    background: linear-gradient(140deg, transparent 40%, rgba(201,168,76,0.02) 100%);
+    clip-path: polygon(8% 0,100% 0,100% 100%,0 100%);
+  }
+  .page-hero-content { position: relative; z-index: 2; max-width: 860px; }
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red);
+    display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .page-eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--red); display: block; }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.9; letter-spacing: 0.02em;
+    animation: fadeUp 1s ease 0.05s both;
+  }
+  .hero-body {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1rem; line-height: 1.85; color: var(--light);
+    max-width: 60ch; margin-top: 28px; margin-bottom: 36px;
+    animation: fadeUp 0.8s ease 0.7s both;
+  }
+  .transition-callout {
+    border-left: 2px solid var(--red);
+    padding: 22px 28px;
+    background: rgba(12,12,12,0.85);
+    max-width: 520px;
+    animation: fadeUp 0.8s ease 0.9s both;
+  }
+  .transition-callout-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 10px; display: block;
+  }
+  .transition-callout p { font-size: 0.875rem; line-height: 1.65; color: var(--light); }
+
+  /* LABEL / SECTION HEADING */
+  .label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red);
+    display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+  }
+  .label::before { content: ''; width: 28px; height: 1px; background: var(--red); display: block; }
+  h2.section-h {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5.5vw, 6rem); letter-spacing: 0.02em; line-height: 0.9;
+  }
+
+  /* BUTTONS */
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 15px 42px;
+    text-decoration: none; display: inline-block;
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .btn-primary::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(255,255,255,0.12);
+    transform: translateX(-100%) skewX(-20deg); transition: transform 0.4s ease;
+  }
+  .btn-primary:hover::before { transform: translateX(110%) skewX(-20deg); }
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--white); border: 1px solid rgba(240,237,232,0.2);
+    padding: 15px 42px; text-decoration: none;
+    transition: border-color 0.3s, color 0.3s; display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+
+  /* CTA BAND */
+  .cta-band {
+    background: var(--deep); border-top: 1px solid var(--border);
+    padding: 80px 64px; display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    flex-wrap: wrap;
+  }
+  .cta-band-copy h3 {
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 4rem);
+    letter-spacing: 0.03em; line-height: 0.95; margin-bottom: 12px;
+  }
+  .cta-band-copy p { font-size: 0.9rem; color: var(--light); max-width: 480px; line-height: 1.8; }
+
+  /* ASSESSMENT BRIDGE */
+  .assessment-bridge {
+    padding: 72px 64px 0;
+    background: var(--black);
+  }
+  .bridge-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .bridge-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gray); margin-bottom: 16px; display: block;
+  }
+  .bridge-h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    text-transform: uppercase; letter-spacing: 0.02em; line-height: 0.95;
+  }
+  .bridge-right {
+    font-size: 1rem; line-height: 1.7; color: var(--light); max-width: 46ch;
+  }
+
+  /* ASSESSMENT WIZARD */
+  .stage {
+    background: var(--black);
+    padding: 64px 64px 80px;
+  }
+  .stage-inner { width: 100%; max-width: 760px; margin: 0 auto; position: relative; }
 
   .screen { display: none; }
-  .screen.active {
-    display: block;
-    animation: fadeIn 0.45s var(--ease-out);
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  .screen.active { display: block; animation: fadeIn 0.45s var(--ease-out); }
 
-  /* ============ TYPOGRAPHY ============ */
-  .eyebrow-dots {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    margin-bottom: 22px;
-    line-height: 1.6;
-  }
-  .eyebrow-dots .sep { color: var(--tactical-gold); margin: 0 10px; }
-
+  /* Assessment typography */
   .accent {
-    font-family: var(--font-accent);
-    font-weight: 400;
-    font-style: normal;
-    font-size: clamp(32px, 6vw, 52px);
-    line-height: 1.1;
-    color: var(--text-primary);
-    letter-spacing: -0.005em;
-    margin-bottom: 8px;
+    font-family: var(--font-accent); font-weight: 400; font-style: normal;
+    font-size: clamp(32px, 6vw, 52px); line-height: 1.1; color: var(--text-primary);
+    letter-spacing: -0.005em; margin-bottom: 8px;
   }
   .accent em { color: var(--tactical-gold); font-style: normal; }
-
   .display {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(54px, 12vw, 112px);
-    line-height: 0.92;
-    letter-spacing: 0.005em;
-    text-transform: uppercase;
-    margin: 0 0 28px;
-    color: var(--text-primary);
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(54px, 12vw, 112px); line-height: 0.92;
+    letter-spacing: 0.005em; text-transform: uppercase; margin: 0 0 28px; color: var(--text-primary);
   }
   .display .gold { color: var(--tactical-gold); }
-
   .lede {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.55;
-    color: var(--text-secondary);
-    max-width: 56ch;
+    font-family: var(--font-body); font-weight: 400;
+    font-size: 18px; line-height: 1.55; color: var(--text-secondary); max-width: 56ch;
   }
-
-  .attribute-row {
-    margin-top: 36px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px 28px;
-  }
+  .attribute-row { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px 28px; }
   .attribute {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--text-secondary);
   }
   .attribute-tick { color: var(--tactical-gold); font-size: 13px; line-height: 1; }
+  .cta-row { margin-top: 44px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
 
-  .cta-row {
-    margin-top: 44px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    align-items: center;
+  button.primary, a.primary {
+    display: inline-flex; align-items: center; gap: 14px;
+    background-color: var(--tactical-gold); color: var(--shadow-black);
+    border: 1px solid var(--tactical-gold); padding: 18px 32px;
+    font-family: var(--font-display); font-weight: 600; font-size: 14px;
+    letter-spacing: 0.24em; text-transform: uppercase; cursor: pointer;
+    text-decoration: none; transition: all 0.3s var(--ease-out);
   }
-
-  button.primary,
-  a.primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    background-color: var(--tactical-gold);
-    color: var(--shadow-black);
-    border: 1px solid var(--tactical-gold);
-    padding: 18px 32px;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s var(--ease-out);
-  }
-  button.primary:hover,
-  a.primary:hover {
-    background-color: transparent;
-    color: var(--tactical-gold);
-    transform: translateY(-1px);
+  button.primary:hover, a.primary:hover {
+    background-color: transparent; color: var(--tactical-gold); transform: translateY(-1px);
   }
   button.primary:active, a.primary:active { transform: translateY(0); }
   button.primary .arrow, a.primary .arrow { transition: transform 0.3s var(--ease-out); }
   button.primary:hover .arrow, a.primary:hover .arrow { transform: translateX(4px); }
 
-  /* ============ PROGRESS ============ */
-  .progress-wrap {
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  /* PROGRESS */
+  .progress-wrap { margin-bottom: 40px; display: flex; flex-direction: column; gap: 14px; }
   .progress-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--text-muted);
   }
   .progress-row .domain { color: var(--tactical-gold); }
-  .progress-bar {
-    height: 2px;
-    background: var(--shadow-divider);
-    position: relative;
-    overflow: hidden;
-  }
+  .progress-bar { height: 2px; background: var(--shadow-divider); position: relative; overflow: hidden; }
   .progress-fill {
-    position: absolute;
-    inset: 0 100% 0 0;
-    background: var(--tactical-gold);
-    transition: right 0.5s var(--ease-out);
+    position: absolute; inset: 0 100% 0 0;
+    background: var(--tactical-gold); transition: right 0.5s var(--ease-out);
   }
 
-  /* ============ QUESTIONS ============ */
+  /* QUESTIONS */
   .question-text {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(28px, 5.5vw, 42px);
-    line-height: 1.15;
-    letter-spacing: 0;
-    margin-bottom: 36px;
-    color: var(--text-primary);
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(28px, 5.5vw, 42px); line-height: 1.15; letter-spacing: 0;
+    margin-bottom: 36px; color: var(--text-primary);
   }
   .options { display: flex; flex-direction: column; gap: 12px; }
   .option {
-    background: var(--shadow-surface);
-    border: 1px solid var(--shadow-border);
-    color: var(--text-primary);
-    padding: 20px 22px;
-    text-align: left;
-    font-family: var(--font-body);
-    font-size: 17px;
-    letter-spacing: 0.005em;
-    line-height: 1.4;
-    cursor: pointer;
-    transition: all 0.25s var(--ease-out);
-    display: flex;
-    align-items: center;
-    gap: 18px;
+    background: var(--shadow-surface); border: 1px solid var(--shadow-border);
+    color: var(--text-primary); padding: 20px 22px; text-align: left;
+    font-family: var(--font-body); font-size: 17px; letter-spacing: 0.005em; line-height: 1.4;
+    cursor: pointer; transition: all 0.25s var(--ease-out);
+    display: flex; align-items: center; gap: 18px;
   }
-  .option:hover {
-    border-color: var(--tactical-gold-soft);
-    background: var(--shadow-elevated);
-  }
-  .option.selected {
-    border-color: var(--tactical-gold);
-    background: var(--shadow-elevated);
-  }
+  .option:hover { border-color: var(--tactical-gold-soft); background: var(--shadow-elevated); }
+  .option.selected { border-color: var(--tactical-gold); background: var(--shadow-elevated); }
   .option-marker {
-    width: 14px; height: 14px;
-    border: 1px solid var(--shadow-border-strong);
-    flex-shrink: 0;
+    width: 14px; height: 14px; border: 1px solid var(--shadow-border-strong); flex-shrink: 0;
     transition: all 0.25s var(--ease-out);
   }
   .option.selected .option-marker {
-    border-color: var(--tactical-gold);
-    background: var(--tactical-gold);
-    box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.18);
+    border-color: var(--tactical-gold); background: var(--tactical-gold);
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.18);
   }
-
-  .nav-row {
-    margin-top: 36px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 14px;
-  }
+  .nav-row { margin-top: 36px; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
   .nav-back {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 12px 0;
-    transition: color 0.25s var(--ease-out);
+    background: transparent; border: none; color: var(--text-muted);
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em;
+    text-transform: uppercase; cursor: pointer; padding: 12px 0; transition: color 0.25s var(--ease-out);
   }
   .nav-back:hover { color: var(--tactical-gold); }
   .nav-back:disabled { opacity: 0.3; cursor: not-allowed; }
+  .micro { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); }
 
-  .micro {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  /* ============ CALCULATING ============ */
+  /* CALCULATING */
   .calc-wrap { text-align: center; padding: 80px 20px; }
   .calc-rings { position: relative; width: 80px; height: 80px; margin: 0 auto 32px; }
-  .calc-ring {
-    position: absolute;
-    inset: 0;
-    border: 1px solid var(--tactical-gold);
-    border-radius: 50%;
-    opacity: 0;
-    animation: ringPulse 2.2s var(--ease-out) infinite;
-  }
+  .calc-ring { position: absolute; inset: 0; border: 1px solid var(--tactical-gold); border-radius: 50%; opacity: 0; animation: ringPulse 2.2s var(--ease-out) infinite; }
   .calc-ring:nth-child(2) { animation-delay: 0.7s; }
   .calc-ring:nth-child(3) { animation-delay: 1.4s; }
-  @keyframes ringPulse {
-    0% { opacity: 0.7; transform: scale(0.4); }
-    100% { opacity: 0; transform: scale(1.3); }
-  }
-  .calc-status {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    margin-bottom: 8px;
-  }
-  .calc-text {
-    font-family: var(--font-accent);
-    font-style: normal;
-    font-size: 22px;
-    color: var(--text-secondary);
-  }
+  .calc-status { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 8px; }
+  .calc-text { font-family: var(--font-accent); font-style: normal; font-size: 22px; color: var(--text-secondary); }
 
-  /* ============ SCORE GATE ============ */
+  /* SCORE GATE */
   .score-card {
     border: 1px solid var(--shadow-border);
-    background: linear-gradient(180deg, var(--shadow-surface), rgba(5, 5, 5, 0.4));
-    padding: 48px 36px;
-    margin-bottom: 28px;
-    text-align: center;
-    position: relative;
+    background: linear-gradient(180deg, var(--shadow-surface), rgba(5,5,5,0.4));
+    padding: 48px 36px; margin-bottom: 28px; text-align: center; position: relative;
   }
   .score-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 60px; height: 1px;
-    background: var(--tactical-gold);
+    content: ""; position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%); width: 60px; height: 1px; background: var(--tactical-gold);
   }
-  .score-tier-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-  }
-  .score-tier-name {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(44px, 9vw, 72px);
-    color: var(--tactical-gold);
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-    line-height: 1;
-  }
-  .score-number-row {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 8px;
-    color: var(--text-secondary);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-  .score-number {
-    font-family: var(--font-display);
-    font-size: 32px;
-    color: var(--text-primary);
-    font-weight: 700;
-    letter-spacing: 0;
-  }
+  .score-tier-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+  .score-tier-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(44px, 9vw, 72px); color: var(--tactical-gold); letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 18px; line-height: 1; }
+  .score-number-row { display: inline-flex; align-items: baseline; gap: 8px; color: var(--text-secondary); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .score-number { font-family: var(--font-display); font-size: 32px; color: var(--text-primary); font-weight: 700; letter-spacing: 0; }
 
-  .gate {
-    border: 1px solid var(--shadow-border);
-    background: var(--shadow-surface);
-    padding: 36px 32px;
-  }
-  .gate-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    margin-bottom: 16px;
-  }
-  .gate-title {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(26px, 4.4vw, 36px);
-    line-height: 1.15;
-    text-transform: uppercase;
-    letter-spacing: 0.005em;
-    margin-bottom: 12px;
-  }
-  .gate-copy {
-    color: var(--text-secondary);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.55;
-    margin-bottom: 24px;
-    max-width: 52ch;
-  }
+  .gate { border: 1px solid var(--shadow-border); background: var(--shadow-surface); padding: 36px 32px; }
+  .gate-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 16px; }
+  .gate-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(26px, 4.4vw, 36px); line-height: 1.15; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: 12px; }
+  .gate-copy { color: var(--text-secondary); font-weight: 400; font-size: 16px; line-height: 1.55; margin-bottom: 24px; max-width: 52ch; }
   .gate-form { display: flex; flex-direction: column; gap: 14px; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  @media (max-width: 540px) {
-    .field-row { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 540px) { .field-row { grid-template-columns: 1fr; } }
   .field { display: flex; flex-direction: column; gap: 8px; }
-  .field label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
+  .field label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); }
   .field input {
-    background: var(--shadow-black);
-    border: 1px solid var(--shadow-border);
-    color: var(--text-primary);
-    padding: 14px;
-    font-family: var(--font-body);
-    font-size: 16px;
+    background: var(--shadow-black); border: 1px solid var(--shadow-border);
+    color: var(--text-primary); padding: 14px; font-family: var(--font-body); font-size: 16px;
     transition: border-color 0.25s var(--ease-out);
   }
   .field input:focus { outline: none; border-color: var(--tactical-gold); }
   .field input::placeholder { color: var(--text-muted); }
-
-  .gate-fineprint {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-top: 6px;
-    line-height: 1.6;
-  }
-  .form-error {
-    color: var(--signal-red);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-top: 8px;
-    display: none;
-  }
+  .gate-fineprint { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px; line-height: 1.6; }
+  .form-error { color: var(--signal-red); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 8px; display: none; }
   .form-error.visible { display: block; }
 
-  /* ============ RESULTS ============ */
+  /* RESULTS */
   .results-header { text-align: center; margin-bottom: 44px; }
-  .results-tier-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-  }
-  .results-tier-name {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(56px, 13vw, 112px);
-    color: var(--tactical-gold);
-    line-height: 0.95;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-  }
-  .results-score-line {
-    margin-top: 18px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-  }
-  .results-score-num {
-    font-family: var(--font-display);
-    font-size: 22px;
-    color: var(--text-primary);
-    font-weight: 700;
-    letter-spacing: 0;
-    margin: 0 4px;
-  }
+  .results-tier-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .results-tier-name { font-family: var(--font-display); font-weight: 800; font-size: clamp(56px, 13vw, 112px); color: var(--tactical-gold); line-height: 0.95; letter-spacing: 0.01em; text-transform: uppercase; }
+  .results-score-line { margin-top: 18px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-secondary); }
+  .results-score-num { font-family: var(--font-display); font-size: 22px; color: var(--text-primary); font-weight: 700; letter-spacing: 0; margin: 0 4px; }
 
   .domain-grid { display: flex; flex-direction: column; gap: 18px; margin-bottom: 44px; }
-  .domain-row {
-    border: 1px solid var(--shadow-border);
-    background: var(--shadow-surface);
-    padding: 22px 24px;
-  }
-  .domain-row-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 14px;
-    gap: 12px;
-  }
-  .domain-name {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-  }
-  .domain-score {
-    font-family: var(--font-display);
-    font-size: 22px;
-    color: var(--text-primary);
-    font-weight: 700;
-    letter-spacing: 0;
-  }
-  .domain-score .max {
-    font-size: 12px;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    letter-spacing: 0.16em;
-    font-weight: 400;
-  }
-  .domain-bar {
-    height: 2px;
-    background: var(--shadow-divider);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 14px;
-  }
-  .domain-fill {
-    position: absolute;
-    inset: 0 100% 0 0;
-    background: var(--tactical-gold);
-    transition: right 0.9s var(--ease-out);
-  }
-  .domain-finding {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--text-secondary);
-  }
+  .domain-row { border: 1px solid var(--shadow-border); background: var(--shadow-surface); padding: 22px 24px; }
+  .domain-row-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; gap: 12px; }
+  .domain-name { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--tactical-gold); }
+  .domain-score { font-family: var(--font-display); font-size: 22px; color: var(--text-primary); font-weight: 700; letter-spacing: 0; }
+  .domain-score .max { font-size: 12px; color: var(--text-muted); font-family: var(--font-mono); letter-spacing: 0.16em; font-weight: 400; }
+  .domain-bar { height: 2px; background: var(--shadow-divider); position: relative; overflow: hidden; margin-bottom: 14px; }
+  .domain-fill { position: absolute; inset: 0 100% 0 0; background: var(--tactical-gold); transition: right 0.9s var(--ease-out); }
+  .domain-finding { font-family: var(--font-body); font-weight: 400; font-size: 15px; line-height: 1.55; color: var(--text-secondary); }
 
-  /* ============ RECOMMENDATION ============ */
+  /* RECOMMENDATION */
   .reco {
     border: 1px solid var(--tactical-gold);
-    background: linear-gradient(180deg, rgba(201, 168, 76, 0.06), rgba(201, 168, 76, 0.01));
-    padding: 40px 32px;
-    margin-bottom: 36px;
-    position: relative;
+    background: linear-gradient(180deg, rgba(201,168,76,0.06), rgba(201,168,76,0.01));
+    padding: 40px 32px; margin-bottom: 36px; position: relative;
   }
-  .reco::before {
-    content: "";
-    position: absolute;
-    top: -1px; left: 0;
-    width: 80px; height: 2px;
-    background: var(--tactical-gold);
-  }
-  .reco-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .reco-eyebrow .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--signal-red);
-    box-shadow: 0 0 6px var(--signal-red-glow);
-  }
-  .reco-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(28px, 5vw, 40px);
-    line-height: 1.1;
-    text-transform: uppercase;
-    letter-spacing: 0.005em;
-    margin-bottom: 18px;
-  }
-  .reco-body {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--text-primary);
-    max-width: 56ch;
-    margin-bottom: 28px;
-  }
+  .reco::before { content: ""; position: absolute; top: -1px; left: 0; width: 80px; height: 2px; background: var(--tactical-gold); }
+  .reco-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+  .reco-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--signal-red); box-shadow: 0 0 6px var(--signal-red-glow); }
+  .reco-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 5vw, 40px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.005em; margin-bottom: 18px; }
+  .reco-body { font-family: var(--font-body); font-weight: 400; font-size: 17px; line-height: 1.6; color: var(--text-primary); max-width: 56ch; margin-bottom: 28px; }
   .reco-body p + p { margin-top: 14px; }
+  .reco-meta { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--shadow-divider); }
+  .reco-meta-item { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); }
+  .reco-meta-item strong { color: var(--text-primary); font-weight: 500; margin-right: 8px; }
 
-  .reco-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 28px;
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid var(--shadow-divider);
-  }
-  .reco-meta-item {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-  .reco-meta-item strong {
-    color: var(--text-primary);
-    font-weight: 500;
-    margin-right: 8px;
-  }
-
-  /* ============ CREDENTIAL ============ */
-  .credential {
-    border-top: 1px solid var(--shadow-divider);
-    padding-top: 36px;
-    margin-top: 36px;
-  }
-  .credential-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-  }
-  .credential-body {
-    font-family: var(--font-accent);
-    font-style: normal;
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--text-secondary);
-    max-width: 60ch;
-  }
-  .credential-attribution {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    margin-top: 18px;
-  }
+  /* CREDENTIAL */
+  .credential { border-top: 1px solid var(--shadow-divider); padding-top: 36px; margin-top: 36px; }
+  .credential-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+  .credential-body { font-family: var(--font-accent); font-style: normal; font-size: 19px; line-height: 1.55; color: var(--text-secondary); max-width: 60ch; }
+  .credential-attribution { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tactical-gold); margin-top: 18px; }
 
   .confidential-bar {
-    background: var(--shadow-elevated);
-    border: 1px solid var(--shadow-border);
-    padding: 18px 22px;
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
+    background: var(--shadow-elevated); border: 1px solid var(--shadow-border);
+    padding: 18px 22px; margin-top: 32px; display: flex; align-items: center; gap: 14px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-secondary);
   }
-  .confidential-bar .lock {
-    width: 14px; height: 14px;
-    border: 1px solid var(--tactical-gold);
-    position: relative;
-    flex-shrink: 0;
-  }
-  .confidential-bar .lock::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    background: var(--tactical-gold);
-  }
+  .confidential-bar .lock { width: 14px; height: 14px; border: 1px solid var(--tactical-gold); position: relative; flex-shrink: 0; }
+  .confidential-bar .lock::after { content: ""; position: absolute; inset: 4px; background: var(--tactical-gold); }
+  #screen-landing .cta-row { margin-top: 0; margin-bottom: 32px; }
 
-  #screen-landing .cta-row {
-    margin-top: 0;
-    margin-bottom: 32px;
-  }
-
-  /* ============ FOOTER ============ */
-  footer {
-    background: var(--shadow-black);
-    border-top: 1px solid var(--shadow-divider);
-    padding: 64px 22px 32px;
-    margin-top: 48px;
-  }
-  .foot-inner { max-width: 1320px; margin: 0 auto; }
-  .foot-top {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--shadow-divider);
-  }
-  @media (min-width: 720px) {
-    .foot-top { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; }
-  }
-  .foot-brand-block .foot-brand {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 28px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--text-primary);
-    margin-bottom: 18px;
-    display: inline-block;
-    text-decoration: none;
-  }
-  .foot-tagline {
-    font-family: var(--font-body);
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--text-secondary);
-    max-width: 38ch;
-    margin-bottom: 24px;
-  }
-  .foot-social { display: flex; gap: 14px; flex-wrap: wrap; }
-  .foot-social a {
-    width: 36px; height: 36px;
-    border: 1px solid var(--shadow-border);
-    color: var(--text-secondary);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.25s var(--ease-out);
-  }
-  .foot-social a:hover {
-    border-color: var(--tactical-gold);
-    color: var(--tactical-gold);
-  }
-  .foot-social svg { width: 14px; height: 14px; fill: currentColor; }
-
-  .foot-col h4 {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    margin-bottom: 18px;
-    font-weight: 500;
-  }
-  .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .foot-col a {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s var(--ease-out);
-  }
-  .foot-col a:hover { color: var(--tactical-gold); }
-
-  .foot-bottom {
-    padding-top: 28px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-  .foot-bottom a {
-    color: var(--text-muted);
-    text-decoration: none;
-    margin-left: 24px;
-    transition: color 0.2s var(--ease-out);
-  }
-  .foot-bottom a:first-child { margin-left: 0; }
-  .foot-bottom a:hover { color: var(--tactical-gold); }
-  .foot-legal { display: flex; flex-wrap: wrap; gap: 8px 0; }
-
-  /* ============ MOBILE ============ */
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    :root { --nav-height: 64px; }
-    .stage { padding: 36px 18px 56px; }
-    .nav-inner { padding: 0 20px; }
-    .lede { font-size: 17px; }
-    .question-text { font-size: 26px; }
-    .option { padding: 18px; font-size: 16px; }
-    .reco { padding: 30px 22px; }
-    .score-card { padding: 36px 22px; }
-    .gate { padding: 28px 22px; }
-    .domain-row { padding: 20px; }
-    .credential-body { font-size: 17px; }
-    .accent { font-size: clamp(28px, 9vw, 44px); }
-    .display { font-size: clamp(48px, 14vw, 88px); }
-    .results-tier-name { font-size: clamp(52px, 16vw, 88px); }
-    footer { padding: 48px 22px 28px; margin-top: 32px; }
-    .foot-top { padding-bottom: 36px; gap: 36px; }
-  }
-
-  @media (max-width: 380px) {
-    .brand { font-size: 17px; letter-spacing: 0.24em; }
-  }
-
-  /* ============ EDITORIAL SECTIONS ============ */
-
-  .ed-section {
-    width: 100%;
-    padding: 0 24px;
-  }
-  .ed-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-  }
-
-  /* DOCTRINE HERO */
-  .doctrine-hero {
-    padding: 160px 24px 80px;
-    border-bottom: 1px solid var(--shadow-divider);
-  }
-  .doctrine-eyebrow {
-    font-family: var(--font-display);
-    font-size: 13px;
-    letter-spacing: 0.38em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    margin-bottom: 28px;
-    display: block;
-  }
-  .doctrine-h1 {
-    font-family: var(--font-display);
-    font-size: clamp(42px, 7.5vw, 96px);
-    line-height: 0.93;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    margin-bottom: 36px;
-  }
-  .doctrine-h1 .gold { color: var(--tactical-gold); }
-  .doctrine-body {
-    font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.65;
-    color: var(--text-secondary);
-    max-width: 68ch;
-    margin-bottom: 40px;
-  }
-  .transition-callout {
-    border-left: 2px solid var(--tactical-gold);
-    padding: 22px 28px;
-    background: var(--shadow-elevated);
-    max-width: 560px;
-  }
-  .transition-callout-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    margin-bottom: 10px;
-    display: block;
-  }
-  .transition-callout p {
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--text-secondary);
-  }
-
-  /* SECURITY VS PROTECTION */
-  .compare-section {
-    padding: 80px 24px;
-    border-bottom: 1px solid var(--shadow-divider);
-  }
-  .compare-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 36px;
-    display: block;
-  }
-  .compare-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--shadow-divider);
-    border: 1px solid var(--shadow-divider);
-  }
-  .compare-col {
-    background: var(--shadow-elevated);
-    padding: 44px 40px;
-  }
-  .compare-col-tag {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    display: block;
-  }
-  .compare-col-title {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 44px);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--text-primary);
-    margin-bottom: 28px;
-    line-height: 1;
-  }
-  .compare-col--gold .compare-col-title { color: var(--tactical-gold); }
-  .compare-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    border-top: 1px solid var(--shadow-divider);
-    padding-top: 24px;
-  }
-  .compare-list li {
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--text-secondary);
-    padding-left: 22px;
-    position: relative;
-  }
-  .compare-list li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: var(--text-muted);
-  }
-  .compare-col--gold .compare-list li::before { color: var(--tactical-gold); }
-  .compare-footer {
-    margin-top: 32px;
-    padding: 20px 28px;
-    background: rgba(201, 168, 76, 0.06);
-    border: 1px solid var(--shadow-border);
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: var(--tactical-gold);
-    text-align: center;
-    letter-spacing: 0.01em;
-  }
+  /* ED SECTIONS (editorial layout wrapper) */
+  .ed-section { padding: 0 64px; }
+  .ed-inner { max-width: 1200px; margin: 0 auto; }
 
   /* FRACTIONAL CSO OFFERING */
-  .fcso-section {
-    padding: 80px 24px;
-    border-bottom: 1px solid var(--shadow-divider);
-  }
-  .fcso-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .fcso-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    margin-bottom: 20px;
-    display: block;
-  }
-  .fcso-h2 {
-    font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 64px);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    line-height: 0.95;
-    margin-bottom: 20px;
-  }
-  .fcso-sub {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 36px;
-    max-width: 46ch;
-  }
-  .fcso-list {
-    list-style: none;
-    border-top: 1px solid var(--shadow-divider);
-  }
-  .fcso-list li {
-    padding: 18px 0;
-    border-bottom: 1px solid var(--shadow-divider);
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--text-secondary);
-    display: flex;
-    gap: 16px;
-    align-items: baseline;
-  }
-  .fcso-list li::before {
-    content: "—";
-    color: var(--tactical-gold);
-    flex-shrink: 0;
-  }
-  .fcso-best-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-top: 32px;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .fcso-best-text {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.55;
-  }
-  .fcso-field-note {
-    margin-top: 32px;
-    border-left: 2px solid var(--shadow-border-strong);
-    padding: 18px 22px;
-    background: var(--shadow-elevated);
-  }
-  /* CTA block */
-  .fcso-cta-block {
-    margin-top: 36px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    border-top: 1px solid var(--shadow-divider);
-    padding-top: 28px;
-  }
+  .fcso-section { padding: 80px 64px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--black); }
+  .fcso-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .fcso-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 20px; display: block; }
+  .fcso-h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); text-transform: uppercase; letter-spacing: 0.02em; line-height: 0.95; margin-bottom: 20px; }
+  .fcso-sub { font-size: 16px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 36px; max-width: 46ch; }
+  .fcso-list { list-style: none; border-top: 1px solid var(--shadow-divider); }
+  .fcso-list li { padding: 18px 0; border-bottom: 1px solid var(--shadow-divider); font-size: 15px; line-height: 1.5; color: var(--text-secondary); display: flex; gap: 16px; align-items: baseline; }
+  .fcso-list li::before { content: "—"; color: var(--tactical-gold); flex-shrink: 0; }
+  .fcso-best-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-muted); margin-top: 32px; margin-bottom: 8px; display: block; }
+  .fcso-best-text { font-size: 15px; color: var(--text-secondary); line-height: 1.55; }
+  .fcso-field-note { margin-top: 32px; border-left: 2px solid var(--shadow-border-strong); padding: 18px 22px; background: var(--shadow-elevated); }
+  .fcso-field-note-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; display: block; }
+  .fcso-field-note p { font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+  .fcso-field-note em { display: block; margin-top: 12px; color: var(--text-muted); font-style: normal; }
+  .fcso-cta-block { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; border-top: 1px solid var(--shadow-divider); padding-top: 28px; }
+  .fcso-pricing { background: var(--shadow-elevated); border: 1px solid var(--shadow-border); padding: 24px 24px 20px; }
+  .fcso-pricing-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--tactical-gold); display: block; margin-bottom: 6px; }
+  .fcso-pricing-num { font-family: var(--font-display); font-size: 48px; line-height: 1; color: var(--text-primary); letter-spacing: 0.02em; }
+  .fcso-pricing-period { font-size: 22px; color: var(--text-secondary); letter-spacing: 0.05em; }
+  .fcso-pricing-note { font-size: 13px; line-height: 1.6; color: var(--text-muted); margin-top: 10px; }
+  .fcso-free-call { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; background: rgba(201,168,76,0.06); border: 1px solid var(--shadow-border); }
+  .fcso-free-call-icon { color: var(--tactical-gold); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+  .fcso-free-call strong { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 6px; font-weight: 500; }
+  .fcso-free-call p { font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+  .fcso-apply-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--tactical-gold); color: var(--shadow-black); border: 1px solid var(--tactical-gold); padding: 18px 28px; font-family: var(--font-display); font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; font-weight: 600; transition: all 0.25s var(--ease-out); align-self: flex-start; }
+  .fcso-apply-btn:hover { background: transparent; color: var(--tactical-gold); }
 
-  .fcso-pricing {
-    background: var(--shadow-elevated);
-    border: 1px solid var(--shadow-border);
-    padding: 24px 24px 20px;
-  }
-  .fcso-pricing-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    display: block;
-    margin-bottom: 6px;
-  }
-  .fcso-pricing-num {
-    font-family: var(--font-display);
-    font-size: 48px;
-    line-height: 1;
-    color: var(--text-primary);
-    letter-spacing: 0.02em;
-  }
-  .fcso-pricing-period {
-    font-size: 22px;
-    color: var(--text-secondary);
-    letter-spacing: 0.05em;
-  }
-  .fcso-pricing-note {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin-top: 10px;
-  }
+  /* COMPARE SECTION */
+  .compare-section { padding: 80px 64px; background: var(--black); border-bottom: 1px solid var(--border); }
+  .compare-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 36px; display: block; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--shadow-divider); border: 1px solid var(--shadow-divider); }
+  .compare-col { background: var(--shadow-elevated); padding: 44px 40px; }
+  .compare-col-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; display: block; }
+  .compare-col-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-primary); margin-bottom: 28px; line-height: 1; }
+  .compare-col--gold .compare-col-title { color: var(--tactical-gold); }
+  .compare-list { list-style: none; display: flex; flex-direction: column; gap: 14px; border-top: 1px solid var(--shadow-divider); padding-top: 24px; }
+  .compare-list li { font-size: 15px; line-height: 1.5; color: var(--text-secondary); padding-left: 22px; position: relative; }
+  .compare-list li::before { content: "—"; position: absolute; left: 0; color: var(--text-muted); }
+  .compare-col--gold .compare-list li::before { color: var(--tactical-gold); }
+  .compare-footer { margin-top: 32px; padding: 20px 28px; background: rgba(201,168,76,0.06); border: 1px solid var(--shadow-border); font-family: var(--font-body); font-size: 16px; color: var(--tactical-gold); text-align: center; letter-spacing: 0.01em; }
 
-  .fcso-free-call {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    padding: 18px 20px;
-    background: rgba(201, 168, 76, 0.06);
-    border: 1px solid var(--shadow-border);
-  }
-  .fcso-free-call-icon {
-    color: var(--tactical-gold);
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .fcso-free-call strong {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--tactical-gold);
-    margin-bottom: 6px;
-    font-weight: 500;
-  }
-  .fcso-free-call p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-  }
+  /* STATS SECTION */
+  .stats-section { padding: 0 64px; background: var(--black); border-bottom: 1px solid var(--border); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--shadow-divider); border: 1px solid var(--shadow-divider); }
+  .stat-cell { background: var(--shadow-surface); padding: 44px 36px; }
+  .stat-num { font-family: var(--font-display); font-size: clamp(48px, 5.5vw, 72px); color: var(--tactical-gold); line-height: 1; margin-bottom: 10px; }
+  .stat-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); line-height: 1.6; }
 
-  .fcso-apply-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--tactical-gold);
-    color: var(--shadow-black);
-    border: 1px solid var(--tactical-gold);
-    padding: 18px 28px;
-    font-family: var(--font-display);
-    font-size: 13px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.25s var(--ease-out);
-    align-self: flex-start;
-  }
-  .fcso-apply-btn:hover {
-    background: transparent;
-    color: var(--tactical-gold);
-  }
+  /* FOOTER */
+  footer { background: var(--deep); border-top: 1px solid var(--border); padding: 60px 64px 40px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.3em; margin-bottom: 16px; }
+  .footer-tagline { font-size: 0.875rem; color: var(--gray); line-height: 1.7; max-width: 260px; }
+  .footer-social { display: flex; gap: 14px; margin-top: 24px; }
+  .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 4px; color: var(--gray); text-decoration: none; transition: color 0.2s, border-color 0.2s; overflow: hidden; }
+  .footer-social a:hover { color: var(--red); border-color: var(--red); }
+  .footer-social svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+  .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.06em; color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--red); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--border); }
+  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gray); }
+  .footer-legal { display: flex; gap: 28px; }
+  .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--red); }
 
-  .fcso-field-note-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    display: block;
-  }
-  .fcso-field-note p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-  }
-  .fcso-field-note em {
-    display: block;
-    margin-top: 12px;
-    color: var(--text-muted);
-    font-style: normal;
-  }
-
-  /* STATS BAR */
-  .stats-section {
-    padding: 0 24px 0;
-    border-bottom: 1px solid var(--shadow-divider);
-  }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--shadow-divider);
-    border: 1px solid var(--shadow-divider);
-  }
-  .stat-cell {
-    background: var(--shadow-surface);
-    padding: 44px 36px;
-  }
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: clamp(48px, 5.5vw, 72px);
-    color: var(--tactical-gold);
-    line-height: 1;
-    margin-bottom: 10px;
-  }
-  .stat-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  /* ASSESSMENT INTRO */
-  .assessment-bridge {
-    padding: 72px 24px 0;
-    border-bottom: none;
-  }
-  .bridge-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 32px;
-    flex-wrap: wrap;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--shadow-divider);
-  }
-  .bridge-left {}
-  .bridge-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-    display: block;
-  }
-  .bridge-h2 {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 5vw, 60px);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    line-height: 0.95;
-  }
-  .bridge-right {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    max-width: 46ch;
-  }
-
-  @media (max-width: 960px) {
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
     nav { padding: 22px 28px; }
     nav.scrolled { padding: 16px 28px; }
     .nav-links, .nav-cta { display: none; }
     .hamburger { display: flex; }
-  }
-  @media (max-width: 560px) {
-    nav { padding: 18px 20px; }
-    nav.scrolled { padding: 14px 20px; }
-  }
-
-  @media (max-width: 900px) {
-    .compare-grid { grid-template-columns: 1fr; }
+    .page-hero { padding: 120px 28px 72px; }
+    .assessment-bridge { padding: 60px 28px 0; }
+    .stage { padding: 48px 28px 60px; }
+    .fcso-section { padding: 60px 28px; }
     .fcso-grid { grid-template-columns: 1fr; gap: 48px; }
+    .compare-section { padding: 60px 28px; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .stats-section { padding: 0 28px; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 48px 28px 32px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .cta-band { padding: 60px 28px; flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 600px) {
-    .doctrine-hero { padding: 120px 18px 56px; }
-    .compare-section, .fcso-section, .assessment-bridge { padding-left: 18px; padding-right: 18px; }
-    .stats-section { padding-left: 18px; padding-right: 18px; }
-    .compare-col { padding: 28px 22px; }
+    .page-hero { padding: 120px 20px 60px; }
+    .assessment-bridge { padding: 48px 20px 0; }
+    .stage { padding: 40px 20px 48px; }
+    .fcso-section { padding: 48px 20px; }
     .fcso-grid { gap: 32px; }
-    .bridge-inner { flex-direction: column; }
     .fcso-apply-btn { width: 100%; justify-content: center; }
-    .fcso-cta-block { gap: 16px; }
-    .fcso-pricing { padding: 20px 18px 16px; }
     .fcso-pricing-num { font-size: 40px; }
+    .compare-section { padding: 48px 20px; }
+    .compare-col { padding: 28px 22px; }
+    .stats-section { padding: 0 20px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
     .stat-cell { padding: 28px 20px; }
     .stat-num { font-size: clamp(36px, 10vw, 56px); }
+    footer { padding: 40px 20px 28px; }
+    .footer-top { grid-template-columns: 1fr; }
+    .bridge-inner { flex-direction: column; }
   }
-  @media (max-width: 480px) {
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-    .doctrine-h1 { font-size: clamp(36px, 10vw, 52px); }
-    .bridge-h2 { font-size: clamp(28px, 9vw, 44px); }
-  }
-  /* STANDARD FOOTER */
-  footer { background: var(--deep, #0c0c0c); border-top: 1px solid var(--border, #1e1e1e); padding: 60px 64px 40px; }
-  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.3em; margin-bottom: 16px; color: var(--white, #f0ede8); }
-  .footer-tagline { font-size: 0.875rem; color: var(--gray, #888); line-height: 1.7; max-width: 260px; }
-  .footer-social { display: flex; gap: 14px; margin-top: 24px; }
-  .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--border, #1e1e1e); border-radius: 4px; color: var(--gray, #888); text-decoration: none; transition: color 0.2s, border-color 0.2s; overflow: hidden; }
-  .footer-social a:hover { color: var(--red, #C9A84C); border-color: var(--red, #C9A84C); }
-  .footer-social svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
-  .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red, #C9A84C); margin-bottom: 20px; }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-  .footer-links a { font-size: 0.875rem; color: var(--gray, #888); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--red, #C9A84C); }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--border, #1e1e1e); }
-  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gray, #888); }
-  .footer-legal { display: flex; gap: 28px; }
-  .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray, #888); text-decoration: none; transition: color 0.2s; }
-  .footer-legal a:hover { color: var(--red, #C9A84C); }
 </style>
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
 
 <!-- Hidden Netlify form for build-time detection -->
 <form name="exposure-assessment-lead" data-netlify="true" netlify-honeypot="bot-field" hidden>
@@ -1388,9 +629,7 @@
   <textarea name="answers"></textarea>
 </form>
 
-<div class="shell">
-
-  <!-- NAV -->
+<!-- NAV -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">SHADOW</a>
   <ul class="nav-links">
@@ -1410,309 +649,289 @@
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" class="mobile-link">Home</a>
   <a href="events/index.html" class="mobile-link">Events</a>
-  <a href="fractional-cso.html" class="mobile-link">Fractional CSO</a>
+  <a href="fractional-cso.html" class="mobile-link" style="color:var(--red)">Fractional CSO</a>
   <a href="shdw-app.html" class="mobile-link">SHDW App</a>
   <a href="team.html" class="mobile-link">The Team</a>
   <a href="contact.html" class="mobile-cta">Deploy Now</a>
 </div>
 
-  <!-- DOCTRINE HERO -->
-  <section class="doctrine-hero ed-section">
-    <div class="ed-inner">
-      <span class="doctrine-eyebrow">Fractional CSO</span>
-      <h1 class="doctrine-h1">
-        Your event isn&rsquo;t the risk.<br>
-        <span class="gold">The ninety seconds<br>inside of it are.</span>
-      </h1>
-      <p class="doctrine-body">
-        Product launches. Shareholder meetings. Keynotes. User conferences. The perimeter is rehearsed, the guest list is vetted, the venue is cleared. Then someone crosses a rope line, steps off a stage, or walks to a car, and every assumption gets tested in the same narrow window.
-      </p>
-      <div class="transition-callout">
-        <span class="transition-callout-label">The Transition Window</span>
-        <p>Arrival. Stage transition. Meet &amp; greet. Rope line. Motorcade. These are the 90-second intervals where protection either holds or fails.</p>
-      </div>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-scan"></div>
+  <div class="page-hero-slash"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Fractional CSO</div>
+    <h1 class="page-title">Your Event<br>Isn&rsquo;t <span style="color:var(--red)">the Risk.</span></h1>
+    <p class="hero-body">Product launches. Shareholder meetings. Keynotes. User conferences. The perimeter is rehearsed, the guest list is vetted, the venue is cleared. Then someone crosses a rope line, steps off a stage, or walks to a car, and every assumption gets tested in the same narrow window.</p>
+    <div class="transition-callout">
+      <span class="transition-callout-label">The Transition Window</span>
+      <p>Arrival. Stage transition. Meet &amp; greet. Rope line. Motorcade. These are the 90-second intervals where protection either holds or fails.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ASSESSMENT BRIDGE -->
-  <section class="assessment-bridge">
-    <div class="bridge-inner">
-      <div class="bridge-left">
-        <span class="bridge-eyebrow">Exposure Assessment &middot; USSS Methodology &middot; Confidential</span>
-        <h2 class="bridge-h2">Find the gaps<br>before someone<br>else does.</h2>
-      </div>
-      <div class="bridge-right">
-        Twelve questions. Three to five minutes. A confidential read on the gaps in your protective posture, scored against the same advance methodology used on the Presidential Protective Division. No salesperson follows up uninvited.
-      </div>
+<!-- ASSESSMENT BRIDGE -->
+<section class="assessment-bridge">
+  <div class="bridge-inner">
+    <div class="bridge-left reveal">
+      <span class="bridge-eyebrow">Exposure Assessment &middot; USSS Methodology &middot; Confidential</span>
+      <h2 class="bridge-h2">Find the gaps<br>before someone<br>else does.</h2>
     </div>
-  </section>
+    <div class="bridge-right reveal reveal-delay-1">
+      Twelve questions. Three to five minutes. A confidential read on the gaps in your protective posture, scored against the same advance methodology used on the Presidential Protective Division. No salesperson follows up uninvited.
+    </div>
+  </div>
+</section>
 
-  <main class="stage">
-    <div class="stage-inner">
+<!-- ASSESSMENT WIZARD -->
+<div class="stage">
+  <div class="stage-inner">
 
-      <!-- LANDING -->
-      <section class="screen active" id="screen-landing" aria-label="Welcome">
-        <div class="cta-row" style="margin-bottom: 24px;">
-          <button class="primary" id="btn-begin">
-            Begin Assessment
-            <span class="arrow" aria-hidden="true">&rarr;</span>
-          </button>
+    <!-- LANDING -->
+    <section class="screen active" id="screen-landing" aria-label="Welcome">
+      <div class="cta-row" style="margin-bottom: 24px;">
+        <button class="primary" id="btn-begin">
+          Begin Assessment
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+      <div class="attribute-row" style="margin-top: 0;">
+        <div class="attribute"><span class="attribute-tick">&#10022;</span>12 questions &middot; 3 to 5 minutes</div>
+        <div class="attribute"><span class="attribute-tick">&#10022;</span>Strictly confidential</div>
+        <div class="attribute"><span class="attribute-tick">&#10022;</span>No salesperson follows up uninvited</div>
+      </div>
+      <div class="confidential-bar" style="margin-top: 32px;">
+        <span class="lock"></span>
+        <span>Authored by Michael de Geus, USSS Presidential Protective Division</span>
+      </div>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="screen" id="screen-questions" aria-label="Assessment questions">
+      <div class="progress-wrap">
+        <div class="progress-row">
+          <span id="q-counter">01 / 12</span>
+          <span class="domain" id="q-domain">Principal Exposure</span>
         </div>
-        <div class="attribute-row" style="margin-top: 0;">
-          <div class="attribute"><span class="attribute-tick">&#10022;</span>12 questions &middot; 3 to 5 minutes</div>
-          <div class="attribute"><span class="attribute-tick">&#10022;</span>Strictly confidential</div>
-          <div class="attribute"><span class="attribute-tick">&#10022;</span>No salesperson follows up uninvited</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
         </div>
-        <div class="confidential-bar" style="margin-top: 32px;">
-          <span class="lock"></span>
-          <span>Authored by Michael de Geus, USSS Presidential Protective Division</span>
+      </div>
+      <h2 class="question-text" id="q-text">Loading...</h2>
+      <div class="options" id="q-options"></div>
+      <div class="nav-row">
+        <button class="nav-back" id="btn-back">&larr; Back</button>
+        <span class="micro">Tap to answer</span>
+      </div>
+    </section>
+
+    <!-- CALCULATING -->
+    <section class="screen" id="screen-calc" aria-label="Processing">
+      <div class="calc-wrap">
+        <div class="calc-rings">
+          <div class="calc-ring"></div>
+          <div class="calc-ring"></div>
+          <div class="calc-ring"></div>
         </div>
-      </section>
+        <div class="calc-status">Analyzing</div>
+        <div class="calc-text">Mapping your exposure profile...</div>
+      </div>
+    </section>
 
-      <!-- QUESTIONS -->
-      <section class="screen" id="screen-questions" aria-label="Assessment questions">
-        <div class="progress-wrap">
-          <div class="progress-row">
-            <span id="q-counter">01 / 12</span>
-            <span class="domain" id="q-domain">Principal Exposure</span>
-          </div>
-          <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-          </div>
+    <!-- SCORE + GATE -->
+    <section class="screen" id="screen-gate" aria-label="Preliminary results">
+      <div class="score-card">
+        <div class="score-tier-label">Preliminary Result</div>
+        <div class="score-tier-name" id="gate-tier">Exposed</div>
+        <div class="score-number-row">
+          <span>Score</span>
+          <span class="score-number" id="gate-score">0</span>
+          <span>/ 100</span>
         </div>
-
-        <h2 class="question-text" id="q-text">Loading...</h2>
-        <div class="options" id="q-options"></div>
-
-        <div class="nav-row">
-          <button class="nav-back" id="btn-back">&larr; Back</button>
-          <span class="micro">Tap to answer</span>
-        </div>
-      </section>
-
-      <!-- CALCULATING -->
-      <section class="screen" id="screen-calc" aria-label="Processing">
-        <div class="calc-wrap">
-          <div class="calc-rings">
-            <div class="calc-ring"></div>
-            <div class="calc-ring"></div>
-            <div class="calc-ring"></div>
-          </div>
-          <div class="calc-status">Analyzing</div>
-          <div class="calc-text">Mapping your exposure profile...</div>
-        </div>
-      </section>
-
-      <!-- SCORE + GATE -->
-      <section class="screen" id="screen-gate" aria-label="Preliminary results">
-        <div class="score-card">
-          <div class="score-tier-label">Preliminary Result</div>
-          <div class="score-tier-name" id="gate-tier">Exposed</div>
-          <div class="score-number-row">
-            <span>Score</span>
-            <span class="score-number" id="gate-score">0</span>
-            <span>/ 100</span>
-          </div>
-        </div>
-
-        <div class="gate">
-          <div class="gate-eyebrow">Unlock Full Assessment</div>
-          <h3 class="gate-title">Where the gaps are.<br />What to do about them.</h3>
-          <p class="gate-copy">
-            Your full assessment includes domain-by-domain breakdown, the specific findings driving your score, and the engagement model best matched to your posture. Delivered to your inbox. Reviewed only by Shadow personnel.
-          </p>
-
-          <form class="gate-form" id="lead-form" novalidate>
-            <div class="field-row">
-              <div class="field">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required />
-              </div>
-              <div class="field">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" autocomplete="family-name" required />
-              </div>
+      </div>
+      <div class="gate">
+        <div class="gate-eyebrow">Unlock Full Assessment</div>
+        <h3 class="gate-title">Where the gaps are.<br />What to do about them.</h3>
+        <p class="gate-copy">Your full assessment includes domain-by-domain breakdown, the specific findings driving your score, and the engagement model best matched to your posture. Delivered to your inbox. Reviewed only by Shadow personnel.</p>
+        <form class="gate-form" id="lead-form" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" autocomplete="given-name" required />
             </div>
             <div class="field">
-              <label for="email">Work Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required />
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" autocomplete="family-name" required />
             </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="organization">Organization</label>
-                <input type="text" id="organization" name="organization" autocomplete="organization" />
-              </div>
-              <div class="field">
-                <label for="role">Role</label>
-                <input type="text" id="role" name="role" placeholder="Founder, CSO, Chief of Staff..." />
-              </div>
-            </div>
-
-            <div class="form-error" id="form-error">Please complete all required fields with a valid email.</div>
-
-            <div class="cta-row" style="margin-top: 8px;">
-              <button class="primary" type="submit" id="btn-submit-lead">
-                Reveal Full Assessment
-                <span class="arrow" aria-hidden="true">&rarr;</span>
-              </button>
-            </div>
-
-            <div class="gate-fineprint">
-              Encrypted in transit. Stored under Shadow access controls. Not sold, traded, or shared.
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <!-- RESULTS -->
-      <section class="screen" id="screen-results" aria-label="Full assessment results">
-        <div class="results-header">
-          <div class="results-tier-label">Exposure Profile</div>
-          <h2 class="results-tier-name" id="result-tier">Exposed</h2>
-          <div class="results-score-line">
-            Score
-            <span class="results-score-num" id="result-score">0</span>
-            of 100
           </div>
-        </div>
-
-        <div class="domain-grid" id="domain-grid"></div>
-
-        <div class="reco" id="reco-block">
-          <div class="reco-eyebrow">
-            <span class="dot"></span>
-            <span id="reco-eyebrow-text">Recommended Engagement</span>
+          <div class="field">
+            <label for="email">Work Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
           </div>
-          <h3 class="reco-title" id="reco-title">Fractional Security Director</h3>
-          <div class="reco-body" id="reco-body"></div>
-
-          <div class="cta-row">
-            <a class="primary" id="reco-cta" href="#">
-              <span id="reco-cta-text">Apply for Engagement</span>
+          <div class="field-row">
+            <div class="field">
+              <label for="organization">Organization</label>
+              <input type="text" id="organization" name="organization" autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="role">Role</label>
+              <input type="text" id="role" name="role" placeholder="Founder, CSO, Chief of Staff..." />
+            </div>
+          </div>
+          <div class="form-error" id="form-error">Please complete all required fields with a valid email.</div>
+          <div class="cta-row" style="margin-top: 8px;">
+            <button class="primary" type="submit" id="btn-submit-lead">
+              Reveal Full Assessment
               <span class="arrow" aria-hidden="true">&rarr;</span>
-            </a>
+            </button>
           </div>
+          <div class="gate-fineprint">Encrypted in transit. Stored under Shadow access controls. Not sold, traded, or shared.</div>
+        </form>
+      </div>
+    </section>
 
-          <div class="reco-meta" id="reco-meta"></div>
-        </div>
-
-        <div class="credential">
-          <div class="credential-eyebrow">Methodology</div>
-          <p class="credential-body">
-            This assessment is built on the advance methodology developed inside the United States Secret Service Presidential Protective Division. It is the same operating model Michael de Geus applied across twelve years of federal service, and now applies inside Shadow.
-          </p>
-          <div class="credential-attribution">Michael de Geus, Founder</div>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- FRACTIONAL CSO OFFERING -->
-  <section class="fcso-section ed-section">
-    <div class="ed-inner">
-      <div class="fcso-grid">
-        <div class="fcso-left">
-          <span class="fcso-eyebrow">Tier 03 &middot; Engagement</span>
-          <h2 class="fcso-h2">Senior security leadership. Ongoing.</h2>
-          <p class="fcso-sub">For businesses that need a CSO without the full-time hire costs. Not a guard service. Not a consultant. The senior security leadership a full-time CSO would provide, sized to where you actually are.</p>
-          <div class="fcso-field-note">
-            <span class="fcso-field-note-label">Field Observation</span>
-            <p>Planning is strong. Visibility is high. Execution under pressure is inconsistent. Gaps emerge during transitions. The system performs well until it has to adapt in real time.</p>
-            <em>This is not a personnel failure. It is a systems design failure.</em>
-          </div>
-        </div>
-        <div class="fcso-right">
-          <ul class="fcso-list">
-            <li>Standing advisory on risk posture</li>
-            <li>Event calendar fully integrated</li>
-            <li>Vendor oversight and rationalization</li>
-            <li>Advance methodology applied to every engagement</li>
-            <li>Direct line to founder-operator</li>
-            <li>Billed bi-monthly or monthly</li>
-          </ul>
-          <span class="fcso-best-label">Best For</span>
-          <p class="fcso-best-text">Public-company CEOs, founder-principals, private-company scale, and event-heavy functions: Communications, IR, and Chief-of-Staff leaders responsible for principal safety across a calendar of public engagements.</p>
-
-          <div class="fcso-cta-block">
-            <div class="fcso-pricing">
-              <span class="fcso-pricing-label">Starting At</span>
-              <div class="fcso-pricing-num">$4,000<span class="fcso-pricing-period">/mo</span></div>
-              <p class="fcso-pricing-note">Dedicated entirely to your business. Billed bi-monthly or monthly. No retainer minimums. Cancel with 30 days notice.</p>
-            </div>
-            <div class="fcso-free-call">
-              <span class="fcso-free-call-icon">&#10022;</span>
-              <div>
-                <strong>Complimentary 30-Minute Discovery Call</strong>
-                <p>We discuss your risk profile, event calendar, and specific needs before any engagement begins. No obligation. No salesperson.</p>
-              </div>
-            </div>
-            <a href="mailto:hello@shdw.com?subject=Fractional%20CSO%20Inquiry%20%E2%80%94%20Discovery%20Call" class="fcso-apply-btn">
-              Schedule Free Discovery Call &rarr;
-            </a>
-          </div>
+    <!-- RESULTS -->
+    <section class="screen" id="screen-results" aria-label="Full assessment results">
+      <div class="results-header">
+        <div class="results-tier-label">Exposure Profile</div>
+        <h2 class="results-tier-name" id="result-tier">Exposed</h2>
+        <div class="results-score-line">
+          Score <span class="results-score-num" id="result-score">0</span> of 100
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- SECURITY vs PROTECTION -->
-  <section class="compare-section ed-section">
-    <div class="ed-inner">
-      <span class="compare-eyebrow">Two Different Disciplines</span>
-      <div class="compare-grid">
-        <div class="compare-col">
-          <span class="compare-col-tag">Security</span>
-          <div class="compare-col-title">Reactive.</div>
-          <ul class="compare-list">
-            <li>Responds after an incident has begun.</li>
-            <li>Visible posture, fixed positions, uniformed presence.</li>
-            <li>Optimized for deterrence and crowd management.</li>
-            <li>Success measured by incidents contained.</li>
-          </ul>
+      <div class="domain-grid" id="domain-grid"></div>
+      <div class="reco" id="reco-block">
+        <div class="reco-eyebrow">
+          <span class="dot"></span>
+          <span id="reco-eyebrow-text">Recommended Engagement</span>
         </div>
-        <div class="compare-col compare-col--gold">
-          <span class="compare-col-tag">Protection</span>
-          <div class="compare-col-title">Proactive. Anticipatory.</div>
-          <ul class="compare-list">
-            <li>Neutralizes threats before they materialize.</li>
-            <li>Invisible posture, dynamic positioning, advance-driven.</li>
-            <li>Optimized for principal continuity at every transition.</li>
-            <li>Success measured by incidents that never occur.</li>
-          </ul>
+        <h3 class="reco-title" id="reco-title">Fractional Security Director</h3>
+        <div class="reco-body" id="reco-body"></div>
+        <div class="cta-row">
+          <a class="primary" id="reco-cta" href="#">
+            <span id="reco-cta-text">Apply for Engagement</span>
+            <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
         </div>
+        <div class="reco-meta" id="reco-meta"></div>
       </div>
-      <div class="compare-footer">Most events just buy security&hellip; not the protection they need.</div>
-    </div>
-  </section>
+      <div class="credential">
+        <div class="credential-eyebrow">Methodology</div>
+        <p class="credential-body">This assessment is built on the advance methodology developed inside the United States Secret Service Presidential Protective Division. It is the same operating model Michael de Geus applied across twelve years of federal service, and now applies inside Shadow.</p>
+        <div class="credential-attribution">Michael de Geus, Founder</div>
+      </div>
+    </section>
 
-  <!-- STATS -->
-  <section class="stats-section ed-section">
-    <div class="ed-inner">
-      <div class="stats-grid">
-        <div class="stat-cell">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Events Secured</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">0</div>
-          <div class="stat-label">Incidents on Record</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Continents Operational</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">100+</div>
-          <div class="stat-label">Years of Team Experience</div>
-        </div>
+  </div>
+</div>
+
+<!-- FRACTIONAL CSO OFFERING -->
+<section class="fcso-section">
+  <div class="fcso-grid">
+    <div class="fcso-left reveal">
+      <span class="fcso-eyebrow">Tier 03 &middot; Engagement</span>
+      <h2 class="fcso-h2">Senior security leadership. Ongoing.</h2>
+      <p class="fcso-sub">For businesses that need a CSO without the full-time hire costs. Not a guard service. Not a consultant. The senior security leadership a full-time CSO would provide, sized to where you actually are.</p>
+      <div class="fcso-field-note">
+        <span class="fcso-field-note-label">Field Observation</span>
+        <p>Planning is strong. Visibility is high. Execution under pressure is inconsistent. Gaps emerge during transitions. The system performs well until it has to adapt in real time.</p>
+        <em>This is not a personnel failure. It is a systems design failure.</em>
       </div>
     </div>
-  </section>
+    <div class="fcso-right reveal reveal-delay-1">
+      <ul class="fcso-list">
+        <li>Standing advisory on risk posture</li>
+        <li>Event calendar fully integrated</li>
+        <li>Vendor oversight and rationalization</li>
+        <li>Advance methodology applied to every engagement</li>
+        <li>Direct line to founder-operator</li>
+        <li>Billed bi-monthly or monthly</li>
+      </ul>
+      <span class="fcso-best-label">Best For</span>
+      <p class="fcso-best-text">Public-company CEOs, founder-principals, private-company scale, and event-heavy functions: Communications, IR, and Chief-of-Staff leaders responsible for principal safety across a calendar of public engagements.</p>
+      <div class="fcso-cta-block">
+        <div class="fcso-pricing">
+          <span class="fcso-pricing-label">Starting At</span>
+          <div class="fcso-pricing-num">$4,000<span class="fcso-pricing-period">/mo</span></div>
+          <p class="fcso-pricing-note">Dedicated entirely to your business. Billed bi-monthly or monthly. No retainer minimums. Cancel with 30 days notice.</p>
+        </div>
+        <div class="fcso-free-call">
+          <span class="fcso-free-call-icon">&#10022;</span>
+          <div>
+            <strong>Complimentary 30-Minute Discovery Call</strong>
+            <p>We discuss your risk profile, event calendar, and specific needs before any engagement begins. No obligation. No salesperson.</p>
+          </div>
+        </div>
+        <a href="mailto:hello@shdw.com?subject=Fractional%20CSO%20Inquiry%20%E2%80%94%20Discovery%20Call" class="fcso-apply-btn">
+          Schedule Free Discovery Call &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- SECURITY vs PROTECTION -->
+<section class="compare-section">
+  <span class="compare-eyebrow">Two Different Disciplines</span>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <span class="compare-col-tag">Security</span>
+      <div class="compare-col-title">Reactive.</div>
+      <ul class="compare-list">
+        <li>Responds after an incident has begun.</li>
+        <li>Visible posture, fixed positions, uniformed presence.</li>
+        <li>Optimized for deterrence and crowd management.</li>
+        <li>Success measured by incidents contained.</li>
+      </ul>
+    </div>
+    <div class="compare-col compare-col--gold">
+      <span class="compare-col-tag">Protection</span>
+      <div class="compare-col-title">Proactive. Anticipatory.</div>
+      <ul class="compare-list">
+        <li>Neutralizes threats before they materialize.</li>
+        <li>Invisible posture, dynamic positioning, advance-driven.</li>
+        <li>Optimized for principal continuity at every transition.</li>
+        <li>Success measured by incidents that never occur.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="compare-footer">Most events just buy security&hellip; not the protection they need.</div>
+</section>
 
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-cell reveal">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Events Secured</div>
+    </div>
+    <div class="stat-cell reveal reveal-delay-1">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Incidents on Record</div>
+    </div>
+    <div class="stat-cell reveal reveal-delay-1">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Continents Operational</div>
+    </div>
+    <div class="stat-cell reveal reveal-delay-2">
+      <div class="stat-num">100+</div>
+      <div class="stat-label">Years of Team Experience</div>
+    </div>
+  </div>
+</section>
 
-  <!-- FOOTER -->
+<!-- CTA BAND -->
+<div class="cta-band reveal">
+  <div class="cta-band-copy">
+    <h3>Ready to Close the Gap?</h3>
+    <p>Schedule a confidential discovery call. No obligation. We discuss your risk profile, event calendar, and specific needs before any engagement begins.</p>
+  </div>
+  <a href="mailto:hello@shdw.com?subject=Fractional%20CSO%20Inquiry%20%E2%80%94%20Discovery%20Call" class="btn-primary">Schedule a Call &rarr;</a>
+</div>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
@@ -1756,9 +975,9 @@
       <div class="footer-col-title">Industries</div>
       <ul class="footer-links">
         <li><a href="entertainment.html">Entertainment</a></li>
-        <li><a href="sports.html">Sports & Athletics</a></li>
+        <li><a href="sports.html">Sports &amp; Athletics</a></li>
         <li><a href="corporate.html">Corporate</a></li>
-        <li><a href="film-tv.html">Film & TV</a></li>
+        <li><a href="film-tv.html">Film &amp; TV</a></li>
         <li><a href="political.html">Political</a></li>
         <li><a href="private-events.html">Private Events</a></li>
       </ul>
@@ -1776,16 +995,56 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 SHDW, LLC. · All Rights Reserved</div>
+    <div class="footer-copy">&copy; 2026 SHDW, LLC. &middot; All Rights Reserved</div>
     <div class="footer-legal">
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="terms-of-service.html">Terms of Service</a>
-      <a href="ndas-confidentiality.html">NDAs & Confidentiality</a>
+      <a href="ndas-confidentiality.html">NDAs &amp; Confidentiality</a>
     </div>
   </div>
 </footer>
 
-</div>
+<script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  let moveTimer;
+  function moveCursor(x, y) { cursor.style.transform = `translate(${x - 3}px, ${y - 3}px)`; }
+  document.addEventListener('mousemove', e => {
+    moveCursor(e.clientX, e.clientY);
+    cursor.classList.add('moving', 'visible');
+    clearTimeout(moveTimer);
+    moveTimer = setTimeout(() => cursor.classList.remove('moving'), 120);
+  });
+  document.documentElement.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+  document.documentElement.addEventListener('mouseenter', e => { moveCursor(e.clientX, e.clientY); cursor.classList.add('visible'); });
+
+  // HAMBURGER
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link, .mobile-cta').forEach(el => {
+    el.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // NAV SCROLL
+  const navEl = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 60); });
+
+  // REVEAL ON SCROLL
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
 
 <script>
   const QUESTIONS = [
@@ -1964,36 +1223,14 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // HAMBURGER
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileNav.classList.toggle('open');
-    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-  });
-  document.querySelectorAll('.mobile-link, .mobile-cta').forEach(el => {
-    el.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // NAV SCROLL
-  const navEl = document.getElementById('navbar');
-  window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 60); });
-
   function renderQuestion() {
     const q = QUESTIONS[state.currentQuestion];
     document.getElementById("q-counter").textContent =
       String(state.currentQuestion + 1).padStart(2, "0") + " / " + String(QUESTIONS.length).padStart(2, "0");
     document.getElementById("q-domain").textContent = q.domain;
     document.getElementById("q-text").textContent = q.text;
-
     const optionsContainer = document.getElementById("q-options");
     optionsContainer.innerHTML = "";
-
     q.options.forEach((opt, idx) => {
       const btn = document.createElement("button");
       btn.className = "option";
@@ -2002,7 +1239,6 @@
       btn.addEventListener("click", () => selectOption(idx));
       optionsContainer.appendChild(btn);
     });
-
     const progress = ((state.currentQuestion) / QUESTIONS.length) * 100;
     document.getElementById("progress-fill").style.right = (100 - progress) + "%";
     document.getElementById("btn-back").disabled = state.currentQuestion === 0;
@@ -2024,31 +1260,24 @@
   }
 
   function goBack() {
-    if (state.currentQuestion > 0) {
-      state.currentQuestion--;
-      renderQuestion();
-    }
+    if (state.currentQuestion > 0) { state.currentQuestion--; renderQuestion(); }
   }
 
   function calculateScores() {
     const domains = ["Principal Exposure", "Movement & Environment", "Operational Readiness"];
-    const domainTotals = {};
-    const domainCounts = {};
+    const domainTotals = {}; const domainCounts = {};
     domains.forEach(d => { domainTotals[d] = 0; domainCounts[d] = 0; });
     QUESTIONS.forEach((q, i) => {
       const ansIdx = state.answers[i];
       const score = ansIdx !== null ? q.options[ansIdx].score : 0;
-      domainTotals[q.domain] += score;
-      domainCounts[q.domain] += 1;
+      domainTotals[q.domain] += score; domainCounts[q.domain] += 1;
     });
     const domainScores = {};
     domains.forEach(d => {
       const avg = domainTotals[d] / Math.max(domainCounts[d], 1);
       domainScores[d] = Math.round((avg / 3) * 100);
     });
-    const overall = Math.round(
-      (domainScores[domains[0]] + domainScores[domains[1]] + domainScores[domains[2]]) / 3
-    );
+    const overall = Math.round((domainScores[domains[0]] + domainScores[domains[1]] + domainScores[domains[2]]) / 3);
     return { overall, domainScores };
   }
 
@@ -2058,9 +1287,7 @@
 
   function finishAssessment() {
     const { overall, domainScores } = calculateScores();
-    state.overallScore = overall;
-    state.domainScores = domainScores;
-    state.tier = tierForScore(overall);
+    state.overallScore = overall; state.domainScores = domainScores; state.tier = tierForScore(overall);
     showScreen("calc");
     setTimeout(() => {
       document.getElementById("gate-tier").textContent = state.tier;
@@ -2102,28 +1329,19 @@
   function renderResults() {
     document.getElementById("result-tier").textContent = state.tier;
     document.getElementById("result-score").textContent = state.overallScore;
-
     const grid = document.getElementById("domain-grid");
     grid.innerHTML = "";
     const findings = buildFindings();
-
     Object.entries(state.domainScores).forEach(([domain, score]) => {
       const row = document.createElement("div");
       row.className = "domain-row";
       row.innerHTML =
-        '<div class="domain-row-top">' +
-          '<div class="domain-name">' + domain + '</div>' +
-          '<div class="domain-score">' + score + '<span class="max"> / 100</span></div>' +
-        '</div>' +
+        '<div class="domain-row-top"><div class="domain-name">' + domain + '</div><div class="domain-score">' + score + '<span class="max"> / 100</span></div></div>' +
         '<div class="domain-bar"><div class="domain-fill"></div></div>' +
         '<div class="domain-finding">' + (findings[domain] || "") + '</div>';
       grid.appendChild(row);
-      requestAnimationFrame(() => {
-        const fill = row.querySelector(".domain-fill");
-        fill.style.right = (100 - score) + "%";
-      });
+      requestAnimationFrame(() => { const fill = row.querySelector(".domain-fill"); fill.style.right = (100 - score) + "%"; });
     });
-
     const content = TIER_CONTENT[state.tier];
     document.getElementById("reco-eyebrow-text").textContent = content.ecosystem;
     document.getElementById("reco-title").textContent = content.title;
@@ -2144,29 +1362,20 @@
     e.preventDefault();
     const errEl = document.getElementById("form-error");
     errEl.classList.remove("visible");
-
     const firstName = document.getElementById("firstName").value.trim();
     const lastName = document.getElementById("lastName").value.trim();
     const email = document.getElementById("email").value.trim();
     const organization = document.getElementById("organization").value.trim();
     const role = document.getElementById("role").value.trim();
-
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!firstName || !lastName || !emailValid) {
-      errEl.classList.add("visible");
-      return;
-    }
-
+    if (!firstName || !lastName || !emailValid) { errEl.classList.add("visible"); return; }
     const submitBtn = document.getElementById("btn-submit-lead");
-    submitBtn.disabled = true;
-    submitBtn.style.opacity = "0.6";
-
+    submitBtn.disabled = true; submitBtn.style.opacity = "0.6";
     const answersDetail = QUESTIONS.map((q, i) => {
       const ai = state.answers[i];
       return (i + 1) + ". [" + q.domain + "] " + q.text + " => " +
         (ai !== null ? q.options[ai].label + " (score " + q.options[ai].score + ")" : "no answer");
     }).join("\n");
-
     const payload = {
       "form-name": "exposure-assessment-lead",
       firstName, lastName, email, organization, role,
@@ -2177,25 +1386,15 @@
       operationalReadinessScore: String(state.domainScores["Operational Readiness"] || 0),
       answers: answersDetail
     };
-
     try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode(payload)
-      });
-    } catch (err) {
-      console.warn("Submission deferred:", err);
-    }
-
+      await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: encode(payload) });
+    } catch (err) { console.warn("Submission deferred:", err); }
     renderResults();
     showScreen("results");
   }
 
   document.getElementById("btn-begin").addEventListener("click", () => {
-    state.currentQuestion = 0;
-    renderQuestion();
-    showScreen("questions");
+    state.currentQuestion = 0; renderQuestion(); showScreen("questions");
   });
   document.getElementById("btn-back").addEventListener("click", goBack);
   document.getElementById("lead-form").addEventListener("submit", submitLead);
