@@ -517,19 +517,26 @@
   .fcso-field-note p { font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
   .fcso-field-note em { display: block; margin-top: 12px; color: var(--text-muted); font-style: normal; }
   .fcso-cta-block { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; border-top: 1px solid var(--shadow-divider); padding-top: 28px; }
+  /* PRICING FULL-WIDTH SECTION */
+  .pricing-full { margin-top: 56px; padding-top: 56px; border-top: 1px solid var(--border); }
+  .pricing-full-header { margin-bottom: 36px; }
+  .pricing-full-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: 0.02em; line-height: 0.95; margin-bottom: 12px; }
+  .pricing-full-sub { font-size: 0.95rem; color: var(--light); line-height: 1.75; max-width: 600px; }
   /* PRICING CASE STUDIES */
-  .pricing-cases { display: flex; flex-direction: column; gap: 12px; }
-  .pricing-case { background: var(--shadow-elevated); border: 1px solid var(--shadow-border); padding: 22px 22px 18px; position: relative; }
-  .pricing-case--featured { border-color: var(--tactical-gold); }
-  .pricing-case--featured::before { content: ''; position: absolute; top: -1px; left: 0; width: 48px; height: 2px; background: var(--tactical-gold); }
-  .pricing-case-scope { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--tactical-gold); display: block; margin-bottom: 2px; }
-  .pricing-case-location { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 10px; }
-  .pricing-case-price { font-family: var(--font-display); font-size: 2.2rem; line-height: 1; letter-spacing: 0.02em; color: var(--text-primary); }
-  .pricing-case-hours { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; margin-bottom: 14px; }
-  .pricing-case-items { list-style: none; border-top: 1px solid var(--shadow-divider); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
-  .pricing-case-items li { font-size: 13px; color: var(--text-secondary); padding-left: 16px; position: relative; line-height: 1.45; }
+  .pricing-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+  .pricing-case { background: var(--card); padding: 36px 32px 32px; position: relative; }
+  .pricing-case--featured { background: #131313; }
+  .pricing-case--featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--tactical-gold); }
+  .pricing-case-scope { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--tactical-gold); display: block; margin-bottom: 4px; }
+  .pricing-case-location { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 18px; }
+  .pricing-case-price { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1; letter-spacing: 0.02em; color: var(--text-primary); }
+  .pricing-case-per { font-size: 1.2rem; color: var(--text-secondary); letter-spacing: 0.05em; }
+  .pricing-case-hours { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px; margin-bottom: 20px; }
+  .pricing-case-items { list-style: none; border-top: 1px solid var(--shadow-divider); padding-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .pricing-case-items li { font-size: 14px; color: var(--text-secondary); padding-left: 18px; position: relative; line-height: 1.5; }
   .pricing-case-items li::before { content: "—"; position: absolute; left: 0; color: var(--tactical-gold); }
-  .pricing-case-note { font-size: 11px; color: var(--text-muted); margin-top: 10px; line-height: 1.5; letter-spacing: 0.02em; }
+  .pricing-footer { margin-top: 32px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+  .pricing-case-note { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
   .fcso-free-call { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; background: rgba(201,168,76,0.06); border: 1px solid var(--shadow-border); }
   .fcso-free-call-icon { color: var(--tactical-gold); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
   .fcso-free-call strong { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 6px; font-weight: 500; }
@@ -604,6 +611,8 @@
     .fcso-section { padding: 48px 20px; }
     .fcso-grid { gap: 32px; }
     .fcso-apply-btn { width: 100%; justify-content: center; }
+    .pricing-cases { grid-template-columns: 1fr; }
+    .pricing-full { margin-top: 40px; padding-top: 40px; }
     .fcso-pricing-num { font-size: 40px; }
     .compare-section { padding: 48px 20px; }
     .compare-col { padding: 28px 22px; }
@@ -859,58 +868,67 @@
       </ul>
       <span class="fcso-best-label">Best For</span>
       <p class="fcso-best-text">Public-company CEOs, founder-principals, private-company scale, and event-heavy functions: Communications, IR, and Chief-of-Staff leaders responsible for principal safety across a calendar of public engagements.</p>
-      <div class="fcso-cta-block">
-        <div class="pricing-cases">
-          <div class="pricing-case">
-            <span class="pricing-case-scope">Advisory-Only</span>
-            <span class="pricing-case-location">Northern Virginia &middot; Case Study A</span>
-            <div class="pricing-case-price">$4,000<span style="font-size:1.1rem;color:var(--text-secondary);letter-spacing:0.05em">/mo</span></div>
-            <div class="pricing-case-hours">5&ndash;10 hours per month</div>
-            <ul class="pricing-case-items">
-              <li>Standing risk advisory via calls &amp; email</li>
-              <li>Security plans drafted and reviewed</li>
-              <li>Threat posture monitoring</li>
-              <li>Remote engagement only</li>
-            </ul>
-          </div>
-          <div class="pricing-case pricing-case--featured">
-            <span class="pricing-case-scope">Hybrid Remote + In-Person</span>
-            <span class="pricing-case-location">Omaha, NE &middot; Case Study B</span>
-            <div class="pricing-case-price">$6,000<span style="font-size:1.1rem;color:var(--text-secondary);letter-spacing:0.05em">/mo</span></div>
-            <div class="pricing-case-hours">10+ hours per month</div>
-            <ul class="pricing-case-items">
-              <li>Calls, email advisory, document drafting</li>
-              <li>Quarterly in-person site visits &amp; meetings</li>
-              <li>Vendor oversight and policy review</li>
-              <li>Client covers all travel expenses</li>
-            </ul>
-          </div>
-          <div class="pricing-case">
-            <span class="pricing-case-scope">Embedded Security Leadership</span>
-            <span class="pricing-case-location">Los Angeles, CA &middot; Case Study C</span>
-            <div class="pricing-case-price">$10,000+<span style="font-size:1.1rem;color:var(--text-secondary);letter-spacing:0.05em">/mo</span></div>
-            <div class="pricing-case-hours">15&ndash;20+ hours per month</div>
-            <ul class="pricing-case-items">
-              <li>Office &amp; warehouse security program management</li>
-              <li>Workplace violence prevention &amp; response planning</li>
-              <li>Calls, email, document drafting, in-person meetings</li>
-              <li>Staff trainings and incident response coordination</li>
-              <li>Client covers all travel expenses</li>
-            </ul>
-          </div>
-        </div>
-        <p class="pricing-case-note">Engagements are scoped to your specific risk profile, calendar, and operational footprint. No retainer minimums. Cancel with 30 days notice.</p>
-        <div class="fcso-free-call">
-          <span class="fcso-free-call-icon">&#10022;</span>
-          <div>
-            <strong>Complimentary 30-Minute Discovery Call</strong>
-            <p>We discuss your risk profile, event calendar, and specific needs before any engagement begins. No obligation. No salesperson.</p>
-          </div>
-        </div>
-        <a href="mailto:hello@shdw.com?subject=Fractional%20CSO%20Inquiry%20%E2%80%94%20Discovery%20Call" class="fcso-apply-btn">
-          Schedule Free Discovery Call &rarr;
-        </a>
+    </div>
+  </div>
+
+  <!-- FULL-WIDTH PRICING -->
+  <div class="pricing-full reveal">
+    <div class="pricing-full-header">
+      <div class="label">Engagement Pricing</div>
+      <h3 class="pricing-full-title">Scoped to your situation.</h3>
+      <p class="pricing-full-sub">Every engagement is sized to your risk profile, calendar, and operational footprint. These case studies show how past clients have structured their programs.</p>
+    </div>
+    <div class="pricing-cases">
+      <div class="pricing-case">
+        <span class="pricing-case-scope">Advisory-Only</span>
+        <span class="pricing-case-location">Northern Virginia &middot; Case Study A</span>
+        <div class="pricing-case-price">$4,000<span class="pricing-case-per">/mo</span></div>
+        <div class="pricing-case-hours">5&ndash;10 hours per month</div>
+        <ul class="pricing-case-items">
+          <li>Standing risk advisory via calls &amp; email</li>
+          <li>Security plans drafted and reviewed</li>
+          <li>Threat posture monitoring</li>
+          <li>Remote engagement only</li>
+        </ul>
       </div>
+      <div class="pricing-case pricing-case--featured">
+        <span class="pricing-case-scope">Hybrid Remote + In-Person</span>
+        <span class="pricing-case-location">Omaha, NE &middot; Case Study B</span>
+        <div class="pricing-case-price">$6,000<span class="pricing-case-per">/mo</span></div>
+        <div class="pricing-case-hours">10+ hours per month</div>
+        <ul class="pricing-case-items">
+          <li>Calls, email advisory, document drafting</li>
+          <li>Quarterly in-person site visits &amp; meetings</li>
+          <li>Vendor oversight and policy review</li>
+          <li>Client covers all travel expenses</li>
+        </ul>
+      </div>
+      <div class="pricing-case">
+        <span class="pricing-case-scope">Embedded Security Leadership</span>
+        <span class="pricing-case-location">Los Angeles, CA &middot; Case Study C</span>
+        <div class="pricing-case-price">$10,000+<span class="pricing-case-per">/mo</span></div>
+        <div class="pricing-case-hours">15&ndash;20+ hours per month</div>
+        <ul class="pricing-case-items">
+          <li>Office &amp; warehouse security program management</li>
+          <li>Workplace violence prevention &amp; response planning</li>
+          <li>Calls, email, document drafting, in-person meetings</li>
+          <li>Staff trainings and incident response coordination</li>
+          <li>Client covers all travel expenses</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pricing-footer">
+      <p class="pricing-case-note">Engagements are scoped individually. No retainer minimums. Cancel with 30 days notice.</p>
+      <div class="fcso-free-call" style="max-width:560px">
+        <span class="fcso-free-call-icon">&#10022;</span>
+        <div>
+          <strong>Complimentary 30-Minute Discovery Call</strong>
+          <p>We discuss your risk profile, event calendar, and specific needs before any engagement begins. No obligation. No salesperson.</p>
+        </div>
+      </div>
+      <a href="mailto:hello@shdw.com?subject=Fractional%20CSO%20Inquiry%20%E2%80%94%20Discovery%20Call" class="fcso-apply-btn">
+        Schedule Free Discovery Call &rarr;
+      </a>
     </div>
   </div>
 </section>
