@@ -522,21 +522,38 @@
   .pricing-full-header { margin-bottom: 36px; }
   .pricing-full-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: 0.02em; line-height: 0.95; margin-bottom: 12px; }
   .pricing-full-sub { font-size: 0.95rem; color: var(--light); line-height: 1.75; max-width: 600px; }
-  /* PRICING CASE STUDIES */
-  .pricing-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
-  .pricing-case { background: var(--card); padding: 36px 32px 32px; position: relative; }
-  .pricing-case--featured { background: #131313; }
-  .pricing-case--featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--tactical-gold); }
-  .pricing-case-scope { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--tactical-gold); display: block; margin-bottom: 4px; }
-  .pricing-case-location { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 18px; }
-  .pricing-case-price { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1; letter-spacing: 0.02em; color: var(--text-primary); }
-  .pricing-case-per { font-size: 1.2rem; color: var(--text-secondary); letter-spacing: 0.05em; }
-  .pricing-case-hours { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px; margin-bottom: 20px; }
-  .pricing-case-items { list-style: none; border-top: 1px solid var(--shadow-divider); padding-top: 16px; display: flex; flex-direction: column; gap: 10px; }
-  .pricing-case-items li { font-size: 14px; color: var(--text-secondary); padding-left: 18px; position: relative; line-height: 1.5; }
-  .pricing-case-items li::before { content: "—"; position: absolute; left: 0; color: var(--tactical-gold); }
-  .pricing-footer { margin-top: 32px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
-  .pricing-case-note { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  /* PRICING COVERFLOW */
+  .pricing-cf { position:relative; padding-bottom:58px; overflow:hidden; }
+  .pricing-cf::before,.pricing-cf::after { content:''; position:absolute; top:0; bottom:58px; width:140px; z-index:15; pointer-events:none; }
+  .pricing-cf::before { left:0; background:linear-gradient(to right,rgba(8,8,8,0.9) 20%,transparent); }
+  .pricing-cf::after { right:0; background:linear-gradient(to left,rgba(8,8,8,0.9) 20%,transparent); }
+  .cf-stage { position:relative; height:480px; perspective:1100px; perspective-origin:50% 42%; overflow:visible; }
+  .cf-arrow { position:absolute; top:195px; background:rgba(8,8,8,.92); border:1px solid rgba(201,168,76,.28); color:var(--red); width:44px; height:44px; display:flex; align-items:center; justify-content:center; z-index:20; transition:background .2s,border-color .2s; font-size:1.15rem; line-height:1; }
+  .cf-arrow:hover { background:rgba(201,168,76,.14); border-color:var(--red); }
+  .cf-prev { left:6px; }
+  .cf-next { right:6px; }
+  .cf-dots { position:absolute; bottom:14px; left:0; right:0; display:flex; gap:8px; justify-content:center; }
+  .cf-dot { width:6px; height:6px; border-radius:50%; background:rgba(201,168,76,.22); transition:background .25s,transform .25s; border:none; padding:0; }
+  .cf-dot.active { background:var(--red); transform:scale(1.5); }
+  /* PRICING CARD (svc in the coverflow) */
+  .cf-stage .pc { position:absolute; width:360px; height:440px; top:0; left:50%; margin-left:-180px; will-change:transform,opacity; transition:transform .52s cubic-bezier(.4,0,.2,1),opacity .42s ease; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(201,168,76,.2) transparent; background:var(--card); border:1px solid var(--border); padding:40px 36px; display:block; }
+  .cf-stage .pc::-webkit-scrollbar { width:3px; }
+  .cf-stage .pc::-webkit-scrollbar-thumb { background:rgba(201,168,76,.25); border-radius:2px; }
+  .pc::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
+  .pc.cf-active:hover::after { transform:scaleX(1); }
+  .pc.cf-active:hover { background:#141414; }
+  .pc--featured { border-color:rgba(201,168,76,.4); }
+  .pc--featured::after { transform:scaleX(1) !important; }
+  .pc-scope { font-family:var(--font-mono); font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--tactical-gold); display:block; margin-bottom:4px; }
+  .pc-location { font-family:var(--font-mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-muted); display:block; margin-bottom:24px; }
+  .pc-price { font-family:var(--font-display); font-size:3rem; line-height:1; letter-spacing:0.02em; color:var(--text-primary); }
+  .pc-per { font-size:1.3rem; color:var(--text-secondary); letter-spacing:0.05em; }
+  .pc-hours { font-family:var(--font-mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-top:6px; margin-bottom:22px; }
+  .pc-items { list-style:none; border-top:1px solid var(--shadow-divider); padding-top:16px; display:flex; flex-direction:column; gap:10px; }
+  .pc-items li { font-size:14px; color:var(--text-secondary); padding-left:18px; position:relative; line-height:1.5; }
+  .pc-items li::before { content:"—"; position:absolute; left:0; color:var(--tactical-gold); }
+  .pricing-footer { margin-top:32px; display:flex; flex-direction:column; gap:20px; align-items:flex-start; }
+  .pricing-case-note { font-size:13px; color:var(--text-muted); line-height:1.6; }
   .fcso-free-call { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; background: rgba(201,168,76,0.06); border: 1px solid var(--shadow-border); }
   .fcso-free-call-icon { color: var(--tactical-gold); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
   .fcso-free-call strong { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 6px; font-weight: 500; }
@@ -875,47 +892,52 @@
   <div class="pricing-full reveal">
     <div class="pricing-full-header">
       <div class="label">Engagement Pricing</div>
-      <h3 class="pricing-full-title">Scoped to your situation.</h3>
+      <h3 class="pricing-full-title">Scoped to your <span style="color:var(--red)">Situation.</span></h3>
       <p class="pricing-full-sub">Every engagement is sized to your risk profile, calendar, and operational footprint. These case studies show how past clients have structured their programs.</p>
     </div>
-    <div class="pricing-cases">
-      <div class="pricing-case">
-        <span class="pricing-case-scope">Advisory-Only</span>
-        <span class="pricing-case-location">Northern Virginia &middot; Case Study A</span>
-        <div class="pricing-case-price">$4,000<span class="pricing-case-per">/mo</span></div>
-        <div class="pricing-case-hours">5&ndash;10 hours per month</div>
-        <ul class="pricing-case-items">
-          <li>Standing risk advisory via calls &amp; email</li>
-          <li>Security plans drafted and reviewed</li>
-          <li>Threat posture monitoring</li>
-          <li>Remote engagement only</li>
-        </ul>
+    <div class="pricing-cf" id="pricing-cf">
+      <button class="cf-arrow cf-prev" aria-label="Previous">&#8592;</button>
+      <div class="cf-stage">
+        <div class="pc">
+          <span class="pc-scope">Advisory-Only</span>
+          <span class="pc-location">Northern Virginia &middot; Case Study A</span>
+          <div class="pc-price">$4,000<span class="pc-per">/mo</span></div>
+          <div class="pc-hours">5&ndash;10 hours per month</div>
+          <ul class="pc-items">
+            <li>Standing risk advisory via calls &amp; email</li>
+            <li>Security plans drafted and reviewed</li>
+            <li>Threat posture monitoring</li>
+            <li>Remote engagement only</li>
+          </ul>
+        </div>
+        <div class="pc pc--featured">
+          <span class="pc-scope">Hybrid Remote + In-Person</span>
+          <span class="pc-location">Omaha, NE &middot; Case Study B</span>
+          <div class="pc-price">$6,000<span class="pc-per">/mo</span></div>
+          <div class="pc-hours">10+ hours per month</div>
+          <ul class="pc-items">
+            <li>Calls, email advisory, document drafting</li>
+            <li>Quarterly in-person site visits &amp; meetings</li>
+            <li>Vendor oversight and policy review</li>
+            <li>Client covers all travel expenses</li>
+          </ul>
+        </div>
+        <div class="pc">
+          <span class="pc-scope">Embedded Security Leadership</span>
+          <span class="pc-location">Los Angeles, CA &middot; Case Study C</span>
+          <div class="pc-price">$10,000+<span class="pc-per">/mo</span></div>
+          <div class="pc-hours">15&ndash;20+ hours per month</div>
+          <ul class="pc-items">
+            <li>Office &amp; warehouse security program management</li>
+            <li>Workplace violence prevention &amp; response planning</li>
+            <li>Calls, email, document drafting, in-person meetings</li>
+            <li>Staff trainings and incident response coordination</li>
+            <li>Client covers all travel expenses</li>
+          </ul>
+        </div>
       </div>
-      <div class="pricing-case pricing-case--featured">
-        <span class="pricing-case-scope">Hybrid Remote + In-Person</span>
-        <span class="pricing-case-location">Omaha, NE &middot; Case Study B</span>
-        <div class="pricing-case-price">$6,000<span class="pricing-case-per">/mo</span></div>
-        <div class="pricing-case-hours">10+ hours per month</div>
-        <ul class="pricing-case-items">
-          <li>Calls, email advisory, document drafting</li>
-          <li>Quarterly in-person site visits &amp; meetings</li>
-          <li>Vendor oversight and policy review</li>
-          <li>Client covers all travel expenses</li>
-        </ul>
-      </div>
-      <div class="pricing-case">
-        <span class="pricing-case-scope">Embedded Security Leadership</span>
-        <span class="pricing-case-location">Los Angeles, CA &middot; Case Study C</span>
-        <div class="pricing-case-price">$10,000+<span class="pricing-case-per">/mo</span></div>
-        <div class="pricing-case-hours">15&ndash;20+ hours per month</div>
-        <ul class="pricing-case-items">
-          <li>Office &amp; warehouse security program management</li>
-          <li>Workplace violence prevention &amp; response planning</li>
-          <li>Calls, email, document drafting, in-person meetings</li>
-          <li>Staff trainings and incident response coordination</li>
-          <li>Client covers all travel expenses</li>
-        </ul>
-      </div>
+      <button class="cf-arrow cf-next" aria-label="Next">&#8594;</button>
+      <div class="cf-dots"></div>
     </div>
     <div class="pricing-footer">
       <p class="pricing-case-note">Engagements are scoped individually. No retainer minimums. Cancel with 30 days notice.</p>
@@ -1461,6 +1483,66 @@
   document.getElementById("lead-form").addEventListener("submit", submitLead);
 </script>
 
+<script>
+  /* PRICING COVERFLOW */
+  (function(){
+    const cf = document.getElementById('pricing-cf');
+    if (!cf) return;
+    const stage = cf.querySelector('.cf-stage');
+    const cards = Array.from(stage.querySelectorAll('.pc'));
+    const dotsEl = cf.querySelector('.cf-dots');
+    const n = cards.length;
+    let cur = 1; // start on the featured middle card
+
+    const TX = [0, 290, 510];
+    const RY = [0, 46, 58];
+    const SC = [1, 0.83, 0.67];
+    const OP = [1, 0.68, 0.38];
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (let i = 0; i < n; i++) {
+        const d = document.createElement('button');
+        d.className = 'cf-dot' + (i === cur ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i+1));
+        d.addEventListener('click', () => go(i));
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function applyTransforms() {
+      cards.forEach((card, i) => {
+        const dist = i - cur;
+        const abs = Math.abs(dist);
+        const sign = dist < 0 ? -1 : 1;
+        const tx = abs >= TX.length ? sign * TX[TX.length-1] * 1.3 : sign * TX[abs];
+        const ry = abs >= RY.length ? sign * RY[RY.length-1] : sign * RY[abs];
+        const sc = abs >= SC.length ? SC[SC.length-1] * 0.85 : SC[abs];
+        const op = abs >= OP.length ? 0 : OP[abs];
+        const z = abs === 0 ? 100 : abs === 1 ? 50 : 10;
+        card.style.transform = `translateX(${tx}px) rotateY(${ry}deg) scale(${sc})`;
+        card.style.opacity = op;
+        card.style.zIndex = z;
+        card.classList.toggle('cf-active', abs === 0);
+        card.style.pointerEvents = abs === 0 ? 'auto' : 'none';
+      });
+      Array.from(dotsEl.querySelectorAll('.cf-dot')).forEach((d, i) => {
+        d.classList.toggle('active', i === cur);
+      });
+    }
+
+    function go(idx) {
+      cur = Math.max(0, Math.min(n-1, idx));
+      applyTransforms();
+    }
+
+    cf.querySelector('.cf-prev').addEventListener('click', () => go(cur - 1));
+    cf.querySelector('.cf-next').addEventListener('click', () => go(cur + 1));
+
+    buildDots();
+    applyTransforms();
+  })();
+</script>
 <script src="brand.js"></script>
 </body>
 </html>
