@@ -217,7 +217,7 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
 <!-- =================== SUBSCRIBE =================== -->
 <section class="cta-band">
   <div class="container">
-    <div class="cta-band__inner" style="flex-direction:column; align-items:flex-start; gap:2rem;">
+    <div class="cta-band__inner" style="grid-template-columns:1fr; align-items:flex-start; gap:1.5rem;">
       <div>
         <h2 class="cta-band__title">Subscribe to <em>Shadow Insights</em>.</h2>
         <p class="cta-band__sub">A monthly dispatch from Shadow leadership. Doctrine essays, field notes, and excerpts from the Shadow Playbook book series. No promotional content. Reading time twelve minutes or less per issue.</p>
@@ -228,7 +228,7 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        style="width:100%; max-width:560px;"
+        style="width:100%; max-width:640px;"
         onsubmit="handleInsightsSubscribe(event)"
       >
         <input type="hidden" name="form-name" value="shadow-insights-subscribe">
@@ -240,13 +240,13 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
             name="email"
             required
             placeholder="Your email address"
-            style="flex:1; background:#0c0c0c; border:1px solid #2a2a2a; border-right:none; color:#f0ede8; font-family:'Barlow Condensed',sans-serif; font-size:13px; letter-spacing:0.12em; padding:16px 20px; outline:none; min-width:0;"
-            onfocus="this.style.borderColor='rgba(201,168,76,0.5)'"
-            onblur="this.style.borderColor='#2a2a2a'"
+            style="flex:1; background:#111; border:2px solid #555; border-right:none; color:#f0ede8; font-family:'Barlow Condensed',sans-serif; font-size:14px; letter-spacing:0.12em; padding:16px 20px; outline:none; min-width:0; box-sizing:border-box;"
+            onfocus="this.style.borderColor='rgba(201,168,76,0.8)'"
+            onblur="this.style.borderColor='#555'"
           >
           <button
             type="submit"
-            style="background:#C9A84C; color:#080808; border:none; font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:0.22em; padding:16px 28px; white-space:nowrap; cursor:pointer; transition:background 0.2s;"
+            style="background:#C9A84C; color:#080808; border:none; font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:0.22em; padding:16px 28px; white-space:nowrap; cursor:pointer; transition:background 0.2s; box-sizing:border-box;"
             onmouseover="this.style.background='#b8963e'"
             onmouseout="this.style.background='#C9A84C'"
           >Sign Up to Receive &rarr;</button>
