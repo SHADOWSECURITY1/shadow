@@ -1130,100 +1130,33 @@ h1, h2, h3, h4 {
    FOOTER
    ============================================ */
 
-.footer {
-  background: var(--shadow-coal);
-  border-top: 1px solid var(--hairline);
-  padding: 4rem 0 2rem;
-  margin-top: 4rem;
+/* FOOTER */
+footer {
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+  padding: 60px 64px 40px;
 }
-
-.footer__top {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--hairline);
-}
-
-@media (min-width: 880px) {
-  .footer__top { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
-}
-
-.footer__brand-mark {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 400;
-  margin-bottom: 0.5rem;
-}
-
-.footer__brand-sub {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.32em;
-  color: var(--tactical-gold);
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-
-.footer__brand-inline {
-  display: flex;
-  align-items: baseline;
-  gap: 0.2rem;
-  margin-bottom: 1.5rem;
-}
-
-.footer__brand-wordmark {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 400;
-  color: var(--bone);
-}
-
-.footer__brand-wordmark--gold {
-  color: var(--tactical-gold);
-}
-
-.footer__brand-tag {
-  color: var(--bone-dim);
-  font-size: 14px;
-  max-width: 36ch;
-}
-
-.footer__col h6 {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--tactical-gold);
-  margin-bottom: 1.25rem;
-  font-weight: 400;
-}
-
-.footer__list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-
-.footer__list a {
-  font-size: 14px;
-  color: var(--bone-dim);
-  transition: color 0.2s ease;
-}
-
-.footer__list a:hover { color: var(--bone); }
-
-.footer__bottom {
-  padding-top: 2rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.footer__copy,
-.footer__legal {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--bone-faint);
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand { }
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.3em; margin-bottom: 16px; color: var(--white); }
+.footer-logo .dot { color: var(--red); }
+.footer-tagline { font-size: 0.875rem; color: var(--gray); line-height: 1.7; max-width: 260px; }
+.footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 20px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.footer-links a { font-size: 0.875rem; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); }
+.footer-legal { display: flex; gap: 28px; }
+.footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+.footer-legal a:hover { color: var(--white); }
+.footer-social { display: flex; gap: 14px; margin-top: 24px; }
+.footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 4px; color: var(--gray); text-decoration: none; transition: color 0.2s, border-color 0.2s; }
+.footer-social a:hover { color: var(--red); border-color: var(--red); }
+.footer-social svg { width: 16px; height: 16px; fill: currentColor; }
+@media (max-width: 900px) {
+  footer { padding: 48px 28px 32px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 
 /* ============================================
