@@ -184,9 +184,11 @@ fbq('track', 'PageView');
   .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
   .team-card { background: var(--card); padding: 32px; display: flex; flex-direction: column; gap: 20px; transition: background 0.3s; }
   .team-card:hover { background: #141414; }
-  .team-card__photo { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; background: var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .team-card__photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); }
-  .team-card__initials { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.1em; color: var(--gray); }
+  .team-card__photo { width: 170px; height: 170px; border-radius: 6px; overflow: hidden; background: var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; transition: box-shadow 0.25s; }
+  .team-card:hover .team-card__photo { box-shadow: 0 0 0 2px #C9A84C, 0 0 18px 4px rgba(201,168,76,0.25); }
+  .team-card__photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: filter 0.25s; }
+  .team-card:hover .team-card__photo img { filter: grayscale(60%); }
+  .team-card__initials { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.1em; color: var(--gray); }
   .team-card__body { }
   .team-card__role { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
   .team-card__name { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.04em; margin-bottom: 12px; }
