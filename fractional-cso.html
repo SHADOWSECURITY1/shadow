@@ -648,6 +648,14 @@
     footer { padding: 40px 20px 28px; }
     .footer-top { grid-template-columns: 1fr; }
     .bridge-inner { flex-direction: column; }
+    /* Pricing slider — mobile fix */
+    .pricing-cf { overflow: visible; padding-bottom: 72px; }
+    .pricing-cf::before, .pricing-cf::after { display: none; }
+    .cf-stage { height: auto; perspective: none; overflow: visible; }
+    .cf-stage .pc { display: none; position: relative; left: 0; top: 0; margin-left: 0; width: 100%; height: auto; overflow-y: visible; transform: none !important; }
+    .cf-stage .pc.cf-active { display: block; opacity: 1 !important; }
+    .cf-arrow { top: auto; bottom: 14px; }
+    .cf-dots { bottom: -4px; }
   }
 </style>
 </head>
