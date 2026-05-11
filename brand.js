@@ -11,7 +11,7 @@
   var tagline = document.querySelector('.footer-tagline');
   if (tagline) {
     var seal = document.createElement('img');
-    seal.src = 'shadow-s.png';
+    seal.src = 'https://www.shdw.com/shadow-s.png';
     seal.alt = 'SHADOW';
     seal.className = 'brand-s-seal';
     tagline.parentNode.insertBefore(seal, tagline.nextSibling);
