@@ -3324,13 +3324,13 @@ footer {
 .nav__item--has-dropdown { position: relative; }
 .nav__dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: -16px;
   min-width: 180px;
   background: rgba(8,8,8,0.98);
   border: 1px solid var(--border);
   border-top: 2px solid var(--tactical-gold);
-  padding: 6px 0;
+  padding: 8px 0 6px;
   opacity: 0;
   pointer-events: none;
   transform: translateY(8px);
