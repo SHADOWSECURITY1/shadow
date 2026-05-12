@@ -488,6 +488,35 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
   .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 4px; color: var(--gray); text-decoration: none; transition: color 0.2s, border-color 0.2s; overflow: hidden; }
   .footer-social a:hover { color: var(--red); border-color: var(--red); }
   .footer-social svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+
+  /* NAV EVENTS DROPDOWN */
+  .nav-item--has-dropdown { position: relative; }
+  .nav-dropdown {
+    position: absolute; top: calc(100% + 8px); left: -16px;
+    min-width: 180px; background: rgba(8,8,8,0.98);
+    border: 1px solid var(--border); border-top: 2px solid var(--red);
+    padding: 6px 0; opacity: 0; pointer-events: none;
+    transform: translateY(8px); transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 300;
+  }
+  .nav-item--has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .nav-dropdown-link {
+    display: block; padding: 11px 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--light); text-decoration: none;
+    transition: color 0.2s, background 0.2s; white-space: nowrap;
+  }
+  .nav-dropdown-link::after { display: none !important; }
+  .nav-dropdown-link:hover { color: var(--white); background: rgba(201,168,76,0.04); }
+  .mobile-sub-link {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--light); text-decoration: none;
+    border-left: 2px solid rgba(240,237,232,0.15); padding-left: 22px;
+    margin-top: -18px; transition: color 0.2s;
+  }
+  .mobile-sub-link:hover, .mobile-sub-link:active { color: var(--red); }
 </style>
 </head>
 <body>
@@ -498,7 +527,13 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
   <a href="index.html" class="nav-logo">SHADOW</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="events/index.html">Events</a></li>
+    <li class="nav-item--has-dropdown"><a href="events/index.html">Events</a>
+      <div class="nav-dropdown">
+        <a href="events/index.html" class="nav-dropdown-link">Overview</a>
+        <a href="events/capabilities.html" class="nav-dropdown-link">Capabilities</a>
+        <a href="events/case-studies.html" class="nav-dropdown-link">Engagements</a>
+      </div>
+    </li>
     <li><a href="fractional-cso.html">Fractional CSO</a></li>
     <li><a href="shdw-app.html">SHDW App</a></li>
     <li><a href="team.html">The Team</a></li>
@@ -513,6 +548,9 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" class="mobile-link">Home</a>
   <a href="events/index.html" class="mobile-link">Events</a>
+  <a href="events/index.html" class="mobile-sub-link">Overview</a>
+  <a href="events/capabilities.html" class="mobile-sub-link">Capabilities</a>
+  <a href="events/case-studies.html" class="mobile-sub-link">Engagements</a>
   <a href="fractional-cso.html" class="mobile-link">Fractional CSO</a>
   <a href="shdw-app.html" class="mobile-link">SHDW App</a>
   <a href="team.html" class="mobile-link">The Team</a>
