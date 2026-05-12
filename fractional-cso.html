@@ -657,6 +657,29 @@
     .cf-arrow { top: auto; bottom: 14px; }
     .cf-dots { bottom: -4px; }
   }
+
+  /* GAP GRID */
+  .gap-section { padding: 80px 64px; background: var(--black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .gap-section-head { max-width: 640px; margin-bottom: 48px; }
+  .gap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--shadow-divider); border: 1px solid var(--shadow-divider); }
+  .gap-card { background: var(--shadow-surface); padding: 36px 32px; }
+  .gap-card-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 16px; display: block; }
+  .gap-card-text { font-size: 15px; line-height: 1.65; color: var(--text-secondary); }
+  .gap-cta { margin-top: 1px; padding: 40px; background: rgba(201,168,76,0.05); border: 1px solid var(--shadow-border); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+  .gap-cta-copy { max-width: 54ch; }
+  .gap-cta-copy p { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.4rem); text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.1; }
+  .gap-cta-copy p span { color: var(--tactical-gold); }
+  .gap-cta-copy small { display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); }
+  @media (max-width: 900px) {
+    .gap-section { padding: 60px 28px; }
+    .gap-grid { grid-template-columns: 1fr 1fr; }
+    .gap-cta { padding: 32px 28px; }
+  }
+  @media (max-width: 600px) {
+    .gap-section { padding: 48px 20px; }
+    .gap-grid { grid-template-columns: 1fr; }
+    .gap-cta { padding: 28px 20px; }
+  }
 </style>
 </head>
 <body>
@@ -715,16 +738,69 @@
     <div class="page-eyebrow">Fractional CSO</div>
     <h1 class="page-title">Your Event<br>Isn&rsquo;t <span style="color:var(--red)">the Risk.</span></h1>
     <p class="hero-sub">It&rsquo;s the <span style="color:var(--red)">90-second gap.</span></p>
-    <p class="hero-body">Product launches. Shareholder meetings. Keynotes. User conferences. The perimeter is rehearsed, the guest list is vetted, the venue is cleared. Then someone crosses a rope line, steps off a stage, or walks to a car, and every assumption gets tested in the same narrow window.</p>
+    <p class="hero-body">Product launches. Shareholder meetings. Film locations. Political fundraisers. Private gatherings. Sporting events. In every industry Shadow serves, there is a moment when the plan meets reality and the people responsible for safety are operating without senior security leadership. Not a staffing gap. A leadership gap. The 90 seconds where everything either holds or it does not.</p>
     <div class="transition-callout">
-      <span class="transition-callout-label">The Transition Window</span>
-      <p>Arrival. Stage transition. Meet &amp; greet. Rope line. Motorcade. These are the 90-second intervals where protection either holds or fails.</p>
+      <span class="transition-callout-label">The Leadership Gap</span>
+      <p>Most small and mid-sized organizations have security measures. Almost none have security leadership. The difference is who makes decisions when the plan meets reality and the clock is running.</p>
     </div>
   </div>
 </section>
 
+<!-- WHERE THE GAP SHOWS UP -->
+<section class="gap-section">
+  <div class="gap-section-head">
+    <div class="label">Where the Gap Shows Up</div>
+    <h2 class="section-h">Seven industries.<br><span style="color:var(--red)">One gap.</span></h2>
+  </div>
+  <div class="gap-grid">
+
+    <div class="gap-card reveal">
+      <span class="gap-card-label">Corporate</span>
+      <p class="gap-card-text">A VP receives a threat during a board transition. A workplace incident escalates before HR knows who to call. The gap is not in your perimeter. It is in the 90 seconds before the right person makes the right decision.</p>
+    </div>
+
+    <div class="gap-card reveal reveal-delay-1">
+      <span class="gap-card-label">Entertainment</span>
+      <p class="gap-card-text">Talent exits a premiere through the wrong door. A credentialed individual on production becomes a problem at wrap. The gap is not in your crowd control. It is in the advance work that never happened.</p>
+    </div>
+
+    <div class="gap-card reveal reveal-delay-2">
+      <span class="gap-card-label">Events</span>
+      <p class="gap-card-text">A keynote speaker arrives without a route. The VIP holding area is accessible from a public corridor. The gap is not in your venue staffing. It is in the operations order that was never written.</p>
+    </div>
+
+    <div class="gap-card reveal">
+      <span class="gap-card-label">Political</span>
+      <p class="gap-card-text">A rally site is surveyed once. Counter-protesters arrive with a different plan. The gap is not in your visibility. It is in the advance work that should have mapped it three days out.</p>
+    </div>
+
+    <div class="gap-card reveal reveal-delay-1">
+      <span class="gap-card-label">Film &amp; TV</span>
+      <p class="gap-card-text">A location is cleared for production. A disruptive individual returns. The gap is not in your on-set presence. It is in the threat picture that was never drawn for that address.</p>
+    </div>
+
+    <div class="gap-card reveal reveal-delay-2">
+      <span class="gap-card-label">Private Events</span>
+      <p class="gap-card-text">Your guest list is curated and the venue is secured. Then someone makes contact with the principal, or the exit is through the crowd. The gap is not in your staffing. It is in who was accountable before the event started.</p>
+    </div>
+
+    <div class="gap-card reveal">
+      <span class="gap-card-label">Sports &amp; Athletics</span>
+      <p class="gap-card-text">An athlete exits a stadium without a route plan. A credentialed individual has access they should not. The gap is not in your uniformed presence. It is in the protection architecture that was never built around the principal.</p>
+    </div>
+
+  </div>
+  <div class="gap-cta">
+    <div class="gap-cta-copy">
+      <p>Find out where <span>your</span> gaps are.</p>
+      <small>12 questions &middot; 3&ndash;5 minutes &middot; Strictly confidential</small>
+    </div>
+    <a href="#assessment" class="btn-primary">Take the Gap Assessment &rarr;</a>
+  </div>
+</section>
+
 <!-- ASSESSMENT BRIDGE -->
-<section class="assessment-bridge">
+<section class="assessment-bridge" id="assessment">
   <div class="bridge-inner">
     <div class="bridge-left reveal">
       <span class="bridge-eyebrow">Exposure Assessment &middot; USSS Methodology &middot; Confidential</span>
