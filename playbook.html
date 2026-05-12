@@ -547,6 +547,13 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
     transition: all 0.25s;
   }
   .book-cta:hover { background: transparent; color: var(--red); }
+
+  /* AUTHOR LAYOUT */
+  .author-layout { display:flex; align-items:center; gap:56px; margin-top:32px; }
+  @media (max-width: 640px) {
+    .author-layout { flex-direction:column-reverse; gap:28px; text-align:center; }
+    .author-layout img { width:180px !important; height:180px !important; }
+  }
 </style>
 </head>
 <body>
@@ -650,7 +657,7 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
 <div class="intro-block reveal" style="margin-top:60px;max-width:none">
   <div class="label">About the Author</div>
   <h2 class="section-h">The Author.</h2>
-  <div style="display:flex;align-items:center;gap:56px;margin-top:32px">
+  <div class="author-layout">
     <div style="flex:1">
       <p>Michael de Geus served as a Special Agent with the United States Secret Service, on multiple protection details including being assigned to the Presidential Protection Division protecting the President of the United States and other senior government officials. Following his federal service, he obtained multiple domestic &amp; international patents in personal protection products as well as founded SHDW, LLC. (operating as "SHADOW") to bring the same standard of protection to the private sector.</p>
       <p>His operational experience spans presidential protection, dignitary details, advance operations, and threat assessment across domestic and international environments. The Playbooks are his effort to democratize the knowledge that existed only inside the walls of the most elite protective operations in the world.</p>
