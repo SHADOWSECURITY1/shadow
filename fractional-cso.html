@@ -1431,7 +1431,7 @@
   function showScreen(name) {
     Object.values(screens).forEach(s => s.classList.remove("active"));
     screens[name].classList.add("active");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    document.querySelector(".stage").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function renderQuestion() {
