@@ -3090,13 +3090,15 @@ footer {
   font-size: 11px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--bone-faint);
+  color: var(--tactical-gold);
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--hairline);
 }
 
-.article-byline span { color: var(--bone-dim); }
+.article-byline span { color: var(--tactical-gold); }
+.article-byline a { color: var(--tactical-gold); text-decoration: none; }
+.article-byline a:hover { text-decoration: underline; opacity: 0.7; }
 
 .article-pull-quote {
   border-left: 3px solid var(--tactical-gold);
