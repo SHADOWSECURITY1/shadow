@@ -3319,3 +3319,64 @@ footer {
 @media (max-width: 600px) {
   .team-card__photo { width: 110px; height: 110px; }
 }
+
+/* NAV DROPDOWN */
+.nav__item--has-dropdown { position: relative; }
+.nav__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -16px;
+  min-width: 180px;
+  background: rgba(8,8,8,0.98);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--tactical-gold);
+  padding: 6px 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 300;
+}
+.nav__item--has-dropdown:hover .nav__dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.nav__dropdown-link {
+  display: block;
+  padding: 11px 20px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--light);
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+.nav__dropdown-link:hover { color: var(--red); background: rgba(201,168,76,0.04); }
+
+/* Mobile: show dropdown inline when nav is open */
+.nav__inner.is-open .nav__dropdown {
+  position: static;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  border: none;
+  border-left: 2px solid var(--border);
+  background: transparent;
+  padding: 0.4rem 0 0.75rem 1.5rem;
+  margin-top: -0.75rem;
+  margin-bottom: 0.5rem;
+}
+.nav__inner.is-open .nav__dropdown-link {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 0;
+  color: var(--light);
+  border-bottom: none;
+  background: none;
+  white-space: normal;
+}
+.nav__inner.is-open .nav__dropdown-link:hover { color: var(--red); background: none; }
