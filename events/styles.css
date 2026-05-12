@@ -1158,6 +1158,13 @@ footer {
   footer { padding: 48px 28px 32px; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
+@media (max-width: 600px) {
+  footer { padding: 40px 20px 28px; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; }
+  .footer-tagline { max-width: 100%; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-legal { justify-content: center; gap: 20px; }
+}
 
 /* ============================================
    CTA BAND
