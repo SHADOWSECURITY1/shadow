@@ -495,6 +495,39 @@
   }
   .press-link:hover { color: var(--white); }
 
+  /* AS SEEN ON */
+  .as-seen-on {
+    display: flex; align-items: center; gap: 0;
+    flex-wrap: wrap; margin-top: 28px;
+  }
+  .aso-item {
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px 40px; flex-shrink: 0;
+  }
+  .aso-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem; letter-spacing: 0.12em;
+    color: var(--light); opacity: 0.55;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .aso-item:hover .aso-text { opacity: 1; }
+  .aso-item img {
+    height: 36px; width: auto; max-width: 160px;
+    object-fit: contain; opacity: 0.5;
+    filter: grayscale(1) brightness(2);
+    transition: opacity 0.2s, filter 0.2s;
+  }
+  .aso-item:hover img { opacity: 0.85; filter: grayscale(0.3) brightness(1.2); }
+  .aso-divider {
+    width: 1px; height: 28px; background: var(--border); flex-shrink: 0;
+  }
+  @media (max-width: 700px) {
+    .aso-item { padding: 14px 24px; }
+    .aso-divider { display: none; }
+    .aso-text { font-size: 1.2rem; }
+  }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 22px 28px; }
@@ -629,6 +662,31 @@
   <p>Shadow operates with discretion. We do not publicize the names of our clients, the details of our engagements, or the identities of our agents. This is not a marketing posture, it is an operational requirement. The value of our service depends entirely on our ability to maintain confidentiality.</p>
   <p>For journalists, producers, and media professionals with legitimate editorial needs, we are happy to discuss the security industry broadly, threat landscape trends, and general protective operations methodology. We are not able to confirm or deny any specific client relationships or operational details.</p>
 </div>
+<div class="reveal" style="margin-top:60px; border-top:1px solid var(--border); padding-top:60px;">
+  <div class="label">As Seen On</div>
+  <div class="as-seen-on">
+    <div class="aso-item">
+      <!-- swap for <img src="press/logo-newsnation.png" alt="News Nation"> when clean logo available -->
+      <span class="aso-text">News Nation</span>
+    </div>
+    <div class="aso-divider"></div>
+    <div class="aso-item">
+      <!-- swap for <img src="press/logo-nbcnews.png" alt="NBC News"> when clean logo available -->
+      <span class="aso-text">NBC News</span>
+    </div>
+    <div class="aso-divider"></div>
+    <div class="aso-item">
+      <!-- swap for <img src="press/logo-time.png" alt="Time"> when clean logo available -->
+      <span class="aso-text">Time</span>
+    </div>
+    <div class="aso-divider"></div>
+    <div class="aso-item">
+      <!-- swap for <img src="press/logo-thebunker.png" alt="The Bunker"> when clean logo available -->
+      <span class="aso-text">The Bunker</span>
+    </div>
+  </div>
+</div>
+
 <div class="reveal" style="margin-top:60px">
   <div class="label">Featured Coverage</div>
   <h2 class="section-h">In the News.</h2>
