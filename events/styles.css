@@ -702,13 +702,17 @@ h1, h2, h3, h4 {
   background: var(--shadow-black);
   padding: 2.5rem 2rem;
   position: relative;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  border-top: 2px solid transparent;
 }
 
-.cap:hover { background: var(--shadow-coal); }
+.cap:hover {
+  background: #141414;
+  border-top-color: var(--tactical-gold);
+}
 
 .cap__num {
   font-family: var(--font-mono);
