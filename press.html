@@ -513,12 +513,12 @@
   }
   .aso-item:hover .aso-text { opacity: 1; }
   .aso-item img {
-    height: 36px; width: auto; max-width: 160px;
-    object-fit: contain; opacity: 0.5;
-    filter: grayscale(1) brightness(2);
-    transition: opacity 0.2s, filter 0.2s;
+    height: 44px; width: auto; max-width: 180px;
+    object-fit: contain; opacity: 0.55;
+    mix-blend-mode: screen;
+    transition: opacity 0.2s;
   }
-  .aso-item:hover img { opacity: 0.85; filter: grayscale(0.3) brightness(1.2); }
+  .aso-item:hover img { opacity: 1; }
   .aso-divider {
     width: 1px; height: 28px; background: var(--border); flex-shrink: 0;
   }
@@ -666,23 +666,19 @@
   <div class="label">As Seen On</div>
   <div class="as-seen-on">
     <div class="aso-item">
-      <!-- swap for <img src="press/logo-newsnation.png" alt="News Nation"> when clean logo available -->
-      <span class="aso-text">News Nation</span>
+      <img src="press/logo-newsnation.png" alt="News Nation">
     </div>
     <div class="aso-divider"></div>
     <div class="aso-item">
-      <!-- swap for <img src="press/logo-nbcnews.png" alt="NBC News"> when clean logo available -->
-      <span class="aso-text">NBC News</span>
+      <img src="press/logo-nbcnews.png" alt="NBC News">
     </div>
     <div class="aso-divider"></div>
     <div class="aso-item">
-      <!-- swap for <img src="press/logo-time.png" alt="Time"> when clean logo available -->
-      <span class="aso-text">Time</span>
+      <img src="press/logo-time.png" alt="Time">
     </div>
     <div class="aso-divider"></div>
     <div class="aso-item">
-      <!-- swap for <img src="press/logo-thebunker.png" alt="The Bunker"> when clean logo available -->
-      <span class="aso-text">The Bunker</span>
+      <img src="press/logo-thebunker.png" alt="The Bunker">
     </div>
   </div>
 </div>
