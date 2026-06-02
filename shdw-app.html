@@ -843,21 +843,21 @@
         <input type="hidden" name="_subject" value="SHDW App Early Access Request">
         <div class="form-row">
           <div class="form-field">
-            <label>First Name</label>
-            <input type="text" name="first_name" placeholder="First" required>
+            <label for="shdw_first_name">First Name</label>
+            <input type="text" id="shdw_first_name" name="first_name" placeholder="First" required>
           </div>
           <div class="form-field">
-            <label>Last Name</label>
-            <input type="text" name="last_name" placeholder="Last">
+            <label for="shdw_last_name">Last Name</label>
+            <input type="text" id="shdw_last_name" name="last_name" placeholder="Last">
           </div>
         </div>
         <div class="form-field">
-          <label>Email Address</label>
-          <input type="email" name="email" placeholder="your@email.com" required>
+          <label for="shdw_email">Email Address</label>
+          <input type="email" id="shdw_email" name="email" placeholder="your@email.com" required>
         </div>
         <div class="form-field">
-          <label>I am a</label>
-          <select name="role" required>
+          <label for="shdw_role">I am a</label>
+          <select id="shdw_role" name="role" required>
             <option value="" disabled selected>Select your role</option>
             <option value="client">Client: I need protection services</option>
             <option value="provider">Provider: I am a security professional</option>
@@ -867,8 +867,8 @@
           </select>
         </div>
         <div class="form-field">
-          <label>Tell Us About Your Use Case (Optional)</label>
-          <textarea name="message" rows="4" placeholder="How do you plan to use SHDW App? Any specific needs or questions?"></textarea>
+          <label for="shdw_message">Tell Us About Your Use Case (Optional)</label>
+          <textarea id="shdw_message" name="message" rows="4" placeholder="How do you plan to use SHDW App? Any specific needs or questions?"></textarea>
         </div>
         <div id="appMsg" style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:0.12em;padding:10px 14px;border-left:2px solid var(--red);color:var(--light)"></div>
         <button type="submit" class="form-submit" id="appSubmit">Request Early Access &rarr;</button>
