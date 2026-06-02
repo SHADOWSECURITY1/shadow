@@ -6,6 +6,15 @@
 <link rel="canonical" href="https://www.shdw.com/team.html">
 <title>The Team | Shadow</title>
 <script>window.location.replace('https://www.shdw.com/team.html');</script>
+<link rel="stylesheet" href="../accessibility.css">
 </head>
-<body></body>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a><script>
+/* WCAG 2.2 — Restore cursor visibility for keyboard/pointer users */
+(function(){
+  function onMouse(){ document.body.classList.add('has-custom-cursor'); document.removeEventListener('mousemove',onMouse); }
+  document.addEventListener('mousemove', onMouse);
+})();
+</script>
+</body>
 </html>
