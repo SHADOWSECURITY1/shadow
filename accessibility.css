@@ -1,0 +1,103 @@
+/* ================================================================
+   WCAG 2.2 Level AA — Global Accessibility Stylesheet
+   shdw.com — applies to all pages via <link> in <head>
+   ================================================================ */
+
+/* 1. Skip navigation link (WCAG 2.4.1)
+   Appears only on keyboard focus; invisible otherwise. */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999999;
+  background: #C9A84C;
+  color: #080808;
+  padding: 14px 28px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.15s ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 0;
+  outline: 3px solid #080808;
+  outline-offset: 2px;
+}
+
+/* 2. Custom cursor — only active when mouse is detected (WCAG 1.4.3)
+   JS adds .has-custom-cursor on first mousemove. Keyboard-only
+   users never trigger this, so their system cursor stays visible. */
+body:not(.has-custom-cursor) *,
+body:not(.has-custom-cursor) *::before,
+body:not(.has-custom-cursor) *::after {
+  cursor: auto !important;
+}
+
+/* 3. Visible focus indicators (WCAG 2.4.11, 2.4.13 — new in 2.2)
+   2px solid gold (#C9A84C) contrasts ≥ 3:1 against the site's
+   black (#080808) and the focused element background. */
+:focus-visible {
+  outline: 2px solid #C9A84C !important;
+  outline-offset: 3px !important;
+  border-radius: 1px;
+}
+
+/* Override inline outline:none on form controls */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #C9A84C !important;
+  outline-offset: 0 !important;
+  border-color: #C9A84C !important;
+}
+
+/* Override outline removal on buttons */
+button:focus-visible {
+  outline: 2px solid #C9A84C !important;
+  outline-offset: 3px !important;
+}
+
+/* 4. Focused element not fully obscured by sticky nav (WCAG 2.4.11)
+   scroll-margin-top ensures anchor targets appear below the nav bar. */
+:target,
+[id] {
+  scroll-margin-top: 90px;
+}
+
+/* 5. Minimum target size (WCAG 2.5.8 — new in 2.2)
+   All interactive elements must be at least 24×24 CSS pixels. */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"] {
+  min-height: 24px;
+}
+
+/* 6. Ticker separator contrast fix (WCAG 1.4.3)
+   rgba(0,0,0,0.35) on gold yields ~2.1:1 — fails AA.
+   Raising to 0.65 opacity gives ~5.2:1 — passes. */
+.ticker-sep,
+.globalops__ticker-sep {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+
+/* 7. Reduce motion — respect prefers-reduced-motion (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
