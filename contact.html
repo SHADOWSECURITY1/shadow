@@ -608,27 +608,27 @@
     <form class="contact-form" id="contactForm">
       <div class="form-row">
         <div class="form-field">
-          <label>First Name</label>
-          <input type="text" name="first_name" placeholder="First" required>
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" name="first_name" placeholder="First" required>
         </div>
         <div class="form-field">
-          <label>Last Name</label>
-          <input type="text" name="last_name" placeholder="Last">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" placeholder="Last">
         </div>
       </div>
       <div class="form-row">
         <div class="form-field">
-          <label>Email</label>
-          <input type="email" name="email" placeholder="your@email.com" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
         </div>
         <div class="form-field">
-          <label>Organization</label>
-          <input type="text" name="organization" placeholder="Company / Organization">
+          <label for="organization">Organization</label>
+          <input type="text" id="organization" name="organization" placeholder="Company / Organization">
         </div>
       </div>
       <div class="form-field">
-        <label>Threat Level / Urgency</label>
-        <select name="urgency">
+        <label for="urgency">Threat Level / Urgency</label>
+        <select id="urgency" name="urgency">
           <option value="" disabled selected>Select urgency level</option>
           <option>Immediate, Deploy within 24 hours</option>
           <option>Urgent, Deploy within 72 hours</option>
@@ -643,11 +643,11 @@
       <div class="form-field md-fields" id="mdFields" style="display:none">
         <div class="form-row">
           <div class="form-field">
-            <label># of Units</label>
+            <label for="mdUnits"># of Units</label>
             <input type="number" id="mdUnits" name="md_units" min="1" max="20" placeholder="How many units?">
           </div>
           <div class="form-field">
-            <label># of Days</label>
+            <label for="mdDays"># of Days</label>
             <select id="mdDays" name="md_days">
               <option value="" disabled selected>Select duration</option>
               <option value="1">1 Day: $350 per unit</option>
@@ -658,12 +658,12 @@
         </div>
       </div>
       <div class="form-field">
-        <label>Requested Date / Timeframe</label>
-        <input type="text" name="date" placeholder="Event date or engagement window">
+        <label for="contact_date">Requested Date / Timeframe</label>
+        <input type="text" id="contact_date" name="date" placeholder="Event date or engagement window">
       </div>
       <div class="form-field">
-        <label>Tell Us About Your Needs</label>
-        <textarea name="message" rows="5" placeholder="Describe your situation, timeline, location, and any relevant details..."></textarea>
+        <label for="message">Tell Us About Your Needs</label>
+        <textarea id="message" name="message" rows="5" placeholder="Describe your situation, timeline, location, and any relevant details..."></textarea>
       </div>
       <div id="contactMsg" style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;letter-spacing:0.12em;padding:10px 14px;border-left:2px solid #c0392b;color:#e07060"></div>
       <button type="submit" class="form-submit" id="contactSubmit">Submit Securely →</button>
