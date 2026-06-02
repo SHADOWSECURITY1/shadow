@@ -1007,9 +1007,9 @@
 
     <div class="gap-card gap-card--cta reveal reveal-delay-1">
       <span class="gap-cta-label">Exposure Assessment</span>
-      <h3 class="gap-cta-headline">Your industry not listed?<br>The gap exists there too.</h3>
+      <h3 class="gap-cta-headline">Your industry not listed?<br><span style="color:#C9A84C">The gap</span> exists there too.</h3>
       <p class="gap-cta-sub">Twelve questions. Three to five minutes. A confidential read on where your program is exposed — regardless of sector.</p>
-      <a href="#assessment" class="gap-cta-btn">Begin Assessment &rarr;</a>
+      <button onclick="document.getElementById('btn-begin').click(); document.querySelector('.stage').scrollIntoView({behavior:'smooth',block:'start'});" class="gap-cta-btn">Begin Assessment &rarr;</button>
     </div>
 
   </div>
