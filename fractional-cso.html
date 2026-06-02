@@ -575,8 +575,27 @@
   .fcso-free-call-icon { color: var(--tactical-gold); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
   .fcso-free-call strong { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 6px; font-weight: 500; }
   .fcso-free-call p { font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
-  .fcso-apply-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--tactical-gold); color: var(--shadow-black); border: 1px solid var(--tactical-gold); padding: 18px 28px; font-family: var(--font-display); font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; font-weight: 600; transition: all 0.25s var(--ease-out); align-self: flex-start; }
+  .fcso-apply-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--tactical-gold); color: var(--shadow-black); border: 1px solid var(--tactical-gold); padding: 18px 28px; font-family: var(--font-display); font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; font-weight: 600; transition: all 0.25s var(--ease-out); align-self: flex-start; cursor: pointer; }
   .fcso-apply-btn:hover { background: transparent; color: var(--tactical-gold); }
+  /* APPLICATION FORM */
+  .fcso-app-form-wrap { display: none; margin-top: 32px; padding: 36px; background: var(--shadow-surface); border: 1px solid var(--shadow-divider); border-left: 3px solid var(--tactical-gold); max-width: 680px; }
+  .fcso-app-form-wrap.open { display: block; }
+  .fcso-app-form-title { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 8px; }
+  .fcso-app-form-sub { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 28px; }
+  .fcso-app-form { display: flex; flex-direction: column; gap: 14px; }
+  .fcso-app-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .fcso-app-field { display: flex; flex-direction: column; gap: 6px; }
+  .fcso-app-field label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-secondary); }
+  .fcso-app-field input, .fcso-app-field textarea, .fcso-app-field select { background: var(--shadow-black); border: 1px solid var(--shadow-divider); color: var(--text-primary); font-family: var(--font-sans); font-size: 14px; padding: 12px 14px; outline: none; transition: border-color 0.2s; width: 100%; resize: none; }
+  .fcso-app-field input:focus, .fcso-app-field textarea:focus { border-color: var(--tactical-gold); }
+  .fcso-app-field input::placeholder, .fcso-app-field textarea::placeholder { color: var(--text-secondary); opacity: 0.6; }
+  .fcso-app-submit { background: var(--tactical-gold); color: var(--shadow-black); border: none; font-family: var(--font-display); font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; padding: 16px 28px; cursor: pointer; align-self: flex-start; transition: background 0.2s; margin-top: 8px; }
+  .fcso-app-submit:hover { background: #b8962e; }
+  .fcso-app-success { display: none; padding: 28px; background: rgba(201,168,76,0.06); border: 1px solid var(--tactical-gold); }
+  .fcso-app-success.show { display: block; }
+  .fcso-app-success-title { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 10px; }
+  .fcso-app-success-body { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+  @media (max-width: 600px) { .fcso-app-row { grid-template-columns: 1fr; } }
 
   /* COMPARE SECTION */
   .compare-section { padding: 80px 64px; background: var(--black); border-bottom: 1px solid var(--border); }
@@ -1134,9 +1153,59 @@
           <p>We discuss your risk profile, event calendar, and specific needs before any engagement begins. No obligation. No salesperson.</p>
         </div>
       </div>
-      <a href="mailto:hello@shdw.com?subject=Fractional%20CSO%20Inquiry%20%E2%80%94%20Discovery%20Call" class="fcso-apply-btn">
-        Schedule Free Discovery Call &rarr;
-      </a>
+      <button class="fcso-apply-btn" id="btn-open-apply" onclick="document.getElementById('fcso-apply-form-wrap').classList.add('open'); this.style.display='none'; document.getElementById('fcso-apply-form-wrap').scrollIntoView({behavior:'smooth',block:'start'});">
+        Apply for Fractional Security Director &rarr;
+      </button>
+
+      <div class="fcso-app-form-wrap" id="fcso-apply-form-wrap">
+        <div class="fcso-app-success" id="fcso-apply-success">
+          <div class="fcso-app-success-title">&#10022; &nbsp;Application Received</div>
+          <div class="fcso-app-success-body">Thank you. A member of the Shadow directorate will review your application and be in contact within 48 hours to schedule your complimentary discovery call with Michael de Geus.</div>
+        </div>
+        <div id="fcso-apply-form-inner">
+          <div class="fcso-app-form-title">Fractional Security Director &mdash; Application</div>
+          <p class="fcso-app-form-sub">All applications are reviewed directly by the Shadow directorate. A complimentary 30-minute discovery call with Michael de Geus follows. No obligation.</p>
+          <form class="fcso-app-form" name="fractional-cso-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleFcsoApply(event)">
+            <input type="hidden" name="form-name" value="fractional-cso-application">
+            <input type="hidden" name="bot-field">
+            <div class="fcso-app-row">
+              <div class="fcso-app-field">
+                <label for="apply_name">Full Name <span style="color:var(--tactical-gold)">*</span></label>
+                <input type="text" id="apply_name" name="name" placeholder="First Last" required>
+              </div>
+              <div class="fcso-app-field">
+                <label for="apply_email">Email Address <span style="color:var(--tactical-gold)">*</span></label>
+                <input type="email" id="apply_email" name="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <div class="fcso-app-row">
+              <div class="fcso-app-field">
+                <label for="apply_phone">Contact Number <span style="color:var(--tactical-gold)">*</span></label>
+                <input type="tel" id="apply_phone" name="phone" placeholder="+1 (000) 000-0000" required>
+              </div>
+              <div class="fcso-app-field">
+                <label for="apply_business">Business Name <span style="color:var(--tactical-gold)">*</span></label>
+                <input type="text" id="apply_business" name="business_name" placeholder="Company or Organization" required>
+              </div>
+            </div>
+            <div class="fcso-app-row">
+              <div class="fcso-app-field">
+                <label for="apply_website">Website</label>
+                <input type="url" id="apply_website" name="website" placeholder="https://yourcompany.com">
+              </div>
+              <div class="fcso-app-field">
+                <label for="apply_address">Business Address</label>
+                <input type="text" id="apply_address" name="address" placeholder="City, State / Country">
+              </div>
+            </div>
+            <div class="fcso-app-field">
+              <label for="apply_needs">Describe Your Situation <span style="color:var(--tactical-gold)">*</span></label>
+              <textarea id="apply_needs" name="needs" rows="4" placeholder="Briefly describe your current security posture, risk concerns, and what you are looking for in a Fractional Security Director..." required></textarea>
+            </div>
+            <button type="submit" class="fcso-app-submit">Submit Application &rarr;</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1450,7 +1519,7 @@
     },
     "Exposed": {
       ctaText: "Apply for Fractional Security Director",
-      ctaHref: "mailto:hello@shdw.com?subject=Fractional%20Security%20Director%20Inquiry",
+      ctaHref: "#fcso-apply-form-wrap",
       ecosystem: "Fractional Security Director",
       title: "The exposure exceeds the protections in place.",
       body: [
@@ -1461,7 +1530,7 @@
     },
     "At Risk": {
       ctaText: "Apply for Fractional Security Director",
-      ctaHref: "mailto:hello@shdw.com?subject=URGENT%20Fractional%20Security%20Director%20Inquiry",
+      ctaHref: "#fcso-apply-form-wrap",
       ecosystem: "Fractional Security Director",
       title: "Multiple unaddressed vulnerabilities.",
       body: [
@@ -1632,6 +1701,15 @@
     const ctaEl = document.getElementById("reco-cta");
     ctaEl.href = content.ctaHref;
     document.getElementById("reco-cta-text").textContent = content.ctaText;
+    // For form-opening CTAs, open the form and scroll to it
+    ctaEl.onclick = content.ctaHref === "#fcso-apply-form-wrap" ? function(e) {
+      e.preventDefault();
+      var wrap = document.getElementById("fcso-apply-form-wrap");
+      var btn = document.getElementById("btn-open-apply");
+      wrap.classList.add("open");
+      if (btn) btn.style.display = "none";
+      wrap.scrollIntoView({ behavior: "smooth", block: "start" });
+    } : null;
     document.getElementById("reco-meta").innerHTML = content.meta.map(m =>
       '<div class="reco-meta-item"><strong>' + m.label + '</strong>' + m.value + '</div>'
     ).join("");
@@ -1674,6 +1752,18 @@
     } catch (err) { console.warn("Submission deferred:", err); }
     renderResults();
     showScreen("results");
+  }
+
+  function handleFcsoApply(e) {
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).catch(() => {});
+    document.getElementById("fcso-apply-form-inner").style.display = "none";
+    document.getElementById("fcso-apply-success").classList.add("show");
   }
 
   document.getElementById("btn-begin").addEventListener("click", () => {
