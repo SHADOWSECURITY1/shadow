@@ -671,9 +671,18 @@
   .gap-section { padding: 80px 64px; background: var(--black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .gap-section-head { max-width: 640px; margin-bottom: 48px; }
   .gap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--shadow-divider); border: 1px solid var(--shadow-divider); }
-  .gap-card { background: var(--shadow-surface); padding: 36px 32px; }
+  .gap-card { background: var(--shadow-surface); padding: 36px 32px; transition: background 0.3s ease, border-top-color 0.3s ease; border-top: 2px solid transparent; position: relative; }
+  .gap-card:hover { background: #141414; border-top-color: var(--tactical-gold); }
   .gap-card-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--tactical-gold); margin-bottom: 16px; display: block; }
   .gap-card-text { font-size: 15px; line-height: 1.65; color: var(--text-secondary); }
+  .gap-card--sports { grid-column: span 2; }
+  .gap-card--cta { display: flex; flex-direction: column; justify-content: space-between; background: transparent; border: 1px solid var(--shadow-divider); border-top: 2px solid transparent; }
+  .gap-card--cta:hover { background: rgba(201,168,76,0.04); border-top-color: var(--tactical-gold); }
+  .gap-card--cta .gap-cta-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; display: block; }
+  .gap-card--cta .gap-cta-headline { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.05; color: var(--text-primary); margin-bottom: 20px; }
+  .gap-card--cta .gap-cta-sub { font-size: 13px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 32px; flex: 1; }
+  .gap-cta-btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--tactical-gold); color: var(--shadow-black); padding: 14px 22px; text-decoration: none; transition: background 0.2s; align-self: flex-start; }
+  .gap-cta-btn:hover { background: #b8962e; }
   .gap-cta { margin-top: 1px; padding: 40px; background: rgba(201,168,76,0.05); border: 1px solid var(--shadow-border); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
   .gap-cta-copy { max-width: 54ch; }
   .gap-cta-copy p { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.4rem); text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.1; }
@@ -991,9 +1000,16 @@
       <p class="gap-card-text">Your guest list is curated and the venue is secured. Then someone makes contact with the principal, or the exit is through the crowd. The gap is not in your staffing. It is in who was accountable before the event started.</p>
     </div>
 
-    <div class="gap-card reveal">
+    <div class="gap-card gap-card--sports reveal">
       <span class="gap-card-label">Sports &amp; Athletics</span>
       <p class="gap-card-text">An athlete exits a stadium without a route plan. A credentialed individual has access they should not. The gap is not in your uniformed presence. It is in the protection architecture that was never built around the principal.</p>
+    </div>
+
+    <div class="gap-card gap-card--cta reveal reveal-delay-1">
+      <span class="gap-cta-label">Exposure Assessment</span>
+      <h3 class="gap-cta-headline">Your industry<br>not listed?<br>The gap exists<br>there too.</h3>
+      <p class="gap-cta-sub">Twelve questions. Three to five minutes. A confidential read on where your program is exposed — regardless of sector.</p>
+      <a href="#assessment" class="gap-cta-btn">Begin Assessment &rarr;</a>
     </div>
 
   </div>
