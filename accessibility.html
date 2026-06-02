@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EQR52HMZBD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EQR52HMZBD');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="description" content="Shadow's commitment to digital accessibility. This site targets WCAG 2.2 Level AA conformance. Contact us to report any accessibility barrier.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SHADOW">
+<meta property="og:title" content="Accessibility Statement, SHADOW Security">
+<meta property="og:description" content="Shadow's commitment to digital accessibility and WCAG 2.2 Level AA conformance.">
+<meta property="og:url" content="https://www.shdw.com/accessibility.html">
+<meta property="og:image" content="https://www.shdw.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Accessibility Statement, SHADOW Security">
+<meta name="twitter:description" content="Shadow's commitment to digital accessibility and WCAG 2.2 Level AA conformance.">
+<meta name="twitter:image" content="https://www.shdw.com/og-image.png">
+<link rel="canonical" href="https://www.shdw.com/accessibility.html">
+<meta name="robots" content="index, follow">
+<title>Accessibility Statement, SHADOW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --deep: #0c0c0c;
+    --card: #111111;
+    --border: #1e1e1e;
+    --red: #C9A84C;
+    --white: #f0ede8;
+    --gray: #888888;
+    --light: #c8c4be;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; background: #080808; }
+  body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 300; overflow-x: hidden; }
+  *, *::before, *::after { cursor: none !important; }
+
+  /* CURSOR */
+  .cursor { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: #ff1a1a; border-radius: 50%; pointer-events: none; z-index: 2147483647; will-change: transform; transform: translate(-200px, -200px); opacity: 0; box-shadow: 0 0 3px 1px #ff1a1a, 0 0 8px 3px rgba(255,26,26,0.7), 0 0 16px 6px rgba(255,26,26,0.3); transition: box-shadow 0.15s, opacity 0.1s; }
+  .cursor.visible { opacity: 1; }
+  .cursor.moving { box-shadow: 0 0 3px 1px #ff1a1a, 0 0 14px 6px rgba(255,26,26,0.95), 0 0 28px 12px rgba(255,26,26,0.55), 0 0 44px 18px rgba(255,26,26,0.2); }
+  @media (hover: none) and (pointer: coarse) { *, *::before, *::after { cursor: auto !important; } .cursor { display: none !important; } }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes gpulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  @keyframes scanline { 0%{top:0;opacity:1} 95%{opacity:0.4} 100%{top:100%;opacity:0} }
+  @keyframes tickroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 28px 64px; background: linear-gradient(to bottom, rgba(8,8,8,0.98) 0%, transparent 100%); transition: background 0.4s, padding 0.3s; }
+  nav.scrolled { background: rgba(8,8,8,0.98); padding: 20px 64px; border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.3em; color: var(--white); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--light); text-decoration: none; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--red); transition: width 0.3s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; background: var(--red); color: var(--black); padding: 11px 26px; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: #b8962e; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; z-index: 201; }
+  .hamburger span { display: block; width: 28px; height: 2px; background: var(--white); transition: transform 0.3s, opacity 0.3s, width 0.3s; transform-origin: center; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-nav { position: fixed; inset: 0; z-index: 199; background: rgba(8,8,8,0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .mobile-nav.open { opacity: 1; pointer-events: all; }
+  .mobile-link { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.1em; color: var(--white); text-decoration: none; transition: color 0.2s; }
+  .mobile-link:hover { color: var(--red); }
+  .mobile-cta { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase; background: var(--red); color: var(--black); padding: 14px 40px; text-decoration: none; margin-top: 8px; }
+
+  /* PAGE HERO */
+  .page-hero { position: relative; min-height: 50vh; display: flex; align-items: flex-end; padding: 160px 64px 80px; overflow: hidden; background: #080808; }
+  .page-hero-bg { position: absolute; top:0; left:0; right:0; bottom:0; background: radial-gradient(ellipse 80% 55% at 72% 38%, rgba(201,168,76,0.06) 0%, transparent 65%), radial-gradient(ellipse 40% 70% at 15% 65%, rgba(201,168,76,0.03) 0%, transparent 55%), linear-gradient(175deg, #0a0a08 0%, #080808 100%); }
+  .page-hero-grid { position: absolute; top:0; left:0; right:0; bottom:0; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 72px 72px; -webkit-mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%); mask-image: radial-gradient(ellipse 65% 65% at 65% 45%, black 0%, transparent 80%); animation: gpulse 10s ease-in-out infinite; }
+  .page-hero-scan { position: absolute; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.7), transparent); animation: scanline 7s linear infinite; }
+  .page-hero-slash { position: absolute; top:0; right:0; bottom:0; width:42%; border-left: 1px solid rgba(201,168,76,0.07); background: linear-gradient(140deg, transparent 40%, rgba(201,168,76,0.02) 100%); clip-path: polygon(8% 0,100% 0,100% 100%,0 100%); }
+  .page-hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); display: flex; align-items: center; gap: 14px; margin-bottom: 20px; animation: fadeUp 0.8s ease 0.3s both; }
+  .page-eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--red); display: block; }
+  .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); line-height: 0.9; letter-spacing: 0.02em; animation: fadeUp 1s ease 0.05s both; }
+
+  /* TICKER */
+  .ticker { background: var(--red); padding: 10px 0; overflow: hidden; white-space: nowrap; }
+  .ticker-track { display: inline-flex; animation: tickroll 28s linear infinite; }
+  .ticker-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); font-weight: 600; padding: 0 48px; }
+  .ticker-sep { color: rgba(0,0,0,0.35); }
+
+  /* LEGAL CONTENT */
+  .legal-wrap { max-width: 860px; margin: 0 auto; padding: 80px 64px; }
+  .legal-meta { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-bottom: 48px; }
+  .legal-section { margin-bottom: 44px; padding-bottom: 44px; border-bottom: 1px solid var(--border); }
+  .legal-section:last-child { border-bottom: none; }
+  .legal-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
+  .legal-section p { font-size: 0.925rem; color: var(--light); line-height: 1.9; margin-bottom: 14px; }
+  .legal-section p:last-child { margin-bottom: 0; }
+  .legal-section ul { font-size: 0.925rem; color: var(--light); line-height: 1.9; padding-left: 1.25rem; }
+  .legal-section ul li { margin-bottom: 8px; }
+  .legal-email { color: var(--red); text-decoration: none; transition: color 0.2s; }
+  .legal-email:hover { color: var(--white); }
+  .conformance-badge { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--red); color: var(--white); padding: 10px 20px; margin-top: 8px; }
+
+  /* FOOTER */
+  footer { background: var(--deep); border-top: 1px solid var(--border); padding: 60px 64px 40px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.3em; margin-bottom: 16px; }
+  .footer-logo span { color: var(--red); }
+  .footer-tagline { font-size: 0.875rem; color: var(--gray); line-height: 1.7; max-width: 260px; }
+  .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.06em; color: var(--light); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--red); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--border); }
+  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gray); }
+  .footer-legal { display: flex; gap: 28px; }
+  .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--red); }
+  .footer-legal a[aria-current="page"] { color: var(--red); }
+  .footer-social { display: flex; gap: 14px; margin-top: 24px; }
+  .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 4px; color: var(--gray); text-decoration: none; transition: color 0.2s, border-color 0.2s; overflow: hidden; }
+  .footer-social a:hover { color: var(--red); border-color: var(--red); }
+  .footer-social svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+
+  /* NAV EVENTS DROPDOWN */
+  .nav-item--has-dropdown { position: relative; }
+  .nav-dropdown { position: absolute; top: 100%; left: -16px; min-width: 180px; background: rgba(8,8,8,0.98); border: 1px solid var(--border); border-top: 2px solid var(--red); padding: 8px 0 6px; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity 0.2s ease, transform 0.2s ease; z-index: 300; }
+  .nav-item--has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .nav-dropdown-link { display: block; padding: 11px 20px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--light); text-decoration: none; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+  .nav-dropdown-link::after { display: none !important; }
+  .nav-dropdown-link:hover { color: var(--white); background: rgba(201,168,76,0.04); }
+  .mobile-nav .mobile-sub-link { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light); text-decoration: none; border-left: 2px solid rgba(201,168,76,0.35); padding-left: 22px; margin-top: -20px; transition: color 0.2s; }
+  .mobile-nav .mobile-sub-link:hover, .mobile-nav .mobile-sub-link:active { color: var(--red); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 22px 28px; }
+    nav.scrolled { padding: 16px 28px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .page-hero { padding: 120px 28px 60px; }
+    .legal-wrap { padding: 60px 28px; }
+    footer { padding: 48px 28px 32px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .ticker { display: none; }
+  }
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-legal { flex-direction: column; gap: 12px; align-items: center; }
+  }
+</style>
+<link rel="stylesheet" href="accessibility.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">SHADOW</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-item--has-dropdown"><a href="events/index.html">Events</a>
+      <div class="nav-dropdown">
+        <a href="events/index.html" class="nav-dropdown-link">Overview</a>
+        <a href="events/capabilities.html" class="nav-dropdown-link">Capabilities</a>
+        <a href="events/case-studies.html" class="nav-dropdown-link">Engagements</a>
+      </div>
+    </li>
+    <li><a href="fractional-cso.html">Fractional CSO</a></li>
+    <li><a href="shdw-app.html">SHDW App</a></li>
+    <li><a href="team.html">The Team</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Deploy Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" class="mobile-link">Home</a>
+  <a href="events/index.html" class="mobile-link">Events</a>
+  <a href="events/index.html" class="mobile-sub-link">Overview</a>
+  <a href="events/capabilities.html" class="mobile-sub-link">Capabilities</a>
+  <a href="events/case-studies.html" class="mobile-sub-link">Engagements</a>
+  <a href="fractional-cso.html" class="mobile-link">Fractional CSO</a>
+  <a href="shdw-app.html" class="mobile-link">SHDW App</a>
+  <a href="team.html" class="mobile-link">The Team</a>
+  <a href="contact.html" class="mobile-cta">Deploy Now</a>
+</div>
+<main id="main-content">
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-scan"></div>
+  <div class="page-hero-slash"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Legal</div>
+    <h1 class="page-title">ACCESSIBILITY<br><span style="color:#C9A84C">STATEMENT.</span></h1>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Executive Protection</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Event Security</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Threat Assessment</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Advance Operations</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Corporate Consulting</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">On-Demand Deployment</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Executive Protection</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Event Security</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Threat Assessment</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Advance Operations</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">Corporate Consulting</span><span class="ticker-item ticker-sep">&middot;</span>
+    <span class="ticker-item">On-Demand Deployment</span><span class="ticker-item ticker-sep">&middot;</span>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="legal-wrap">
+  <p class="legal-meta">Last Reviewed: June 2026 &nbsp;&middot;&nbsp; Standard: WCAG 2.2 Level AA</p>
+
+  <div class="legal-section reveal">
+    <h2>Our Commitment</h2>
+    <p>Shadow is committed to ensuring that shdw.com is accessible to everyone, including people with disabilities. We are actively working to increase the accessibility and usability of this website in line with the Web Content Accessibility Guidelines (WCAG) 2.2 Level AA, published by the World Wide Web Consortium (W3C).</p>
+    <p>We view digital accessibility as an operational requirement, not a checkbox. The same standard of precision we apply to protection programs governs how we build and maintain this site.</p>
+    <div class="conformance-badge">Targeting: WCAG 2.2 Level AA Conformance</div>
+  </div>
+
+  <div class="legal-section reveal">
+    <h2>Scope</h2>
+    <p>This statement applies to all pages published at <strong>shdw.com</strong> and its subpaths, including the Events, Fractional CSO, SHDW App, Team, Press, and legal pages.</p>
+  </div>
+
+  <div class="legal-section reveal">
+    <h2>What We Have Done</h2>
+    <p>As of the date of this statement, accessibility measures implemented across the full site include:</p>
+    <ul>
+      <li>Skip navigation link on every page, allowing keyboard users to bypass repeated navigation</li>
+      <li>Semantic landmark structure using <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;footer&gt;</code> elements on all pages</li>
+      <li>Visible focus indicators on all interactive elements, meeting the WCAG 2.4.13 focus appearance requirement</li>
+      <li>Custom cursor deactivated for keyboard-only and non-mouse users, preserving system cursor visibility</li>
+      <li>All form inputs programmatically associated with visible labels via <code>for</code>/<code>id</code> attributes</li>
+      <li>Decorative images and icon SVGs marked with <code>aria-hidden="true"</code></li>
+      <li>Autoplay ambient videos marked as decorative and excluded from the accessibility tree</li>
+      <li>Descriptive link text and <code>aria-label</code> attributes on icon-only links</li>
+      <li>Color contrast ratios meeting or exceeding the 4.5:1 AA minimum for all body text</li>
+      <li>Logical heading hierarchy maintained across all pages</li>
+      <li>Reduced motion support via <code>prefers-reduced-motion</code> media query</li>
+      <li>Minimum touch target size of 24&times;24 CSS pixels on all interactive controls</li>
+      <li>Consistent help mechanism available on every page (contact link in footer)</li>
+      <li>Language attribute (<code>lang="en"</code>) declared on all pages</li>
+      <li>Descriptive page titles on all pages</li>
+    </ul>
+  </div>
+
+  <div class="legal-section reveal">
+    <h2>Known Limitations</h2>
+    <p>We are aware of the following areas where we continue to improve:</p>
+    <ul>
+      <li><strong>YouTube social link:</strong> The YouTube footer icon currently links to a placeholder. It has been removed from keyboard tab order until a live channel is published.</li>
+      <li><strong>Dynamic city map:</strong> The global operations city slideshow on the Events page uses a JavaScript-driven SVG map. We have added ARIA live regions for screen reader announcement of city changes and continue to evaluate enhanced map accessibility.</li>
+      <li><strong>Third-party embeds:</strong> Some podcast and video links direct to third-party platforms (Apple Podcasts, Latakoo) whose own accessibility conformance is outside our direct control.</li>
+    </ul>
+    <p>We are actively working to resolve these limitations and will update this statement as improvements are made.</p>
+  </div>
+
+  <div class="legal-section reveal">
+    <h2>Technical Approach</h2>
+    <p>shdw.com is a static HTML website served via Netlify. Accessibility is implemented directly in HTML, CSS, and JavaScript — no framework, plugin, or overlay is used. We follow a code-level approach because overlays do not reliably solve accessibility barriers and can interfere with assistive technologies.</p>
+    <p>Our global accessibility stylesheet (<code>accessibility.css</code>) and companion script (<code>accessibility.js</code>) are loaded on every page and address focus management, cursor behavior, contrast, and ARIA semantics at the document level.</p>
+  </div>
+
+  <div class="legal-section reveal">
+    <h2>Reporting an Accessibility Barrier</h2>
+    <p>If you encounter a page or feature on shdw.com that you cannot access, or if you find content that is not accessible, please contact us. We take every report seriously and will respond within 48 hours with either a fix, a workaround, or a timeline for resolution.</p>
+    <p><strong>Email:</strong> <a href="mailto:hello@shdw.com" class="legal-email">hello@shdw.com</a><br>
+    <strong>Subject line:</strong> Accessibility &mdash; [brief description of the issue]</p>
+    <p>Please include the URL of the page where you encountered the barrier, the assistive technology you are using if applicable, and a brief description of what you were trying to do.</p>
+  </div>
+
+  <div class="legal-section reveal">
+    <h2>Enforcement</h2>
+    <p>Shadow is a private entity subject to Title III of the Americans with Disabilities Act (ADA). We are committed to good faith compliance with applicable accessibility law and regard this statement as an active, maintained commitment rather than a static document. This statement will be reviewed and updated at minimum annually, and following any significant changes to the site.</p>
+  </div>
+
+  <div class="legal-section reveal">
+    <h2>Contact</h2>
+    <p>For accessibility-related questions, requests, or feedback, contact Shadow at <a href="mailto:hello@shdw.com" class="legal-email">hello@shdw.com</a>. We respond within 48 hours.</p>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">SHADOW</div>
+      <p class="footer-tagline">The gold standard in safety and protection. Elite-tier security, on demand. Born from the Secret Service. Built for the world.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/SHDWnetwork" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/protectionshadow" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" style="fill:var(--deep)"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:var(--deep);stroke-width:2;fill:none"/></svg></a>
+        <a href="#" aria-label="YouTube" tabindex="-1"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58a2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:var(--deep)"/></svg></a>
+        <a href="https://x.com/shdwprotection" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.632 5.903-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.tiktok.com/@shadow.protection" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
+        <a href="https://www.linkedin.com/company/shdwsecurity" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="executive-protection.html">Executive Protection</a></li>
+        <li><a href="event-security.html">Event Security</a></li>
+        <li><a href="threat-assessment.html">Threat Assessment</a></li>
+        <li><a href="advance-operations.html">Advance Operations</a></li>
+        <li><a href="corporate-consulting.html">Corporate Consulting</a></li>
+        <li><a href="fractional-cso.html">Fractional CSO</a></li>
+        <li><a href="shdw-app.html">SHDW App</a></li>
+        <li><a href="metal-detectors.html">Metal Detectors</a></li>
+        <li><a href="playbook.html">The Book Series</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Industries</div>
+      <ul class="footer-links">
+        <li><a href="entertainment.html">Entertainment</a></li>
+        <li><a href="sports.html">Sports &amp; Athletics</a></li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="film-tv.html">Film &amp; TV</a></li>
+        <li><a href="political.html">Political</a></li>
+        <li><a href="private-events.html">Private Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links">
+        <li><a href="events/doctrine.html">Doctrine</a></li>
+        <li><a href="events/insights.html">Insights</a></li>
+        <li><a href="playbook.html">Playbook Series</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Shadow</a></li>
+        <li><a href="team.html">The Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="press.html">Press</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="hero-family.html">HERO Family</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 SHDW, LLC. &middot; All Rights Reserved</div>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="ndas-confidentiality.html">NDAs &amp; Confidentiality</a>
+      <a href="accessibility.html" aria-current="page">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  let moveTimer;
+  document.addEventListener('mousemove', e => {
+    cursor.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
+    cursor.classList.add('visible', 'moving');
+    clearTimeout(moveTimer);
+    moveTimer = setTimeout(() => cursor.classList.remove('moving'), 120);
+  });
+  document.documentElement.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link, .mobile-cta').forEach(el => {
+    el.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+<script src="brand.js"></script>
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+_linkedin_partner_id = "9314340";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9314340&fmt=gif" />
+</noscript>
+<!-- End LinkedIn Insight Tag -->
+<script>
+/* WCAG 2.2 — Restore cursor visibility for keyboard/pointer users */
+(function(){
+  function onMouse(){ document.body.classList.add('has-custom-cursor'); document.removeEventListener('mousemove',onMouse); }
+  document.addEventListener('mousemove', onMouse);
+})();
+</script>
+<script src="accessibility.js"></script>
+</body>
+</html>
