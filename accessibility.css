@@ -99,6 +99,9 @@ input[type="radio"] {
 }
 @media (max-width: 600px) {
   .footer-top { grid-template-columns: 1fr !important; }
+  /* Prevent grid-column:span 2 from overflowing a 1-column grid */
+  .gap-card--cta,
+  .gap-card--sports { grid-column: span 1 !important; }
 }
 
 /* 8. Reduce motion — respect prefers-reduced-motion (WCAG 2.3.3) */
