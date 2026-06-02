@@ -75,8 +75,10 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
   a:hover { background: #b8962e; }
   @media (hover: none) and (pointer: coarse) { *, *::before, *::after { cursor: auto !important; } .cursor { display: none !important; } }
 </style>
+<link rel="stylesheet" href="accessibility.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="cursor" id="cursor"></div>
 <div id="content">
   <div class="label" id="eyebrow">Transmission Received</div>
@@ -101,5 +103,12 @@ src="https://www.facebook.com/tr?id=1265634265736468&ev=PageView&noscript=1"/>
   }
 </script>
 <script src="brand.js"></script>
+<script>
+/* WCAG 2.2 — Restore cursor visibility for keyboard/pointer users */
+(function(){
+  function onMouse(){ document.body.classList.add('has-custom-cursor'); document.removeEventListener('mousemove',onMouse); }
+  document.addEventListener('mousemove', onMouse);
+})();
+</script>
 </body>
 </html>
