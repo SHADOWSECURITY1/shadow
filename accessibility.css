@@ -90,7 +90,18 @@ input[type="radio"] {
   color: rgba(0, 0, 0, 0.65) !important;
 }
 
-/* 7. Reduce motion — respect prefers-reduced-motion (WCAG 2.3.3) */
+/* 7. Footer — 6-column grid with Legal column */
+.footer-top {
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr !important;
+}
+@media (max-width: 900px) {
+  .footer-top { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 600px) {
+  .footer-top { grid-template-columns: 1fr !important; }
+}
+
+/* 8. Reduce motion — respect prefers-reduced-motion (WCAG 2.3.3) */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
