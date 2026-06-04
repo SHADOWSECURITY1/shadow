@@ -69,6 +69,55 @@
       gopCity.setAttribute('aria-atomic', 'true');
     }
 
+    /* 7. Discreet pause control for autoplay background video (WCAG 2.2.2)
+       Decorative hero videos autoplay/loop > 5s alongside content, so they
+       need a pause mechanism. We inject a minimal, keyboard-operable
+       pause/play button into each video's container, and start the video
+       paused when the user prefers reduced motion. Styling: .vid-pause-btn
+       in accessibility.css. */
+    var PAUSE_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<rect x="6" y="5" width="4" height="14" rx="1"></rect>' +
+      '<rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>';
+    var PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<path d="M8 5v14l11-7z"></path></svg>';
+    var reduceMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('video[autoplay], video[loop]').forEach(function (video) {
+      var parent = video.parentElement;
+      if (!parent || parent.querySelector(':scope > .vid-pause-btn')) return;
+      if (getComputedStyle(parent).position === 'static') {
+        parent.style.position = 'relative';
+      }
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'vid-pause-btn';
+
+      function render(paused) {
+        btn.innerHTML = paused ? PLAY_SVG : PAUSE_SVG;
+        btn.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+      }
+
+      if (reduceMotion) { try { video.pause(); } catch (e) {} }
+      render(video.paused);
+
+      btn.addEventListener('click', function () {
+        if (video.paused) {
+          var p = video.play();
+          if (p && p.catch) { p.catch(function () {}); }
+        } else {
+          video.pause();
+        }
+      });
+
+      /* Keep the icon in sync even if the browser changes playback itself. */
+      video.addEventListener('play', function () { render(false); });
+      video.addEventListener('pause', function () { render(true); });
+
+      parent.appendChild(btn);
+    });
+
   }
 
   /* Run after DOM is ready */

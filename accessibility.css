@@ -115,3 +115,50 @@ input[type="radio"] {
     scroll-behavior: auto !important;
   }
 }
+
+/* 9. Discreet pause/play control for autoplay background video (WCAG 2.2.2)
+   Decorative hero videos autoplay, loop, and run > 5s in parallel with
+   page content, so 2.2.2 requires a mechanism to pause them. The control
+   is kept visually minimal: a small, translucent corner chip. It still
+   satisfies:
+     - 1.4.11 Non-text Contrast — the icon (#f0ede8, fully opaque) sits on
+       a dark chip and clears 3:1 even over a bright video frame.
+     - 2.5.8 Target Size — 30×30px exceeds the 24px minimum.
+     - 2.4.13 Focus — inherits the global gold focus ring (button rule above).
+   The button is injected by accessibility.js into each video's container. */
+.vid-pause-btn {
+  position: absolute !important;
+  bottom: 14px;
+  right: 14px;
+  z-index: 5;
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(8, 8, 8, 0.55) !important;
+  color: #f0ede8;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.vid-pause-btn svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+  fill: currentColor;
+}
+.vid-pause-btn:hover,
+.vid-pause-btn:focus-visible {
+  background: rgba(8, 8, 8, 0.9) !important;
+  transform: scale(1.08);
+}
+@media (max-width: 600px) {
+  .vid-pause-btn { bottom: 10px; right: 10px; }
+}
