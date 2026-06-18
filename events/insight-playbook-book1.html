@@ -163,7 +163,7 @@
     font-size: 13px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--bone);
+    color: var(--tactical-gold);
   }
   .endorsement__cred {
     font-family: var(--font-mono);
@@ -187,8 +187,23 @@
     text-decoration: none;
     transition: background 0.2s;
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .related-card-cover {
+    width: 96px;
+    flex-shrink: 0;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border: 1px solid var(--hairline);
+    display: block;
+  }
+  .related-card-body {
+    display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    min-width: 0;
   }
 
   .related-article-card:hover {
@@ -303,7 +318,7 @@
         <div class="endorsement__label">Endorsement</div>
         <p class="endorsement__quote">"Michael de Geus displays his in-depth knowledge of the convergence of electronic and physical security in <em>The Corporate Safety &amp; Security Playbook</em>. The book shows how corporations can secure their valuable trade secrets and employee safety at a nominal cost."</p>
         <div class="endorsement__by">Ron Williams</div>
-        <div class="endorsement__cred">22-year U.S. Secret Service veteran &middot; Founder, Talon Executive Services &middot; Shadow Board of Directors</div>
+        <div class="endorsement__cred">22-year U.S. Secret Service, retired &middot; Founder &amp; Chairman, Talon Executive Services &middot; Shadow Board of Directors</div>
       </div>
 
       <p class="article-closing"><span class="article-closing__doctrine">See first. Decide faster. Act smarter.</span> The doctrine that runs through all three books.</p>
@@ -321,14 +336,20 @@
     </div>
     <div class="related-articles">
       <a href="insight-playbook-book2.html" class="related-article-card">
-        <span class="card-eyebrow">Playbook Series / Book Two</span>
-        <span class="card-title">The Executive Protection <span style="color:var(--tactical-gold)">Playbook</span></span>
-        <span class="card-meta">Michael de Geus / 5 min read</span>
+        <img src="playbook-book2-cover.jpg" alt="The Executive Protection Playbook cover" class="related-card-cover">
+        <span class="related-card-body">
+          <span class="card-eyebrow">Playbook Series / Book Two</span>
+          <span class="card-title">The Executive Protection <span style="color:var(--tactical-gold)">Playbook</span></span>
+          <span class="card-meta">Michael de Geus / 5 min read</span>
+        </span>
       </a>
       <a href="insight-playbook-book3.html" class="related-article-card">
-        <span class="card-eyebrow">Playbook Series / Book Three</span>
-        <span class="card-title">The Event Safety &amp; Protection <span style="color:var(--tactical-gold)">Playbook</span></span>
-        <span class="card-meta">Michael de Geus / 5 min read</span>
+        <img src="playbook-book3-cover.jpg" alt="The Event Safety &amp; Protection Playbook cover" class="related-card-cover">
+        <span class="related-card-body">
+          <span class="card-eyebrow">Playbook Series / Book Three</span>
+          <span class="card-title">The Event Safety &amp; Protection <span style="color:var(--tactical-gold)">Playbook</span></span>
+          <span class="card-meta">Michael de Geus / 5 min read</span>
+        </span>
       </a>
     </div>
   </div>
