@@ -131,6 +131,45 @@
     border-top: 1px solid var(--hairline);
   }
 
+  .endorsement {
+    margin: 3rem 0 0;
+    padding: 1.75rem 2rem;
+    background: var(--shadow-coal);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--tactical-gold);
+  }
+  .endorsement__label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-bottom: 1rem;
+  }
+  .endorsement__quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    color: var(--bone);
+    line-height: 1.4;
+    margin: 0 0 1.25rem;
+  }
+  .endorsement__quote em { font-style: italic; }
+  .endorsement__by {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone);
+  }
+  .endorsement__cred {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--bone-dim);
+    margin-top: 0.4rem;
+    line-height: 1.55;
+  }
+
   .related-articles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -255,6 +294,13 @@
       <p>Most catastrophic protective failures involve irreversible decisions made on the timeline appropriate for reversible ones. The premature evacuation. The hasty public statement. The closure that came before the picture supported it. Each can be recognized as irreversible at the moment of decision, if the discipline of recognition is applied.</p>
 
       <p>Shadow trains every lead practitioner in this distinction. It is one of the practices that distinguishes the work.</p>
+
+      <div class="endorsement">
+        <div class="endorsement__label">Endorsement</div>
+        <p class="endorsement__quote">"Michael de Geus displays his in-depth knowledge of the convergence of electronic and physical security in <em>The Corporate Safety &amp; Security Playbook</em>. The book shows how corporations can secure their valuable trade secrets and employee safety at a nominal cost."</p>
+        <div class="endorsement__by">Ron Williams</div>
+        <div class="endorsement__cred">22-year U.S. Secret Service veteran &middot; Founder, Talon Executive Services &middot; Shadow Board of Directors</div>
+      </div>
 
       <p class="article-closing">See first. Decide faster. Act smarter. The doctrine that runs through all three books.</p>
 

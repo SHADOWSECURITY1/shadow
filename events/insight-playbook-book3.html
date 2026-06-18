@@ -131,6 +131,45 @@
     border-top: 1px solid var(--hairline);
   }
 
+  .endorsement {
+    margin: 3rem 0 0;
+    padding: 1.75rem 2rem;
+    background: var(--shadow-coal);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--tactical-gold);
+  }
+  .endorsement__label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--tactical-gold);
+    margin-bottom: 1rem;
+  }
+  .endorsement__quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    color: var(--bone);
+    line-height: 1.4;
+    margin: 0 0 1.25rem;
+  }
+  .endorsement__quote em { font-style: italic; }
+  .endorsement__by {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone);
+  }
+  .endorsement__cred {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--bone-dim);
+    margin-top: 0.4rem;
+    line-height: 1.55;
+  }
+
   .related-articles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -257,6 +296,13 @@
       <p>Programs that recognize the three audiences as distinct and design coverage for each produce events at a different level than programs that treat all three as one undifferentiated population. The frame is the operating system of the working program, even when the program does not name it explicitly.</p>
 
       <p>Shadow operates inside this frame on every event. It is how we think.</p>
+
+      <div class="endorsement">
+        <div class="endorsement__label">Endorsement</div>
+        <p class="endorsement__quote">"Event security has become more sophisticated in response to evolving threats and technology, such as drone attacks. In <em>The Event Safety &amp; Protection Playbook</em>, Michael de Geus, a former United States Secret Service agent who organized event security for the President of the United States, provides valuable advice on layered security and emergency response planning. Mike has been contracted by numerous guard companies to establish security plans for successful events, and this playbook lays out how every event can achieve the same."</p>
+        <div class="endorsement__by">Ron Williams</div>
+        <div class="endorsement__cred">22-year U.S. Secret Service veteran &middot; Founder, Talon Executive Services &middot; Shadow Board of Directors</div>
+      </div>
 
       <p class="article-closing">See first. Decide faster. Act smarter. The doctrine that runs through all three books.</p>
 
