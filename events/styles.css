@@ -147,7 +147,7 @@ section { position: relative; z-index: 2; }
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.825rem;
   font-weight: 400;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -570,7 +570,7 @@ h1, h2, h3, h4 {
 
 .hero__credential-item .label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.825rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--bone-dim);
@@ -1076,7 +1076,7 @@ h1, h2, h3, h4 {
 
 .contact-card__row .label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 0.825rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--tactical-gold);
@@ -1629,7 +1629,7 @@ footer {
 
 .pillar__index .label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.825rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--bone-dim);
@@ -2365,7 +2365,7 @@ footer {
 
 .working__chapter-mark .label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.825rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--bone-dim);
@@ -2583,7 +2583,7 @@ footer {
 
 .globalops__stat .label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 0.825rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--bone-dim);
