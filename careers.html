@@ -497,6 +497,37 @@
   }
   .mobile-nav .mobile-sub-link:hover,
   .mobile-nav .mobile-sub-link:active { color: var(--red); }
+
+  /* Career application form */
+  .apply-section { background: var(--deep); padding: 0 64px 96px; }
+  .apply-form { max-width: 720px; }
+  .apply-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .apply-form label {
+    display: block; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gray); margin: 18px 0 8px;
+  }
+  .apply-form input, .apply-form select, .apply-form textarea {
+    width: 100%; background: var(--black); border: 1px solid var(--border);
+    color: var(--light); font-family: 'Barlow', sans-serif; font-size: 0.95rem;
+    padding: 13px 16px; transition: border-color 0.2s;
+  }
+  .apply-form input:focus, .apply-form select:focus, .apply-form textarea:focus {
+    outline: none; border-color: var(--red);
+  }
+  .apply-form textarea { resize: vertical; }
+  .apply-form .hp { display: none; }
+  .apply-form .form-submit {
+    margin-top: 28px; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    background: var(--red); color: var(--black); padding: 15px 42px;
+    border: 1px solid var(--red); cursor: pointer; transition: all 0.25s;
+  }
+  .apply-form .form-submit:hover { background: transparent; color: var(--red); }
+  @media (max-width: 640px) {
+    .apply-section { padding: 0 28px 64px; }
+    .apply-form .form-row { grid-template-columns: 1fr; }
+  }
 </style>
 <link rel="stylesheet" href="accessibility.css">
 </head>
@@ -608,8 +639,47 @@
     <h3>Submit Your Application</h3>
     <p>All applications are reviewed confidentially. We will contact qualified candidates directly.</p>
   </div>
-  <a href="contact.html?subject=Career+Application" class="btn-primary">Apply Now →</a>
+  <a href="#apply-form" class="btn-primary">Apply Now →</a>
 </div>
+<section class="apply-section" id="apply-form">
+  <form class="apply-form" name="career-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+    <input type="hidden" name="form-name" value="career-application">
+    <p class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field"></label></p>
+    <div class="form-row">
+      <div>
+        <label for="apply-first">First Name</label>
+        <input id="apply-first" type="text" name="first-name" required>
+      </div>
+      <div>
+        <label for="apply-last">Last Name</label>
+        <input id="apply-last" type="text" name="last-name" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div>
+        <label for="apply-email">Email</label>
+        <input id="apply-email" type="email" name="email" required>
+      </div>
+      <div>
+        <label for="apply-phone">Phone</label>
+        <input id="apply-phone" type="tel" name="phone">
+      </div>
+    </div>
+    <label for="apply-position">Position</label>
+    <select id="apply-position" name="position" required>
+      <option value="" disabled selected>Select a position</option>
+      <option>Executive Protection Agent</option>
+      <option>Advance Operations Specialist</option>
+      <option>Intelligence Analyst</option>
+      <option>General / Other</option>
+    </select>
+    <label for="apply-resume">R&eacute;sum&eacute; or LinkedIn URL</label>
+    <input id="apply-resume" type="url" name="resume-url" placeholder="https://">
+    <label for="apply-bg">Background &amp; Experience</label>
+    <textarea id="apply-bg" name="background" rows="5" placeholder="Briefly describe your relevant background, clearances, and experience."></textarea>
+    <button type="submit" class="form-submit">Submit Application →</button>
+  </form>
+</section>
 </div>
 
 <!-- FOOTER -->
