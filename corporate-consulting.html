@@ -275,9 +275,10 @@
   }
   .feature-card {
     background: var(--card); padding: 40px 36px; position: relative;
-    transition: background 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
   }
-  .feature-card:hover { background: #141414; }
+  .feature-card:hover { background: #141414; box-shadow: inset 0 0 0 1px var(--red), 0 0 24px rgba(201, 168, 76, 0.18); z-index: 1; }
+  .feature-card:hover::before { opacity: 1; }
   .feature-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5;
@@ -591,7 +592,7 @@
   <div class="page-hero-slash"></div>
   <div class="page-hero-content">
     <div class="page-eyebrow">Security Programs</div>
-    <h1 class="page-title">SECURITY BUILT IN.</h1>
+    <h1 class="page-title">SECURITY <span style="color:var(--red)">BUILT IN.</span></h1>
     <p class="page-sub">Secret Service-grade thinking embedded in your organization.</p>
   </div>
 </section>
@@ -618,13 +619,13 @@
 <div class="page-content">
 <div class="intro-block reveal">
   <div class="label">Security Programs</div>
-  <h2 class="section-h">Our DNA.<br>Installed Into Your Business.</h2>
+  <h2 class="section-h">Our DNA.<br><span style="color:var(--red)">Installed</span> Into Your Business.</h2>
   <p>Most organizations treat security as a response mechanism. Shadow embeds it as a culture. Our corporate consulting practice is designed to bring Secret Service-grade thinking into your organization's operational framework, from board-level risk awareness to front-desk screening protocols.</p>
   <p>We work directly with your leadership team to design comprehensive security programs, develop policy frameworks, train staff at all levels, and build crisis response capabilities. For organizations that need ongoing security leadership without a full-time hire, our Fractional Security Director offering provides executive-level security leadership on a flexible engagement model.</p>
 </div>
 <div class="reveal">
   <div class="label">Consulting Services</div>
-  <h2 class="section-h">Security Built In.</h2>
+  <h2 class="section-h">Security <span style="color:var(--red)">Built In.</span></h2>
 <div class="feature-grid">
   <div class="feature-card reveal">
     <div class="feature-title">Program Design</div>
