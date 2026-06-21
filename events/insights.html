@@ -97,6 +97,51 @@
   </div>
 </section>
 
+<!-- =================== SUBSCRIBE (TOP) =================== -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-band__inner" style="grid-template-columns:1fr; align-items:flex-start; gap:1.5rem;">
+      <div>
+        <h2 class="cta-band__title">Subscribe to <em>Shadow Insights</em>.</h2>
+        <p class="cta-band__sub">A monthly dispatch from Shadow leadership. Doctrine essays, field notes, and excerpts from the Shadow Playbook book series. No promotional content. Reading time twelve minutes or less per issue.</p>
+      </div>
+      <form
+        id="insights-subscribe-form-top"
+        name="shadow-insights-subscribe"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        style="width:100%; max-width:640px;"
+        onsubmit="event.preventDefault(); var f=this; fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()}).then(function(){f.style.display='none';document.getElementById('insights-subscribe-success-top').style.display='block';}).catch(function(){f.style.display='none';document.getElementById('insights-subscribe-success-top').style.display='block';}); return false;"
+      >
+        <input type="hidden" name="form-name" value="shadow-insights-subscribe">
+        <input type="hidden" name="bot-field">
+        <input type="hidden" name="_to" value="hello@shdw.com">
+        <div style="display:flex; gap:0; width:100%;">
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Your email address"
+            style="flex:1; background:#111; border:2px solid #555; border-right:none; color:#f0ede8; font-family:'Barlow Condensed',sans-serif; font-size:14px; letter-spacing:0.12em; padding:16px 20px; outline:none; min-width:0; box-sizing:border-box;"
+            onfocus="this.style.borderColor='rgba(201,168,76,0.8)'"
+            onblur="this.style.borderColor='#555'"
+          >
+          <button
+            type="submit"
+            style="background:#C9A84C; color:#080808; border:none; font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:0.22em; padding:16px 28px; white-space:nowrap; cursor:pointer; transition:background 0.2s; box-sizing:border-box;"
+            onmouseover="this.style.background='#b8963e'"
+            onmouseout="this.style.background='#C9A84C'"
+          >Sign Up to Receive &rarr;</button>
+        </div>
+      </form>
+      <div id="insights-subscribe-success-top" style="display:none; font-family:'Barlow Condensed',sans-serif; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:#C9A84C;">
+        &#10022; &nbsp;You're on the list. First issue incoming.
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- =================== FEATURED ARTICLE =================== -->
 <section class="section">
   <div class="container">
@@ -130,6 +175,58 @@
     </div>
 
     <div class="insight-grid">
+
+      <article class="insight-card">
+        <div class="insight-card__meta">
+          <span class="cat">Field Note</span>
+          <span class="date">June 2026</span>
+        </div>
+        <h3 class="insight-card__title"><a href="insight-drone-threat-events.html">Eyes in the sky: the drone threat over modern events.</a></h3>
+        <p class="insight-card__excerpt">The event perimeter used to be horizontal. Small commercial drones made it three-dimensional, serving as both a reconnaissance platform and a delivery vector. On bringing the airspace into the advance.</p>
+        <div class="insight-card__author">
+          <span class="byline"><a href="https://www.shdw.com/team.html#bradley-de-geus">Bradley de Geus</a></span>
+          <span class="byline-sub">Director of Events</span>
+        </div>
+      </article>
+
+      <article class="insight-card">
+        <div class="insight-card__meta">
+          <span class="cat">Field Note</span>
+          <span class="date">June 2026</span>
+        </div>
+        <h3 class="insight-card__title"><a href="insight-first-ninety-days.html">The first ninety days: standing up a corporate protection program.</a></h3>
+        <p class="insight-card__excerpt">The opening ninety days of a security leader's tenure determine the rest of it. On treating the start as construction rather than maintenance, and building a function that does not depend on any one person.</p>
+        <div class="insight-card__author">
+          <span class="byline"><a href="https://www.shdw.com/team.html#rob-poland">Rob Poland</a></span>
+          <span class="byline-sub">Chief of Staff</span>
+        </div>
+      </article>
+
+      <article class="insight-card">
+        <div class="insight-card__meta">
+          <span class="cat">Doctrine</span>
+          <span class="date">June 2026</span>
+        </div>
+        <h3 class="insight-card__title"><a href="insight-cyber-physical-convergence.html">One function, not two: why cyber and physical security must converge.</a></h3>
+        <p class="insight-card__excerpt">Adversaries run blended cyber-physical campaigns; the enterprises that keep the two functions split leave the seam between them as the attack surface. The case for one security leader and one fused threat picture.</p>
+        <div class="insight-card__author">
+          <span class="byline"><a href="https://www.shdw.com/team.html#michael-de-geus">Michael de Geus</a></span>
+          <span class="byline-sub">Founder &amp; CEO, Shadow</span>
+        </div>
+      </article>
+
+      <article class="insight-card">
+        <div class="insight-card__meta">
+          <span class="cat">Book Excerpt</span>
+          <span class="date">June 2026</span>
+        </div>
+        <h3 class="insight-card__title"><a href="insight-five-corporate-threats.html">From the Corporate Safety &amp; Security Playbook: the five categories of corporate threat.</a></h3>
+        <p class="insight-card__excerpt">An excerpt from Book One of the Shadow Playbook series. Every threat the modern enterprise faces falls into one of five categories &mdash; cyber, physical, reputational, insider, and environmental &mdash; and the most damaging incidents involve all five at once.</p>
+        <div class="insight-card__author">
+          <span class="byline"><a href="https://www.shdw.com/team.html#michael-de-geus">Michael de Geus</a></span>
+          <span class="byline-sub">Founder &amp; CEO, Shadow</span>
+        </div>
+      </article>
 
       <article class="insight-card">
         <div class="insight-card__meta">
