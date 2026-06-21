@@ -274,9 +274,10 @@
   }
   .feature-card {
     background: var(--card); padding: 40px 36px; position: relative;
-    transition: background 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
   }
-  .feature-card:hover { background: #141414; }
+  .feature-card:hover { background: #141414; box-shadow: inset 0 0 0 1px var(--red), 0 0 24px rgba(201, 168, 76, 0.18); z-index: 1; }
+  .feature-card:hover::before { opacity: 1; }
   .feature-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5;
@@ -311,9 +312,10 @@
   }
   .pricing-card {
     background: var(--card); padding: 48px 44px; position: relative;
-    transition: background 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
   }
-  .pricing-card:hover { background: #141414; }
+  .pricing-card:hover { background: #141414; box-shadow: inset 0 0 0 1px var(--red), 0 0 24px rgba(201, 168, 76, 0.18); z-index: 1; }
+  .pricing-card:hover::before { opacity: 1; }
   .pricing-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5;
@@ -599,7 +601,7 @@
   <div class="page-hero-slash"></div>
   <div class="page-hero-content">
     <div class="page-eyebrow">Equipment &amp; Screening</div>
-    <h1 class="page-title">THREAT STOPPED.<br>AT THE DOOR.</h1>
+    <h1 class="page-title">THREAT <span style="color:var(--red)">STOPPED.</span><br>AT THE DOOR.</h1>
     <p class="page-sub">Garrett PD6500i Walk-Through Metal Detector Deployment</p>
   </div>
 </section>
@@ -630,7 +632,7 @@
   <!-- INTRO BLOCK -->
   <div class="intro-block reveal">
     <div class="label">Professional Screening</div>
-    <h2 class="section-h">The Same Equipment.<br>The Same Standard.</h2>
+    <h2 class="section-h">The Same Equipment.<br><span style="color:var(--red)">The Same Standard.</span></h2>
     <p>SHADOW deploys the Garrett PD6500i walk-through metal detector, the same unit trusted by airports, federal courthouses, and major sporting venues worldwide. When your event requires certified screening, we don't rent you equipment and leave. We deploy it, operate it, and staff it with trained Shadow personnel.</p>
     <p>Whether you're hosting a private gala, a corporate conference, a political fundraiser, or a large-scale public event, our metal detector deployment integrates seamlessly into your access control and security plan. Every unit is tested, calibrated, and operated by agents who understand the threat environment, not just the technology.</p>
   </div>
@@ -661,7 +663,7 @@
   <!-- FEATURE GRID -->
   <div class="reveal">
     <div class="label">Garrett PD6500i Capabilities</div>
-    <h2 class="section-h">Professional Grade.<br>Field Proven.</h2>
+    <h2 class="section-h">Professional Grade.<br><span style="color:var(--red)">Field Proven.</span></h2>
     <div class="feature-grid">
       <div class="feature-card reveal reveal-delay-1">
         <div class="feature-title">33 Pinpoint Zones</div>
@@ -734,7 +736,7 @@
 <div class="who-section">
   <div class="who-header reveal">
     <div class="label">Who Needs This</div>
-    <h2 class="section-h">Built for Every Venue.</h2>
+    <h2 class="section-h">Built for <span style="color:var(--red)">Every</span> Venue.</h2>
   </div>
   <ul class="who-list reveal">
     <li>Corporate conferences and executive summits</li>
