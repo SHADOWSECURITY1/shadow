@@ -275,9 +275,10 @@
   }
   .feature-card {
     background: var(--card); padding: 40px 36px; position: relative;
-    transition: background 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
   }
-  .feature-card:hover { background: #141414; }
+  .feature-card:hover { background: #141414; box-shadow: inset 0 0 0 1px var(--red), 0 0 24px rgba(201, 168, 76, 0.18); z-index: 1; }
+  .feature-card:hover::before { opacity: 1; }
   .feature-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5;
@@ -559,7 +560,7 @@
   <div class="page-hero-slash"></div>
   <div class="page-hero-content">
     <div class="page-eyebrow">Intelligence</div>
-    <h1 class="page-title">KNOW BEFORE THEY MOVE.</h1>
+    <h1 class="page-title">KNOW <span style="color:var(--red)">BEFORE</span> THEY MOVE.</h1>
     <p class="page-sub">Behavioral profiling and actionable threat intelligence.</p>
   </div>
 </section>
@@ -586,13 +587,13 @@
 <div class="page-content">
 <div class="intro-block reveal">
   <div class="label">Threat Intelligence</div>
-  <h2 class="section-h">Intelligence First.</h2>
+  <h2 class="section-h">Intelligence <span style="color:var(--red)">First.</span></h2>
   <p>The most effective protection never reacts, it prevents. Shadow's threat assessment program is built on the intelligence-first methodology developed within the U.S. Secret Service's protective intelligence division. We identify threats before they materialize and deliver actionable mitigation strategies tailored to your specific risk environment.</p>
   <p>Using OSINT (open-source intelligence), behavioral profiling, digital footprint analysis, and advance reconnaissance, our analysts build a comprehensive threat picture for your principal, organization, or event. The result is not a report, it is a decision-ready intelligence product.</p>
 </div>
 <div class="reveal">
   <div class="label">Assessment Capabilities</div>
-  <h2 class="section-h">Know Before<br>They Move.</h2>
+  <h2 class="section-h">Know <span style="color:var(--red)">Before</span><br>They Move.</h2>
 <div class="feature-grid">
   <div class="feature-card reveal">
     <div class="feature-title">OSINT Analysis</div>
