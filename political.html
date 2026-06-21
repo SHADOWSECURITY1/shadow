@@ -108,8 +108,8 @@
   h2.section-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);letter-spacing:0.02em;line-height:0.9;margin-bottom:32px;}
   .section-body{font-size:0.95rem;line-height:1.85;color:var(--light);max-width:760px;margin-bottom:24px;}
   .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:60px;}
-  .feature-card{background:var(--card);padding:40px 36px;position:relative;}
-  .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);opacity:0.5;}
+  .feature-card{background:var(--card);padding:40px 36px;position:relative;transition:background 0.3s,box-shadow 0.3s;}
+  .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);opacity:0.5;}.feature-card:hover{background:#141414;box-shadow:inset 0 0 0 1px var(--red),0 0 24px rgba(201,168,76,0.18);z-index:1;}.feature-card:hover::before{opacity:1;}
   .feature-title{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);margin-bottom:14px;}
   .feature-desc{font-size:0.875rem;color:var(--light);line-height:1.75;}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
@@ -229,7 +229,7 @@
   <div class="scan"></div>
   <div class="page-hero-content">
     <div class="label">Industries We Serve</div>
-    <h1>HIGH STAKES. HIGHER STANDARDS.</h1>
+    <h1>HIGH STAKES. HIGHER <span style="color:var(--red)">STANDARDS.</span></h1>
     <p>Dignitary protection and political security from those who learned it inside the Secret Service.</p>
   </div>
 </div>
@@ -239,7 +239,7 @@
     <div class="split">
       <div>
         <div class="split-label">Political Security</div>
-        <h2 class="section-h reveal">Where Risk Is Measured In Consequences.</h2>
+        <h2 class="section-h reveal">Where <span style="color:var(--red)">Risk Is Measured</span> In Consequences.</h2>
         <p class="reveal">Shadow was founded by a former U.S. Secret Service Special Agent who protected presidents and dignitaries at the highest level. That same methodology now protects political leaders, candidates, and government-adjacent principals in the private sector.</p>
         <p class="reveal">Political environments present the most complex security challenges, large crowds, unpredictable actors, intense media scrutiny, and the constant threat of escalation. Shadow is built for exactly this.</p>
         <p class="reveal">From campaign trail security to dignitary protection visits, we bring the operational precision of the Secret Service to every political engagement.</p>
@@ -247,7 +247,7 @@
       <div class="reveal">
         <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--red);padding:40px;position:relative;">
   <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);margin-bottom:16px;">Operational Standard</div>
-  <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1.1;margin-bottom:20px;">We learned protection inside the Secret Service at the highest levels, operating all around the world. We've brought that standard to the private sector.</div>
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1.1;margin-bottom:20px;">We learned protection inside the Secret Service <span style="color:var(--red)">at the highest levels</span>, operating all around the world. We've brought that standard to the private sector.</div>
   <div style="font-size:0.875rem;color:var(--gray);">Michael de Geus, Former U.S. Secret Service</div>
 </div>
       </div>
