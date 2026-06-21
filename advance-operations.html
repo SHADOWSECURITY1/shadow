@@ -275,9 +275,10 @@
   }
   .feature-card {
     background: var(--card); padding: 40px 36px; position: relative;
-    transition: background 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
   }
-  .feature-card:hover { background: #141414; }
+  .feature-card:hover { background: #141414; box-shadow: inset 0 0 0 1px var(--red), 0 0 24px rgba(201, 168, 76, 0.18); z-index: 1; }
+  .feature-card:hover::before { opacity: 1; }
   .feature-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, var(--red), transparent); opacity: 0.5;
@@ -559,7 +560,7 @@
   <div class="page-hero-slash"></div>
   <div class="page-hero-content">
     <div class="page-eyebrow">Advance Work</div>
-    <h1 class="page-title">WE MOVE FIRST.</h1>
+    <h1 class="page-title">WE MOVE <span style="color:var(--red)">FIRST.</span></h1>
     <p class="page-sub">Site surveys, route analysis, and pre-mission intelligence.</p>
   </div>
 </section>
@@ -586,13 +587,13 @@
 <div class="page-content">
 <div class="intro-block reveal">
   <div class="label">Advance Work</div>
-  <h2 class="section-h">The Work Before<br>The Work.</h2>
+  <h2 class="section-h">The Work <span style="color:var(--red)">Before</span><br>The Work.</h2>
   <p>In the Secret Service, the advance team is the most critical component of any protective operation. They arrive first, leave last, and know more about an environment than anyone else in the operation. Shadow has built its advance operations capability on this same foundation.</p>
   <p>Our advance specialists conduct comprehensive site visits, verify and map primary and secondary routes, coordinate with local law enforcement and venue security personnel, and produce detailed briefing materials for the protective detail before your principal ever departs. Seamless execution is always the result of meticulous preparation.</p>
 </div>
 <div class="reveal">
   <div class="label">Advance Capabilities</div>
-  <h2 class="section-h">We Move First.</h2>
+  <h2 class="section-h">We Move <span style="color:var(--red)">First.</span></h2>
 <div class="feature-grid">
   <div class="feature-card reveal">
     <div class="feature-title">Site Surveys</div>
