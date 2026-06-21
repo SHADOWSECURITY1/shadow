@@ -2013,10 +2013,10 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.insight-card:hover { background: var(--shadow-black); }
+.insight-card:hover { background: var(--shadow-black); box-shadow: inset 0 0 0 1px var(--tactical-gold), 0 0 24px rgba(201, 168, 76, 0.18); }
 
 .insight-card__meta {
   display: flex;
