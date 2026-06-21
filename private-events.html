@@ -108,8 +108,8 @@
   h2.section-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);letter-spacing:0.02em;line-height:0.9;margin-bottom:32px;}
   .section-body{font-size:0.95rem;line-height:1.85;color:var(--light);max-width:760px;margin-bottom:24px;}
   .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:60px;}
-  .feature-card{background:var(--card);padding:40px 36px;position:relative;}
-  .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);opacity:0.5;}
+  .feature-card{background:var(--card);padding:40px 36px;position:relative;transition:background 0.3s,box-shadow 0.3s;}
+  .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);opacity:0.5;}.feature-card:hover{background:#141414;box-shadow:inset 0 0 0 1px var(--red),0 0 24px rgba(201,168,76,0.18);z-index:1;}.feature-card:hover::before{opacity:1;}
   .feature-title{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);margin-bottom:14px;}
   .feature-desc{font-size:0.875rem;color:var(--light);line-height:1.75;}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
@@ -229,7 +229,7 @@
   <div class="scan"></div>
   <div class="page-hero-content">
     <div class="label">Industries We Serve</div>
-    <h1>YOUR MOMENT. SECURED.</h1>
+    <h1>YOUR MOMENT. <span style="color:var(--red)">SECURED &amp; PROTECTED.</span></h1>
     <p>Discreet, professional security for life's most important and private occasions.</p>
   </div>
 </div>
